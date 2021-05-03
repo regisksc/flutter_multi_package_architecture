@@ -1,4 +1,4 @@
-import 'package:module_x/domain/repositories/example_repository.dart';
+import '../../domain/domain.dart';
 
 class ConcreteExampleRepository implements ExampleRepository {
   @override
