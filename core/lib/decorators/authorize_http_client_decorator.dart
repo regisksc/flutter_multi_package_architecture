@@ -1,15 +1,14 @@
+import 'package:core/data/datasources/local/local.dart';
 import 'package:core/data/http/http.dart';
 import 'package:core/data/storage/storage.dart';
 import 'package:meta/meta.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
-  final Load fetchSecureCacheStorage;
-  final Delete deleteSecureCacheStorage;
+  final SecureLocalDatasource secureLocalDatasource;
   final HttpClient decoratee;
 
   AuthorizeHttpClientDecorator({
-    @required this.fetchSecureCacheStorage,
-    @required this.deleteSecureCacheStorage,
+    @required this.secureLocalDatasource,
     @required this.decoratee,
   });
 
@@ -20,7 +19,7 @@ class AuthorizeHttpClientDecorator implements HttpClient {
     Map headers,
   }) async {
     try {
-      final token = await fetchSecureCacheStorage.load('token');
+      final token = await secureLocalDatasource.load('token');
       final authorizedHeaders = headers ?? {}
         ..addAll({'authorization': token});
       return await decoratee.request(url: url, method: method, body: body, headers: authorizedHeaders);
@@ -28,7 +27,7 @@ class AuthorizeHttpClientDecorator implements HttpClient {
       if (error is HttpError && error != HttpError.forbidden) {
         rethrow;
       } else {
-        await deleteSecureCacheStorage.delete('token');
+        await secureLocalDatasource.delete('token');
         throw HttpError.forbidden;
       }
     }
