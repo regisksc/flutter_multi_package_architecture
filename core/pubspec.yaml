@@ -9,6 +9,8 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  connectivity: ^3.0.3
+  data_connection_checker: ^0.3.4
   flutter:
     sdk: flutter
 
