@@ -14,7 +14,7 @@ class LocalDatasource implements StorageCommands {
   }
 
   @override
-  Future<void> save({String key, String value}) {
+  Future<void> save({String? key, String? value}) {
     // TODO: implement save
     throw UnimplementedError();
   }

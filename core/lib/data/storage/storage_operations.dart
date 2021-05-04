@@ -11,7 +11,7 @@ abstract class Load extends StorageOperation {
 }
 
 abstract class Save extends StorageOperation {
-  Future<void> save({@required String key, @required String value});
+  Future<void> save({required String key, required String value});
 }
 
 abstract class StorageCommands implements Save, Load, Delete {}

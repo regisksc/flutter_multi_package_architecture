@@ -8,15 +8,15 @@ class AuthorizeHttpClientDecorator implements HttpClient {
   final HttpClient decoratee;
 
   AuthorizeHttpClientDecorator({
-    @required this.secureLocalDatasource,
-    @required this.decoratee,
+    required this.secureLocalDatasource,
+    required this.decoratee,
   });
 
   Future<dynamic> request({
-    @required String url,
-    @required String method,
-    Map body,
-    Map headers,
+    required String url,
+    required String method,
+    Map? body,
+    Map? headers,
   }) async {
     try {
       final token = await secureLocalDatasource.load('token');
