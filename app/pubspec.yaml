@@ -13,6 +13,9 @@ dependencies:
 
   flutter:
     sdk: flutter
+  
+  checkout:
+    path: ../checkout/
 
   cupertino_icons: ^1.0.2
 
