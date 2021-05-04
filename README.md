@@ -1,0 +1,1 @@
+# flutter_multi_package_architecture
