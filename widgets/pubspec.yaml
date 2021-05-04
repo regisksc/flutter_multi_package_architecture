@@ -1,6 +1,5 @@
-name: module
+name: widgets
 description: A new Flutter package project.
-publish_to: none
 version: 0.0.1
 author:
 homepage:
@@ -10,9 +9,6 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  get: ^4.1.4
-  app:
-    path: ../app
   flutter:
     sdk: flutter
 
