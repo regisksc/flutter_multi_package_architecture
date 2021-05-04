@@ -2,9 +2,10 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 abstract class Routes {
+  static const home = 'home';
   static final pages = [
     GetPage(
-      name: 'home',
+      name: home,
       page: () => Container(),
       // bindings: HomeBindings(),
       // middlewares: middlewares,
