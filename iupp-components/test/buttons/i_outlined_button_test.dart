@@ -2,35 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_components/buttons/buttons.dart';
 
+import 'utils.dart';
+
 void main() {
-  late Color primaryColor;
-  late Color backgroundColor;
-  late Color disabledColor;
-
-  setUpAll(() {
-    primaryColor = Colors.blue;
-    backgroundColor = Colors.white;
-    disabledColor = Colors.grey;
-  });
-
-  Future<void> loadPageWithButton(
-    WidgetTester tester, {
-    required IOutlinedButton button,
-  }) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: ThemeData(
-          primaryColor: primaryColor,
-          backgroundColor: backgroundColor,
-          disabledColor: disabledColor,
-        ),
-        home: Scaffold(
-          body: button,
-        ),
-      ),
-    );
-  }
-
   testWidgets('should build without exploding', (tester) async {
     await loadPageWithButton(
       tester,
