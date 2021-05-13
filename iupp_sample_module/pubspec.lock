@@ -36,13 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  checkout:
-    dependency: transitive
-    description:
-      path: "../checkout"
-      relative: true
-    source: path
-    version: "0.0.1"
   clock:
     dependency: transitive
     description:
@@ -88,6 +81,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.4"
+  iupp_checkout:
+    dependency: transitive
+    description:
+      path: "../iupp_checkout"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   matcher:
     dependency: transitive
     description:

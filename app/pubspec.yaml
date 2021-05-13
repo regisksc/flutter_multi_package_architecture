@@ -10,8 +10,8 @@ environment:
 
 dependencies:
   get: ^4.1.4
-  checkout:
-    path: ../checkout
+  iupp_checkout:
+    path: ../iupp_checkout
 
   flutter:
     sdk: flutter
