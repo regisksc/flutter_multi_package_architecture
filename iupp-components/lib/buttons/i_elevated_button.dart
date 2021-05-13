@@ -21,6 +21,7 @@ class IElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(Theme.of(context).disabledColor);
     return ElevatedButton(
       child: isLoading
           ? SizedBox(
