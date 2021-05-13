@@ -1,16 +1,14 @@
 import 'package:core/data/datasources/local/local.dart';
 import 'package:core/data/http/http.dart';
-import 'package:core/data/storage/storage.dart';
-import 'package:meta/meta.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
-  final SecureLocalDatasource secureLocalDatasource;
-  final HttpClient decoratee;
-
   AuthorizeHttpClientDecorator({
     required this.secureLocalDatasource,
     required this.decoratee,
   });
+
+  final SecureLocalDatasource secureLocalDatasource;
+  final HttpClient decoratee;
 
   Future<dynamic> request({
     required String url,
