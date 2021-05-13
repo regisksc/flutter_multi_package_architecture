@@ -34,7 +34,7 @@ void main() {
       (tester) async {
     await loadPageWithButton(
       tester,
-      button: ITextButton(
+      button: const ITextButton(
         text: 'text',
         onPressed: null,
       ),

@@ -23,7 +23,7 @@ class IOutlinedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       child: isLoading
-          ? SizedBox(
+          ? const SizedBox(
               width: 10,
               height: 10,
               child: CircularProgressIndicator.adaptive(
@@ -45,7 +45,7 @@ class IOutlinedButton extends StatelessWidget {
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(14),
           ),
           side: BorderSide(

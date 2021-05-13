@@ -15,7 +15,7 @@ Future<void> loadPageWithSnackBar(
       home: Scaffold(
         body: Builder(
           builder: (context) => ElevatedButton(
-            child: Text('Show Snackbar'),
+            child: const Text('Show Snackbar'),
             onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
               getSnackBarFromType(context, type),
             ),
@@ -36,7 +36,7 @@ Future<void> loadPageIosWithSnackBar(
       home: Scaffold(
         body: Builder(
           builder: (context) => ElevatedButton(
-            child: Text('Show Snackbar'),
+            child: const Text('Show Snackbar'),
             onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
               getSnackBarFromType(context, type),
             ),

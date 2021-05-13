@@ -1,4 +1,4 @@
-import 'package:core/data/storage/storage.dart';
+import '../../../core.dart';
 
 class SecureLocalDatasource implements StorageCommands {
   @override

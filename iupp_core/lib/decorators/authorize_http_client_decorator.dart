@@ -1,5 +1,5 @@
-import 'package:core/data/datasources/local/local.dart';
-import 'package:core/data/http/http.dart';
+import '../core.dart';
+import '../data/http/http_client.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
   AuthorizeHttpClientDecorator({
@@ -20,8 +20,13 @@ class AuthorizeHttpClientDecorator implements HttpClient {
       final token = await secureLocalDatasource.load('token');
       final authorizedHeaders = headers ?? {}
         ..addAll({'authorization': token});
-      return await decoratee.request(url: url, method: method, body: body, headers: authorizedHeaders);
-    } catch (error) {
+      return await decoratee.request(
+        url: url,
+        method: method,
+        body: body,
+        headers: authorizedHeaders,
+      );
+    } on Exception catch (error) {
       if (error is HttpError && error != HttpError.forbidden) {
         rethrow;
       } else {

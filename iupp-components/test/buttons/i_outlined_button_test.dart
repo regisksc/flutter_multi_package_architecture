@@ -34,7 +34,7 @@ void main() {
       (tester) async {
     await loadPageWithButton(
       tester,
-      button: IOutlinedButton(
+      button: const IOutlinedButton(
         text: 'text',
         onPressed: null,
       ),
