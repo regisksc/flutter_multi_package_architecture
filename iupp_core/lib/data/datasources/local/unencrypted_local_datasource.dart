@@ -1,6 +1,6 @@
-import 'package:core/data/storage/storage.dart';
+import '../../../core.dart';
 
-class SecureLocalDatasource implements StorageCommands {
+class UnencryptedLocalDatasource implements LocalDataSource {
   @override
   Future<void> delete(String key) {
     throw UnimplementedError();
@@ -12,7 +12,7 @@ class SecureLocalDatasource implements StorageCommands {
   }
 
   @override
-  Future<void> save({String? key, String? value}) {
+  Future<void> save({required String key, required String value}) {
     throw UnimplementedError();
   }
 }
