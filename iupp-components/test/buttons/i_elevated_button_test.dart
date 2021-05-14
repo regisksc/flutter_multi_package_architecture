@@ -34,7 +34,7 @@ void main() {
       (tester) async {
     await loadPageWithButton(
       tester,
-      button: IElevatedButton(
+      button: const IElevatedButton(
         text: 'text',
         onPressed: null,
       ),

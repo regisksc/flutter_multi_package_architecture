@@ -10,6 +10,6 @@ class IInfoSnackBar extends ISnackBar {
           context,
           message: message,
           icon: IuppIcons.icone_contorno_I_informacao_outline,
-          backgroundColor: Color(0xFF007DED),
+          backgroundColor: const Color(0xFF007DED),
         );
 }

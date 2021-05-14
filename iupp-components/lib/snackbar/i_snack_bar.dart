@@ -15,11 +15,11 @@ class ISnackBar extends SnackBar {
                   icon,
                   color: Colors.white,
                 ),
-                SizedBox(width: 18),
+                const SizedBox(width: 18),
               ],
               Text(
                 message,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                 ),
               ),

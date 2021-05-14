@@ -10,6 +10,6 @@ class ISuccessSnackBar extends ISnackBar {
           context,
           message: message,
           icon: IuppIcons.icone_contorno_C_check,
-          backgroundColor: Color(0xFF1E8449),
+          backgroundColor: const Color(0xFF1E8449),
         );
 }

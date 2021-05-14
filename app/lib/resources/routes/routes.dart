@@ -17,7 +17,6 @@ abstract class Pages {
     GetPage(
       name: Routes.home,
       page: () => Container(),
-      // page: () => CheckoutPage(),
       // bindings: HomeBindings(),
       // middlewares: middlewares,
       // settings: RouteSettings(),

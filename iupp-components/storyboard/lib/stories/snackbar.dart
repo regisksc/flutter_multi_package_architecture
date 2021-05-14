@@ -13,7 +13,7 @@ final snackBarStories = [
           message: 'It is a SUCCESS SnackBar',
         ),
       ),
-      child: Text(
+      child: const Text(
         'Show SnackBar',
       ),
     ),
@@ -28,7 +28,7 @@ final snackBarStories = [
           message: 'It is an INFO SnackBar',
         ),
       ),
-      child: Text(
+      child: const Text(
         'Show SnackBar',
       ),
     ),
@@ -43,7 +43,7 @@ final snackBarStories = [
           message: 'It is a WARNING SnackBar',
         ),
       ),
-      child: Text(
+      child: const Text(
         'Show SnackBar',
       ),
     ),
@@ -58,7 +58,7 @@ final snackBarStories = [
           message: 'It is an ERROR SnackBar',
         ),
       ),
-      child: Text(
+      child: const Text(
         'Show SnackBar',
       ),
     ),

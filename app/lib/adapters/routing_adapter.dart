@@ -14,7 +14,8 @@ abstract class RoutingAdapter {
     dynamic args,
     Map<String, String>? params,
   }) async =>
-      Get.offAndToNamed(route, arguments: args, parameters: params, result: transferedData);
+      Get.offAndToNamed(route,
+          arguments: args, parameters: params, result: transferedData);
 
   static Future<T?>? killAllAndNavTo<T>({
     required String route,
@@ -22,5 +23,6 @@ abstract class RoutingAdapter {
     dynamic args,
     Map<String, String>? params,
   }) async =>
-      Get.offAndToNamed(route, arguments: args, parameters: params, result: transferedData);
+      Get.offAndToNamed(route,
+          arguments: args, parameters: params, result: transferedData);
 }
