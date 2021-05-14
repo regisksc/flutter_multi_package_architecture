@@ -27,10 +27,11 @@ class _CarrouselSliderState extends State<CarrouselSlider> {
         Expanded(
           child: Container(
             decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(8),
-              bottomRight: Radius.circular(8),
-            )),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(8),
+                bottomRight: Radius.circular(8),
+              ),
+            ),
             child: CarouselSlider(
               options: CarouselOptions(
                 onPageChanged: (i, _) => setState(() => index = i),

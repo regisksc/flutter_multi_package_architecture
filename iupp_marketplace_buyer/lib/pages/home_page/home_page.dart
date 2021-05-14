@@ -3,6 +3,8 @@ import 'package:iupp_components/iupp_components.dart';
 
 import 'widgets/banners.dart';
 import 'widgets/brand_new_products.dart';
+import 'widgets/more_points_promotion/more_points_promotion.dart';
+import 'widgets/offermeter/offermeter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -41,6 +43,20 @@ class HomePage extends StatelessWidget {
                   const Align(
                     alignment: Alignment.topLeft,
                     child: BrandNewProducts(),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 44),
+            const Offermeter(),
+            const SizedBox(height: 36),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  const Align(
+                    alignment: Alignment.topLeft,
+                    child: MorePointsPromotion(),
                   ),
                 ],
               ),

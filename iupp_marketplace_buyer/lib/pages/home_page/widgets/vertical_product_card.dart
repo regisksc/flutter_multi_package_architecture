@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_marketplace_buyer/pages/home_page/widgets/product_chip_info.dart';
 
 class VerticalProductCard extends StatelessWidget {
   const VerticalProductCard({
@@ -61,23 +62,10 @@ class VerticalProductCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 11),
-              Container(
-                width: 130,
-                height: 22,
-                decoration: BoxDecoration(
-                  color: Color(freeShipping ? 0xFF00A29C : 0xFF1791FF)
-                      .withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(
-                    freeShipping ? 'frete grátis' : 'pré-lançamento',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 12,
-                    ),
-                  ),
-                ),
+              ProductChipInfo(
+                color: Color(freeShipping ? 0xFF00A29C : 0xFF1791FF)
+                    .withOpacity(0.2),
+                label: freeShipping ? 'frete grátis' : 'pré-lançamento',
               ),
               const SizedBox(height: 16),
             ],
