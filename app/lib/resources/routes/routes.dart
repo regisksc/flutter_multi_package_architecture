@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:iupp_marketplace_buyer/pages/home_page/home_page.dart';
 
 abstract class Routes {
   static final pages = Pages.pages;
   static const initial = 'initial';
-  static const home = 'home';
+  static const home = '/';
 }
 
 abstract class Pages {
@@ -16,7 +17,7 @@ abstract class Pages {
     ),
     GetPage(
       name: Routes.home,
-      page: () => Container(),
+      page: () => const HomePage(),
       // bindings: HomeBindings(),
       // middlewares: middlewares,
       // settings: RouteSettings(),
