@@ -5,6 +5,7 @@ import 'widgets/banners.dart';
 import 'widgets/brand_new_products.dart';
 import 'widgets/more_points_promotion/more_points_promotion.dart';
 import 'widgets/offermeter/offermeter.dart';
+import 'widgets/sign_in_iupp_container/sign_in_iupp_container.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -61,6 +62,8 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(height: 36),
+            const SignInIuppContainer(),
           ],
         ),
       ),
