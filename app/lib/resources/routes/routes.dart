@@ -1,4 +1,3 @@
-import 'package:checkout/checkout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -17,7 +16,8 @@ abstract class Pages {
     ),
     GetPage(
       name: Routes.home,
-      page: () => CheckoutPage(),
+      page: () => Container(),
+      // page: () => CheckoutPage(),
       // bindings: HomeBindings(),
       // middlewares: middlewares,
       // settings: RouteSettings(),
