@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import 'carousel_indicator.dart';
-import 'promotion_card.dart';
+import 'components.dart';
 
 class CarrouselSlider extends StatefulWidget {
   CarrouselSlider({

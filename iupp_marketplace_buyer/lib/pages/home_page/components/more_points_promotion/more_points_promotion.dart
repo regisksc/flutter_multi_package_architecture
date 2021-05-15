@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../vertical_product_card.dart';
+import '../products/products.dart';
 
 class MorePointsPromotion extends StatelessWidget {
   const MorePointsPromotion({Key? key}) : super(key: key);

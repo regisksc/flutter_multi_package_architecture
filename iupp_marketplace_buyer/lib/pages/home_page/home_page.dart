@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-import 'widgets/banners.dart';
-import 'widgets/brand_new_products.dart';
-import 'widgets/iupp_general_info/iupp_general_info.dart';
-import 'widgets/iupper_advantages/iupper_advantages.dart';
-import 'widgets/more_points_promotion/more_points_promotion.dart';
-import 'widgets/offermeter/offermeter.dart';
-import 'widgets/sign_in_iupp_container/sign_in_iupp_container.dart';
-import 'widgets/social_networks/social_networks.dart';
-import 'widgets/talk_to_us/talk_to_us.dart';
+import 'components/components.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

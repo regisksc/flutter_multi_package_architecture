@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'carrousel_slider.dart';
+import 'components/components.dart';
 
 final items = [
   'assets/oferta1.png',

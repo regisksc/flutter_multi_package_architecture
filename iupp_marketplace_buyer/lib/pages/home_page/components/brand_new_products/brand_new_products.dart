@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'horizontal_product_card.dart';
-import 'vertical_product_card.dart';
+import '../products/products.dart';
 
 class BrandNewProducts extends StatelessWidget {
   const BrandNewProducts({Key? key}) : super(key: key);

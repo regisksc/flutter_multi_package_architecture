@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'all_rights_reserved.dart';
-import 'privacy_policy_and_use.dart';
-import 'products_info.dart';
 
-import 'institutional_info.dart';
-import 'useful_links.dart';
+import 'components/components.dart';
 
 class IuppGeneralInfo extends StatelessWidget {
   const IuppGeneralInfo({Key? key}) : super(key: key);
