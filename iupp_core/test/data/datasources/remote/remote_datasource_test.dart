@@ -5,9 +5,10 @@ import 'package:mocktail/mocktail.dart';
 import '../../../mocks/data/datasources/datasources_mocks.dart';
 
 void main() {
+  late RemoteDataSource sut;
   late HttpClientMock http;
   late NetworkInfoMock network;
-  late RemoteDataSource sut;
+
   setUp(() {
     http = HttpClientMock();
     network = NetworkInfoMock();
@@ -16,7 +17,8 @@ void main() {
 
   void testsWhenConnected(Function body) {
     group('When connected', () {
-      setUp(() => when(() => network.isConnected).thenAnswer((_) async => true));
+      setUp(
+          () => when(() => network.isConnected).thenAnswer((_) async => true));
       body();
     });
   }
