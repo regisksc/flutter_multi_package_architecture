@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
 
 import 'components/components.dart';
+import '../../widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,24 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE5E5E5),
-      appBar: AppBar(
-        leading: const Icon(
-          IuppIcons.icone_contorno_M_menu_hamburger,
-          color: Colors.white,
-        ),
-        backgroundColor: const Color(0xFF23232E),
-        title: Image.asset('assets/logo_iupp.png'),
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              IuppIcons.icone_contorno_C_carrinho_outline,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          ),
-        ],
-      ),
+      appBar: IuppAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -65,7 +48,7 @@ class HomePage extends StatelessWidget {
             const TalkToUs(),
             const SizedBox(height: 4),
             const SocialNetworks(),
-            const IuppGeneralInfo(),
+            const IuppFooter(),
           ],
         ),
       ),

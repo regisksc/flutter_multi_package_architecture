@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'components/components.dart';
 
-class IuppGeneralInfo extends StatelessWidget {
-  const IuppGeneralInfo({Key? key}) : super(key: key);
+class IuppFooter extends StatelessWidget {
+  const IuppFooter({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
