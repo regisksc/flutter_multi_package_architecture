@@ -30,11 +30,13 @@ class IupperAdvantages extends StatelessWidget {
             color: Color(0xFFFF7A01),
           ),
           const IupperAdvantageTile(
-            text: '''Lorem ipsum dolor sit amet, consectetur adipiscing elit \nlorem dollr''',
+            text:
+                '''Lorem ipsum dolor sit amet, consectetur adipiscing elit \nlorem dollr''',
             color: Color(0xFF23232E),
           ),
           const IupperAdvantageTile(
-            text: '''Sit amet, consectetur \nadipiscing elit lorem dollr \ndollor''',
+            text:
+                '''Sit amet, consectetur \nadipiscing elit lorem dollr \ndollor''',
             color: Color(0xFF00EEE6),
             isLast: true,
           ),

@@ -70,7 +70,7 @@ class OffermeterHeader extends StatelessWidget {
                       const OffermeterCounterText(label: '18h'),
                       const OffermeterCounterText(label: ':'),
                       const OffermeterCounterText(label: '55m'),
-                      const OffermeterCounterText(label: ':'), 
+                      const OffermeterCounterText(label: ':'),
                       const OffermeterCounterText(label: '40s'),
                     ],
                   ),
