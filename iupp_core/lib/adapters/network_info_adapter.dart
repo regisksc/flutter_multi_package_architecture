@@ -1,18 +1,15 @@
-import 'package:connectivity/connectivity.dart';
-import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:cross_connectivity/cross_connectivity.dart';
 
 class NetworkInfoAdapter {
-  NetworkInfoAdapter({
-    required this.connectionChecker,
-    required this.connectivity,
-  });
-
-  final DataConnectionChecker connectionChecker;
+  NetworkInfoAdapter({required this.connectivity});
   final Connectivity connectivity;
 
-  Future<bool> get isConnected => connectionChecker.hasConnection;
-  Future<bool> get isOverWifi async =>
-      (await connectivity.checkConnectivity()) == ConnectivityResult.wifi;
-  Future<bool> get isOver4g async =>
-      (await connectivity.checkConnectivity()) == ConnectivityResult.wifi;
+  Stream<bool> get listenToConnection => connectivity.isConnected;
+  Future<bool> get isConnected => connectivity.checkConnection();
+  Future<bool> get isOverReliableConnection async {
+    final status = await connectivity.checkConnectivity();
+    final isOverWifi = status == ConnectivityStatus.wifi;
+    final isOverCable = status == ConnectivityStatus.ethernet;
+    return isOverWifi || isOverCable;
+  }
 }
