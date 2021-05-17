@@ -16,7 +16,6 @@ void main() {
   late String url;
   late RequestOptionsMock requestOptions;
   late int serverSuccessCode;
-  late Map<String, dynamic> anyMap;
   setUp(() {
     client = ClientMock();
     requestOptions = RequestOptionsMock();
@@ -24,8 +23,8 @@ void main() {
     url = faker.internet.httpsUrl();
 
     serverSuccessCode = 200;
-    anyMap = {'any_key': 'any_value'};
   });
+  const Map<String, dynamic> anyMap = {'any_key': 'any_value'};
 
   test(
     'should thrown on unrecognized http verb',
@@ -41,19 +40,24 @@ void main() {
     setUp(() {
       requestOptions.method = 'get';
     });
+
+    Function() calledRequest() =>
+        () => client.get(any(), queryParameters: any(named: 'queryParameters'), options: any(named: 'options'));
+    When mockRequest() => when(calledRequest());
+    void mockResponseForCode(int code, {Map<String, dynamic> body = anyMap}) => mockRequest().thenAnswer(
+          (_) async => Response(
+            statusCode: code,
+            data: body,
+            requestOptions: requestOptions,
+          ),
+        );
+
+    void mockErrorForCode(Object throwable) => mockRequest().thenThrow(throwable);
     test(
       'should return a status 200 response on success',
       () async {
         // arrange
-        Function() calledRequest() =>
-            () => client.get(any(), queryParameters: any(named: 'queryParameters'), options: any(named: 'options'));
-        when(calledRequest()).thenAnswer(
-          (_) async => Response(
-            statusCode: 200,
-            requestOptions: requestOptions,
-            data: anyMap,
-          ),
-        );
+        mockResponseForCode(200);
         // act
         final response = await sut.request(url: url, method: 'get');
         // assert
