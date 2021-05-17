@@ -1,13 +1,18 @@
 import 'package:cross_connectivity/cross_connectivity.dart';
 
 class NetworkInfoAdapter {
-  NetworkInfoAdapter({required this.connectivity});
-  final Connectivity connectivity;
+  NetworkInfoAdapter({
+    required Connectivity connectivity,
+  }) : _connectivity = connectivity;
 
-  Stream<bool> get listenToConnection => connectivity.isConnected;
-  Future<bool> get isConnected => connectivity.checkConnection();
+  final Connectivity _connectivity;
+
+  Stream<bool> get isConnected => _connectivity.isConnected;
+
+  Future<bool> get checkConnection async => _connectivity.checkConnection();
+
   Future<bool> get isOverReliableConnection async {
-    final status = await connectivity.checkConnectivity();
+    final status = await _connectivity.checkConnectivity();
     final isOverWifi = status == ConnectivityStatus.wifi;
     final isOverCable = status == ConnectivityStatus.ethernet;
     return isOverWifi || isOverCable;
