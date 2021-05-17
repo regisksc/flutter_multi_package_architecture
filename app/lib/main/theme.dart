@@ -8,6 +8,7 @@ final disabledButtonTextColor = const Color(0xFFB1B5BF);
 final theme = ThemeData(
   primaryColor: primaryColor,
   backgroundColor: backgroundButtonColor,
+  disabledColor: disabledButtonTextColor,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:iupp_marketplace_buyer/pages/home_page/home_page.dart';
+import 'package:iupp_checkout/pages/input_cep/input_cep_page.dart';
 //import 'package:iupp_marketplace_buyer/pages/product_details/product_details_page.dart';
 
 abstract class Routes {
@@ -18,7 +18,7 @@ abstract class Pages {
     ),
     GetPage(
       name: Routes.home,
-      page: () => const HomePage(),
+      page: () => InputCepPage(),
       // bindings: HomeBindings(),
       // middlewares: middlewares,
       // settings: RouteSettings(),

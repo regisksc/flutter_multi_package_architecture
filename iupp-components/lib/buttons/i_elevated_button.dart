@@ -40,8 +40,8 @@ class IElevatedButton extends StatelessWidget {
               ),
             )
           : Padding(
-            padding: textPadding ?? const EdgeInsets.all(0),
-            child: Text(
+              padding: textPadding ?? const EdgeInsets.all(0),
+              child: Text(
                 text,
                 style: TextStyle(
                   fontSize: fontSize ?? 12,
@@ -51,7 +51,7 @@ class IElevatedButton extends StatelessWidget {
                       : Theme.of(context).disabledColor,
                 ),
               ),
-          ),
+            ),
       onPressed: onPressed,
       style: Theme.of(context).elevatedButtonTheme.style ?? buttonStyle,
     );
