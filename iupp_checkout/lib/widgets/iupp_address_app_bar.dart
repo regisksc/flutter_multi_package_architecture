@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../pages/input_cep/components/icon_spacer.dart';
 import 'package:iupp_components/iupp_components.dart';
+
+import '../pages/input_cep/components/icon_spacer.dart';
 
 class IuppAddressAppBar extends AppBar {
   IuppAddressAppBar({Key? key})
@@ -13,31 +14,31 @@ class IuppAddressAppBar extends AppBar {
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              const Icon(
-                IuppIcons.icone_contorno_A_agencia_outline,
+            children: const [
+              Icon(
+                IuppIcons.iconeContornoAAgenciaOutline,
                 color: Color(0xFF00EEE6),
                 size: 28,
               ),
-              const IconSpacer(),
-              const Icon(
-                IuppIcons.icone_contorno_C_caminhao,
+              IconSpacer(),
+              Icon(
+                IuppIcons.iconeContornoCCaminhao,
                 color: Colors.white,
                 size: 28,
               ),
-              const IconSpacer(),
-              const Icon(
-                IuppIcons.icone_contorno_C_consorcio_outline,
+              IconSpacer(),
+              Icon(
+                IuppIcons.iconeContornoCConsorcioOutline,
                 color: Colors.white,
                 size: 28,
               ),
-              const IconSpacer(),
-              const Icon(
-                IuppIcons.icone_contorno_P_pagamento_ao_fornecedor_outline,
+              IconSpacer(),
+              Icon(
+                IuppIcons.iconeContornoPPagamentoAoFornecedorOutline,
                 color: Colors.white,
                 size: 28,
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: 10),
             ],
           ),
         );

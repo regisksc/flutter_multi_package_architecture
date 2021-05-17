@@ -13,12 +13,9 @@ class SocialNetworks extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-              flex: 1,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Image.asset('assets/logo_iupp_white.png'),
                 ],

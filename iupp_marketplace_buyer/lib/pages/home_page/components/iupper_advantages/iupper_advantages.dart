@@ -13,8 +13,8 @@ class IupperAdvantages extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
+        children: const [
+          Padding(
             padding: EdgeInsets.only(left: 42, top: 32),
             child: Text(
               'vantagens de \nser iupper',
@@ -24,17 +24,17 @@ class IupperAdvantages extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 49),
-          const IupperAdvantageTile(
+          SizedBox(height: 49),
+          IupperAdvantageTile(
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             color: Color(0xFFFF7A01),
           ),
-          const IupperAdvantageTile(
+          IupperAdvantageTile(
             text:
                 '''Lorem ipsum dolor sit amet, consectetur adipiscing elit \nlorem dollr''',
             color: Color(0xFF23232E),
           ),
-          const IupperAdvantageTile(
+          IupperAdvantageTile(
             text:
                 '''Sit amet, consectetur \nadipiscing elit lorem dollr \ndollor''',
             color: Color(0xFF00EEE6),

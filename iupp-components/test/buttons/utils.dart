@@ -7,7 +7,7 @@ final disabledColor = Colors.grey;
 
 Future<void> loadPageWithButton(
     WidgetTester tester, {
-    required dynamic button,
+    required Widget button,
   }) async {
     await tester.pumpWidget(
       MaterialApp(

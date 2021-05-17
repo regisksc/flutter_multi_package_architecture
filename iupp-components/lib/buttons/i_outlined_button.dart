@@ -30,30 +30,6 @@ class IOutlinedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      child: isLoading
-          ? const SizedBox(
-              width: 10,
-              height: 10,
-              child: CircularProgressIndicator.adaptive(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  Color(0xFF181820),
-                ),
-                strokeWidth: 2,
-              ),
-            )
-          : Padding(
-            padding: textPadding ?? const EdgeInsets.all(0),
-            child: Text(
-                text,
-                style: TextStyle(
-                  fontSize: fontSize ?? 12,
-                  fontWeight: fontWeight,
-                  color: !isDisabled
-                      ? Theme.of(context).backgroundColor
-                      : Theme.of(context).disabledColor,
-                ),
-              ),
-          ),
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(
@@ -70,6 +46,30 @@ class IOutlinedButton extends StatelessWidget {
           width: 2,
         ),
       ),
+      child: isLoading
+          ? const SizedBox(
+              width: 10,
+              height: 10,
+              child: CircularProgressIndicator.adaptive(
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Color(0xFF181820),
+                ),
+                strokeWidth: 2,
+              ),
+            )
+          : Padding(
+              padding: textPadding ?? const EdgeInsets.all(0),
+              child: Text(
+                text,
+                style: TextStyle(
+                  fontSize: fontSize ?? 12,
+                  fontWeight: fontWeight,
+                  color: !isDisabled
+                      ? Theme.of(context).backgroundColor
+                      : Theme.of(context).disabledColor,
+                ),
+              ),
+            ),
     );
   }
 }

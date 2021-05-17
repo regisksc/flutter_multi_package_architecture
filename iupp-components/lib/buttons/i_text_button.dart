@@ -22,6 +22,8 @@ class ITextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      onPressed: onPressed,
+      style: Theme.of(context).textButtonTheme.style ?? buttonStyle,
       child: isLoading
           ? SizedBox(
               width: 10,
@@ -42,8 +44,6 @@ class ITextButton extends StatelessWidget {
                     : Theme.of(context).disabledColor,
               ),
             ),
-      onPressed: onPressed,
-      style: Theme.of(context).textButtonTheme.style ?? buttonStyle,
     );
   }
 }

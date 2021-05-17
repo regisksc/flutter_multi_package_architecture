@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/general/i_carousel_slider.dart';
 
 import 'components/components.dart';
 
@@ -32,7 +32,7 @@ class Banners extends StatelessWidget {
           top: 18,
           left: 8,
           right: 8,
-          child: Container(
+          child: SizedBox(
             height: 170,
             child: ICarrouselSlider(
               items: items,

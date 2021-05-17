@@ -15,7 +15,7 @@ class PromotionCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Container(
+      child: SizedBox(
         width: 315,
         child: Image.asset(
           item,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-final primaryColor = const Color(0xFF00EEE6);
-final backgroundButtonColor = const Color(0xFF23232E);
-final disabledButtonColor = const Color(0xFFE1E4EC);
-final disabledButtonTextColor = const Color(0xFFB1B5BF);
+const primaryColor = Color(0xFF00EEE6);
+const backgroundButtonColor = Color(0xFF23232E);
+const disabledButtonColor = Color(0xFFE1E4EC);
+const disabledButtonTextColor = Color(0xFFB1B5BF);
 
 final theme = ThemeData(
   primaryColor: primaryColor,
@@ -23,7 +23,7 @@ final theme = ThemeData(
         ),
       ),
       textStyle: MaterialStateProperty.all<TextStyle>(
-        TextStyle(
+        const TextStyle(
           color: primaryColor,
         ),
       ),
@@ -34,14 +34,13 @@ final theme = ThemeData(
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
-          side: BorderSide(
+          side: const BorderSide(
             color: backgroundButtonColor,
-            style: BorderStyle.solid,
           ),
         ),
       ),
       textStyle: MaterialStateProperty.all<TextStyle>(
-        TextStyle(
+        const TextStyle(
           color: primaryColor,
         ),
       ),
@@ -55,7 +54,7 @@ final theme = ThemeData(
         ),
       ),
       textStyle: MaterialStateProperty.all<TextStyle>(
-        TextStyle(
+        const TextStyle(
           color: backgroundButtonColor,
         ),
       ),

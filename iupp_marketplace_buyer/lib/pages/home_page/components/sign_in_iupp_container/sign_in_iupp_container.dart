@@ -11,7 +11,6 @@ class SignInIuppContainer extends StatelessWidget {
       color: Colors.white,
       height: 102,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Stack(
             alignment: Alignment.center,
@@ -28,7 +27,7 @@ class SignInIuppContainer extends StatelessWidget {
                   backgroundColor: Theme.of(context).primaryColor,
                   radius: 17,
                   child: const Icon(
-                    IuppIcons.icone_contorno_U_usuario_outline,
+                    IuppIcons.iconeContornoUusuarioOutline,
                   ),
                 ),
               ),

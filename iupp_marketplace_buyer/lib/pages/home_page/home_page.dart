@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'components/components.dart';
 import '../../widgets/widgets.dart';
+import 'components/components.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,8 +19,8 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
-                children: [
-                  const Align(
+                children: const [
+                  Align(
                     alignment: Alignment.topLeft,
                     child: BrandNewProducts(),
                   ),
@@ -33,8 +33,8 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
-                children: [
-                  const Align(
+                children: const [
+                  Align(
                     alignment: Alignment.topLeft,
                     child: MorePointsPromotion(),
                   ),

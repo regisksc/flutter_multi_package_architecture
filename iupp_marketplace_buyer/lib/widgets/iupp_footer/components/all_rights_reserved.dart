@@ -6,9 +6,8 @@ class AllRightsReserved extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const Text(
+      children: const [
+        Text(
           '© 2021 IUPP - Todos os direitos reservados.',
           style: TextStyle(
             fontSize: 14,

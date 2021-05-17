@@ -24,8 +24,8 @@ class BrandNewProducts extends StatelessWidget {
         const SizedBox(height: 24),
         const HorizontalProductCard(),
         Row(
-          children: [
-            const Expanded(
+          children: const [
+            Expanded(
               child: VerticalProductCard(
                 title:
                     '''iPhone 12 Preto Tela 6,1" - 5G  - 128 GB e Câmera Dupla 12MP''',
@@ -34,7 +34,7 @@ class BrandNewProducts extends StatelessWidget {
                 freeShipping: false,
               ),
             ),
-            const Expanded(
+            Expanded(
               child: VerticalProductCard(
                 title:
                     '''Samsung Smart TV QLED 4K Q70T 55", Pontos Quânticos''',

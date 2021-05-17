@@ -11,7 +11,6 @@ class TalkToUs extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Padding(
             padding: EdgeInsets.only(top: 24, bottom: 24),

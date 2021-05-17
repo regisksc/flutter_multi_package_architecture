@@ -3,11 +3,10 @@ import 'package:iupp_components/iupp_components.dart';
 
 class IuppAppBar extends AppBar {
   IuppAppBar({
-    Key? key,
     ShapeBorder? shapeBorder,
   }) : super(
           leading: const Icon(
-            IuppIcons.icone_contorno_M_menu_hamburger,
+            IuppIcons.iconeContornoMmenuHamburger,
             color: Colors.white,
           ),
           shape: shapeBorder,
@@ -17,7 +16,7 @@ class IuppAppBar extends AppBar {
           actions: [
             IconButton(
               icon: const Icon(
-                IuppIcons.icone_contorno_C_carrinho_outline,
+                IuppIcons.iconeContornoCCarrinhoOutline,
                 color: Colors.white,
               ),
               onPressed: () {},

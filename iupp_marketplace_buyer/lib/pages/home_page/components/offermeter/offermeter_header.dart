@@ -29,8 +29,8 @@ class OffermeterHeader extends StatelessWidget {
               flex: 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     'ofertômetro',
                     style: TextStyle(
                       color: Colors.white,
@@ -38,8 +38,8 @@ class OffermeterHeader extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Text(
+                  SizedBox(height: 8),
+                  Text(
                     'Destaque do dia',
                     style: TextStyle(
                       color: Colors.white,
@@ -50,7 +50,7 @@ class OffermeterHeader extends StatelessWidget {
                 ],
               ),
             ),
-            const Spacer(flex: 1),
+            const Spacer(),
             Expanded(
               flex: 2,
               child: Column(
@@ -66,12 +66,12 @@ class OffermeterHeader extends StatelessWidget {
                   const SizedBox(height: 4),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const OffermeterCounterText(label: '18h'),
-                      const OffermeterCounterText(label: ':'),
-                      const OffermeterCounterText(label: '55m'),
-                      const OffermeterCounterText(label: ':'),
-                      const OffermeterCounterText(label: '40s'),
+                    children: const [
+                      OffermeterCounterText(label: '18h'),
+                      OffermeterCounterText(label: ':'),
+                      OffermeterCounterText(label: '55m'),
+                      OffermeterCounterText(label: ':'),
+                      OffermeterCounterText(label: '40s'),
                     ],
                   ),
                 ],

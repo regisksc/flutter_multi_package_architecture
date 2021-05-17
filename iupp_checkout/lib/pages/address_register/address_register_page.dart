@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AddressRegisterPage extends StatefulWidget {
-  AddressRegisterPage({Key? key}) : super(key: key);
+  const AddressRegisterPage({Key? key}) : super(key: key);
 
   @override
   _AddressRegisterPageState createState() => _AddressRegisterPageState();

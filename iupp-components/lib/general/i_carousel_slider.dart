@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 enum CarouselIndicator { dots, snake }
 
 class ICarrouselSlider extends StatefulWidget {
-  ICarrouselSlider({
+  const ICarrouselSlider({
     Key? key,
     required this.items,
     this.carouselIndicator,
@@ -48,15 +48,16 @@ class _ICarrouselSliderState extends State<ICarrouselSlider> {
             child: Column(
               children: [
                 const SizedBox(height: 8),
-                widget.carouselIndicator == CarouselIndicator.dots
-                    ? DotsIndicator(
-                        itemsLength: widget.items.length,
-                        currentIndex: index + 1,
-                      )
-                    : SnakeIndicator(
-                        itemsLength: widget.items.length,
-                        currentIndex: index + 1,
-                      ),
+                if (widget.carouselIndicator == CarouselIndicator.dots)
+                  DotsIndicator(
+                    itemsLength: widget.items.length,
+                    currentIndex: index + 1,
+                  )
+                else
+                  SnakeIndicator(
+                    itemsLength: widget.items.length,
+                    currentIndex: index + 1,
+                  ),
               ],
             ),
           ),

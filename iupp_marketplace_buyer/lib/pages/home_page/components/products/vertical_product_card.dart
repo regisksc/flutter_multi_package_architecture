@@ -19,8 +19,8 @@ class VerticalProductCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          const BoxShadow(
+        boxShadow: const [
+          BoxShadow(
             color: Color.fromRGBO(0, 0, 0, 0.1),
             blurRadius: 16,
           ),

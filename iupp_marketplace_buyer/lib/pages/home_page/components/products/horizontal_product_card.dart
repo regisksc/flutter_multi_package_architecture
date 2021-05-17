@@ -22,8 +22,8 @@ class HorizontalProductCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          const BoxShadow(
+        boxShadow: const [
+          BoxShadow(
             color: Color.fromRGBO(0, 0, 0, 0.1),
             blurRadius: 16,
           ),
@@ -108,7 +108,7 @@ class HorizontalProductCard extends StatelessWidget {
             if (pickProductButton != null)
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                child: pickProductButton!,
+                child: pickProductButton,
               )
           ],
         ),

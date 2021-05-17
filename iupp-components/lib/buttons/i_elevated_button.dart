@@ -28,6 +28,8 @@ class IElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      onPressed: onPressed,
+      style: Theme.of(context).elevatedButtonTheme.style ?? buttonStyle,
       child: isLoading
           ? SizedBox(
               width: 10,
@@ -52,8 +54,6 @@ class IElevatedButton extends StatelessWidget {
                 ),
               ),
             ),
-      onPressed: onPressed,
-      style: Theme.of(context).elevatedButtonTheme.style ?? buttonStyle,
     );
   }
 }

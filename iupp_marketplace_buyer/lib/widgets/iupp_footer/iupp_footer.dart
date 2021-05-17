@@ -13,21 +13,21 @@ class IuppFooter extends StatelessWidget {
         padding:
             const EdgeInsets.only(top: 32, left: 24, right: 24, bottom: 32),
         child: Column(
-          children: [
-            const UsefulLinks(),
-            const SizedBox(height: 24),
-            const Divider(
+          children: const [
+            UsefulLinks(),
+            SizedBox(height: 24),
+            Divider(
               color: Color(0xFF7C7B8B),
             ),
-            const SizedBox(height: 24),
-            const ProductsInfo(),
-            const SizedBox(height: 24),
-            const InstitutionalInfo(),
-            const SizedBox(height: 24),
-            const PrivacyPolicyAndUse(),
-            const SizedBox(height: 24),
-            const AllRightsReserved(),
-            const SizedBox(height: 24),
+            SizedBox(height: 24),
+            ProductsInfo(),
+            SizedBox(height: 24),
+            InstitutionalInfo(),
+            SizedBox(height: 24),
+            PrivacyPolicyAndUse(),
+            SizedBox(height: 24),
+            AllRightsReserved(),
+            SizedBox(height: 24),
           ],
         ),
       ),

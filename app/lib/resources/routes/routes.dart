@@ -18,7 +18,7 @@ abstract class Pages {
     ),
     GetPage(
       name: Routes.home,
-      page: () => InputCepPage(),
+      page: () => const InputCepPage(),
       // bindings: HomeBindings(),
       // middlewares: middlewares,
       // settings: RouteSettings(),

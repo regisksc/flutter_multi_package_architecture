@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../utils/masks.dart';
-import '../../widgets/iupp_address_general_info.dart';
-import '../../widgets/iupp_address_app_bar.dart';
+import 'package:iupp_checkout/widgets/iupp_address_app_bar.dart';
+import 'package:iupp_checkout/widgets/iupp_address_general_info.dart';
 import 'package:iupp_components/buttons/i_elevated_button.dart';
 
+import '../../utils/masks.dart';
+
 class InputCepPage extends StatefulWidget {
-  InputCepPage({Key? key}) : super(key: key);
+  const InputCepPage({Key? key}) : super(key: key);
 
   @override
   _InputCepPageState createState() => _InputCepPageState();
@@ -36,8 +37,8 @@ class _InputCepPageState extends State<InputCepPage> {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                const BoxShadow(
+              boxShadow: const [
+                BoxShadow(
                     color: Color.fromRGBO(0, 0, 0, 0.1),
                     blurRadius: 8,
                     offset: Offset(0, 2)),
@@ -57,7 +58,6 @@ class _InputCepPageState extends State<InputCepPage> {
                   padding: const EdgeInsets.only(
                       top: 29, bottom: 24, left: 24, right: 24),
                   child: TextFormField(
-                    textAlign: TextAlign.start,
                     textAlignVertical: TextAlignVertical.bottom,
                     inputFormatters: [cepFormater],
                     initialValue: cep,

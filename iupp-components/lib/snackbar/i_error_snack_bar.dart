@@ -9,7 +9,7 @@ class IErrorSnackBar extends ISnackBar {
   }) : super(
           context,
           message: message,
-          icon: IuppIcons.icone_contorno_A_aviso_outline,
+          icon: IuppIcons.iconeContornoAAvisoOutline,
           backgroundColor: const Color(0xFFDE1E12),
         );
 }
