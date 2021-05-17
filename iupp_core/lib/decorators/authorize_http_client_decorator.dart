@@ -26,8 +26,8 @@ class AuthorizeHttpClientDecorator implements HttpClient {
         body: body,
         headers: authorizedHeaders,
       );
-    } on Exception catch (error) {
-      if (error is HttpError && error != HttpError.forbidden) {
+    } on HttpError catch (error) {
+      if (error != HttpError.forbidden) {
         rethrow;
       } else {
         await secureLocalDatasource.delete('token');
