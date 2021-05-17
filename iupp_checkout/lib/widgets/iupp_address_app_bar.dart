@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_checkout/pages/address_register/components/icon_spacer.dart';
 import 'package:iupp_components/iupp_components.dart';
-
-import '../pages/input_cep/components/icon_spacer.dart';
 
 class IuppAddressAppBar extends AppBar {
   IuppAddressAppBar({Key? key})
