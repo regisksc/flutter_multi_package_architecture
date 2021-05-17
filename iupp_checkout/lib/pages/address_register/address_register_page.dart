@@ -42,9 +42,10 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
               borderRadius: BorderRadius.circular(12),
               boxShadow: const [
                 BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.1),
-                    blurRadius: 8,
-                    offset: Offset(0, 2)),
+                  color: Color.fromRGBO(0, 0, 0, 0.1),
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                ),
               ],
             ),
             child: Card(
