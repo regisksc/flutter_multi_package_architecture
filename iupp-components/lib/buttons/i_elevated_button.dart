@@ -30,20 +30,20 @@ class IElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: Theme.of(context).elevatedButtonTheme.style ?? buttonStyle,
-      child: isLoading
-          ? SizedBox(
-              width: 10,
-              height: 10,
-              child: CircularProgressIndicator.adaptive(
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  Theme.of(context).primaryColor,
+      child: Padding(
+        padding: textPadding ?? const EdgeInsets.all(0),
+        child: isLoading
+            ? SizedBox(
+                width: 10,
+                height: 10,
+                child: CircularProgressIndicator.adaptive(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Theme.of(context).primaryColor,
+                  ),
+                  strokeWidth: 2,
                 ),
-                strokeWidth: 2,
-              ),
-            )
-          : Padding(
-              padding: textPadding ?? const EdgeInsets.all(0),
-              child: Text(
+              )
+            : Text(
                 text,
                 style: TextStyle(
                   fontSize: fontSize ?? 12,
@@ -53,7 +53,7 @@ class IElevatedButton extends StatelessWidget {
                       : Theme.of(context).disabledColor,
                 ),
               ),
-            ),
+      ),
     );
   }
 }
