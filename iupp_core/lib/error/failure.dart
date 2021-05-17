@@ -1,7 +1,5 @@
 abstract class Failure {
-  Failure([
-    this.message,
-  ]);
-
+  const Failure({this.title = 'Erro', this.message});
+  final String? title;
   final String? message;
 }
