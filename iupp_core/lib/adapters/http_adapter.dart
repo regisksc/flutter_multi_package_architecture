@@ -30,18 +30,25 @@ class HttpAdapter implements HttpClient {
       if (verb == 'delete') response = await client.delete(url, queryParameters: query, options: opt, data: body);
       if (verb == 'put') response = await client.put(url, queryParameters: query, options: opt, data: body);
       if (verb == 'patch') response = await client.patch(url, queryParameters: query, options: opt, data: body);
+      if (response.statusCode != null && response.statusCode! >= 400) {
+        final requestPath = Uri(path: url, queryParameters: query).toString();
+        final requestAttemptOptions = RequestOptions(path: requestPath, data: body);
+        throw DioError(requestOptions: requestAttemptOptions, error: DioErrorType.response, response: response);
+      }
       return _handledResponse(response);
     } on DioError catch (err) {
-      // ignore: avoid_print
-      print('HTTP REQUEST ERROR: $err');
-      late int? code;
-      if (err.response != null) code = err.response!.statusCode;
-      if (code == 400) throw const BadRequestFailure();
-      if (code == 401) throw const UnauthorizedFailure();
-      if (code == 403) throw const ForbiddenFailure();
-      if (code == 404) throw const NotFoundFailure();
-      throw const NotFoundFailure();
+      if (err.response != null) _handleError(err.response!);
     }
+  }
+
+  void _handleError(Response response) {
+    late int? code;
+    if (response.statusCode != null) code = response.statusCode;
+    if (code == 400) throw const BadRequestFailure();
+    if (code == 401) throw const UnauthorizedFailure();
+    if (code == 403) throw const ForbiddenFailure();
+    if (code == 404) throw const NotFoundFailure();
+    throw const NotFoundFailure();
   }
 
   HttpResponse _handledResponse(Response response) {

@@ -63,7 +63,20 @@ void main() {
         // assert
         verify(calledRequest());
         expect(response, isA<HttpResponse>());
-        expect(response.code, equals(200));
+        verifyNoMoreInteractions(client);
+      },
+    );
+
+    test(
+      'should throw BadRequestFailure on code 200',
+      () async {
+        // arrange
+        mockResponseForCode(400);
+        // act
+        final response = sut.request(url: url, method: 'get');
+        // assert
+        verify(calledRequest());
+        expect(response, throwsA(const BadRequestFailure()));
         verifyNoMoreInteractions(client);
       },
     );
