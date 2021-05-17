@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/buttons/i_elevated_button.dart';
 
-import '../horizontal_product_card.dart';
 import 'offermeter_header.dart';
+import '../products/products.dart';
 
 class Offermeter extends StatelessWidget {
   const Offermeter({Key? key}) : super(key: key);

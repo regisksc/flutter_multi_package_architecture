@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/buttons/i_elevated_button.dart';
 
-import 'product_chip_info.dart';
+import 'products.dart';
 
 class HorizontalProductCard extends StatelessWidget {
   const HorizontalProductCard({

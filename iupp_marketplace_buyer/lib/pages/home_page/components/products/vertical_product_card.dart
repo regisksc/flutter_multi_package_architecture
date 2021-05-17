@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_marketplace_buyer/pages/home_page/widgets/product_chip_info.dart';
+
+import 'products.dart';
 
 class VerticalProductCard extends StatelessWidget {
   const VerticalProductCard({

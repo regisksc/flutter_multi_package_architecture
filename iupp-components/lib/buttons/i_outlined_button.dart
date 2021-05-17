@@ -9,12 +9,20 @@ class IOutlinedButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.buttonStyle,
+    this.textPadding,
+    this.fontSize,
+    this.fontWeight,
+    this.borderRadius = 14,
     this.isLoading = false,
   }) : super(key: key);
 
   final String text;
   final VoidCallback? onPressed;
   final ButtonStyle? buttonStyle;
+  final EdgeInsets? textPadding;
+  final double? fontSize;
+  final FontWeight? fontWeight;
+  final double borderRadius;
   final bool isLoading;
 
   bool get isDisabled => onPressed == null;
@@ -33,29 +41,33 @@ class IOutlinedButton extends StatelessWidget {
                 strokeWidth: 2,
               ),
             )
-          : Text(
-              text,
-              style: TextStyle(
-                fontSize: 12,
-                color: !isDisabled
-                    ? Theme.of(context).backgroundColor
-                    : Theme.of(context).disabledColor,
+          : Padding(
+            padding: textPadding ?? const EdgeInsets.all(0),
+            child: Text(
+                text,
+                style: TextStyle(
+                  fontSize: fontSize ?? 12,
+                  fontWeight: fontWeight,
+                  color: !isDisabled
+                      ? Theme.of(context).backgroundColor
+                      : Theme.of(context).disabledColor,
+                ),
               ),
-            ),
+          ),
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(14),
+          borderRadius: BorderRadius.all(
+            Radius.circular(borderRadius),
           ),
           side: BorderSide(
             color: isDisabled ? Theme.of(context).disabledColor : Colors.black,
-            width: 1.0,
+            width: 2,
           ),
         ),
         side: BorderSide(
           color: isDisabled ? Theme.of(context).disabledColor : Colors.black,
-          width: 1.0,
+          width: 2,
         ),
       ),
     );

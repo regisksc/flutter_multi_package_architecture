@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/iupp_components.dart';
 
-import 'carrousel_slider.dart';
+import 'components/components.dart';
 
 final items = [
-  'assets/oferta1.png',
-  'assets/oferta1.png',
-  'assets/oferta1.png',
+  const PromotionCard(item: 'assets/oferta1.png'),
+  const PromotionCard(item: 'assets/oferta1.png'),
+  const PromotionCard(item: 'assets/oferta1.png'),
 ];
 
 class Banners extends StatelessWidget {
@@ -33,7 +34,10 @@ class Banners extends StatelessWidget {
           right: 8,
           child: Container(
             height: 170,
-            child: CarrouselSlider(items: items),
+            child: ICarrouselSlider(
+              items: items,
+              carouselIndicator: CarouselIndicator.snake,
+            ),
           ),
         ),
       ],

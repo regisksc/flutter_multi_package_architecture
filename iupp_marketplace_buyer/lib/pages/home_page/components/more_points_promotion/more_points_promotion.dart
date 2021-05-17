@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'horizontal_product_card.dart';
-import 'vertical_product_card.dart';
+import '../products/products.dart';
 
-class BrandNewProducts extends StatelessWidget {
-  const BrandNewProducts({Key? key}) : super(key: key);
+class MorePointsPromotion extends StatelessWidget {
+  const MorePointsPromotion({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class BrandNewProducts extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.only(left: 21),
           child: Text(
-            'acabou de chegar',
+            '3x mais pontos com itaú',
             style: TextStyle(
               color: Color(0xFF23232E),
               fontWeight: FontWeight.w700,
@@ -23,7 +22,6 @@ class BrandNewProducts extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        const HorizontalProductCard(),
         Row(
           children: [
             const Expanded(
