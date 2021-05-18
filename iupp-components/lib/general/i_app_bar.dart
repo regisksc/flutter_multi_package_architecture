@@ -5,9 +5,11 @@ class IAppBar extends AppBar {
     ShapeBorder? shapeBorder,
     this.iuppLeading,
     this.iuppActions,
+    this.centered = false,
   }) : super(
           leading: iuppLeading,
           shape: shapeBorder,
+          centerTitle: centered,
           backgroundColor: const Color(0xFF23232E),
           title: Image.asset('assets/images/logo_iupp.png'),
           elevation: 0,
@@ -15,6 +17,7 @@ class IAppBar extends AppBar {
         );
   final Widget? iuppLeading;
   final List<Widget>? iuppActions;
+  final bool centered;
 }
 
 /* class IAppBar extends AppBar {

@@ -6,7 +6,48 @@ final generalStories = [
   Story(
     section: 'General',
     name: 'IAppBar',
-    builder: (_, k) => IAppBar(),
+    builder: (_, k) => IAppBar(
+      iuppActions: k.options(label: 'Actions', initial: [], options: const [
+        Option('Empty', []),
+        Option(
+          'Options',
+          [
+            Icon(
+              IuppIcons.iconeContornoAAgenciaOutline,
+              color: Color(0xFF00EEE6),
+              size: 28,
+            ),
+            SizedBox(width: 8),
+            Icon(
+              IuppIcons.iconeContornoCCaminhao,
+              color: Colors.white,
+              size: 28,
+            ),
+            SizedBox(width: 8),
+            Icon(
+              IuppIcons.iconeContornoCConsorcioOutline,
+              color: Colors.white,
+              size: 28,
+            ),
+          ],
+        )
+      ]),
+      iuppLeading: k.options(
+        label: 'Leading',
+        initial: null,
+        options: const [
+          Option('Empty', null),
+          Option(
+            'Icon',
+            Icon(
+              IuppIcons.iconeContornoMmenuHamburger,
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
+      centered: k.boolean(label: 'Center', initial: false),
+    ),
   ),
   Story(
     section: 'General',
