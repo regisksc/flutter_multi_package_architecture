@@ -27,7 +27,7 @@ class SignInIuppContainer extends StatelessWidget {
                   backgroundColor: Theme.of(context).primaryColor,
                   radius: 17,
                   child: const Icon(
-                    IuppIcons.iconeContornoUusuarioOutline,
+                    IuppIcons.icone_contorno_U_usuario_outline,
                   ),
                 ),
               ),

@@ -15,25 +15,25 @@ class IuppAddressAppBar extends AppBar {
             mainAxisAlignment: MainAxisAlignment.end,
             children: const [
               Icon(
-                IuppIcons.iconeContornoAAgenciaOutline,
+                IuppIcons.icone_contorno_A_agencia_outline,
                 color: Color(0xFF00EEE6),
                 size: 28,
               ),
               IconSpacer(),
               Icon(
-                IuppIcons.iconeContornoCCaminhao,
+                IuppIcons.icone_contorno_C_caminhao,
                 color: Colors.white,
                 size: 28,
               ),
               IconSpacer(),
               Icon(
-                IuppIcons.iconeContornoCConsorcioOutline,
+                IuppIcons.icone_contorno_C_consorcio_outline,
                 color: Colors.white,
                 size: 28,
               ),
               IconSpacer(),
               Icon(
-                IuppIcons.iconeContornoPPagamentoAoFornecedorOutline,
+                IuppIcons.icone_contorno_P_pagamento_ao_fornecedor_outline,
                 color: Colors.white,
                 size: 28,
               ),

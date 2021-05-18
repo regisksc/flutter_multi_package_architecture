@@ -13,19 +13,19 @@ final generalStories = [
           'Options',
           [
             Icon(
-              IuppIcons.iconeContornoAAgenciaOutline,
+              IuppIcons.icone_contorno_A_agencia_outline,
               color: Color(0xFF00EEE6),
               size: 28,
             ),
             SizedBox(width: 8),
             Icon(
-              IuppIcons.iconeContornoCCaminhao,
+              IuppIcons.icone_contorno_C_caminhao,
               color: Colors.white,
               size: 28,
             ),
             SizedBox(width: 8),
             Icon(
-              IuppIcons.iconeContornoCConsorcioOutline,
+              IuppIcons.icone_contorno_C_consorcio_outline,
               color: Colors.white,
               size: 28,
             ),
@@ -40,7 +40,7 @@ final generalStories = [
           Option(
             'Icon',
             Icon(
-              IuppIcons.iconeContornoMmenuHamburger,
+              IuppIcons.icone_contorno_M_menu_hamburger,
               color: Colors.white,
             ),
           )

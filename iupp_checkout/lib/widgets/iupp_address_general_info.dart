@@ -18,7 +18,7 @@ class IuppAddressGeneralInfo extends StatelessWidget {
           Row(
             children: const [
               Icon(
-                IuppIcons.iconeContornoSSegurancaOutline,
+                IuppIcons.icone_contorno_S_seguranca_outline,
                 size: 16,
                 color: Color(0xFF7C7B8B),
               ),
@@ -29,7 +29,7 @@ class IuppAddressGeneralInfo extends StatelessWidget {
                 child: Text('|', style: textStyle),
               ),
               Icon(
-                IuppIcons.iconeContornoAAtendimentoTelefonico,
+                IuppIcons.icone_contorno_A_atendimento_telefonico,
                 size: 16,
                 color: Color(0xFF7C7B8B),
               ),
