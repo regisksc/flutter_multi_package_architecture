@@ -1,4 +1,5 @@
 import 'package:iupp_checkout/pages/cart/cart_page.dart';
+import 'package:iupp_checkout/resources/resources.dart';
 import 'package:iupp_core/core.dart';
 import 'package:iupp_core/models/microapp.dart';
 
@@ -6,11 +7,11 @@ import 'pages/address_register/address_register_page.dart';
 
 class CheckoutPresentation implements MicroApp {
   @override
-  String get microAppName => 'app_example';
+  String get microAppName => 'Checkout';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        '/register-page': (_, args) => const AddressRegisterPage(),
-        '/carrinho': (_, args) => const CartPage(),
+        Routes.registerPage.page: (_, args) => const AddressRegisterPage(),
+        Routes.cart.page: (_, args) => const CartPage(),
       };
 }
