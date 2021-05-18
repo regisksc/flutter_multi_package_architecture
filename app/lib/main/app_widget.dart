@@ -1,8 +1,7 @@
 import 'package:app/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_core/core.dart';
-import 'package:iupp_core/models/base_app.dart';
-import 'package:iupp_core/models/microapp.dart';
+import 'package:iupp_core/protocols/protocols.dart';
 
 import 'theme.dart';
 
@@ -19,7 +18,6 @@ class IuppApp extends StatelessWidget with BaseApp {
       theme: theme,
       navigatorKey: navigatorKey,
       onGenerateRoute: super.generateRoute,
-      onUnknownRoute: super.generateUnknownRoute,
       initialRoute: _initialRoute,
     );
   }
