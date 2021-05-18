@@ -11,7 +11,9 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: IAppBar(
         centered: true,
-        iuppActions: const [Icon(Icons.shopping_cart)],
+        iuppActions: const [
+          Icon(IuppIcons.iconeSolidosCCarrinho),
+        ],
       ),
       body: Column(
         children: [

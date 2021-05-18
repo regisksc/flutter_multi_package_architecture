@@ -25,6 +25,7 @@ flutter:
 
   assets:
     - assets/
+    - ../iupp-components/assets/
 
   module:
     androidX: true
