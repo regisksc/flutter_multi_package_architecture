@@ -12,7 +12,7 @@ class CartPage extends StatelessWidget {
       appBar: IAppBar(
         centered: true,
         iuppActions: const [
-          Icon(IuppIcons.iconeSolidosCCarrinho),
+          Icon(IuppIcons.icone_solidos_C_carrinho),
         ],
       ),
       body: Column(
