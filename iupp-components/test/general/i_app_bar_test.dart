@@ -11,7 +11,15 @@ void main() {
   });
 
   testWidgets('should do something when press cart icon', (tester) async {
-    await loadPageWithAppBar(tester, appBar: IAppBar());
+    await loadPageWithAppBar(tester,
+        appBar: IAppBar(
+          iuppActions: const [
+            IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: null,
+            )
+          ],
+        ));
     final iconButton = find.byType(IconButton);
     expect(iconButton, findsOneWidget);
     await tester.tap(iconButton);
