@@ -9,7 +9,7 @@ class IInfoSnackBar extends ISnackBar {
   }) : super(
           context,
           message: message,
-          icon: IuppIcons.iconeContornoIinformacaoOutline,
+          icon: IuppIcons.icone_contorno_I_informacao_outline,
           backgroundColor: const Color(0xFF007DED),
         );
 }

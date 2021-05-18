@@ -9,7 +9,7 @@ class ISuccessSnackBar extends ISnackBar {
   }) : super(
           context,
           message: message,
-          icon: IuppIcons.iconeContornoCCheck,
+          icon: IuppIcons.icone_contorno_C_check,
           backgroundColor: const Color(0xFF1E8449),
         );
 }

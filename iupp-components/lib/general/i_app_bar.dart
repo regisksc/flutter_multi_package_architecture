@@ -18,6 +18,7 @@ class IAppBar extends AppBar {
           elevation: 0,
           actions: iuppActions,
         );
+
   final Widget? iuppLeading;
   final List<Widget>? iuppActions;
   final bool centered;
