@@ -37,9 +37,9 @@ class HttpAdapter implements HttpClient {
     }
   }
 
-  Options _configureRequestOptions(Map<String, String>? headers) {
+  BaseOptions _configureRequestOptions(Map<String, String>? headers) {
     final defaultHeaders = {'content-type': 'application/json', 'accept': 'application/json'};
-    return Options(headers: defaultHeaders..addAll(headers ?? {}));
+    return BaseOptions(headers: defaultHeaders..addAll(headers ?? {}));
   }
 
   void _throwHttpFailure(Response response) {
@@ -48,7 +48,7 @@ class HttpAdapter implements HttpClient {
     throw DioError(requestOptions: requestAttemptOptions, error: DioErrorType.response, response: response);
   }
 
-  Future<Response> _fetchResponse(Options opt) async {
+  Future<Response> _fetchResponse(BaseOptions? opt) async {
     if (_method == 'get') return client.get(_url, queryParameters: _query, options: opt);
     if (_method == 'post') return client.post(_url, data: _body, options: opt);
     if (_method == 'delete') return client.delete(_url, queryParameters: _query, options: opt, data: _body);

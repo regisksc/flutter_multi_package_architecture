@@ -6,11 +6,15 @@ import 'utils.dart';
 
 void main() {
   testWidgets('should build without exploding', (tester) async {
+    // arrange
     await loadPageWithAppBar(tester, appBar: IAppBar());
+
+    // assert
     expect(find.byType(IAppBar), findsOneWidget);
   });
 
   testWidgets('should do something when press cart icon', (tester) async {
+    // arrange
     await loadPageWithAppBar(tester,
         appBar: IAppBar(
           iuppActions: const [
@@ -21,6 +25,8 @@ void main() {
           ],
         ));
     final iconButton = find.byType(IconButton);
+
+    // assert
     expect(iconButton, findsOneWidget);
     await tester.tap(iconButton);
     await tester.pumpAndSettle();

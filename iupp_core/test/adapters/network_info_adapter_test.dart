@@ -36,10 +36,13 @@ void main() {
     test(
       'should return false when there is no connectivity',
       () async {
+        // arrange
         mockConnectivityWithResult(ConnectivityResult.none);
 
+        // act
         final hasConnection = await networkInfoAdapter.hasConnection;
 
+        // assert
         expect(hasConnection, false);
       },
     );
@@ -47,11 +50,14 @@ void main() {
     test(
       'should return true when has connectivity over mobile and connection',
       () async {
+        // arrange
         mockConnectivityWithResult(ConnectivityResult.mobile);
         mockDataConnectionChecker(hasConnection: true);
 
+        // act
         final hasConnection = await networkInfoAdapter.hasConnection;
 
+        // assert
         expect(hasConnection, true);
       },
     );
@@ -59,11 +65,14 @@ void main() {
     test(
       'should return true when has connectivity over wifi and connection',
       () async {
+        // arrange
         mockConnectivityWithResult(ConnectivityResult.wifi);
         mockDataConnectionChecker(hasConnection: true);
 
+        // act
         final hasConnection = await networkInfoAdapter.hasConnection;
 
+        // assert
         expect(hasConnection, true);
       },
     );
@@ -71,11 +80,14 @@ void main() {
     test(
       'should return false when has connectivity but no connection',
       () async {
+        // arrange
         mockConnectivityWithResult(ConnectivityResult.wifi);
         mockDataConnectionChecker(hasConnection: false);
 
+        // act
         final hasConnection = await networkInfoAdapter.hasConnection;
 
+        // assert
         expect(hasConnection, false);
       },
     );
