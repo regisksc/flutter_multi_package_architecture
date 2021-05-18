@@ -1,5 +1,4 @@
-import '../../../adapters/network_info_adapter.dart';
-import '../../data.dart';
+import '../../../core.dart';
 
 abstract class RemoteDataSource {
   RemoteDataSource({

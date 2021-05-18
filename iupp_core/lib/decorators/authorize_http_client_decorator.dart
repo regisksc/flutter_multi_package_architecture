@@ -1,5 +1,6 @@
+import 'package:iupp_core/error/http_failures.dart';
+
 import '../core.dart';
-import '../data/http/http_client.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
   AuthorizeHttpClientDecorator({
@@ -11,10 +12,11 @@ class AuthorizeHttpClientDecorator implements HttpClient {
   final HttpClient decoratee;
 
   Future<dynamic> request({
-    required String url,
     required String method,
-    Map? body,
-    Map? headers,
+    required String url,
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? query,
+    Map<String, String>? headers,
   }) async {
     try {
       final token = await secureLocalDatasource.load('token');
@@ -26,12 +28,12 @@ class AuthorizeHttpClientDecorator implements HttpClient {
         body: body,
         headers: authorizedHeaders,
       );
-    } on HttpError catch (error) {
-      if (error != HttpError.forbidden) {
+    } on HttpFailure catch (error) {
+      if (error is! ForbiddenFailure) {
         rethrow;
       } else {
         await secureLocalDatasource.delete('token');
-        throw HttpError.forbidden;
+        throw const ForbiddenFailure();
       }
     }
   }
