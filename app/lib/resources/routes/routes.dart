@@ -1,16 +1,24 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
-import 'package:iupp_checkout/pages/address_register/address_register_page.dart';
+import 'package:iupp_checkout/checkout_presentation.dart';
+import 'package:iupp_marketplace_buyer/pages/marketplace_buyer_presentation.dart';
 //import 'package:iupp_marketplace_buyer/pages/product_details/product_details_page.dart';
 
 abstract class Routes {
   static final pages = Pages.pages;
   static const initial = 'initial';
-  static const home = '/';
+  static const home = '/home';
+  static const registerPage = '/register-page';
+  static const product = '/product';
 }
 
 abstract class Pages {
+  static final pages = [
+    MarketplaceBuyerPresentation(),
+    CheckoutPresentation(),
+  ];
+}
+
+
+/* abstract class Pages {
   static final pages = [
     GetPage(
       name: Routes.initial,
@@ -26,4 +34,4 @@ abstract class Pages {
       // transitionDuration: Duration(milliseconds: 1400),
     ),
   ];
-}
+} */

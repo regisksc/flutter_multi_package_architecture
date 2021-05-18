@@ -9,8 +9,6 @@ environment:
 
 dependencies:
   get: ^4.1.4
-  app:
-    path: ../app
   flutter:
     sdk: flutter
 

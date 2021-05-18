@@ -1,3 +1,3 @@
-import 'package:get/get.dart';
+/* import 'package:get/get.dart'; */
 
-abstract class ControllerAdapter extends GetxController {}
+abstract class ControllerAdapter /* extends GetxController */ {}

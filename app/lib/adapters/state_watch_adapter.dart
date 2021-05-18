@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class StateWatchAdapter extends StatelessWidget {
   const StateWatchAdapter(this.childCallback);
@@ -7,5 +6,6 @@ class StateWatchAdapter extends StatelessWidget {
   final Widget Function() childCallback;
 
   @override
-  Widget build(BuildContext context) => Obx(childCallback);
+  /* Widget build(BuildContext context) => Obx(childCallback); */
+  Widget build(BuildContext context) => Container();
 }

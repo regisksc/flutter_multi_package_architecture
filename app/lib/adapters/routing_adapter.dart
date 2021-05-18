@@ -1,7 +1,7 @@
-import 'package:get/get.dart';
+/* import 'package:get/get.dart'; */
 
 abstract class RoutingAdapter {
-  static Future<T?>? navTo<T>({
+  /* static Future<T?>? navTo<T>({
     required String route,
     dynamic args,
     Map<String, String>? params,
@@ -24,5 +24,5 @@ abstract class RoutingAdapter {
     Map<String, String>? params,
   }) async =>
       Get.offAndToNamed(route,
-          arguments: args, parameters: params, result: transferedData);
+          arguments: args, parameters: params, result: transferedData); */
 }

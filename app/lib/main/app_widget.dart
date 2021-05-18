@@ -1,20 +1,34 @@
+import 'package:app/resources/resources.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:iupp_core/core.dart';
+import 'package:iupp_core/models/base_app.dart';
+import 'package:iupp_core/models/microapp.dart';
 
-import '../resources/routes/routes.dart';
 import 'theme.dart';
 
-class AppWidget extends StatelessWidget {
+class IuppApp extends StatelessWidget with BaseApp {
+  IuppApp() {
+    super.registerRouters();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'iupp app',
       theme: theme,
-      getPages: Routes.pages,
+      navigatorKey: navigatorKey,
+      onGenerateRoute: super.generateRoute,
+      onUnknownRoute: super.generateUnknownRoute,
       initialRoute: _initialRoute,
     );
   }
 
-  String get _initialRoute => '/';
+  String get _initialRoute => Routes.home;
+
+  @override
+  Map<String, WidgetBuilderArgs> get baseRoutes => {};
+
+  @override
+  List<MicroApp> get microApps => Routes.pages;
 }

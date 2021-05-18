@@ -1,3 +1,3 @@
-import 'package:app/adapters/adapters.dart';
+/* import 'package:app/adapters/adapters.dart'; */
 
-class HomeController extends ControllerAdapter {}
+class HomeController /* extends ControllerAdapter */ {}

@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   iupp_components:
     path: ../iupp-components
+  iupp_core:
+    path: ../iupp_core
 
   mask_text_input_formatter: ^2.0.0-nullsafety.2
 
