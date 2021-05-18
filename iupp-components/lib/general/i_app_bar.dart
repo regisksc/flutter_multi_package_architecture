@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../iupp_components.dart';
-
 class IAppBar extends AppBar {
   IAppBar({
     ShapeBorder? shapeBorder,
