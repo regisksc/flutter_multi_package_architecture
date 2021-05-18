@@ -179,4 +179,575 @@ void main() {
       );
     });
   });
+  group('Post requests - ', () {
+    Function() calledRequest() => () => client.post(any(), options: any(named: 'options'), data: any(named: 'data'));
+    When mockRequest() => when(calledRequest());
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
+          (_) async => Response(
+            statusCode: code,
+            data: body,
+            requestOptions: requestOptions,
+          ),
+        );
+
+    test(
+      'should return a status 200 response on success',
+      () async {
+        // arrange
+        mockResponseForCode(200, body: anyMap);
+        // act
+        final response = await sut.request(url: url, method: 'post');
+        // assert
+        verify(calledRequest());
+        expect(response, isA<HttpResponse>());
+        verifyNoMoreInteractions(client);
+      },
+    );
+
+    group('Get failures - ', () {
+      test(
+        'should throw BadRequestFailure on code 400',
+        () async {
+          // arrange
+          mockResponseForCode(400);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const BadRequestFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnauthorizedFailure on code 401',
+        () async {
+          // arrange
+          mockResponseForCode(401);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnauthorizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ForbiddenFailure on code 403',
+        () async {
+          // arrange
+          mockResponseForCode(403);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ForbiddenFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw NotFoundFailure on code 404',
+        () async {
+          // arrange
+          mockResponseForCode(404);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const NotFoundFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on any code greater than 500',
+        () async {
+          // arrange
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
+          mockResponseForCode(integerGreaterThan500);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on a null response code',
+        () async {
+          // arrange
+          mockResponseForCode(null);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for codes lesser than 200',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(199);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for redirect codes',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'post');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+    });
+  });
+  group('Delete requests - ', () {
+    Function() calledRequest() =>
+        () => client.delete(any(), queryParameters: any(named: 'queryParameters'), options: any(named: 'options'));
+    When mockRequest() => when(calledRequest());
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
+          (_) async => Response(
+            statusCode: code,
+            data: body,
+            requestOptions: requestOptions,
+          ),
+        );
+
+    test(
+      'should return a status 200 response on success',
+      () async {
+        // arrange
+        mockResponseForCode(200, body: anyMap);
+        // act
+        final response = await sut.request(url: url, method: 'delete');
+        // assert
+        verify(calledRequest());
+        expect(response, isA<HttpResponse>());
+        verifyNoMoreInteractions(client);
+      },
+    );
+
+    group('Get failures - ', () {
+      test(
+        'should throw BadRequestFailure on code 400',
+        () async {
+          // arrange
+          mockResponseForCode(400);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const BadRequestFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnauthorizedFailure on code 401',
+        () async {
+          // arrange
+          mockResponseForCode(401);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnauthorizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ForbiddenFailure on code 403',
+        () async {
+          // arrange
+          mockResponseForCode(403);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ForbiddenFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw NotFoundFailure on code 404',
+        () async {
+          // arrange
+          mockResponseForCode(404);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const NotFoundFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on any code greater than 500',
+        () async {
+          // arrange
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
+          mockResponseForCode(integerGreaterThan500);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on a null response code',
+        () async {
+          // arrange
+          mockResponseForCode(null);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for codes lesser than 200',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(199);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for redirect codes',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'delete');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+    });
+  });
+  group('Put requests - ', () {
+    Function() calledRequest() => () => client.put(any(),
+        queryParameters: any(named: 'queryParameters'), options: any(named: 'options'), data: any(named: 'data'));
+    When mockRequest() => when(calledRequest());
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
+          (_) async => Response(
+            statusCode: code,
+            data: body,
+            requestOptions: requestOptions,
+          ),
+        );
+
+    test(
+      'should return a status 200 response on success',
+      () async {
+        // arrange
+        mockResponseForCode(200, body: anyMap);
+        // act
+        final response = await sut.request(url: url, method: 'put');
+        // assert
+        verify(calledRequest());
+        expect(response, isA<HttpResponse>());
+        verifyNoMoreInteractions(client);
+      },
+    );
+
+    group('Get failures - ', () {
+      test(
+        'should throw BadRequestFailure on code 400',
+        () async {
+          // arrange
+          mockResponseForCode(400);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const BadRequestFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnauthorizedFailure on code 401',
+        () async {
+          // arrange
+          mockResponseForCode(401);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnauthorizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ForbiddenFailure on code 403',
+        () async {
+          // arrange
+          mockResponseForCode(403);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ForbiddenFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw NotFoundFailure on code 404',
+        () async {
+          // arrange
+          mockResponseForCode(404);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const NotFoundFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on any code greater than 500',
+        () async {
+          // arrange
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
+          mockResponseForCode(integerGreaterThan500);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on a null response code',
+        () async {
+          // arrange
+          mockResponseForCode(null);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for codes lesser than 200',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(199);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for redirect codes',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'put');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+    });
+  });
+  group('Patch requests - ', () {
+    Function() calledRequest() => () => client.patch(any(),
+        queryParameters: any(named: 'queryParameters'), options: any(named: 'options'), data: any(named: 'data'));
+    When mockRequest() => when(calledRequest());
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
+          (_) async => Response(
+            statusCode: code,
+            data: body,
+            requestOptions: requestOptions,
+          ),
+        );
+
+    test(
+      'should return a status 200 response on success',
+      () async {
+        // arrange
+        mockResponseForCode(200, body: anyMap);
+        // act
+        final response = await sut.request(url: url, method: 'patch');
+        // assert
+        verify(calledRequest());
+        expect(response, isA<HttpResponse>());
+        verifyNoMoreInteractions(client);
+      },
+    );
+
+    group('Get failures - ', () {
+      test(
+        'should throw BadRequestFailure on code 400',
+        () async {
+          // arrange
+          mockResponseForCode(400);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const BadRequestFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnauthorizedFailure on code 401',
+        () async {
+          // arrange
+          mockResponseForCode(401);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnauthorizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ForbiddenFailure on code 403',
+        () async {
+          // arrange
+          mockResponseForCode(403);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ForbiddenFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw NotFoundFailure on code 404',
+        () async {
+          // arrange
+          mockResponseForCode(404);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const NotFoundFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on any code greater than 500',
+        () async {
+          // arrange
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
+          mockResponseForCode(integerGreaterThan500);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw ServerFailure on a null response code',
+        () async {
+          // arrange
+          mockResponseForCode(null);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const ServerFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for codes lesser than 200',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(199);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+
+      test(
+        'should throw UnrecognizedFailure for redirect codes',
+        () async {
+          // arrange
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
+          mockResponseForCode(unrecognizedStatusCode);
+          // act
+          final response = sut.request(url: url, method: 'patch');
+          // assert
+          verify(calledRequest());
+          expect(response, throwsA(const UnrecognizedFailure()));
+          verifyNoMoreInteractions(client);
+        },
+      );
+    });
+  });
 }
