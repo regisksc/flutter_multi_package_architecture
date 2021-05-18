@@ -11,15 +11,23 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: IAppBar(
         centered: true,
-        iuppActions: const [
-          Icon(IuppIcons.iconeSolidosCCarrinho),
-        ],
       ),
       body: Column(
-        children: [
-          Container(),
-          const Spacer(),
-          const IuppAddressGeneralInfo(),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          SizedBox(
+            height: 80,
+            child: Text(
+              'carrinho',
+              style: TextStyle(
+                fontSize: 24,
+                color: Color(0xFF353545),
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          Spacer(),
+          IuppAddressGeneralInfo(),
         ],
       ),
     );
