@@ -8,6 +8,11 @@ class HttpAdapter implements HttpClient {
   HttpAdapter(this.client);
   final Dio client;
 
+  late String _method;
+  late String _url;
+  late Map<String, dynamic>? _body;
+  late Map<String, dynamic>? _query;
+
   @override
   Future request({
     required String method,
@@ -16,42 +21,43 @@ class HttpAdapter implements HttpClient {
     Map<String, dynamic>? query,
     Map<String, String>? headers,
   }) async {
-    final opt = Options(
-      headers: headers,
-      validateStatus: (status) => status != null && status >= 200 && status < 300,
-    );
+    _method = method.toLowerCase();
+    _url = url;
+    _body = body;
+    _query = query;
+
+    final opt = _configureRequestOptions(headers);
     try {
-      late Response response;
-      final availableVerbs = ['get', 'post', 'delete', 'put', 'patch'];
-      final verb = method.toLowerCase();
-      if (!availableVerbs.contains(verb)) throw const InvalidMethodFailure();
-      if (verb == 'get') response = await client.get(url, queryParameters: query, options: opt);
-      if (verb == 'post') response = await client.post(url, data: body, options: opt);
-      if (verb == 'delete') response = await client.delete(url, queryParameters: query, options: opt, data: body);
-      if (verb == 'put') response = await client.put(url, queryParameters: query, options: opt, data: body);
-      if (verb == 'patch') response = await client.patch(url, queryParameters: query, options: opt, data: body);
-      if (response.statusCode != null && response.statusCode! >= 400) {
-        final requestPath = Uri(path: url, queryParameters: query).toString();
-        final requestAttemptOptions = RequestOptions(path: requestPath, data: body);
-        throw DioError(requestOptions: requestAttemptOptions, error: DioErrorType.response, response: response);
-      }
-      return _handledResponse(response);
+      final Response response = await _fetchResponse(opt);
+      final code = response.statusCode;
+      final isSuccessCode = code != null && code >= 200 && code <= 204;
+      return isSuccessCode ? _handleSuccess(response) : _throwHttpFailure(response);
     } on DioError catch (err) {
       if (err.response != null) _handleError(err.response!);
     }
   }
 
-  void _handleError(Response response) {
-    late int? code;
-    if (response.statusCode != null) code = response.statusCode;
-    if (code == 400) throw const BadRequestFailure();
-    if (code == 401) throw const UnauthorizedFailure();
-    if (code == 403) throw const ForbiddenFailure();
-    if (code == 404) throw const NotFoundFailure();
-    throw const NotFoundFailure();
+  Options _configureRequestOptions(Map<String, String>? headers) => Options(
+        headers: headers ?? {},
+        validateStatus: (status) => status != null && status >= 200 && status < 300,
+      );
+
+  void _throwHttpFailure(Response response) {
+    final requestPath = Uri(path: _url, queryParameters: _query).toString();
+    final requestAttemptOptions = RequestOptions(path: requestPath, data: _body);
+    throw DioError(requestOptions: requestAttemptOptions, error: DioErrorType.response, response: response);
   }
 
-  HttpResponse _handledResponse(Response response) {
+  Future<Response> _fetchResponse(Options opt) async {
+    if (_method == 'get') return client.get(_url, queryParameters: _query, options: opt);
+    if (_method == 'post') return client.post(_url, data: _body, options: opt);
+    if (_method == 'delete') return client.delete(_url, queryParameters: _query, options: opt, data: _body);
+    if (_method == 'put') return client.put(_url, queryParameters: _query, options: opt, data: _body);
+    if (_method == 'patch') return client.patch(_url, queryParameters: _query, options: opt, data: _body);
+    throw const InvalidMethodFailure();
+  }
+
+  HttpResponse _handleSuccess(Response response) {
     final responseData = response.data as Map<String, dynamic>;
     String message = '';
     if (responseData.containsKey('message')) message = response.data['message'].toString();
@@ -60,5 +66,15 @@ class HttpAdapter implements HttpClient {
       data: responseData,
       message: message,
     );
+  }
+
+  void _handleError(Response response) {
+    final code = response.statusCode;
+    if (code == 400) throw const BadRequestFailure();
+    if (code == 401) throw const UnauthorizedFailure();
+    if (code == 403) throw const ForbiddenFailure();
+    if (code == 404) throw const NotFoundFailure();
+    if (code == null || code >= 500) throw const ServerFailure();
+    throw const UnrecognizedFailure();
   }
 }

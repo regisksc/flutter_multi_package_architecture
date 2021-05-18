@@ -22,17 +22,10 @@ class NetworkInfoAdapter {
   }
 
   Future<bool> get hasConnection async {
-    if (await _hasConnectivity) {
-      if (await _dataConnectionChecker.hasConnection) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
+    final hasConnectivity = await _hasConnectivity;
+    if (!hasConnectivity) return false;
+    return _dataConnectionChecker.hasConnection;
   }
 
-  Stream<DataConnectionStatus> get connectionChanges =>
-      _dataConnectionChecker.onStatusChange;
+  Stream<DataConnectionStatus> get connectionChanges => _dataConnectionChecker.onStatusChange;
 }
