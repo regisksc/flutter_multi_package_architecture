@@ -14,8 +14,7 @@ class NavigatorService {
       uri = Uri(path: routeName, queryParameters: queryParams);
     }
 
-    debugPrint(
-        '[NavigatorService] queryParameters: ${uri.queryParameters} path: ${uri.path}');
+    debugPrint('[NavigatorService] queryParameters: ${uri.queryParameters} path: ${uri.path}');
 
     return navigatorKey.currentState!.pushNamed(
       routeName,
