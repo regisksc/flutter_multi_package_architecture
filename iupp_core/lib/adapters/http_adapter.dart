@@ -37,10 +37,10 @@ class HttpAdapter implements HttpClient {
     }
   }
 
-  Options _configureRequestOptions(Map<String, String>? headers) => Options(
-        headers: headers ?? {},
-        validateStatus: (status) => status != null && status >= 200 && status < 300,
-      );
+  Options _configureRequestOptions(Map<String, String>? headers) {
+    final defaultHeaders = {'content-type': 'application/json', 'accept': 'application/json'};
+    return Options(headers: defaultHeaders..addAll(headers ?? {}));
+  }
 
   void _throwHttpFailure(Response response) {
     final requestPath = Uri(path: _url, queryParameters: _query).toString();

@@ -27,7 +27,7 @@ void main() {
   const Map<String, dynamic> anyMap = {'any_key': 'any_value'};
 
   test(
-    'should thrown on unrecognized http verb',
+    'should throw on unrecognized http verb',
     () async {
       // act
       final future = sut.request(url: url, method: 'invalid');
@@ -36,7 +36,7 @@ void main() {
     },
   );
 
-  group('Get requests - ', () {
+  group('Get - ', () {
     Function() calledRequest() =>
         () => client.get(any(), queryParameters: any(named: 'queryParameters'), options: any(named: 'options'));
     When mockRequest() => when(calledRequest());
@@ -62,7 +62,7 @@ void main() {
       },
     );
 
-    group('Get failures - ', () {
+    group('failures - ', () {
       test(
         'should throw BadRequestFailure on code 400',
         () async {
@@ -179,7 +179,7 @@ void main() {
       );
     });
   });
-  group('Post requests - ', () {
+  group('Post - ', () {
     Function() calledRequest() => () => client.post(any(), options: any(named: 'options'), data: any(named: 'data'));
     When mockRequest() => when(calledRequest());
     void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
@@ -189,6 +189,32 @@ void main() {
             requestOptions: requestOptions,
           ),
         );
+
+    test('Should call post with correct values', () async {
+      final defaultHeaders = {'content-type': 'application/json', 'accept': 'application/json'};
+      bool defaultCodeValidationFunction(int? status) => status != null && status >= 200 && status < 300;
+      final anyResponse = Response(requestOptions: requestOptions);
+      late Options _options;
+
+      //arrange
+      _options = Options(headers: defaultHeaders);
+      // act
+      sut.request(url: url, method: 'post', body: anyMap);
+      // assert
+      verify(() => client.post(url, options: _options, data: anyMap));
+
+      /* // arrange
+      final incrementedHeaders = defaultHeaders..addAll({'any_header': 'any_value'});
+      final _options2 = Options(
+        headers: incrementedHeaders,
+        validateStatus: (status) => status != null && status >= 200 && status < 300,
+      );
+      when(() => client.post(url, options: _options2, data: anyMap)).thenAnswer((_) => Future.value(anyResponse));
+      // act
+      sut.request(url: url, method: 'post', body: anyMap, headers: {'any_header': 'any_value'});
+      // assert
+      verify(() => client.post(url, options: _options2, data: anyMap)); */
+    });
 
     test(
       'should return a status 200 response on success',
@@ -204,7 +230,7 @@ void main() {
       },
     );
 
-    group('Get failures - ', () {
+    group('failures - ', () {
       test(
         'should throw BadRequestFailure on code 400',
         () async {
@@ -321,7 +347,7 @@ void main() {
       );
     });
   });
-  group('Delete requests - ', () {
+  group('Delete - ', () {
     Function() calledRequest() =>
         () => client.delete(any(), queryParameters: any(named: 'queryParameters'), options: any(named: 'options'));
     When mockRequest() => when(calledRequest());
@@ -347,7 +373,7 @@ void main() {
       },
     );
 
-    group('Get failures - ', () {
+    group('failures - ', () {
       test(
         'should throw BadRequestFailure on code 400',
         () async {
@@ -464,7 +490,7 @@ void main() {
       );
     });
   });
-  group('Put requests - ', () {
+  group('Put - ', () {
     Function() calledRequest() => () => client.put(any(),
         queryParameters: any(named: 'queryParameters'), options: any(named: 'options'), data: any(named: 'data'));
     When mockRequest() => when(calledRequest());
@@ -490,7 +516,7 @@ void main() {
       },
     );
 
-    group('Get failures - ', () {
+    group('failures - ', () {
       test(
         'should throw BadRequestFailure on code 400',
         () async {
@@ -607,7 +633,7 @@ void main() {
       );
     });
   });
-  group('Patch requests - ', () {
+  group('Patch - ', () {
     Function() calledRequest() => () => client.patch(any(),
         queryParameters: any(named: 'queryParameters'), options: any(named: 'options'), data: any(named: 'data'));
     When mockRequest() => when(calledRequest());
@@ -633,7 +659,7 @@ void main() {
       },
     );
 
-    group('Get failures - ', () {
+    group('failures - ', () {
       test(
         'should throw BadRequestFailure on code 400',
         () async {
