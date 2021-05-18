@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_checkout/widgets/iupp_address_app_bar.dart';
 import 'package:iupp_checkout/widgets/iupp_address_general_info.dart';
-import 'package:iupp_components/buttons/i_elevated_button.dart';
 
-import '../../utils/masks.dart';
+import 'components/components.dart';
 
 class AddressRegisterPage extends StatefulWidget {
   const AddressRegisterPage({Key? key}) : super(key: key);
@@ -37,49 +36,40 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
             ),
           ),
           const SizedBox(height: 24),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.1),
-                  blurRadius: 8,
-                  offset: Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
+          Flexible(
+            child: SingleChildScrollView(
               child: Container(
-                height: 100,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.1),
+                      blurRadius: 8,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 29, bottom: 24, left: 24, right: 24),
-                  child: TextFormField(
-                    textAlignVertical: TextAlignVertical.bottom,
-                    inputFormatters: [cepFormater],
-                    initialValue: cep,
-                    onChanged: (cepValue) {
-                      setState(() {
-                        cep = cepValue;
-                      });
-                    },
-                    decoration: InputDecoration(
-                      hintText: 'ex: 00000-000',
-                      labelText: 'Digite o CEP',
-                      suffix: const Text(
-                        'Não sei meu CEP',
-                        style: TextStyle(color: Color(0xFF0070D4)),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                      top: 29,
+                      bottom: 24,
+                      left: 24,
+                      right: 24,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CepFormField(
+                          cep: cep,
+                          onChanged: (value) => setState(() => cep = value),
+                          enabled: !cepChoosed,
+                        ),
+                        if (cepChoosed) const CompleteForm(),
+                      ],
                     ),
                   ),
                 ),
@@ -94,27 +84,27 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
               left: 24,
               right: 24,
             ),
-            child: IElevatedButton(
-              text: 'continuar',
-              isLoading: isLoading,
-              textPadding: const EdgeInsets.all(13),
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              onPressed: cep.isEmpty
-                  ? null
-                  : () async {
-                      setState(() {
-                        isLoading = true;
-                      });
-                      await Future.delayed(const Duration(seconds: 2));
-                      setState(() {
-                        isLoading = false;
-                        cepChoosed = true;
-                      });
-                    },
-            ),
+            child: cepChoosed
+                ? const ConfirmRegisterButton(
+                    isLoading: false,
+                    onPressed: null,
+                  )
+                : ContinueRegisterButton(
+                    isLoading: isLoading,
+                    onPressed: cep.isEmpty
+                        ? null
+                        : () async {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 2));
+                            setState(() {
+                              isLoading = false;
+                              cepChoosed = true;
+                            });
+                          },
+                  ),
           ),
-          const Spacer(),
           const IuppAddressGeneralInfo(),
         ],
       ),

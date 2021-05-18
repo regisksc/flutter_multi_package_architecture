@@ -9,7 +9,7 @@ class IWarningSnackBar extends ISnackBar {
   }) : super(
           context,
           message: message,
-          icon: IuppIcons.iconeContornoRRecarregar,
+          icon: IuppIcons.icone_contorno_R_recarregar,
           backgroundColor: const Color(0xFFB95800),
         );
 }
