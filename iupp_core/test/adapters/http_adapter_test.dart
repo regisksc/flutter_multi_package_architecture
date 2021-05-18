@@ -66,8 +66,10 @@ void main() {
       () async {
         // arrange
         mockResponseForCode(200, body: anyMap);
+
         // act
         final response = await sut.request(url: url, method: 'get');
+
         // assert
         verify(calledRequest());
         expect(response, isA<HttpResponse>());
@@ -81,8 +83,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(400);
+
           // act
           final response = sut.request(url: url, method: 'get');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const BadRequestFailure()));
@@ -95,8 +99,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(401);
+
           // act
           final response = sut.request(url: url, method: 'get');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnauthorizedFailure()));
@@ -125,8 +131,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(404);
+
           // act
           final response = sut.request(url: url, method: 'get');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const NotFoundFailure()));
@@ -140,8 +148,10 @@ void main() {
           // arrange
           final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
+
           // act
           final response = sut.request(url: url, method: 'get');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -154,8 +164,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(null);
+
           // act
           final response = sut.request(url: url, method: 'get');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -169,8 +181,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(199);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'get');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -184,8 +198,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'get');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -222,8 +238,10 @@ void main() {
       () async {
         // arrange
         mockResponseForCode(200, body: anyMap);
+
         // act
         final response = await sut.request(url: url, method: 'post');
+
         // assert
         verify(calledRequest());
         expect(response, isA<HttpResponse>());
@@ -237,8 +255,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(400);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const BadRequestFailure()));
@@ -251,8 +271,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(401);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnauthorizedFailure()));
@@ -265,8 +287,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(403);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ForbiddenFailure()));
@@ -279,8 +303,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(404);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const NotFoundFailure()));
@@ -294,8 +320,10 @@ void main() {
           // arrange
           final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -308,8 +336,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(null);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -323,8 +353,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(199);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -338,8 +370,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'post');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -377,8 +411,10 @@ void main() {
       () async {
         // arrange
         mockResponseForCode(200, body: anyMap);
+
         // act
         final response = await sut.request(url: url, method: 'delete');
+
         // assert
         verify(calledRequest());
         expect(response, isA<HttpResponse>());
@@ -392,8 +428,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(400);
+
           // act
           final response = sut.request(url: url, method: 'delete');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const BadRequestFailure()));
@@ -406,8 +444,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(401);
+
           // act
           final response = sut.request(url: url, method: 'delete');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnauthorizedFailure()));
@@ -420,8 +460,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(403);
+
           // act
           final response = sut.request(url: url, method: 'delete');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ForbiddenFailure()));
@@ -434,8 +476,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(404);
+
           // act
           final response = sut.request(url: url, method: 'delete');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const NotFoundFailure()));
@@ -449,8 +493,10 @@ void main() {
           // arrange
           final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
+
           // act
           final response = sut.request(url: url, method: 'delete');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -463,8 +509,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(null);
+
           // act
           final response = sut.request(url: url, method: 'delete');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -478,8 +526,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(199);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'delete');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -532,8 +582,10 @@ void main() {
       () async {
         // arrange
         mockResponseForCode(200, body: anyMap);
+
         // act
         final response = await sut.request(url: url, method: 'put');
+
         // assert
         verify(calledRequest());
         expect(response, isA<HttpResponse>());
@@ -547,8 +599,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(400);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const BadRequestFailure()));
@@ -561,8 +615,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(401);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnauthorizedFailure()));
@@ -575,8 +631,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(403);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ForbiddenFailure()));
@@ -589,8 +647,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(404);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const NotFoundFailure()));
@@ -604,8 +664,10 @@ void main() {
           // arrange
           final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -618,8 +680,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(null);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -633,8 +697,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(199);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -648,8 +714,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'put');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -687,8 +755,10 @@ void main() {
       () async {
         // arrange
         mockResponseForCode(200, body: anyMap);
+
         // act
         final response = await sut.request(url: url, method: 'patch');
+
         // assert
         verify(calledRequest());
         expect(response, isA<HttpResponse>());
@@ -702,8 +772,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(400);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const BadRequestFailure()));
@@ -716,8 +788,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(401);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnauthorizedFailure()));
@@ -730,8 +804,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(403);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ForbiddenFailure()));
@@ -744,8 +820,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(404);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const NotFoundFailure()));
@@ -759,8 +837,10 @@ void main() {
           // arrange
           final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -773,8 +853,10 @@ void main() {
         () async {
           // arrange
           mockResponseForCode(null);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const ServerFailure()));
@@ -788,8 +870,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(199);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
@@ -803,8 +887,10 @@ void main() {
           // arrange
           final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
+
           // act
           final response = sut.request(url: url, method: 'patch');
+
           // assert
           verify(calledRequest());
           expect(response, throwsA(const UnrecognizedFailure()));
