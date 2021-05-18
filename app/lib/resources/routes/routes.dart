@@ -8,6 +8,7 @@ abstract class Routes {
   static const home = '/home';
   static const registerPage = '/register-page';
   static const product = '/product';
+  static const cart = '/carrinho';
 }
 
 abstract class Pages {
