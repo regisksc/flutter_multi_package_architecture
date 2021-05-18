@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:iupp_core/core.dart';
+import 'package:iupp_core/navigator/arguments.dart';
 
 class FadeRoute extends PageRouteBuilder {
   FadeRoute({

@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:iupp_core/core.dart';
-import 'package:iupp_core/pages/page_not_found.dart';
-import 'package:iupp_core/transition/fade_route.dart';
+import 'package:iupp_core/navigator/arguments.dart';
+import 'package:iupp_core/transition/transition.dart';
 
-import 'microapp.dart';
+import '../core.dart';
+import 'protocols.dart';
 
 abstract class BaseApp {
   List<MicroApp> get microApps;
@@ -13,7 +13,9 @@ abstract class BaseApp {
   final Map<String, WidgetBuilderArgs> routes = {};
 
   void registerRouters() {
-    if (baseRoutes.isNotEmpty) routes.addAll(baseRoutes);
+    if (baseRoutes.isNotEmpty) {
+      routes.addAll(baseRoutes);
+    }
     if (microApps.isNotEmpty) {
       for (final MicroApp microapp in microApps) {
         routes.addAll(microapp.routes);
@@ -29,8 +31,6 @@ abstract class BaseApp {
         ? (settings.arguments! as Arguments)
         : Arguments(uri: uri, params: uri.queryParameters);
 
-    debugPrint('[RouteSettings] settings $settings');
-
     final navigateTo = routes[routerName];
 
     if (navigateTo == null) {
@@ -42,7 +42,7 @@ abstract class BaseApp {
           combinedArgs.addAll(result.params);
           combinedArgs.addAll(routerArgs.params);
 
-          dynamicRoute = _generateRoute(
+          dynamicRoute = _generateFadeRoute(
             value,
             Uri(path: uri.path, queryParameters: routerArgs.params).toString(),
             Arguments(params: combinedArgs, uri: result.uri),
@@ -50,16 +50,19 @@ abstract class BaseApp {
           return;
         }
       });
-      if (dynamicRoute != null) return dynamicRoute!;
+
+      if (dynamicRoute != null) {
+        return dynamicRoute!;
+      }
       return null;
     }
 
     final path = routerArgs.uri?.toString() ?? routerName;
 
-    return _generateRoute(navigateTo, path, routerArgs);
+    return _generateFadeRoute(navigateTo, path, routerArgs);
   }
 
-  Route<dynamic> _generateRoute(
+  Route<dynamic> _generateFadeRoute(
     WidgetBuilderArgs navigateTo,
     String path,
     Arguments? routerArgs,
@@ -68,13 +71,6 @@ abstract class BaseApp {
       child: navigateTo,
       path: path,
       routerArgs: routerArgs,
-    );
-  }
-
-  Route<dynamic>? generateUnknownRoute(RouteSettings settings) {
-    return FadeRoute(
-      child: (context, args) => const PageNotFound(),
-      path: '/404',
     );
   }
 }
@@ -100,17 +96,14 @@ RoutingData? _parseUrlParams(String routeNamed, Uri uri) {
       final pathParts = uri.path.split('/');
       int paramPos = 0;
 
-      debugPrint('Match! Processing $r as $routeNamed');
       String teste = routeNamed;
 
       for (final routePart in routeParts) {
-        debugPrint('routePart: $routePart');
         if (routePart.contains(":")) {
           final paramName = routePart.replaceFirst(':', '');
           if (pathParts[paramPos].isNotEmpty) {
             params[paramName] = pathParts[paramPos];
             teste = routeNamed.replaceFirst(routePart, params[paramName]!);
-            debugPrint('paramName $paramName, paramsMap $params');
           }
         }
         paramPos++;
@@ -125,6 +118,7 @@ RoutingData? _parseUrlParams(String routeNamed, Uri uri) {
 
 class RoutingData {
   RoutingData(this.uri, this.params);
+
   final Uri uri;
   final Map<String, dynamic> params;
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import '../core.dart';
+import 'package:iupp_core/navigator/arguments.dart';
 
 typedef WidgetBuilderArgs = Widget Function(
     BuildContext context, Arguments? args);

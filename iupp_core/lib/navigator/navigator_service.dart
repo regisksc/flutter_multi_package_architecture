@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:iupp_core/core.dart';
 
+import 'arguments.dart';
+
 class NavigatorService {
   Future<dynamic> navigateTo(
     String routeName, {
