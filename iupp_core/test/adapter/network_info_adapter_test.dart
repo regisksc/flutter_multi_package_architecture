@@ -1,4 +1,7 @@
-import 'package:cross_connectivity/cross_connectivity.dart';
+import 'dart:async';
+
+import 'package:connectivity/connectivity.dart';
+import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
 import 'package:mocktail/mocktail.dart';
@@ -8,65 +11,113 @@ import '../mocks/adapter/adapter.dart';
 void main() {
   late NetworkInfoAdapter networkInfoAdapter;
   late ConnectivityMock connectivityMock;
+  late DataConnectionCheckerMock dataConnectionCheckerMock;
 
   setUp(() {
     connectivityMock = ConnectivityMock();
-    networkInfoAdapter = NetworkInfoAdapter(connectivity: connectivityMock);
-  });
-
-  group('checkConnection', () {
-    test(
-      'should check the current connection status when true',
-      () async {
-        when(() => connectivityMock.checkConnection())
-            .thenAnswer((_) async => Future.value(true));
-        final connectionStatus = await networkInfoAdapter.checkConnection;
-        expect(connectionStatus, true);
-      },
-    );
-
-    test(
-      'should check the current connection status when false',
-      () async {
-        when(() => connectivityMock.checkConnection())
-            .thenAnswer((_) async => Future.value(false));
-        final connectionStatus = await networkInfoAdapter.checkConnection;
-        expect(connectionStatus, false);
-      },
+    dataConnectionCheckerMock = DataConnectionCheckerMock();
+    networkInfoAdapter = NetworkInfoAdapter(
+      connectivity: connectivityMock,
+      dataConnectionChecker: dataConnectionCheckerMock,
     );
   });
 
-  group('isOverReliableConnection', () {
+  void mockConnectivityWithResult(ConnectivityResult result) {
+    when(() => connectivityMock.checkConnectivity())
+        .thenAnswer((_) async => result);
+  }
+
+  void mockDataConnectionChecker({required bool hasConnection}) {
+    when(() => dataConnectionCheckerMock.hasConnection)
+        .thenAnswer((_) => Future.value(hasConnection));
+  }
+
+  group('hasConnection', () {
     test(
-      'should return true when connectivity status is wifi',
+      'should return false when there is no connectivity',
       () async {
-        when(() => connectivityMock.checkConnectivity())
-            .thenAnswer((_) async => Future.value(ConnectivityStatus.wifi));
-        final connectionStatus =
-            await networkInfoAdapter.isOverReliableConnection;
-        expect(connectionStatus, true);
+        mockConnectivityWithResult(ConnectivityResult.none);
+
+        final hasConnection = await networkInfoAdapter.hasConnection;
+
+        expect(hasConnection, false);
       },
     );
 
     test(
-      'should return true when connectivity status is ethernet',
+      'should return true when has connectivity over mobile and connection',
       () async {
-        when(() => connectivityMock.checkConnectivity())
-            .thenAnswer((_) async => Future.value(ConnectivityStatus.ethernet));
-        final connectionStatus =
-            await networkInfoAdapter.isOverReliableConnection;
-        expect(connectionStatus, true);
+        mockConnectivityWithResult(ConnectivityResult.mobile);
+        mockDataConnectionChecker(hasConnection: true);
+
+        final hasConnection = await networkInfoAdapter.hasConnection;
+
+        expect(hasConnection, true);
       },
     );
 
     test(
-      'should return false when connectivity status is none',
+      'should return true when has connectivity over wifi and connection',
       () async {
-        when(() => connectivityMock.checkConnectivity())
-            .thenAnswer((_) async => Future.value(ConnectivityStatus.none));
-        final connectionStatus =
-            await networkInfoAdapter.isOverReliableConnection;
-        expect(connectionStatus, false);
+        mockConnectivityWithResult(ConnectivityResult.wifi);
+        mockDataConnectionChecker(hasConnection: true);
+
+        final hasConnection = await networkInfoAdapter.hasConnection;
+
+        expect(hasConnection, true);
+      },
+    );
+
+    test(
+      'should return false when has connectivity but no connection',
+      () async {
+        mockConnectivityWithResult(ConnectivityResult.wifi);
+        mockDataConnectionChecker(hasConnection: false);
+
+        final hasConnection = await networkInfoAdapter.hasConnection;
+
+        expect(hasConnection, false);
+      },
+    );
+  });
+
+  group('connectionChanges', () {
+    test(
+      'should return a stream of DataConnectionStatus',
+      () async {
+        when(() => dataConnectionCheckerMock.onStatusChange)
+            .thenAnswer((_) => Stream.fromIterable([
+                  DataConnectionStatus.connected,
+                  DataConnectionStatus.disconnected,
+                  DataConnectionStatus.connected,
+                ]));
+
+        final dataConnectionStream = networkInfoAdapter.connectionChanges;
+        expect(dataConnectionStream, isA<Stream<DataConnectionStatus>>());
+      },
+    );
+
+    test(
+      'should emit the right values in the right order',
+      () async {
+        final dataConnectionController =
+            StreamController<DataConnectionStatus>();
+        final dataConnectionStream = dataConnectionController.stream;
+
+        when(() => dataConnectionCheckerMock.onStatusChange)
+            .thenAnswer((_) => dataConnectionStream);
+
+        expectLater(
+            dataConnectionStream,
+            emitsInAnyOrder([
+              DataConnectionStatus.connected,
+              DataConnectionStatus.disconnected,
+              DataConnectionStatus.connected,
+            ]));
+
+        dataConnectionController.add(DataConnectionStatus.connected);
+        dataConnectionController.add(DataConnectionStatus.disconnected);
+        dataConnectionController.add(DataConnectionStatus.connected);
       },
     );
   });
