@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_checkout/widgets/iupp_address_app_bar.dart';
 import 'package:iupp_checkout/widgets/iupp_address_general_info.dart';
-import 'package:iupp_components/buttons/i_elevated_button.dart';
 
-import '../../utils/masks.dart';
 import 'components/components.dart';
 
 class AddressRegisterPage extends StatefulWidget {
@@ -70,177 +68,7 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
                           onChanged: (value) => setState(() => cep = value),
                           enabled: !cepChoosed,
                         ),
-                        if (cepChoosed) ...[
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Endereço',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 2,
-                                child: TextFormField(
-                                  textAlignVertical: TextAlignVertical.bottom,
-                                  inputFormatters: [cepFormater],
-                                  initialValue: cep,
-                                  onChanged: (cepValue) {
-                                    setState(() {
-                                      cep = cepValue;
-                                    });
-                                  },
-                                  decoration: InputDecoration(
-                                    labelText: 'Número',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 16, right: 8),
-                                child: Text('Sem número'),
-                              ),
-                              Expanded(
-                                child: Switch.adaptive(
-                                  value: false,
-                                  onChanged: (value) {},
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 21),
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Complemento (opcional)',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Bairro',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Cidade',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Estado',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Ponto de referência',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Nome do destinatário',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              labelText: 'Celular com DDD',
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                        ],
+                        if (cepChoosed) const CompleteForm(),
                       ],
                     ),
                   ),
@@ -256,25 +84,26 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
               left: 24,
               right: 24,
             ),
-            child: IElevatedButton(
-              text: 'continuar',
-              isLoading: isLoading,
-              textPadding: const EdgeInsets.all(13),
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              onPressed: cep.isEmpty
-                  ? null
-                  : () async {
-                      setState(() {
-                        isLoading = true;
-                      });
-                      await Future.delayed(const Duration(seconds: 2));
-                      setState(() {
-                        isLoading = false;
-                        cepChoosed = true;
-                      });
-                    },
-            ),
+            child: cepChoosed
+                ? const ConfirmRegisterButton(
+                    isLoading: false,
+                    onPressed: null,
+                  )
+                : ContinueRegisterButton(
+                    isLoading: isLoading,
+                    onPressed: cep.isEmpty
+                        ? null
+                        : () async {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 2));
+                            setState(() {
+                              isLoading = false;
+                              cepChoosed = true;
+                            });
+                          },
+                  ),
           ),
           const IuppAddressGeneralInfo(),
         ],
