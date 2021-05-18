@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_checkout/widgets/iupp_address_app_bar.dart';
-import 'package:iupp_checkout/widgets/iupp_address_general_info.dart';
+import 'package:iupp_checkout/widgets/iupp_checkout_footer.dart';
 
 import 'components/components.dart';
 
@@ -105,7 +105,8 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
                           },
                   ),
           ),
-          const IuppAddressGeneralInfo(),
+          const IuppCheckoutFooter(),
+          const SizedBox(height: 50),
         ],
       ),
     );

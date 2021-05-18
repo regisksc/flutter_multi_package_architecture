@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/address_register/address_register_page.dart';
+import 'package:iupp_checkout/pages/cart/cart_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AddressRegisterPage(),
+      home: const CartPage(),
     );
   }
 }

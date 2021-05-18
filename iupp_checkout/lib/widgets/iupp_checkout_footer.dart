@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-class IuppAddressGeneralInfo extends StatelessWidget {
-  const IuppAddressGeneralInfo({Key? key}) : super(key: key);
+class IuppCheckoutFooter extends StatelessWidget {
+  const IuppCheckoutFooter({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,6 @@ class IuppAddressGeneralInfo extends StatelessWidget {
             '''Os produtos e preços poderão sofrer alterações durante a navegação, sem aviso prévio, devendo ser consultados no momento da conclusão da compra.''',
             style: textStyle,
           ),
-          const SizedBox(height: 50),
         ],
       ),
     );
