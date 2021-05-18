@@ -96,20 +96,21 @@ RoutingData? _parseUrlParams(String routeNamed, Uri uri) {
       final pathParts = uri.path.split('/');
       int paramPos = 0;
 
-      String teste = routeNamed;
+      String newRouteNamed = routeNamed;
 
       for (final routePart in routeParts) {
         if (routePart.contains(":")) {
           final paramName = routePart.replaceFirst(':', '');
           if (pathParts[paramPos].isNotEmpty) {
             params[paramName] = pathParts[paramPos];
-            teste = routeNamed.replaceFirst(routePart, params[paramName]!);
+            newRouteNamed =
+                routeNamed.replaceFirst(routePart, params[paramName]!);
           }
         }
         paramPos++;
       }
 
-      return RoutingData(uri.replace(path: teste), params);
+      return RoutingData(uri.replace(path: newRouteNamed), params);
     }
   }
 
