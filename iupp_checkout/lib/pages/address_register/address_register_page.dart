@@ -5,6 +5,7 @@ import 'package:iupp_checkout/widgets/iupp_address_general_info.dart';
 import 'package:iupp_components/buttons/i_elevated_button.dart';
 
 import '../../utils/masks.dart';
+import 'components/components.dart';
 
 class AddressRegisterPage extends StatefulWidget {
   const AddressRegisterPage({Key? key}) : super(key: key);
@@ -64,59 +65,12 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (!cepChoosed)
-                          Container(
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: TextFormField(
-                              textAlignVertical: TextAlignVertical.bottom,
-                              inputFormatters: [cepFormater],
-                              initialValue: cep,
-                              onChanged: (cepValue) {
-                                setState(() {
-                                  cep = cepValue;
-                                });
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'ex: 00000-000',
-                                labelText: 'Digite o CEP',
-                                suffix: const Text(
-                                  'Não sei meu CEP',
-                                  style: TextStyle(color: Color(0xFF0070D4)),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                            ),
-                          )
-                        else ...[
-                          TextFormField(
-                            textAlignVertical: TextAlignVertical.bottom,
-                            inputFormatters: [cepFormater],
-                            initialValue: cep,
-                            enabled: false,
-                            onChanged: (cepValue) {
-                              setState(() {
-                                cep = cepValue;
-                              });
-                            },
-                            decoration: InputDecoration(
-                              hintText: 'ex: 00000-000',
-                              labelText: 'Digite o CEP',
-                              suffix: const Text(
-                                'Não sei meu CEP',
-                                style: TextStyle(color: Color(0xFF0070D4)),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 21),
+                        CepFormField(
+                          cep: cep,
+                          onChanged: (value) => setState(() => cep = value),
+                          enabled: !cepChoosed,
+                        ),
+                        if (cepChoosed) ...[
                           TextFormField(
                             textAlignVertical: TextAlignVertical.bottom,
                             inputFormatters: [cepFormater],
