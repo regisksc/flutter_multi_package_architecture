@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/widgets.dart';
+import 'package:iupp_components/iupp_components.dart';
 import 'components/components.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE5E5E5),
-      appBar: IuppAppBar(),
+      appBar: IAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
             const TalkToUs(),
             const SizedBox(height: 4),
             const SocialNetworks(),
-            const IuppFooter(),
+            const IFooter(),
           ],
         ),
       ),

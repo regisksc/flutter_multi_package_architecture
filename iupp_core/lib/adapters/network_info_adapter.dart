@@ -2,7 +2,7 @@ import 'package:connectivity/connectivity.dart';
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 
 /// The Connectivity plugin can give us several false positives, in which case
-/// the user has connectivity but does not have access to the internet. The use 
+/// the user has connectivity but does not have access to the internet. The use
 /// of the DataConnectionChecker plugin mitigates these false positives. So we
 /// ask for the DataConnectionChecker info only when Connectivity ensure we have
 /// connectivity.

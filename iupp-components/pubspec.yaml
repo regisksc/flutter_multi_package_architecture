@@ -16,8 +16,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mocktail_image_network: ^0.1.0
 
 flutter:
+  assets:
+    - assets/images/
+
   fonts:
     - family: IuppIcons
       fonts:

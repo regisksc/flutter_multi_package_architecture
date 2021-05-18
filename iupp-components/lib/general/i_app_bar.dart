@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
 
-class IuppAppBar extends AppBar {
-  IuppAppBar({
+import '../iupp_components.dart';
+
+class IAppBar extends AppBar {
+  IAppBar({
     ShapeBorder? shapeBorder,
   }) : super(
           leading: const Icon(
@@ -11,7 +12,7 @@ class IuppAppBar extends AppBar {
           ),
           shape: shapeBorder,
           backgroundColor: const Color(0xFF23232E),
-          title: Image.asset('assets/logo_iupp.png'),
+          title: Image.asset('assets/images/logo_iupp.png'),
           elevation: 0,
           actions: [
             IconButton(

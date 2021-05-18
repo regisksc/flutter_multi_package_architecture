@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../widgets/widgets.dart';
+import 'package:iupp_components/iupp_components.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({Key? key}) : super(key: key);
@@ -8,7 +7,7 @@ class ProductDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: IuppAppBar(
+      appBar: IAppBar(
         shapeBorder: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(8),
