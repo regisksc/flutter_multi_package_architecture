@@ -1,7 +1,5 @@
 import 'package:app/resources/resources.dart';
-import 'package:flutter/material.dart';
 import 'package:iupp_core/core.dart';
-import 'package:iupp_core/protocols/protocols.dart';
 
 import 'theme.dart';
 
