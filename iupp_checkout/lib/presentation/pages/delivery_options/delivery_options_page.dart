@@ -6,6 +6,51 @@ import 'package:iupp_components/iupp_components.dart';
 
 import 'components/components.dart';
 
+class DeliveryType {
+  DeliveryType({
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String title;
+  final String subtitle;
+}
+
+final deliverySellers = <Widget>[
+  DeliverySellerCard(
+    number: 1,
+    seller: 'Magazine Luiza',
+    deliveryTypes: [
+      DeliveryType(
+        title: 'Padrão',
+        subtitle: 'Em até 3 dias úteis¹',
+      ),
+      DeliveryType(
+        title: 'Agendada',
+        subtitle: 'Escolha a data',
+      ),
+      DeliveryType(
+        title: 'Retira loja',
+        subtitle: 'Consulte as lojas',
+      ),
+    ],
+    productDescription: 'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+    productImage: 'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-128gb-azul-tela-61-cam-dupla-12mp-ios/magazineluiza/155598400/6b9b8ece04de165ab19587f5bd491df4.jpg',
+  ),
+  DeliverySellerCard(
+    number: 2,
+    seller: 'Top store',
+    deliveryTypes: [
+      DeliveryType(
+        title: 'Padrão',
+        subtitle: 'Em até 8 dias úteis¹',
+      ),
+    ],
+    productDescription: 'Smartphone Motorola Moto G9 Play 64GB Duos 6.5" 4G Câm 48+2+2MP',
+    productImage: 'https://a-static.mlcdn.com.br/618x463/smartphone-motorola-moto-g9-play-64gb-4gb-ram-camera-tripla-48mp-tela-6-5-azul-safira/commcenter/e000055/5ddbea0e4e14d0f030269e1b6a099909.jpg',
+  ),
+];
+
 class DeliveryOptionsPage extends StatelessWidget {
   const DeliveryOptionsPage({Key? key}) : super(key: key);
 
@@ -38,8 +83,7 @@ class DeliveryOptionsPage extends StatelessWidget {
                 ),
               ),
             ),
-            const DeliveryCard(number: 1),
-            const DeliveryCard(number: 2),
+            ...deliverySellers,
             Padding(
               padding: const EdgeInsets.all(24),
               child: IuppElevatedButton(

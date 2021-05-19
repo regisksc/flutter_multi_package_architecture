@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_checkout/presentation/pages/delivery_options/components/components.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-class DeliveryCard extends StatelessWidget {
-  const DeliveryCard({
+import '../delivery_options_page.dart';
+
+class DeliverySellerCard extends StatefulWidget {
+  const DeliverySellerCard({
     Key? key,
     required this.number,
+    required this.seller,
+    required this.deliveryTypes,
+    required this.productDescription,
+    required this.productImage,
   }) : super(key: key);
 
   final int number;
+  final String seller;
+  final List<DeliveryType> deliveryTypes;
+  final String productDescription;
+  final String productImage;
+
+  @override
+  _DeliverySellerCardState createState() => _DeliverySellerCardState();
+}
+
+class _DeliverySellerCardState extends State<DeliverySellerCard> {
+  int pickedDeliverOption = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +52,11 @@ class DeliveryCard extends StatelessWidget {
             children: [
               Text.rich(
                 TextSpan(
-                  text: 'Entrega 0$number por ',
-                  children: const [
+                  text: 'Entrega 0${widget.number} por ',
+                  children: [
                     TextSpan(
-                      text: 'Magazine Luiza',
-                      style: TextStyle(
+                      text: widget.seller,
+                      style: const TextStyle(
                         color: Color(0xFF494C57),
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -49,17 +67,14 @@ class DeliveryCard extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ListTile(
-                leading: Image.network(
-                    'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-128gb-azul-tela-61-cam-dupla-12mp-ios/magazineluiza/155598400/6b9b8ece04de165ab19587f5bd491df4.jpg'),
-                title: const Expanded(
-                  child: Text(
-                    'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
+                leading: Image.network(widget.productImage),
+                title: Text(
+                  widget.productDescription,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
@@ -76,9 +91,15 @@ class DeliveryCard extends StatelessWidget {
               ListView.separated(
                 shrinkWrap: true,
                 itemBuilder: (_, i) => ListTile(
-                  leading: const CircleAvatar(),
-                  title: const Text('Padrão'),
-                  subtitle: const Text('Em até 3 dias úteis¹'),
+                  onTap: () {
+                    setState(() {
+                      pickedDeliverOption = i + 1;
+                    });
+                  },
+                  leading: DeliverOptionCheckBox(
+                      isPicked: i == pickedDeliverOption - 1),
+                  title: Text(widget.deliveryTypes[i].title),
+                  subtitle: Text(widget.deliveryTypes[i].subtitle),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: const [
@@ -99,7 +120,7 @@ class DeliveryCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                itemCount: 3,
+                itemCount: widget.deliveryTypes.length,
                 separatorBuilder: (_, __) => const Divider(
                   color: Color(0xFFE1E4EC),
                   height: 1,
