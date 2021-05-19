@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/iupp_address_app_bar.dart';
-import 'package:iupp_checkout/presentation/widgets/iupp_checkout_footer.dart';
-import 'package:iupp_core/navigator/navigator_service.dart';
+import 'package:iupp_core/core.dart';
 
+import '../../widgets/iupp_address_app_bar.dart';
+import '../../widgets/iupp_checkout_footer.dart';
 import 'components/components.dart';
 
 class AddressRegisterPage extends StatefulWidget {

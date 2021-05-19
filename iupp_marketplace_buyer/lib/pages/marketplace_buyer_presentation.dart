@@ -1,5 +1,4 @@
 import 'package:iupp_core/core.dart';
-import 'package:iupp_core/protocols/protocols.dart';
 import 'package:iupp_marketplace_buyer/pages/home_page/home_page.dart';
 
 import 'product_details/product_details_page.dart';
