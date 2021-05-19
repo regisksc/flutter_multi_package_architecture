@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_checkout/widgets/iupp_address_app_bar.dart';
 import 'package:iupp_checkout/widgets/iupp_checkout_footer.dart';
+import 'package:iupp_core/navigator/navigator_service.dart';
 
 import 'components/components.dart';
 
@@ -16,6 +17,7 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
   String cep = '';
   bool cepChoosed = false;
   bool isLoading = false;
+  bool isFormValid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +70,14 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
                           onChanged: (value) => setState(() => cep = value),
                           enabled: !cepChoosed,
                         ),
-                        if (cepChoosed) const CompleteForm(),
+                        if (cepChoosed)
+                          CompleteForm(
+                            updateFormStatus: (isFormValid) {
+                              setState(() {
+                                this.isFormValid = isFormValid;
+                              });
+                            },
+                          ),
                       ],
                     ),
                   ),
@@ -85,9 +94,17 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
               right: 24,
             ),
             child: cepChoosed
-                ? const ConfirmRegisterButton(
-                    isLoading: false,
-                    onPressed: null,
+                ? ConfirmRegisterButton(
+                    isLoading: isLoading,
+                    onPressed: isFormValid
+                        ? () async {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 2));
+                            NavigatorService().navigateTo('address-list');
+                          }
+                        : null,
                   )
                 : ContinueRegisterButton(
                     isLoading: isLoading,
