@@ -12,38 +12,42 @@ class CartActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    /*  return SizedBox(
       width: 40,
       height: 40,
       child: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.white,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50.0))),
         child: Icon(
           icon,
           color: const Color(0xFF23232E),
         ),
       ),
-    );
-    /* return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(50),
-        border: const Border.fromBorderSide(
-          BorderSide(
-            color: Color(0xFF23232E),
+    ); */
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 42,
+        height: 42,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(50),
+          border: const Border.fromBorderSide(
+            BorderSide(
+              color: Color(0xff23232E),
+            ),
+          ),
+        ),
+        child: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            icon,
+            color: const Color(0xff23232E),
           ),
         ),
       ),
-      child: IconButton(
-        padding: EdgeInsets.zero,
-        icon: Icon(
-          icon,
-          color: const Color(0xFF23232E),
-        ),
-        onPressed: onTap,
-      ),
-    ); */
+    );
   }
 }
