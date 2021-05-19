@@ -35,8 +35,8 @@ class DeliveryCard extends StatelessWidget {
               Text.rich(
                 TextSpan(
                   text: 'Entrega 0$number por ',
-                  children: [
-                    const TextSpan(
+                  children: const [
+                    TextSpan(
                       text: 'Magazine Luiza',
                       style: TextStyle(
                         color: Color(0xFF494C57),
