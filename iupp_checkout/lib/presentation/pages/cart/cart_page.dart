@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:iupp_checkout/presentation/widgets/iupp_checkout_scafold.dart';
 import 'package:iupp_components/iupp_components.dart';
-import 'package:iupp_core/navigator/navigator_service.dart';
+import 'package:iupp_core/core.dart';
 
+import '../../widgets/iupp_checkout_scafold.dart';
 import 'widgets/empty_cart/empty_cart.dart';
 
 class CartPage extends StatelessWidget {
