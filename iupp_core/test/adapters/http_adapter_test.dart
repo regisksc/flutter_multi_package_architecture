@@ -15,17 +15,16 @@ void main() {
   late HttpClient sut;
   late String url;
   late RequestOptionsMock requestOptions;
-  late int serverSuccessCode;
+
+  const Map<String, dynamic> anyMap = {'any_key': 'any_value'};
 
   setUp(() {
     client = ClientMock();
     requestOptions = RequestOptionsMock();
     sut = HttpAdapter(client);
     url = faker.internet.httpsUrl();
-
-    serverSuccessCode = 200;
   });
-  const Map<String, dynamic> anyMap = {'any_key': 'any_value'};
+  
 
   test(
     'should throw on unrecognized http verb',

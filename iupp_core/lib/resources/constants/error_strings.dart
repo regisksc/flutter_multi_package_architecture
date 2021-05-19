@@ -1,5 +1,5 @@
 abstract class ErrorStrings {
-  static const unrecognized = 'Ocorreu um erro não esperado. Entre em contato em \'Ajuda\' no menu';
+  static const unrecognized = 'Ocorreu um erro não esperado. Entre em contato em "Ajuda" no menu';
   static const noConnection = 'Não conseguimos encontrar conexão no momento';
   static const notFound = 'Ocorreu um erro';
   static const forbidden = 'Credenciais inválidas';
