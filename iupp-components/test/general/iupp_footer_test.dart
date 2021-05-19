@@ -6,9 +6,9 @@ import 'utils.dart';
 void main() {
   testWidgets('should build without exploding', (tester) async {
     // arrange
-    await loadPageWithFooter(tester, footer: const IFooter());
+    await loadPageWithFooter(tester, footer: const IuppFooter());
 
     // assert
-    expect(find.byType(IFooter), findsOneWidget);
+    expect(find.byType(IuppFooter), findsOneWidget);
   });
 }

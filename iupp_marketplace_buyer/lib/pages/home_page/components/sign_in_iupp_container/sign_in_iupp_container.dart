@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/buttons/buttons.dart';
 import 'package:iupp_components/iupp_components.dart';
 
 class SignInIuppContainer extends StatelessWidget {
@@ -76,7 +75,7 @@ class SignInIuppContainer extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
-          IElevatedButton(
+          IuppElevatedButton(
             text: 'entrar',
             fontSize: 18,
             fontWeight: FontWeight.w700,

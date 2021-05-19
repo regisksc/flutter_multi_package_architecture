@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class IFooter extends StatelessWidget {
-  const IFooter({Key? key}) : super(key: key);
+class IuppFooter extends StatelessWidget {
+  const IuppFooter({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

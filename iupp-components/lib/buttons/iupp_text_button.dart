@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ITextButton extends StatelessWidget {
-  const ITextButton({
+class IuppTextButton extends StatelessWidget {
+  const IuppTextButton({
     Key? key,
     required this.text,
     required this.onPressed,

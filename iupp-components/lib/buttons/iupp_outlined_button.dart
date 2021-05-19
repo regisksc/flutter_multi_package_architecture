@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class IOutlinedButton extends StatelessWidget {
-  const IOutlinedButton({
+class IuppOutlinedButton extends StatelessWidget {
+  const IuppOutlinedButton({
     Key? key,
     required this.text,
     required this.onPressed,

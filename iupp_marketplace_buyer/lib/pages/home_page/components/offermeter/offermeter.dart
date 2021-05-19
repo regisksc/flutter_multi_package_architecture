@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/buttons/i_elevated_button.dart';
+import 'package:iupp_components/iupp_components.dart';
 
 import '../products/products.dart';
 import 'offermeter_header.dart';
@@ -21,7 +21,7 @@ class Offermeter extends StatelessWidget {
             ),
             margin: const EdgeInsets.all(0),
             hasChipInfo: false,
-            pickProductButton: IElevatedButton(
+            pickProductButton: IuppElevatedButton(
               text: 'eu quero',
               fontSize: 18,
               fontWeight: FontWeight.w700,

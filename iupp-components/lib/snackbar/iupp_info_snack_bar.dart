@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../iupp_components.dart';
 
-class IErrorSnackBar extends ISnackBar {
-  IErrorSnackBar(
+class IuppInfoSnackBar extends IuppSnackBar {
+  IuppInfoSnackBar(
     BuildContext context, {
     required String message,
   }) : super(
           context,
           message: message,
-          icon: IuppIcons.icone_contorno_A_aviso_outline,
-          backgroundColor: const Color(0xFFDE1E12),
+          icon: IuppIcons.icone_contorno_I_informacao_outline,
+          backgroundColor: const Color(0xFF007DED),
         );
 }

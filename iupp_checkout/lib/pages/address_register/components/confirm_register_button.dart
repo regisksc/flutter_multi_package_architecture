@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/buttons/buttons.dart';
+import 'package:iupp_components/iupp_components.dart';
 
 class ConfirmRegisterButton extends StatelessWidget {
   const ConfirmRegisterButton({
@@ -13,7 +13,7 @@ class ConfirmRegisterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IElevatedButton(
+    return IuppElevatedButton(
       text: 'confirmar endereço',
       isLoading: isLoading,
       textPadding: const EdgeInsets.all(13),

@@ -14,7 +14,7 @@ class IuppCheckoutScafold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
-      appBar: IAppBar(
+      appBar: IuppAppBar(
         centered: true,
       ),
       body: Column(

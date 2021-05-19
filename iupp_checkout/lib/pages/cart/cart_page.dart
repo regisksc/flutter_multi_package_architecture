@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iupp_checkout/widgets/iupp_checkout_scafold.dart';
-import 'package:iupp_components/buttons/buttons.dart';
+import 'package:iupp_components/iupp_components.dart';
 import 'package:iupp_core/navigator/navigator_service.dart';
 
 class CartPage extends StatelessWidget {
@@ -43,7 +43,7 @@ class CartPage extends StatelessWidget {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
             width: 312,
             height: 48,
-            child: IElevatedButton(
+            child: IuppElevatedButton(
               text: 'ir para o início',
               fontSize: 18,
               onPressed: () => NavigatorService().navigateTo('/home'),

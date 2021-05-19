@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../utils/utils.dart';
 
-class ISnackBar extends SnackBar {
-  ISnackBar(
+class IuppSnackBar extends SnackBar {
+  IuppSnackBar(
     BuildContext context, {
     required String message,
     required IconData icon,

@@ -8,7 +8,7 @@ void main() {
   testWidgets('should build without exploding', (tester) async {
     // arrange
     await loadPageWithCarousel(tester);
-    expect(find.byType(ICarrouselSlider), findsOneWidget);
+    expect(find.byType(IuppCarrouselSlider), findsOneWidget);
   });
 
   testWidgets('should build without indicator when none is given',
@@ -17,7 +17,7 @@ void main() {
     await loadPageWithCarousel(tester);
 
     // assert
-    expect(find.byType(ICarrouselSlider), findsOneWidget);
+    expect(find.byType(IuppCarrouselSlider), findsOneWidget);
     expect(find.byType(DotsIndicator), findsNothing);
     expect(find.byType(SnakeIndicator), findsNothing);
   });
@@ -31,7 +31,7 @@ void main() {
     );
 
     // assert
-    expect(find.byType(ICarrouselSlider), findsOneWidget);
+    expect(find.byType(IuppCarrouselSlider), findsOneWidget);
     expect(find.byType(DotsIndicator), findsOneWidget);
   });
 
@@ -44,7 +44,7 @@ void main() {
     );
 
     // assert
-    expect(find.byType(ICarrouselSlider), findsOneWidget);
+    expect(find.byType(IuppCarrouselSlider), findsOneWidget);
     expect(find.byType(SnakeIndicator), findsOneWidget);
   });
 

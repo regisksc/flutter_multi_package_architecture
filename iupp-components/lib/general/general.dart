@@ -1,3 +1,3 @@
-export 'i_app_bar.dart';
-export 'i_carousel_slider.dart';
-export 'i_footer.dart';
+export 'iupp_app_bar.dart';
+export 'iupp_carousel_slider.dart';
+export 'iupp_footer.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/buttons/i_elevated_button.dart';
+import 'package:iupp_components/iupp_components.dart';
 
 import 'products.dart';
 
@@ -15,7 +15,7 @@ class HorizontalProductCard extends StatelessWidget {
   final BorderRadiusGeometry? borderRadiusGeometry;
   final EdgeInsets? margin;
   final bool hasChipInfo;
-  final IElevatedButton? pickProductButton;
+  final IuppElevatedButton? pickProductButton;
 
   @override
   Widget build(BuildContext context) {

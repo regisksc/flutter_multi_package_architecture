@@ -4,8 +4,8 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 final buttonStories = [
   Story(
     section: 'Buttons',
-    name: 'IElevatedButton',
-    builder: (_, k) => IElevatedButton(
+    name: 'IuppElevatedButton',
+    builder: (_, k) => IuppElevatedButton(
       onPressed: k.boolean(label: 'Enabled', initial: true) ? () {} : null,
       isLoading: k.boolean(label: 'Is Loading', initial: false),
       text: k.text(
@@ -16,8 +16,8 @@ final buttonStories = [
   ),
   Story(
     section: 'Buttons',
-    name: 'IOutlinedButton',
-    builder: (_, k) => IOutlinedButton(
+    name: 'IuppOutlinedButton',
+    builder: (_, k) => IuppOutlinedButton(
       onPressed: k.boolean(label: 'Enabled', initial: true) ? () {} : null,
       isLoading: k.boolean(label: 'Is Loading', initial: false),
       text: k.text(
@@ -28,8 +28,8 @@ final buttonStories = [
   ),
   Story(
     section: 'Buttons',
-    name: 'ITextButton',
-    builder: (_, k) => ITextButton(
+    name: 'IuppTextButton',
+    builder: (_, k) => IuppTextButton(
       onPressed: k.boolean(label: 'Enabled', initial: true) ? () {} : null,
       isLoading: k.boolean(label: 'Is Loading', initial: false),
       text: k.text(

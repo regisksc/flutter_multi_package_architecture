@@ -13,7 +13,7 @@ Future<void> loadPageWithCarousel(
   await tester.pumpWidget(
     MaterialApp(
       home: Scaffold(
-        body: ICarrouselSlider(
+        body: IuppCarrouselSlider(
           items: [
             Container(
               key: firstContainerKey,

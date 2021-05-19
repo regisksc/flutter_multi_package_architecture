@@ -1,4 +1,4 @@
-export 'i_elevated_button.dart';
-export 'i_outlined_button.dart';
-export 'i_text_button.dart';
+export 'iupp_elevated_button.dart';
+export 'iupp_outlined_button.dart';
+export 'iupp_text_button.dart';
 

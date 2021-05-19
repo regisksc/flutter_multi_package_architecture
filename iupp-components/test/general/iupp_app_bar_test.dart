@@ -7,16 +7,16 @@ import 'utils.dart';
 void main() {
   testWidgets('should build without exploding', (tester) async {
     // arrange
-    await loadPageWithAppBar(tester, appBar: IAppBar());
+    await loadPageWithAppBar(tester, appBar: IuppAppBar());
 
     // assert
-    expect(find.byType(IAppBar), findsOneWidget);
+    expect(find.byType(IuppAppBar), findsOneWidget);
   });
 
   testWidgets('should do something when press cart icon', (tester) async {
     // arrange
     await loadPageWithAppBar(tester,
-        appBar: IAppBar(
+        appBar: IuppAppBar(
           iuppActions: const [
             IconButton(
               icon: Icon(Icons.shopping_cart),

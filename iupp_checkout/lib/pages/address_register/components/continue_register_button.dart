@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/buttons/buttons.dart';
+import 'package:iupp_components/iupp_components.dart';
 
 class ContinueRegisterButton extends StatelessWidget {
   const ContinueRegisterButton({
@@ -13,7 +13,7 @@ class ContinueRegisterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IElevatedButton(
+    return IuppElevatedButton(
       text: 'continuar',
       isLoading: isLoading,
       textPadding: const EdgeInsets.all(13),

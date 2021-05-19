@@ -9,21 +9,21 @@ void main() {
     // arrange
     await loadPageWithButton(
       tester,
-      button: ITextButton(
+      button: IuppTextButton(
         text: 'text',
         onPressed: () {},
       ),
     );
 
     // assert
-    expect(find.byType(ITextButton), findsOneWidget);
+    expect(find.byType(IuppTextButton), findsOneWidget);
   });
 
   testWidgets('should show button text with background color', (tester) async {
     // arrange
     await loadPageWithButton(
       tester,
-      button: ITextButton(
+      button: IuppTextButton(
         text: 'text',
         onPressed: () {},
       ),
@@ -43,7 +43,7 @@ void main() {
     // arrange
     await loadPageWithButton(
       tester,
-      button: const ITextButton(
+      button: const IuppTextButton(
         text: 'text',
         onPressed: null,
       ),
@@ -62,7 +62,7 @@ void main() {
     // arrange
     await loadPageWithButton(
       tester,
-      button: ITextButton(
+      button: IuppTextButton(
         text: 'text',
         onPressed: () {},
         isLoading: true,

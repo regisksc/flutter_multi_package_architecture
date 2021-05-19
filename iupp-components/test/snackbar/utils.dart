@@ -54,15 +54,15 @@ enum SnackBarType {
   error,
 }
 
-ISnackBar getSnackBarFromType(BuildContext context, SnackBarType type) {
+IuppSnackBar getSnackBarFromType(BuildContext context, SnackBarType type) {
   switch (type) {
     case SnackBarType.success:
-      return ISuccessSnackBar(context, message: 'success');
+      return IuppSuccessSnackBar(context, message: 'success');
     case SnackBarType.warning:
-      return IWarningSnackBar(context, message: 'warning');
+      return IuppWarningSnackBar(context, message: 'warning');
     case SnackBarType.info:
-      return IInfoSnackBar(context, message: 'info');
+      return IuppInfoSnackBar(context, message: 'info');
     case SnackBarType.error:
-      return IErrorSnackBar(context, message: 'error');
+      return IuppErrorSnackBar(context, message: 'error');
   }
 }

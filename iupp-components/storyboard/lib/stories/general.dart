@@ -5,8 +5,8 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 final generalStories = [
   Story(
     section: 'General',
-    name: 'IAppBar',
-    builder: (_, k) => IAppBar(
+    name: 'IuppAppBar',
+    builder: (_, k) => IuppAppBar(
       iuppActions: k.options(label: 'Actions', initial: [], options: const [
         Option('Empty', []),
         Option(
@@ -51,8 +51,8 @@ final generalStories = [
   ),
   Story(
     section: 'General',
-    name: 'ICarrouselSlider',
-    builder: (_, k) => ICarrouselSlider(
+    name: 'IuppCarrouselSlider',
+    builder: (_, k) => IuppCarrouselSlider(
       items: [
         Container(
           height: 200,
@@ -74,7 +74,7 @@ final generalStories = [
   ),
   Story(
     section: 'General',
-    name: 'IFooter',
-    builder: (_, k) => const IFooter(),
+    name: 'IuppFooter',
+    builder: (_, k) => const IuppFooter(),
   ),
 ];

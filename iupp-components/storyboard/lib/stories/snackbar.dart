@@ -5,10 +5,10 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 final snackBarStories = [
   Story(
     section: 'Snackbars',
-    name: 'ISuccessSnackBar',
+    name: 'IuppSuccessSnackBar',
     builder: (context, k) => ElevatedButton(
       onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-        ISuccessSnackBar(
+        IuppSuccessSnackBar(
           context,
           message: 'It is a SUCCESS SnackBar',
         ),
@@ -20,10 +20,10 @@ final snackBarStories = [
   ),
   Story(
     section: 'Snackbars',
-    name: 'IInfoSnackBar',
+    name: 'IuppInfoSnackBar',
     builder: (context, k) => ElevatedButton(
       onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-        IInfoSnackBar(
+        IuppInfoSnackBar(
           context,
           message: 'It is an INFO SnackBar',
         ),
@@ -35,10 +35,10 @@ final snackBarStories = [
   ),
   Story(
     section: 'Snackbars',
-    name: 'IWarningSnackBar',
+    name: 'IuppWarningSnackBar',
     builder: (context, k) => ElevatedButton(
       onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-        IWarningSnackBar(
+        IuppWarningSnackBar(
           context,
           message: 'It is a WARNING SnackBar',
         ),
@@ -50,10 +50,10 @@ final snackBarStories = [
   ),
   Story(
     section: 'Snackbars',
-    name: 'IErrorSnackBar',
+    name: 'IuppErrorSnackBar',
     builder: (context, k) => ElevatedButton(
       onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-        IErrorSnackBar(
+        IuppErrorSnackBar(
           context,
           message: 'It is an ERROR SnackBar',
         ),

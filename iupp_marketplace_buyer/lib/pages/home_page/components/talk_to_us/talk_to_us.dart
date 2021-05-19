@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/buttons/buttons.dart';
+import 'package:iupp_components/iupp_components.dart';
 
 class TalkToUs extends StatelessWidget {
   const TalkToUs({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class TalkToUs extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 30, bottom: 24),
-            child: IOutlinedButton(
+            child: IuppOutlinedButton(
               text: 'fale com a gente',
               textPadding: const EdgeInsets.all(12),
               fontSize: 18,

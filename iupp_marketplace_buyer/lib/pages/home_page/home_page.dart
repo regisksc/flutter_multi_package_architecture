@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE5E5E5),
-      appBar: IAppBar(),
+      appBar: IuppAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
             const TalkToUs(),
             const SizedBox(height: 4),
             const SocialNetworks(),
-            const IFooter(),
+            const IuppFooter(),
           ],
         ),
       ),

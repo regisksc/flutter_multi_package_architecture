@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 enum CarouselIndicator { dots, snake }
 
-class ICarrouselSlider extends StatefulWidget {
-  const ICarrouselSlider({
+class IuppCarrouselSlider extends StatefulWidget {
+  const IuppCarrouselSlider({
     Key? key,
     required this.items,
     this.carouselIndicator,
@@ -14,10 +14,10 @@ class ICarrouselSlider extends StatefulWidget {
   final CarouselIndicator? carouselIndicator;
 
   @override
-  _ICarrouselSliderState createState() => _ICarrouselSliderState();
+  _IuppCarrouselSliderState createState() => _IuppCarrouselSliderState();
 }
 
-class _ICarrouselSliderState extends State<ICarrouselSlider> {
+class _IuppCarrouselSliderState extends State<IuppCarrouselSlider> {
   int index = 0;
 
   @override
