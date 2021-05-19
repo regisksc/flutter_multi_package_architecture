@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/widgets/iupp_address_app_bar.dart';
-import 'package:iupp_checkout/widgets/iupp_checkout_footer.dart';
+import 'package:iupp_checkout/presentation/widgets/iupp_address_app_bar.dart';
+import 'package:iupp_checkout/presentation/widgets/iupp_checkout_footer.dart';
 import 'package:iupp_components/buttons/iupp_elevated_button.dart';
 
 class DeliveryOptionsPage extends StatelessWidget {

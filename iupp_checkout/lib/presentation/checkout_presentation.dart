@@ -1,7 +1,7 @@
-import 'package:iupp_checkout/pages/delivery_options/delivery_options_page.dart';
 import 'package:iupp_core/core.dart';
 import 'package:iupp_core/protocols/protocols.dart';
 
+import 'pages/delivery_options/delivery_options_page.dart';
 import 'pages/pages.dart';
 import 'resources/routes.dart';
 
