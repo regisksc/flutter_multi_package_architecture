@@ -1,7 +1,8 @@
-import 'package:iupp_checkout/pages/pages.dart';
-import 'package:iupp_checkout/resources/resources.dart';
 import 'package:iupp_core/core.dart';
 import 'package:iupp_core/protocols/protocols.dart';
+
+import 'pages/pages.dart';
+import 'resources/routes.dart';
 
 class CheckoutPresentation implements MicroApp {
   @override

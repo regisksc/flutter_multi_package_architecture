@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/pages/address_register/components/icon_spacer.dart';
+import 'package:iupp_checkout/presentation/pages/address_register/components/components.dart';
 import 'package:iupp_components/iupp_components.dart';
 
 class IuppAddressAppBar extends AppBar {

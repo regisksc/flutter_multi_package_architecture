@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/pages/cart/cart_page.dart';
+
+import 'presentation/pages/pages.dart';
 
 void main() => runApp(MyApp());
 
