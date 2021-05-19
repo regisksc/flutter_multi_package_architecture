@@ -1,9 +1,13 @@
-library core;
-
 export './adapters/adapters.dart';
+export './core.dart';
 export './data/data.dart';
 export './decorators/decorators.dart';
 export './error/error.dart';
+export './exports/exports.dart';
 export './factories/factories.dart';
+export './navigator/navigator.dart';
+export './pages/pages.dart';
+export './protocols/protocols.dart';
 export './resources/resources.dart';
+export './transition/transition.dart';
 export './utils/utils.dart';

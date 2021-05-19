@@ -1,1 +1,1 @@
-export './error_strings.dart';
+export 'error_strings.dart';
