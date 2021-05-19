@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/utils/masks.dart';
+import 'package:iupp_core/core.dart';
 
 class CepFormField extends StatelessWidget {
   const CepFormField({
