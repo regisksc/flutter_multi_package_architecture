@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
 class DeliveryCard extends StatelessWidget {
-  const DeliveryCard({Key? key}) : super(key: key);
+  const DeliveryCard({
+    Key? key,
+    required this.number,
+  }) : super(key: key);
+
+  final int number;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +32,11 @@ class DeliveryCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text.rich(
+              Text.rich(
                 TextSpan(
-                  text: 'Entregue por ',
+                  text: 'Entrega 0$number por ',
                   children: [
-                    TextSpan(
+                    const TextSpan(
                       text: 'Magazine Luiza',
                       style: TextStyle(
                         color: Color(0xFF494C57),

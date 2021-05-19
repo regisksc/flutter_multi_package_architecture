@@ -38,7 +38,8 @@ class DeliveryOptionsPage extends StatelessWidget {
                 ),
               ),
             ),
-            const DeliveryCard(),
+            const DeliveryCard(number: 1),
+            const DeliveryCard(number: 2),
             Padding(
               padding: const EdgeInsets.all(24),
               child: IuppElevatedButton(
