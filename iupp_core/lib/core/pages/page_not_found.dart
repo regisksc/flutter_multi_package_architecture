@@ -1,4 +1,5 @@
 import '../../core.dart';
+import '../dependencies/flutter_dependencies.dart';
 
 class PageNotFound extends StatelessWidget {
   const PageNotFound({Key? key}) : super(key: key);

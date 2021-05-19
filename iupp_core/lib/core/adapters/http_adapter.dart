@@ -1,4 +1,5 @@
 import '../../core.dart';
+import '../dependencies/app_dependencies.dart';
 
 class HttpAdapter implements HttpClient {
   HttpAdapter(this.client);

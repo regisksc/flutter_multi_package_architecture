@@ -1,4 +1,5 @@
 import '../../core.dart';
+import '../dependencies/flutter_dependencies.dart';
 
 abstract class BaseApp {
   List<MicroApp> get microApps;

@@ -1,4 +1,5 @@
 import 'package:iupp_core/core.dart';
+import 'package:iupp_core/core/dependencies/flutter_dependencies.dart';
 
 class TestApp extends BaseApp {
   @override
