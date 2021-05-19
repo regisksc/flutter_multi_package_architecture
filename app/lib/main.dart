@@ -1,10 +1,8 @@
 import 'package:flutter/widgets.dart';
-
+import 'package:url_strategy/url_strategy.dart';
 import 'main/app_widget.dart';
-import 'main/configure_nonweb.dart'
-    if (dart.library.html) 'main/configure_nonweb.dart';
 
 void main() {
-  configureApp();
+  setPathUrlStrategy();
   runApp(IuppApp());
 }

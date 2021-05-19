@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class IconSpacer extends StatelessWidget {
-  const IconSpacer({Key? key}) : super(key: key);
+  const IconSpacer({
+    Key? key,
+    required this.color,
+  }) : super(key: key);
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +15,7 @@ class IconSpacer extends StatelessWidget {
       child: Container(
         height: 0.8,
         width: 24,
-        color: Colors.white,
+        color: color,
       ),
     );
   }

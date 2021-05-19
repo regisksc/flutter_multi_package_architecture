@@ -23,7 +23,7 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
-      appBar: IuppAddressAppBar(),
+      appBar: IuppAddressAppBar(step: 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

@@ -3,8 +3,10 @@ import 'package:iupp_checkout/presentation/pages/address_register/components/com
 import 'package:iupp_components/iupp_components.dart';
 
 class IuppAddressAppBar extends AppBar {
-  IuppAddressAppBar({Key? key})
-      : super(
+  IuppAddressAppBar({
+    Key? key,
+    required int step,
+  }) : super(
           key: key,
           backgroundColor: const Color(0xFF23232E),
           leading: Padding(
@@ -13,31 +15,37 @@ class IuppAddressAppBar extends AppBar {
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 IuppIcons.icone_contorno_A_agencia_outline,
                 color: Color(0xFF00EEE6),
                 size: 28,
               ),
-              IconSpacer(),
+              IconSpacer(
+                color: step >= 2 ? const Color(0xFF00EEE6) : Colors.white,
+              ),
               Icon(
                 IuppIcons.icone_contorno_C_caminhao,
-                color: Colors.white,
+                color: step >= 2 ? const Color(0xFF00EEE6) : Colors.white,
                 size: 28,
               ),
-              IconSpacer(),
+              IconSpacer(
+                color: step >= 3 ? const Color(0xFF00EEE6) : Colors.white,
+              ),
               Icon(
                 IuppIcons.icone_contorno_C_consorcio_outline,
-                color: Colors.white,
+                color: step >= 3 ? const Color(0xFF00EEE6) : Colors.white,
                 size: 28,
               ),
-              IconSpacer(),
+              IconSpacer(
+                color: step >= 3 ? const Color(0xFF00EEE6) : Colors.white,
+              ),
               Icon(
                 IuppIcons.icone_contorno_P_pagamento_ao_fornecedor_outline,
-                color: Colors.white,
+                color: step >= 3 ? const Color(0xFF00EEE6) : Colors.white,
                 size: 28,
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
             ],
           ),
         );

@@ -1,3 +1,4 @@
+import 'package:iupp_checkout/pages/delivery_options/delivery_options_page.dart';
 import 'package:iupp_core/core.dart';
 import 'package:iupp_core/protocols/protocols.dart';
 
@@ -12,6 +13,7 @@ class CheckoutPresentation implements MicroApp {
   Map<String, WidgetBuilderArgs> get routes => {
         Routes.registerPage.page: (_, args) => const AddressRegisterPage(),
         '/address-list': (_, args) => const AddressesListPage(),
+        '/delivery-options': (_, args) => const DeliveryOptionsPage(),
         Routes.cart.page: (_, args) => const CartPage(),
       };
 }

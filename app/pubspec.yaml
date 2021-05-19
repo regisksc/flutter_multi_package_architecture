@@ -9,8 +9,6 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter_web_plugins:
-    sdk: flutter
   flutter:
       sdk: flutter
   iupp_core:
@@ -21,6 +19,7 @@ dependencies:
     path: ../iupp_marketplace_buyer
 
   cupertino_icons: ^1.0.2
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:
