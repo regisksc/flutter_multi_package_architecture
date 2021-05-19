@@ -1,1 +1,1 @@
-export './example_repository.dart';
+export 'cart_repository_contract.dart';
