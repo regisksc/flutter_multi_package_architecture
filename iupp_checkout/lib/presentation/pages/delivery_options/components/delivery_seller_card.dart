@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_checkout/presentation/pages/delivery_options/components/components.dart';
 import 'package:iupp_components/iupp_components.dart';
 
 import '../delivery_options_page.dart';
 
-class DeliverySellerCard extends StatelessWidget {
+class DeliverySellerCard extends StatefulWidget {
   const DeliverySellerCard({
     Key? key,
     required this.number,
@@ -18,6 +19,13 @@ class DeliverySellerCard extends StatelessWidget {
   final List<DeliveryType> deliveryTypes;
   final String productDescription;
   final String productImage;
+
+  @override
+  _DeliverySellerCardState createState() => _DeliverySellerCardState();
+}
+
+class _DeliverySellerCardState extends State<DeliverySellerCard> {
+  int pickedDeliverOption = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +52,10 @@ class DeliverySellerCard extends StatelessWidget {
             children: [
               Text.rich(
                 TextSpan(
-                  text: 'Entrega 0$number por ',
+                  text: 'Entrega 0${widget.number} por ',
                   children: [
                     TextSpan(
-                      text: seller,
+                      text: widget.seller,
                       style: const TextStyle(
                         color: Color(0xFF494C57),
                         fontSize: 14,
@@ -59,10 +67,10 @@ class DeliverySellerCard extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ListTile(
-                leading: Image.network(productImage),
+                leading: Image.network(widget.productImage),
                 title: Expanded(
                   child: Text(
-                    productDescription,
+                    widget.productDescription,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -85,9 +93,11 @@ class DeliverySellerCard extends StatelessWidget {
               ListView.separated(
                 shrinkWrap: true,
                 itemBuilder: (_, i) => ListTile(
-                  leading: const CircleAvatar(),
-                  title: Text(deliveryTypes[i].title),
-                  subtitle: Text(deliveryTypes[i].subtitle),
+                  leading: (i == pickedDeliverOption - 1)
+                      ? const PickedDeliverOption()
+                      : const UnpickedDeliverOption(),
+                  title: Text(widget.deliveryTypes[i].title),
+                  subtitle: Text(widget.deliveryTypes[i].subtitle),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: const [
@@ -108,7 +118,7 @@ class DeliverySellerCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                itemCount: deliveryTypes.length,
+                itemCount: widget.deliveryTypes.length,
                 separatorBuilder: (_, __) => const Divider(
                   color: Color(0xFFE1E4EC),
                   height: 1,
