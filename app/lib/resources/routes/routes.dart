@@ -1,4 +1,4 @@
-import 'package:iupp_checkout/checkout_presentation.dart';
+import 'package:iupp_checkout/presentation/checkout_presentation.dart';
 import 'package:iupp_marketplace_buyer/pages/marketplace_buyer_presentation.dart';
 //import 'package:iupp_marketplace_buyer/pages/product_details/product_details_page.dart';
 
@@ -17,22 +17,3 @@ abstract class Pages {
     CheckoutPresentation(),
   ];
 }
-
-
-/* abstract class Pages {
-  static final pages = [
-    GetPage(
-      name: Routes.initial,
-      page: () => Container(color: Colors.red),
-    ),
-    GetPage(
-      name: Routes.home,
-      page: () => const AddressRegisterPage(),
-      // bindings: HomeBindings(),
-      // middlewares: middlewares,
-      // settings: RouteSettings(),
-      // transition: Transition.leftToRightWithFade,
-      // transitionDuration: Duration(milliseconds: 1400),
-    ),
-  ];
-} */
