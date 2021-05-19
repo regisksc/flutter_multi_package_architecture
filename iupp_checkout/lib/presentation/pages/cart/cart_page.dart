@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:iupp_core/core.dart';
 
 import '../../widgets/iupp_checkout_scafold.dart';
+import 'cart_controller.dart';
 import 'widgets/empty_cart/empty_cart.dart';
 
 class CartPage extends StatefulWidget {

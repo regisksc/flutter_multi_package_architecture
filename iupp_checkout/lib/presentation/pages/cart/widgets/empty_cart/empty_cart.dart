@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
-import 'package:iupp_core/navigator/navigator_service.dart';
+import 'package:iupp_core/core.dart';
 
 class EmptyCart extends StatelessWidget {
   const EmptyCart({Key? key}) : super(key: key);
