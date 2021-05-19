@@ -1,4 +1,6 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
+import 'package:iupp_core/core/dependencies/test_dependencies.dart';
 
 import 'utils.dart';
 

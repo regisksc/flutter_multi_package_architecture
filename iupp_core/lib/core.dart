@@ -1,8 +1,9 @@
+library iupp_core;
+
 export './core/adapters/adapters.dart';
 export './core/data/data.dart';
 export './core/decorators/decorators.dart';
 export './core/error/error.dart';
-export './core/exports/exports.dart';
 export './core/factories/factories.dart';
 export './core/navigator/navigator.dart';
 export './core/pages/pages.dart';

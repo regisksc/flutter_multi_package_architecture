@@ -1,4 +1,8 @@
+import 'package:faker/faker.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
+import 'package:iupp_core/core/dependencies/dependencies.dart';
+import 'package:mocktail/mocktail.dart';
 
 class ClientMock extends Mock implements Dio {}
 
