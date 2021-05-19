@@ -6,6 +6,7 @@ const disabledButtonColor = Color(0xFFE1E4EC);
 const disabledButtonTextColor = Color(0xFFB1B5BF);
 
 final theme = ThemeData(
+  fontFamily: 'ItauDisplay',
   primaryColor: primaryColor,
   backgroundColor: backgroundButtonColor,
   disabledColor: disabledButtonTextColor,
