@@ -1,4 +1,5 @@
 import '../../../../core.dart';
+import '../../mapping/mapping.dart';
 
 abstract class RemoteDataSource {
   RemoteDataSource({
