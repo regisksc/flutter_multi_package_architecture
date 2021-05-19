@@ -16,16 +16,11 @@ class PageNotFound extends StatelessWidget {
               "Page not found!",
               style: TextStyle(fontSize: 24),
             ),
-            const SizedBox(
-              height: 24,
-            ),
+            const SizedBox(height: 24),
             TextButton.icon(
               onPressed: () => NavigatorService().navigateTo('/home'),
               icon: const Icon(Icons.arrow_left),
-              label: const Text(
-                "Go back",
-                style: TextStyle(fontSize: 16),
-              ),
+              label: const Text("Go back", style: TextStyle(fontSize: 16)),
             )
           ],
         ),

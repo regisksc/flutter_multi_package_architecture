@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iupp_core/data/datasources/datasources.dart';
+import 'package:iupp_core/core.dart';
 
-import '../../../mocks/data/datasources/datasources_mocks.dart';
+import '../../../utils/data/datasources/datasources_mocks.dart';
 
 void main() {
   late RemoteDataSource sut;
@@ -16,6 +16,7 @@ void main() {
 
   void testsWhenConnected(Function body) {
     group('When connected', () {
+      when(() => sut.networkInfo.hasConnection).thenAnswer((_) async => true);
       body();
     });
   }

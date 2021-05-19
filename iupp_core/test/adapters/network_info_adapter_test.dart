@@ -1,12 +1,8 @@
 import 'dart:async';
 
-import 'package:connectivity/connectivity.dart';
-import 'package:data_connection_checker_tv/data_connection_checker.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
-import 'package:mocktail/mocktail.dart';
 
-import '../mocks/adapter/adapter.dart';
+import '../utils/adapter/network_info_adapter_mocks.dart';
 
 void main() {
   late NetworkInfoAdapter networkInfoAdapter;
@@ -23,13 +19,11 @@ void main() {
   });
 
   void mockConnectivityWithResult(ConnectivityResult result) {
-    when(() => connectivityMock.checkConnectivity())
-        .thenAnswer((_) async => result);
+    when(() => connectivityMock.checkConnectivity()).thenAnswer((_) async => result);
   }
 
   void mockDataConnectionChecker({required bool hasConnection}) {
-    when(() => dataConnectionCheckerMock.hasConnection)
-        .thenAnswer((_) => Future.value(hasConnection));
+    when(() => dataConnectionCheckerMock.hasConnection).thenAnswer((_) => Future.value(hasConnection));
   }
 
   group('hasConnection', () {
@@ -97,12 +91,11 @@ void main() {
     test(
       'should return a stream of DataConnectionStatus',
       () async {
-        when(() => dataConnectionCheckerMock.onStatusChange)
-            .thenAnswer((_) => Stream.fromIterable([
-                  DataConnectionStatus.connected,
-                  DataConnectionStatus.disconnected,
-                  DataConnectionStatus.connected,
-                ]));
+        when(() => dataConnectionCheckerMock.onStatusChange).thenAnswer((_) => Stream.fromIterable([
+              DataConnectionStatus.connected,
+              DataConnectionStatus.disconnected,
+              DataConnectionStatus.connected,
+            ]));
 
         final dataConnectionStream = networkInfoAdapter.connectionChanges;
         expect(dataConnectionStream, isA<Stream<DataConnectionStatus>>());
@@ -112,12 +105,10 @@ void main() {
     test(
       'should emit the right values in the right order',
       () async {
-        final dataConnectionController =
-            StreamController<DataConnectionStatus>();
+        final dataConnectionController = StreamController<DataConnectionStatus>();
         final dataConnectionStream = dataConnectionController.stream;
 
-        when(() => dataConnectionCheckerMock.onStatusChange)
-            .thenAnswer((_) => dataConnectionStream);
+        when(() => dataConnectionCheckerMock.onStatusChange).thenAnswer((_) => dataConnectionStream);
 
         expectLater(
             dataConnectionStream,
