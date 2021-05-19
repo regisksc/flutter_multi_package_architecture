@@ -85,17 +85,15 @@ class _CompleteFormState extends State<CompleteForm> {
               padding: EdgeInsets.only(left: 16, right: 8),
               child: Text('Sem número'),
             ),
-            Expanded(
-              child: Switch.adaptive(
-                value: withoutNumber,
-                onChanged: (withoutNumber) {
-                  setState(() {
-                    this.withoutNumber = withoutNumber;
-                    isFormValid = updateFormStatus();
-                    widget.updateFormStatus(isFormValid);
-                  });
-                },
-              ),
+            Switch.adaptive(
+              value: withoutNumber,
+              onChanged: (withoutNumber) {
+                setState(() {
+                  this.withoutNumber = withoutNumber;
+                  isFormValid = updateFormStatus();
+                  widget.updateFormStatus(isFormValid);
+                });
+              },
             ),
           ],
         ),
