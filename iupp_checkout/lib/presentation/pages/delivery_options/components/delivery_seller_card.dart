@@ -68,15 +68,13 @@ class _DeliverySellerCardState extends State<DeliverySellerCard> {
               const SizedBox(height: 16),
               ListTile(
                 leading: Image.network(widget.productImage),
-                title: Expanded(
-                  child: Text(
-                    widget.productDescription,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
+                title: Text(
+                  widget.productDescription,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
@@ -93,9 +91,13 @@ class _DeliverySellerCardState extends State<DeliverySellerCard> {
               ListView.separated(
                 shrinkWrap: true,
                 itemBuilder: (_, i) => ListTile(
-                  leading: (i == pickedDeliverOption - 1)
-                      ? const PickedDeliverOption()
-                      : const UnpickedDeliverOption(),
+                  onTap: () {
+                    setState(() {
+                      pickedDeliverOption = i + 1;
+                    });
+                  },
+                  leading: DeliverOptionCheckBox(
+                      isPicked: i == pickedDeliverOption - 1),
                   title: Text(widget.deliveryTypes[i].title),
                   subtitle: Text(widget.deliveryTypes[i].subtitle),
                   trailing: Row(
