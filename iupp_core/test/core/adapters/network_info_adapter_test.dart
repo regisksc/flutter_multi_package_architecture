@@ -3,7 +3,7 @@ import 'package:iupp_core/core.dart';
 import 'package:iupp_core/core/dependencies/dependencies.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../utils/adapter/network_info_adapter_mocks.dart';
+import '../../utils/mocks/network_info_adapter_mocks.dart';
 
 void main() {
   late NetworkInfoAdapter networkInfoAdapter;
