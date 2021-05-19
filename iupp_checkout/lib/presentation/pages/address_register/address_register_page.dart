@@ -4,7 +4,7 @@ import 'package:iupp_core/core.dart';
 
 import '../../widgets/iupp_address_app_bar.dart';
 import '../../widgets/iupp_checkout_footer.dart';
-import 'components/components.dart';
+import 'widgets/widgets.dart';
 
 class AddressRegisterPage extends StatefulWidget {
   const AddressRegisterPage({Key? key}) : super(key: key);
