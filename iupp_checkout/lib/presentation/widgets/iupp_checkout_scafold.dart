@@ -5,10 +5,16 @@ import 'package:iupp_components/iupp_components.dart';
 import 'iupp_checkout_footer.dart';
 
 class IuppCheckoutScafold extends StatelessWidget {
-  const IuppCheckoutScafold({Key? key, required this.children})
-      : super(key: key);
+  const IuppCheckoutScafold({
+    Key? key,
+    required this.child,
+    required this.flexSpace,
+    this.flexFooter = 3,
+  }) : super(key: key);
 
-  final List<Widget> children;
+  final Widget child;
+  final int flexSpace;
+  final int flexFooter;
 
   @override
   Widget build(BuildContext context) {
@@ -17,31 +23,79 @@ class IuppCheckoutScafold extends StatelessWidget {
       appBar: IuppAppBar(
         centered: true,
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 24),
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: const Text(
-                    'carrinho',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w400,
-                    ),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(24),
+                child: const Text(
+                  'carrinho',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
-                ...children,
-              ],
-            ),
+              ),
+              child,
+              /* const SizedBox(height: 200), */
+              const SizedBox(height: 48),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 24),
+                child: IuppCheckoutFooter(),
+              ),
+            ],
           ),
-          const IuppCheckoutFooter(),
-          const SizedBox(height: 24),
-        ],
+        ),
       ),
     );
   }
 }
+
+
+/** */
+
+/* CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const EdgeInsets.all(0.0),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Container(
+                    padding: const EdgeInsets.all(24),
+                    child: const Text(
+                      'carrinho',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                  child,
+                ],
+              ),
+            ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: flexSpace,
+                  child: Container(),
+                ),
+                Expanded(
+                  flex: flexFooter,
+                  child: const Padding(
+                    padding: EdgeInsets.only(bottom: 24),
+                    child: IuppCheckoutFooter(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ), */

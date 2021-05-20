@@ -24,32 +24,80 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
+  bool get isEmpty => controller.isEmpty;
+
   @override
   Widget build(BuildContext context) {
     return IuppCheckoutScafold(
-      children: [
-        if (controller.isEmpty)
-          const EmptyCart()
-        else
-          IuppCard(
-            children: [
-              ItemCartWidget(
-                photoUrl:
-                    'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
-                description:
-                    'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
-                sellerName: 'Magazine Luíza',
-                price: '5999.20',
-                points: '2500',
-                count: 1,
-                increment: () => print('incremenet'),
-                decrement: () => print('decrement'),
-              ),
-              const IuppDivider(),
-              CepFormField(cep: '', onChanged: (value) => print(value))
-            ],
-          )
-      ],
+      flexSpace: isEmpty ? 7 : 1,
+      child: isEmpty
+          ? const EmptyCart()
+          : IuppCard(
+              children: [
+                ItemCartWidget(
+                  photoUrl:
+                      'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+                  description:
+                      'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+                  sellerName: 'Magazine Luíza',
+                  price: '5999.20',
+                  points: '2500',
+                  count: 1,
+                  increment: () => print('incremenet'),
+                  decrement: () => print('decrement'),
+                ),
+                ItemCartWidget(
+                  photoUrl:
+                      'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+                  description:
+                      'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+                  sellerName: 'Magazine Luíza',
+                  price: '5999.20',
+                  points: '2500',
+                  count: 1,
+                  increment: () => print('incremenet'),
+                  decrement: () => print('decrement'),
+                ),
+                ItemCartWidget(
+                  photoUrl:
+                      'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+                  description:
+                      'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+                  sellerName: 'Magazine Luíza',
+                  price: '5999.20',
+                  points: '2500',
+                  count: 1,
+                  increment: () => print('incremenet'),
+                  decrement: () => print('decrement'),
+                ),
+                ItemCartWidget(
+                  photoUrl:
+                      'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+                  description:
+                      'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+                  sellerName: 'Magazine Luíza',
+                  price: '5999.20',
+                  points: '2500',
+                  count: 1,
+                  increment: () => print('incremenet'),
+                  decrement: () => print('decrement'),
+                ),
+                ItemCartWidget(
+                  photoUrl:
+                      'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+                  description:
+                      'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+                  sellerName: 'Magazine Luíza',
+                  price: '5999.20',
+                  points: '2500',
+                  count: 1,
+                  increment: () => print('incremenet'),
+                  decrement: () => print('decrement'),
+                ),
+                const IuppDivider(),
+                CepFormField(cep: '', onChanged: (value) => print(value))
+              ],
+            ),
     );
   }
 }
