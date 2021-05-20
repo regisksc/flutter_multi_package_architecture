@@ -23,6 +23,7 @@ class ItemCartWidget extends StatelessWidget {
   final int count;
   final VoidCallback increment;
   final VoidCallback decrement;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -74,47 +75,38 @@ class ItemCartWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              flex: 3,
-              child: SizedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CartActionButton(
-                        onTap: decrement,
-                        icon: IuppIcons.icone_contorno_M_minimizar_outline),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Text(
-                        '$count',
-                        style: const TextStyle(fontSize: 16),
-                      ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CartActionButton(
+                    onTap: decrement,
+                    icon: IuppIcons.icone_contorno_M_minimizar_outline),
+                SizedBox(
+                  width: 32,
+                  child: Center(
+                    child: Text(
+                      '$count',
+                      style: const TextStyle(fontSize: 16),
                     ),
-                    CartActionButton(
-                        onTap: increment,
-                        icon: IuppIcons.icone_contorno_M_mais),
-                  ],
+                  ),
                 ),
-              ),
+                CartActionButton(
+                    onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
+              ],
             ),
-            Expanded(
-              flex: 5,
-              child: SizedBox(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text("R\$ $price"),
-                    Text(
-                      'ganhe $points pontos¹',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        color: Color(0xFF1E8449),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text("R\$ $price"),
+                Text(
+                  'ganhe $points pontos¹',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                    color: Color(0xFF1E8449),
+                  ),
+                )
+              ],
             )
           ],
         )

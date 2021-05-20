@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
-import 'package:iupp_components/general/iupp_card.dart';
+import 'package:iupp_components/iupp_components.dart';
 
 import 'cart_controller.dart';
 import 'widgets/empty_cart_widget/empty_cart.dart';
@@ -44,12 +44,7 @@ class _CartPageState extends State<CartPage> {
                 increment: () => print('incremenet'),
                 decrement: () => print('decrement'),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 24.0),
-                child: Divider(
-                  color: Color(0xFFE1E4EC),
-                ),
-              ),
+              const IuppDivider(),
             ],
           )
       ],
