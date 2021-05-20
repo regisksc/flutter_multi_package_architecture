@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_components/iupp_icons.dart';
 
-import '../../widgets/iupp_checkout_scafold.dart';
 import 'cart_controller.dart';
-import 'widgets/cart_action_button/cart_action_button.dart';
-import 'widgets/empty_cart/empty_cart.dart';
+import 'widgets/widgets.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -91,7 +90,8 @@ class _CartPageState extends State<CartPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 CartActionButton(
-                                    onTap: () => print('decremenent'),
+                                    onTap: () =>
+                                        controller.incrementItem('itemId'),
                                     icon: IuppIcons
                                         .icone_contorno_M_minimizar_outline),
                                 const Padding(
@@ -102,7 +102,8 @@ class _CartPageState extends State<CartPage> {
                                   ),
                                 ),
                                 CartActionButton(
-                                    onTap: () => print('increment'),
+                                    onTap: () =>
+                                        controller.decrementItem('itemId'),
                                     icon: IuppIcons.icone_contorno_M_mais),
                               ],
                             ),

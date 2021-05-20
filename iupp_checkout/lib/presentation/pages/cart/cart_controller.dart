@@ -18,7 +18,31 @@ class CartController {
         cartState = result;
       }
     } catch (e) {
-      print('e');
+      debugPrint('e');
+    }
+  }
+
+  Future<CartEntity?> incrementItem(String itemId) async {
+    final usecase = GetCartUsecase(repository);
+    try {
+      final result = await usecase();
+      if (result != null) {
+        cartState = result;
+      }
+    } catch (e) {
+      debugPrint('e');
+    }
+  }
+
+  Future<CartEntity?> decrementItem(String itemId) async {
+    final usecase = GetCartUsecase(repository);
+    try {
+      final result = await usecase();
+      if (result != null) {
+        cartState = result;
+      }
+    } catch (e) {
+      debugPrint('e');
     }
   }
 
