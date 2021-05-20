@@ -1,9 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:iupp_core/core.dart';
+import 'package:iupp_core/core/dependencies/flutter_dependencies.dart';
 
 import 'arguments.dart';
 
 class NavigatorService {
+  static final navigatorKey = GlobalKey<NavigatorState>();
+
   Future<dynamic> navigateTo(
     String routeName, {
     Map<String, dynamic>? queryParams,
@@ -14,7 +17,8 @@ class NavigatorService {
       uri = Uri(path: routeName, queryParameters: queryParams);
     }
 
-    debugPrint('[NavigatorService] queryParameters: ${uri.queryParameters} path: ${uri.path}');
+    debugPrint(
+        '[NavigatorService] queryParameters: ${uri.queryParameters} path: ${uri.path}');
 
     return navigatorKey.currentState!.pushNamed(
       routeName,

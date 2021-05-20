@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iupp_components/iupp_icons.dart';
-import 'package:iupp_core/core.dart';
 
 import '../../widgets/iupp_checkout_scafold.dart';
 import 'cart_controller.dart';

@@ -18,7 +18,7 @@ class IuppApp extends StatelessWidget with BaseApp {
       debugShowCheckedModeBanner: false,
       title: 'iupp app',
       theme: theme,
-      navigatorKey: navigatorKey,
+      navigatorKey: NavigatorService.navigatorKey,
       onGenerateRoute: super.generateRoute,
       initialRoute: _initialRoute,
     );
