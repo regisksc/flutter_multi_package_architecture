@@ -4,8 +4,7 @@ import 'package:mocktail/mocktail.dart';
 
 import '../../../../utils/constants/data_type_test_constants.dart';
 import '../../../../utils/mocks/datasources_mocks.dart';
-
-class ModelMock extends Mock implements Model {}
+import '../../../../utils/mocks/mocks.dart';
 
 void main() {
   late RemoteDataSource sut;
@@ -51,7 +50,7 @@ void main() {
         mockHttpRequestAnd().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
 
         // act
-        final result = sut.fetch<ModelMock>(httpParams: httpParams, mappingParams: mappingParams);
+        // final result = sut.fetch<ModelMock>(httpParams: httpParams, mappingParams: mappingParams);
 
         // assert
       },
