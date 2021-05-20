@@ -15,7 +15,7 @@ final phoneFormater = MaskTextInputFormatter(
 );
 
 final cepFormater = MaskTextInputFormatter(
-  mask: '#####-####',
+  mask: '#####-###',
   filter: {
     "#": RegExp('[0-9]'),
   },
