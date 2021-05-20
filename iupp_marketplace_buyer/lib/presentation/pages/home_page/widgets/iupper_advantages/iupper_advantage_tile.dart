@@ -32,7 +32,7 @@ class IupperAdvantageTile extends StatelessWidget {
                           children: [
                             Container(
                               width: 26,
-                              height: 200,
+                              height: 100,
                               color: const Color(0xFF23232E),
                             ),
                           ],
