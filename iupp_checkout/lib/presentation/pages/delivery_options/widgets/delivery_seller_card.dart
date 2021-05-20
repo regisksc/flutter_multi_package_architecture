@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/pages/delivery_options/components/components.dart';
 import 'package:iupp_components/iupp_components.dart';
 
 import '../delivery_options_page.dart';
+import 'widgets.dart';
 
 class DeliverySellerCard extends StatefulWidget {
   const DeliverySellerCard({

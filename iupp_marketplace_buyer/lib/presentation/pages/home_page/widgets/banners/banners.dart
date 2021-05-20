@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-import 'components/components.dart';
+import '../widgets.dart';
 
 final items = [
   const PromotionCard(item: 'assets/oferta1.png'),

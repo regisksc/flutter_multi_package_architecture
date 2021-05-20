@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/iupp_address_app_bar.dart';
-import 'package:iupp_checkout/presentation/widgets/iupp_checkout_footer.dart';
+import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-import 'components/components.dart';
+import 'widgets/widgets.dart';
 
 class DeliveryType {
   DeliveryType({
