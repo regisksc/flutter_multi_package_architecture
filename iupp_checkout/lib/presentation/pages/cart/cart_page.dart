@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:iupp_checkout/presentation/pages/address_register/widgets/cep_form_field.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_components/iupp_components.dart';
 
@@ -27,7 +28,7 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return IuppCheckoutScafold(
       children: [
-        if (!controller.isEmpty)
+        if (controller.isEmpty)
           const EmptyCart()
         else
           IuppCard(
@@ -45,6 +46,7 @@ class _CartPageState extends State<CartPage> {
                 decrement: () => print('decrement'),
               ),
               const IuppDivider(),
+              CepFormField(cep: '', onChanged: (value) => print(value))
             ],
           )
       ],

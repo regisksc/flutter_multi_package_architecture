@@ -28,9 +28,9 @@ class CepFormField extends StatelessWidget {
           hintText: 'ex: 00000-000',
           labelText: 'Digite o CEP',
           suffix: const Text(
-                  'Não sei meu CEP',
-                  style: TextStyle(color: Color(0xFF0070D4)),
-                ),
+            'Não sei meu CEP',
+            style: TextStyle(color: Color(0xFF0070D4)),
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
           ),
