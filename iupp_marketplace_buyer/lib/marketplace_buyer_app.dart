@@ -1,7 +1,7 @@
 import 'package:iupp_core/core.dart';
 import 'package:iupp_marketplace_buyer/presentation/pages/pages.dart';
 
-class MarketplaceBuyerPresentation implements MicroApp {
+class MarketplaceBuyerApp implements MicroApp {
   @override
   String get microAppName => 'Marketplace Buyer App';
 

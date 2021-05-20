@@ -1,10 +1,9 @@
 import 'package:iupp_core/core.dart';
 
-import 'pages/delivery_options/delivery_options_page.dart';
-import 'pages/pages.dart';
-import 'resources/routes.dart';
+import 'presentation/pages/pages.dart';
+import 'presentation/resources/routes.dart';
 
-class CheckoutPresentation implements MicroApp {
+class CheckoutApp implements MicroApp {
   @override
   String get microAppName => 'Checkout';
 
