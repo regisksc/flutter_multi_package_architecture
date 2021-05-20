@@ -3,10 +3,10 @@ import '../../model/model.dart';
 abstract class MappingStrategy {
   MappingStrategy({
     required this.model,
-    required this.map,
+    required this.mapOrListOfMap,
   });
   final Model model;
-  final dynamic map;
+  final dynamic mapOrListOfMap;
 
   dynamic call<Output extends Model>();
 }

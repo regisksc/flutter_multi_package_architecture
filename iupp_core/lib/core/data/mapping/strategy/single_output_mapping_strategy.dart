@@ -5,22 +5,17 @@ import 'package:iupp_core/core/error/mapping_failures.dart';
 class SingleOutputMappingStrategy implements MappingStrategy {
   SingleOutputMappingStrategy({
     required this.model,
-    required this.map,
+    required this.mapOrListOfMap,
   });
   final Model model;
-  final dynamic map;
+  final dynamic mapOrListOfMap;
 
   @override
   Output? call<Output extends Model>() {
     late Output result;
-    try {
-      if (map is Map<String, dynamic>) {
-        return model.fromJson(map as Map<String, dynamic>) as Output;
-      }
-      throw InvalidMapFailure(map.runtimeType);
-    } on Exception catch (e) {
-      print(e.runtimeType);
-      return model as Output;
+    if (mapOrListOfMap is Map<String, dynamic>) {
+      return model.fromJson(mapOrListOfMap as Map<String, dynamic>) as Output;
     }
+    throw InvalidMapFailure(mapOrListOfMap.runtimeType);
   }
 }

@@ -1,5 +1,5 @@
+import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iupp_core/core/data/mapping/strategy/single_output_mapping_strategy.dart';
 import 'package:iupp_core/core/data/mapping/strategy/strategy.dart';
 import 'package:iupp_core/core/error/error.dart';
 
@@ -8,30 +8,35 @@ import '../../../../utils/mocks/mocks.dart';
 void main() {
   late ModelMock model;
   late Map<String, dynamic> map;
+  late List list;
   late MappingStrategy sut;
   setUp(() {
     model = ModelMock();
     map = <String, dynamic>{'field': ''};
-    sut = SingleOutputMappingStrategy(model: model, mapOrListOfMap: map);
+    list = [];
+    for (int i = 0; i < 2; i++) {
+      list.add(Map.from(map));
+    }
+    sut = MultipleOutputMappingStrategy(model: model, mapOrListOfMap: list);
   });
 
   test(
-    'should return needed Object',
+    'should return a list of needed Object',
     () async {
       // act
       final result = sut<ModelMock>();
 
       // assert
-      expect(result, isA<ModelMock>());
+      expect(result, [ModelMock().fromJson(map), ModelMock().fromJson(map)]);
     },
   );
 
   test(
-    'should throw InvalidMapFailure if input map is not Map<String, dynamic>',
+    'should throw InvalidMapFailure if input map is not List<Map<String, dynamic>>',
     () async {
       // arrange
-      const String invalidMap = '';
-      sut = SingleOutputMappingStrategy(model: model, mapOrListOfMap: invalidMap);
+      const invalidMap = ['', false, 1];
+      sut = MultipleOutputMappingStrategy(model: model, mapOrListOfMap: invalidMap);
 
       // assert
       expect(() => sut<ModelMock>(), throwsA(InvalidMapFailure(invalidMap.runtimeType)));

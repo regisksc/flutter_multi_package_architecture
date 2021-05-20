@@ -1,17 +1,33 @@
-import 'package:iupp_core/core/data/model/model_abstraction.dart';
-
-import 'strategy.dart';
+import '../../../../core.dart';
 
 class MultipleOutputMappingStrategy implements MappingStrategy {
   MultipleOutputMappingStrategy({
     required this.model,
-    required this.map,
+    required this.mapOrListOfMap,
   });
   final Model model;
-  final dynamic map;
+  final dynamic mapOrListOfMap;
+
+  List get _list => mapOrListOfMap as List;
 
   @override
-  List<Output> call<Output extends Model>() {
-    throw UnimplementedError();
+  List call<Output extends Model>() {
+    if (mapOrListOfMap is! List) throw _failure();
+    if (!_allElementsAreJson) throw _failure();
+    final result = _list.map((json) => model.fromJson(Map<String, dynamic>.from(json as Map))).toList();
+    return result;
+  }
+
+  InvalidMapFailure _failure() => InvalidMapFailure(mapOrListOfMap.runtimeType);
+
+  bool get _allElementsAreJson {
+    try {
+      for (final item in _list) {
+        Map<String, dynamic>.from(item as Map);
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 }
