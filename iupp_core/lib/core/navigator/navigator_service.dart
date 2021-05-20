@@ -7,6 +7,8 @@ import 'arguments.dart';
 class NavigatorService {
   static final navigatorKey = GlobalKey<NavigatorState>();
 
+  NavigatorState get navigatorState => navigatorKey.currentState!;
+
   Future<dynamic> navigateTo(
     String routeName, {
     Map<String, dynamic>? queryParams,
@@ -20,7 +22,7 @@ class NavigatorService {
     debugPrint(
         '[NavigatorService] queryParameters: ${uri.queryParameters} path: ${uri.path}');
 
-    return navigatorKey.currentState!.pushNamed(
+    return navigatorState.pushNamed(
       routeName,
       arguments: Arguments().copyWith(
         params: queryParams,
@@ -31,7 +33,7 @@ class NavigatorService {
   }
 
   void goBack() {
-    if (navigatorKey.currentState!.canPop()) {
+    if (navigatorState.canPop()) {
       navigatorKey.currentState!.pop();
     } else {
       debugPrint('redirect');
