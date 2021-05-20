@@ -1,4 +1,7 @@
+import 'package:intl/intl.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+final formatCurrency = NumberFormat.currency(locale: "pt_BR", symbol: "");
 
 final cpfFormater = MaskTextInputFormatter(
   mask: '###.###.###-##',
