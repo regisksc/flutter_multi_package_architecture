@@ -12,7 +12,6 @@ class SingleOutputMappingStrategy implements MappingStrategy {
 
   @override
   Output? call<Output extends Model>() {
-    //late Output result;
     if (mapOrListOfMap is Map<String, dynamic>) {
       return model.fromJson(mapOrListOfMap as Map<String, dynamic>) as Output;
     }

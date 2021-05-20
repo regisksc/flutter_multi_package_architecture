@@ -12,18 +12,14 @@ void main() {
   late NetworkInfoMock network;
   //late HttpRequestParams httpParams;
 
-  setUp(() {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
     http = HttpClientMock();
     network = NetworkInfoMock();
     sut = ConcreteRemoteDataSource(networkInfo: network, client: http);
   });
 
-  void testsWhenConnected(Function() body) {
-    group('When connected ', () {
-      when(() => sut.networkInfo.hasConnection).thenAnswer((_) async => true);
-      body();
-    });
-  }
+  void testsWhenConnected(Function() body) {}
 
   /* void testsWhenOffline(Function() body) {
     group('When offline ', () {
