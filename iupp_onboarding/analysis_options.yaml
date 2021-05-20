@@ -85,7 +85,7 @@ analyzer:
     prefer_asserts_with_message: ignore
     prefer_collection_literals: error
     prefer_conditional_assignment: error
-    prefer_const_constructors: error
+    prefer_const_constructors: warning
     prefer_const_constructors_in_immutables: error
     prefer_const_declarations: error
     prefer_const_literals_to_create_immutables: error

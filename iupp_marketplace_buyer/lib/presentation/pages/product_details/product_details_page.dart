@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/buttons/iupp_rounded_action_button.dart';
 import 'package:iupp_components/iupp_components.dart';
-import 'package:iupp_marketplace_buyer/presentation/widgets/widgets.dart';
 
 import 'widgets/widgets.dart';
 
