@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/buttons/iupp_rounded_action_button.dart';
 import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_marketplace_buyer/presentation/widgets/widgets.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({Key? key}) : super(key: key);
@@ -121,10 +123,112 @@ class ProductDetailsPage extends StatelessWidget {
               ),
             ),
             const Divider(),
-            const ListTile(
-              title: Text('Quantidade: 1 unidade'),
+            ListTile(
+              title: const Text('Quantidade: 1 unidade'),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IuppRoundedActionButton(
+                    onTap: () {},
+                    child: const Icon(
+                        IuppIcons.icone_contorno_M_minimizar_outline),
+                  ),
+                  const Text('1'),
+                  IuppRoundedActionButton(
+                    onTap: () {},
+                    child: const Icon(IuppIcons.icone_contorno_M_mais),
+                  ),
+                ],
+              ),
             ),
             const Divider(),
+            const SizedBox(height: 32),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: IuppElevatedButton(
+                text: 'comprar',
+                onPressed: () {},
+                textPadding: const EdgeInsets.all(13),
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: IuppOutlinedButton(
+                text: 'adicionar ao carrinho',
+                onPressed: () {},
+                textPadding: const EdgeInsets.all(13),
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 32),
+            const Divider(),
+            const ListTile(
+              title: Text('Informações do produto'),
+            ),
+            const Divider(),
+            const SizedBox(height: 48),
+            const Text('quem comprou também viu'),
+            SizedBox(
+              height: 340,
+              child: Row(
+                children: const [
+                  Expanded(
+                    child: VerticalProductCard(
+                      title:
+                          '''iPhone 12 Preto Tela 6,1" - 5G  - 128 GB e Câmera Dupla 12MP''',
+                      imageUrl:
+                          'https://a-static.mlcdn.com.br/1500x1500/iphone-12-apple-128gb-azul-tela-61-cam-dupla-12mp-ios/magazineluiza/155598400/6b9b8ece04de165ab19587f5bd491df4.jpg',
+                      freeShipping: true,
+                      preLaunch: true,
+                    ),
+                  ),
+                  Expanded(
+                    child: VerticalProductCard(
+                      title:
+                          '''iPad Air Tela 10,9" 4ª  A A Geração Apple''',
+                      imageUrl:
+                          'https://a-static.mlcdn.com.br/180x200/ipad-air-4-geracao-ouro-rosa-com-tela-de-109-wi-fi-256-gb-e-processador-a14-bionic-myfx2bz-a-apple/fastshop2/aemyfx2bzarsab/b12ca2523d2ec08fa61a53715d56ecae.jpg',
+                      freeShipping: false,
+                      preLaunch: true,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Text('destaques do iupp'),
+            SizedBox(
+              height: 340,
+              child: Row(
+                children: const [
+                  Expanded(
+                    child: VerticalProductCard(
+                      title:
+                          '''iPhone 12 Preto Tela 6,1" - 5G  - 128 GB e Câmera Dupla 12MP''',
+                      imageUrl:
+                          'https://a-static.mlcdn.com.br/1500x1500/iphone-12-apple-128gb-azul-tela-61-cam-dupla-12mp-ios/magazineluiza/155598400/6b9b8ece04de165ab19587f5bd491df4.jpg',
+                      freeShipping: true,
+                      preLaunch: true,
+                    ),
+                  ),
+                  Expanded(
+                    child: VerticalProductCard(
+                      title:
+                          '''iPad Air Tela 10,9" 4ª  A A Geração Apple''',
+                      imageUrl:
+                          'https://a-static.mlcdn.com.br/180x200/ipad-air-4-geracao-ouro-rosa-com-tela-de-109-wi-fi-256-gb-e-processador-a14-bionic-myfx2bz-a-apple/fastshop2/aemyfx2bzarsab/b12ca2523d2ec08fa61a53715d56ecae.jpg',
+                      freeShipping: false,
+                      preLaunch: true,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 84),
+            const IuppFooter(),
           ],
         ),
       ),

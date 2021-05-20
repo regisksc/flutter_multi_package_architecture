@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-import 'products.dart';
+import 'widgets.dart';
 
 class HorizontalProductCard extends StatelessWidget {
   const HorizontalProductCard({

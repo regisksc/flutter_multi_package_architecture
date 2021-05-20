@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'products.dart';
+import 'widgets.dart';
 
 class VerticalProductCard extends StatelessWidget {
   const VerticalProductCard({
@@ -8,11 +8,13 @@ class VerticalProductCard extends StatelessWidget {
     required this.title,
     required this.imageUrl,
     required this.freeShipping,
+    required this.preLaunch,
   }) : super(key: key);
 
   final String title;
   final String imageUrl;
   final bool freeShipping;
+  final bool preLaunch;
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +51,12 @@ class VerticalProductCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              Text(
-                title,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
+              Expanded(
+                child: Text(
+                  title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               const SizedBox(height: 8),
               const Text(
@@ -72,10 +76,24 @@ class VerticalProductCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 11),
-              ProductChipInfo(
-                color: Color(freeShipping ? 0xFF00A29C : 0xFF1791FF)
-                    .withOpacity(0.2),
-                label: freeShipping ? 'frete grátis' : 'pré-lançamento',
+              SizedBox(
+                height: 22,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    if (preLaunch)
+                      ProductChipInfo(
+                        color: const Color(0xFF1791FF).withOpacity(0.2),
+                        label: 'pré-lançamento',
+                      ),
+                    const SizedBox(width: 4),
+                    if (freeShipping)
+                      ProductChipInfo(
+                        color: const Color(0xFF00A29C).withOpacity(0.2),
+                        label: 'frete grátis',
+                      ),
+                  ],
+                ),
               ),
               const SizedBox(height: 16),
             ],
