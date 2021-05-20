@@ -8,10 +8,12 @@ class IuppCarrouselSlider extends StatefulWidget {
     Key? key,
     required this.items,
     this.carouselIndicator,
+    this.carouselIndicatorContainerColor,
   }) : super(key: key);
 
   final List<Widget> items;
   final CarouselIndicator? carouselIndicator;
+  final Color? carouselIndicatorContainerColor;
 
   @override
   _IuppCarrouselSliderState createState() => _IuppCarrouselSliderState();
@@ -44,7 +46,8 @@ class _IuppCarrouselSliderState extends State<IuppCarrouselSlider> {
         ),
         if (widget.carouselIndicator != null)
           Container(
-            color: const Color(0xFFE5E5E5),
+            color: widget.carouselIndicatorContainerColor ??
+                const Color(0xFFE5E5E5),
             child: Column(
               children: [
                 const SizedBox(height: 8),
