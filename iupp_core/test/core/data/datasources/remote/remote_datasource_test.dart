@@ -10,7 +10,7 @@ void main() {
   late RemoteDataSource sut;
   late HttpClientMock http;
   late NetworkInfoMock network;
-  late HttpRequestParams httpParams;
+  //late HttpRequestParams httpParams;
 
   setUp(() {
     http = HttpClientMock();
@@ -25,12 +25,12 @@ void main() {
     });
   }
 
-  void testsWhenOffline(Function() body) {
+  /* void testsWhenOffline(Function() body) {
     group('When offline ', () {
       when(() => sut.networkInfo.hasConnection).thenAnswer((_) async => false);
       body();
     });
-  }
+  } */
 
   When mockHttpRequestAnd() => when(
         () => http.request(
@@ -47,7 +47,8 @@ void main() {
       'should successfully fetch and return Output',
       () async {
         // arrange
-        mockHttpRequestAnd().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
+        mockHttpRequestAnd().thenAnswer((invocation) =>
+            HttpResponse(code: 200, message: anyMessage, data: anyMap));
 
         // act
         // final result = sut.fetch<ModelMock>(httpParams: httpParams, mappingParams: mappingParams);
