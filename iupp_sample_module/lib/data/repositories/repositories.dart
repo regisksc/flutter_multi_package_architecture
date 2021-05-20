@@ -1,1 +1,1 @@
-export './concrete_example_repository.dart';
+export 'concrete_example_repository.dart';
