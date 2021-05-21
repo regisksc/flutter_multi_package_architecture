@@ -9,12 +9,14 @@ class VerticalProductCard extends StatelessWidget {
     required this.imageUrl,
     required this.freeShipping,
     required this.preLaunch,
+    required this.morePoints,
   }) : super(key: key);
 
   final String title;
   final String imageUrl;
   final bool freeShipping;
   final bool preLaunch;
+  final bool morePoints;
 
   @override
   Widget build(BuildContext context) {
@@ -82,15 +84,28 @@ class VerticalProductCard extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   children: [
                     if (preLaunch)
-                      ProductChipInfo(
-                        color: const Color(0xFF1791FF).withOpacity(0.2),
-                        label: 'pré-lançamento',
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: ProductChipInfo(
+                          color: const Color(0xFF1791FF).withOpacity(0.2),
+                          label: 'pré-lançamento',
+                        ),
                       ),
-                    const SizedBox(width: 4),
                     if (freeShipping)
-                      ProductChipInfo(
-                        color: const Color(0xFF00A29C).withOpacity(0.2),
-                        label: 'frete grátis',
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: ProductChipInfo(
+                          color: const Color(0xFF00A29C).withOpacity(0.2),
+                          label: 'frete grátis',
+                        ),
+                      ),
+                    if (morePoints)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4),
+                        child: ProductChipInfo(
+                          color: const Color(0xFFFF8416).withOpacity(0.2),
+                          label: 'triplo de pontos',
+                        ),
                       ),
                   ],
                 ),

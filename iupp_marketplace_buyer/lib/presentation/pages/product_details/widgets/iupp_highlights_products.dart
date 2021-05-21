@@ -30,6 +30,7 @@ class IuppHighlightsProducts extends StatelessWidget {
                       'https://a-static.mlcdn.com.br/1500x1500/iphone-12-apple-128gb-azul-tela-61-cam-dupla-12mp-ios/magazineluiza/155598400/6b9b8ece04de165ab19587f5bd491df4.jpg',
                   freeShipping: true,
                   preLaunch: true,
+                  morePoints: false,
                 ),
               ),
               Expanded(
@@ -39,6 +40,7 @@ class IuppHighlightsProducts extends StatelessWidget {
                       'https://a-static.mlcdn.com.br/180x200/ipad-air-4-geracao-ouro-rosa-com-tela-de-109-wi-fi-256-gb-e-processador-a14-bionic-myfx2bz-a-apple/fastshop2/aemyfx2bzarsab/b12ca2523d2ec08fa61a53715d56ecae.jpg',
                   freeShipping: false,
                   preLaunch: true,
+                  morePoints: false,
                 ),
               ),
             ],

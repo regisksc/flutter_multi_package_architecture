@@ -14,42 +14,22 @@ class HomePage extends StatelessWidget {
       appBar: IuppMarketplaceBuyerAppBar(),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            const Banners(),
-            const SizedBox(height: 112),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: const [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: BrandNewProducts(),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 44),
-            const Offermeter(),
-            const SizedBox(height: 36),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: const [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: MorePointsPromotion(),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 36),
-            const SignInIuppContainer(),
-            const SizedBox(height: 52),
-            const IupperAdvantages(),
-            const TalkToUs(),
-            const SizedBox(height: 4),
-            const SocialNetworks(),
-            const IuppFooter(),
+          children: const [
+            Banners(),
+            SizedBox(height: 112),
+            BrandNewProducts(),
+            SizedBox(height: 44),
+            Offermeter(),
+            SizedBox(height: 36),
+            MorePointsPromotion(),
+            SizedBox(height: 36),
+            SignInIuppContainer(),
+            SizedBox(height: 52),
+            IupperAdvantages(),
+            TalkToUs(),
+            SizedBox(height: 4),
+            SocialNetworks(),
+            IuppFooter(),
           ],
         ),
       ),
