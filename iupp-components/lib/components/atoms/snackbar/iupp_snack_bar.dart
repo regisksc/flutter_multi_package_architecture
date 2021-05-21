@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/utils/platform_utils.dart';
-import '../../components.dart';
 
 class IuppSnackBar extends SnackBar {
   IuppSnackBar(
