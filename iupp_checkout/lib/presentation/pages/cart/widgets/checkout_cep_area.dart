@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:iupp_components/iupp_icons.dart';
+import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core/utils/formatters.dart';
 
 class CheckoutCepArea extends StatelessWidget {
