@@ -30,98 +30,97 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return IuppCheckoutScaffold(
-      child: Column(
-        children: [
-          if (isEmpty)
-            const EmptyCart()
-          else
-            IuppCard(
+      child: isEmpty
+          ? const EmptyCart()
+          : Column(
               children: [
-                ItemCartWidget(
-                  photoUrl:
-                      'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
-                  description:
-                      'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
-                  sellerName: 'Magazine Luíza',
-                  price: '5999.20',
-                  points: '2500',
-                  count: 1,
-                  increment: () => print('incremenet'),
-                  decrement: () => print('decrement'),
-                ),
-                const IuppDivider(
-                  verticalPadding: 29,
-                ),
-                ItemCartWidget(
-                  photoUrl:
-                      'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
-                  description:
-                      'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
-                  sellerName: 'Magazine Luíza',
-                  price: '5999.20',
-                  points: '2500',
-                  count: 1,
-                  increment: () => print('incremenet'),
-                  decrement: () => print('decrement'),
-                ),
-                const IuppDivider(
-                  verticalPadding: 29,
-                ),
-                CepFormField(cep: '', onChanged: (value) => print(value)),
-                const IuppDivider(
-                  verticalPadding: 24,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                IuppCard(
                   children: [
-                    const Text(
-                      "Subtotal",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: Color(0xFF494C57),
-                      ),
+                    ItemCartWidget(
+                      photoUrl:
+                          'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+                      description:
+                          'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+                      sellerName: 'Magazine Luíza',
+                      price: '5999.20',
+                      points: '2500',
+                      count: 1,
+                      increment: () => print('incremenet'),
+                      decrement: () => print('decrement'),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
-                        Text(
-                          'R 5.999,20',
+                    const IuppDivider(
+                      verticalPadding: 29,
+                    ),
+                    ItemCartWidget(
+                      photoUrl:
+                          'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+                      description:
+                          'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+                      sellerName: 'Magazine Luíza',
+                      price: '5999.20',
+                      points: '2500',
+                      count: 1,
+                      increment: () => print('incremenet'),
+                      decrement: () => print('decrement'),
+                    ),
+                    const IuppDivider(
+                      verticalPadding: 29,
+                    ),
+                    CepFormField(cep: '', onChanged: (value) => print(value)),
+                    const IuppDivider(
+                      verticalPadding: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Subtotal",
                           style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Color(0xFF494C57),
-                              fontSize: 16),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                            color: Color(0xFF494C57),
+                          ),
                         ),
-                        Text(
-                          'Ganhe 2.500 pontos',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: Color(0xFF1E8449),
-                              fontSize: 16),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: const [
+                            Text(
+                              'R 5.999,20',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xFF494C57),
+                                  fontSize: 16),
+                            ),
+                            Text(
+                              'Ganhe 2.500 pontos',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xFF1E8449),
+                                  fontSize: 16),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
+                CheckoutButtonNavigateWidget(
+                  label: 'continuar',
+                  onpressed: () => NavigatorService().navigateTo('/home'),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 24, right: 24, top: 24),
+                  child: Text(
+                    '¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF7C7B8B)),
+                  ),
+                ),
               ],
             ),
-          CheckoutButtonNavigateWidget(
-            label: 'continuar',
-            onpressed: () => NavigatorService().navigateTo('/home'),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 24, right: 24, top: 24),
-            child: Text(
-              '¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.',
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF7C7B8B)),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
