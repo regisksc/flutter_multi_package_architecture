@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/buttons/iupp_rounded_action_button.dart';
 
-class CheckoutActionButtonWidget extends StatelessWidget {
-  const CheckoutActionButtonWidget({
+class CheckoutActionButton extends StatelessWidget {
+  const CheckoutActionButton({
     Key? key,
     required this.icon,
     required this.onTap,

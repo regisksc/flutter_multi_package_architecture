@@ -3,8 +3,8 @@ import 'package:iupp_components/iupp_components.dart';
 
 import '../widgets.dart';
 
-class CheckoutItemCartWidget extends StatelessWidget {
-  const CheckoutItemCartWidget(
+class CheckoutItemCart extends StatelessWidget {
+  const CheckoutItemCart(
       {Key? key,
       required this.photoUrl,
       required this.description,
@@ -79,7 +79,7 @@ class CheckoutItemCartWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CheckoutActionButtonWidget(
+                CheckoutActionButton(
                     onTap: decrement,
                     icon: IuppIcons.icone_contorno_M_minimizar_outline),
                 SizedBox(
@@ -91,7 +91,7 @@ class CheckoutItemCartWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                CheckoutActionButtonWidget(
+                CheckoutActionButton(
                     onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
               ],
             ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_core/core.dart';
 
-class CheckoutEmptyCartWidget extends StatelessWidget {
-  const CheckoutEmptyCartWidget({Key? key}) : super(key: key);
+class CheckoutEmptyCart extends StatelessWidget {
+  const CheckoutEmptyCart({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
