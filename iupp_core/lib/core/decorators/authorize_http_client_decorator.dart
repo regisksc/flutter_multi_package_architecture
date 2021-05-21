@@ -2,12 +2,13 @@ import '../../core.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
   AuthorizeHttpClientDecorator({
-    required this.secureLocalDatasource,
-    required this.decoratee,
-  });
+    required HttpClient decoratee,
+    required LocalStorage localStorage,
+  })  : _decoratee = decoratee,
+        _localStorage = localStorage;
 
-  final SecureLocalDatasource secureLocalDatasource;
-  final HttpClient decoratee;
+  final HttpClient _decoratee;
+  final LocalStorage _localStorage;
 
   Future<dynamic> request({
     required String method,
@@ -17,22 +18,21 @@ class AuthorizeHttpClientDecorator implements HttpClient {
     Map<String, String>? headers,
   }) async {
     try {
-      final token = await secureLocalDatasource.load('token');
+      final token = await _localStorage.getValue('token');
       final authorizedHeaders = headers ?? {}
         ..addAll({'authorization': token});
-      return await decoratee.request(
+
+      return await _decoratee.request(
         url: url,
         method: method,
         body: body,
         headers: authorizedHeaders,
       );
     } on HttpFailure catch (error) {
-      if (error is! ForbiddenFailure) {
-        rethrow;
-      } else {
-        await secureLocalDatasource.delete('token');
-        throw const ForbiddenFailure();
+      if (error is ForbiddenFailure) {
+        await _localStorage.deleteValue('token');
       }
+      rethrow;
     }
   }
 }

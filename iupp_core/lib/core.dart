@@ -10,3 +10,5 @@ export './core/protocols/protocols.dart';
 export './core/resources/resources.dart';
 export './core/transition/transition.dart';
 export './core/utils/utils.dart';
+
+export 'init_core.dart';
