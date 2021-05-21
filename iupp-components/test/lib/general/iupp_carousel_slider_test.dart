@@ -2,12 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-import 'utils.dart';
+import '../../utils.dart';
 
 void main() {
+  const firstContainerKey = ValueKey('first-container');
+  const secondContainerKey = ValueKey('second-container');
+
+  Future<void> loadPageWithCarousel(
+    WidgetTester tester, {
+    CarouselIndicator? carouselIndicator,
+  }) async {
+    await loadPageWithWidget(
+      tester,
+      widget: IuppCarrouselSlider(
+        items: [
+          Container(
+            key: firstContainerKey,
+            height: 200,
+            width: 200,
+            color: Colors.blue,
+          ),
+          Container(
+            key: secondContainerKey,
+            height: 200,
+            width: 200,
+            color: Colors.red,
+          ),
+        ],
+        carouselIndicator: carouselIndicator,
+      ),
+    );
+  }
+
   testWidgets('should build without exploding', (tester) async {
     // arrange
     await loadPageWithCarousel(tester);
+
+    // assert
     expect(find.byType(IuppCarrouselSlider), findsOneWidget);
   });
 

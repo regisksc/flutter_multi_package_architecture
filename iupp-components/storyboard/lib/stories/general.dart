@@ -77,4 +77,40 @@ final generalStories = [
     name: 'IuppFooter',
     builder: (_, k) => const IuppFooter(),
   ),
+  Story(
+    section: 'General',
+    name: 'IuppCard',
+    builder: (_, k) => IuppCard(
+      padding: EdgeInsets.all(
+        k.slider(
+          label: 'Padding',
+          initial: 0,
+          min: 0,
+          max: 30,
+        ),
+      ),
+      children: const [
+        Text('I am a text inside the card'),
+        Text('Luke, i am your father'),
+      ],
+    ),
+  ),
+  Story(
+    section: 'General',
+    name: 'IuppDivider',
+    builder: (_, k) => IuppDivider(
+      heigth: k.slider(
+          label: 'Heigth',
+          initial: 0,
+          min: 0,
+          max: 30,
+        ),
+      verticalPadding: k.slider(
+          label: 'Vertical Padding',
+          initial: 0,
+          min: 0,
+          max: 30,
+        ),
+    ),
+  ),
 ];

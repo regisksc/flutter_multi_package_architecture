@@ -11,6 +11,7 @@ class IuppCard extends StatelessWidget {
       right: 24,
     ),
   }) : super(key: key);
+
   final List<Widget> children;
   final EdgeInsetsGeometry padding;
 

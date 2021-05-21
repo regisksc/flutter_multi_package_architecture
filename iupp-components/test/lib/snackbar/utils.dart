@@ -2,25 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_components/iupp_components.dart';
 
+import '../../utils.dart';
+
 Future<void> loadPageWithSnackBar(
   WidgetTester tester, {
   required SnackBarType type,
   bool isIOS = false,
 }) async {
-  await tester.pumpWidget(
-    MaterialApp(
-      theme: ThemeData(
-        platform: isIOS ? TargetPlatform.iOS : TargetPlatform.android,
-      ),
-      home: Scaffold(
-        body: Builder(
-          builder: (context) => ElevatedButton(
-            onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-              getSnackBarFromType(context, type),
-            ),
-            child: const Text('Show Snackbar'),
-          ),
+  await loadPageWithWidget(
+    tester,
+    theme: ThemeData(
+      platform: isIOS ? TargetPlatform.iOS : TargetPlatform.android,
+    ),
+    widget: Builder(
+      builder: (context) => ElevatedButton(
+        onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+          getSnackBarFromType(context, type),
         ),
+        child: const Text('Show Snackbar'),
       ),
     ),
   );
@@ -30,18 +29,15 @@ Future<void> loadPageIosWithSnackBar(
   WidgetTester tester, {
   required SnackBarType type,
 }) async {
-  await tester.pumpWidget(
-    MaterialApp(
-      theme: ThemeData(platform: TargetPlatform.iOS),
-      home: Scaffold(
-        body: Builder(
-          builder: (context) => ElevatedButton(
-            onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-              getSnackBarFromType(context, type),
-            ),
-            child: const Text('Show Snackbar'),
-          ),
+  await loadPageWithWidget(
+    tester,
+    theme: ThemeData(platform: TargetPlatform.iOS),
+    widget: Builder(
+      builder: (context) => ElevatedButton(
+        onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+          getSnackBarFromType(context, type),
         ),
+        child: const Text('Show Snackbar'),
       ),
     ),
   );
