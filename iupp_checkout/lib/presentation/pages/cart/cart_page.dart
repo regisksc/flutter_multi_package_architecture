@@ -6,7 +6,6 @@ import 'package:iupp_components/iupp_components.dart';
 import 'package:iupp_core/core/navigator/navigator.dart';
 
 import 'cart_controller.dart';
-import 'widgets/empty_cart_widget/empty_cart.dart';
 import 'widgets/widgets.dart';
 
 class CartPage extends StatefulWidget {
