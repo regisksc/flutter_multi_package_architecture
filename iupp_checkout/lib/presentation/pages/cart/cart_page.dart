@@ -28,7 +28,8 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return IuppCheckoutScaffold(
+    return CheckoutScaffold(
+      whiteSpace: isEmpty ? 4 : 1,
       child: isEmpty
           ? const CheckoutEmptyCart()
           : Column(
@@ -47,9 +48,7 @@ class _CartPageState extends State<CartPage> {
                       increment: () => debugPrint('incremenet'),
                       decrement: () => debugPrint('decrement'),
                     ),
-                    const IuppDivider(
-                      verticalPadding: 29,
-                    ),
+                    const IuppDivider(verticalPadding: 29),
                     CheckoutItemCart(
                       photoUrl:
                           'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',

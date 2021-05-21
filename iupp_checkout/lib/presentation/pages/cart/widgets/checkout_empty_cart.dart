@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_core/core.dart';
 
-class EmptyCart extends StatelessWidget {
-  const EmptyCart({Key? key}) : super(key: key);
+class CheckoutEmptyCart extends StatelessWidget {
+  const CheckoutEmptyCart({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,6 @@ class EmptyCart extends StatelessWidget {
         IuppCheckoutButtonNavigate(
           label: 'ir para o início',
           onpressed: () => NavigatorService().navigateTo('/home'),
-        ),
-        // TODO: ver com Toni
-        SizedBox(
-          height: MediaQuery.of(context).size.height - 64 - 86 - 106 - 16 - 60 - 160,
         ),
       ],
     );

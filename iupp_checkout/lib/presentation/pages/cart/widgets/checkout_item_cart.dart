@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-import '../widgets.dart';
+import 'widgets.dart';
 
 class CheckoutItemCart extends StatelessWidget {
   const CheckoutItemCart(

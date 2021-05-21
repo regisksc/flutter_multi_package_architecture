@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-class IuppCheckoutFooter extends StatelessWidget {
-  const IuppCheckoutFooter({Key? key}) : super(key: key);
+class CheckoutFooterText extends StatelessWidget {
+  const CheckoutFooterText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
