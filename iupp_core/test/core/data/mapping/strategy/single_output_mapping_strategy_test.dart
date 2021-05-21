@@ -19,7 +19,7 @@ void main() {
     'should return needed Object',
     () async {
       // act
-      final result = sut<ModelMock>();
+      final result = sut<ModelMock>(mapOrListOfMap: map);
 
       // assert
       expect(result, isA<ModelMock>());
@@ -31,10 +31,9 @@ void main() {
     () async {
       // arrange
       const String invalidMap = '';
-      sut = SingleOutputMappingStrategy(model: model, mapOrListOfMap: invalidMap);
 
       // assert
-      expect(() => sut<ModelMock>(), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
+      expect(() => sut<ModelMock>(mapOrListOfMap: invalidMap), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
     },
   );
 }
