@@ -11,9 +11,9 @@ class SingleOutputMappingStrategy implements MappingStrategy {
   final dynamic mapOrListOfMap;
 
   @override
-  Output? call<Output extends Model>() {
+  Output? call<Output extends Model>({required dynamic mapOrListOfMap}) {
     if (mapOrListOfMap is Map<String, dynamic>) {
-      return model.fromJson(mapOrListOfMap as Map<String, dynamic>) as Output;
+      return model.fromJson(mapOrListOfMap) as Output;
     }
     throw InvalidMapFailure(mapOrListOfMap.runtimeType);
   }
