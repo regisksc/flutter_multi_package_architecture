@@ -1,5 +1,11 @@
 export 'iupp_highlights_products.dart';
+export 'payment_info.dart';
 export 'payment_options.dart';
+export 'product_actions.dart';
+export 'product_carousel_images.dart';
+export 'product_details_header.dart';
 export 'product_discount_chip.dart';
+export 'product_info.dart';
 export 'product_price_info.dart';
+export 'product_quantity.dart';
 export 'who_bought_also_saw.dart';

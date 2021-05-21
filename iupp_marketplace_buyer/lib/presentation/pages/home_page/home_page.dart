@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_marketplace_buyer/presentation/widgets/widgets.dart';
 import 'widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,24 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE5E5E5),
-      appBar: IuppAppBar(
-        iuppLeading: const Icon(
-          IuppIcons.icone_contorno_M_menu_hamburger,
-          color: Colors.white,
-          size: 40,
-        ),
-        iuppActions: [
-          IconButton(
-            icon: const Icon(
-              IuppIcons.icone_contorno_C_carrinho_outline,
-              color: Colors.white,
-              size: 40,
-            ),
-            onPressed: () {},
-          ),
-          const SizedBox(width: 20),
-        ],
-      ),
+      appBar: IuppMarketplaceBuyerAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
