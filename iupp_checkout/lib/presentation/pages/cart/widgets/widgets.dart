@@ -1,3 +1,3 @@
-export 'checkout_action_button_widget/checkout_action_button_widget.dart';
-export 'checkout_empty_cart_widget/checkout_empty_cart_widget.dart';
-export 'checkout_item_cart_widget/checkout_item_cart_widget.dart';
+export 'checkout_action_button/checkout_action_button.dart';
+export 'checkout_empty_cart/checkout_empty_cart.dart';
+export 'checkout_item_cart/checkout_item_cart.dart';
