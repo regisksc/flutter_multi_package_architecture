@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_core/core.dart';
 
-import '../../widgets/iupp_address_app_bar.dart';
+import '../../widgets/checkout_address_app_bar.dart';
 import '../../widgets/iupp_checkout_footer.dart';
 import 'widgets/widgets.dart';
 
@@ -23,7 +23,7 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
-      appBar: IuppAddressAppBar(step: 1),
+      appBar: CheckoutAddressAppBar(step: 1),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

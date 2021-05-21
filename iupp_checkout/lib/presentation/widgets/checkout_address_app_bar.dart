@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iupp_checkout/presentation/pages/address_register/widgets/widgets.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-class IuppAddressAppBar extends AppBar {
-  IuppAddressAppBar({
+class CheckoutAddressAppBar extends AppBar {
+  CheckoutAddressAppBar({
     Key? key,
     required int step,
   }) : super(

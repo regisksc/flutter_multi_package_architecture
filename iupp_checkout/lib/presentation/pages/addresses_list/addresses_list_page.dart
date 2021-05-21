@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/iupp_address_app_bar.dart';
+import 'package:iupp_checkout/presentation/widgets/checkout_address_app_bar.dart';
 import 'package:iupp_checkout/presentation/widgets/iupp_checkout_footer.dart';
 import 'package:iupp_components/buttons/buttons.dart';
 import 'package:iupp_components/iupp_components.dart';
@@ -12,7 +12,7 @@ class AddressesListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
-      appBar: IuppAddressAppBar(step: 1),
+      appBar: CheckoutAddressAppBar(step: 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

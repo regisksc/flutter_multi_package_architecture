@@ -57,7 +57,7 @@ class DeliveryOptionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
-      appBar: IuppAddressAppBar(step: 2),
+      appBar: CheckoutAddressAppBar(step: 2),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
