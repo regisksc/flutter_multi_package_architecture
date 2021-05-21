@@ -128,7 +128,7 @@ analyzer:
     unawaited_futures: error
     unnecessary_await_in_return: error
     unnecessary_brace_in_string_interps: error
-    unnecessary_const: error
+    unnecessary_const: warning
     unnecessary_getters_setters: error
     unnecessary_lambdas: ignore
     unnecessary_new: error
