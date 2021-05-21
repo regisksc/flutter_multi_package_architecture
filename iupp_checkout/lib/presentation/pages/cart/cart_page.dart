@@ -30,12 +30,12 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return IuppCheckoutScaffold(
       child: isEmpty
-          ? const EmptyCart()
+          ? const CheckoutEmptyCartWidget()
           : Column(
               children: [
                 IuppCard(
                   children: [
-                    ItemCartWidget(
+                    CheckoutItemCartWidget(
                       photoUrl:
                           'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
                       description:
@@ -44,13 +44,13 @@ class _CartPageState extends State<CartPage> {
                       price: '5999.20',
                       points: '2500',
                       count: 1,
-                      increment: () => print('incremenet'),
-                      decrement: () => print('decrement'),
+                      increment: () => debugPrint('incremenet'),
+                      decrement: () => debugPrint('decrement'),
                     ),
                     const IuppDivider(
                       verticalPadding: 29,
                     ),
-                    ItemCartWidget(
+                    CheckoutItemCartWidget(
                       photoUrl:
                           'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
                       description:
@@ -59,13 +59,14 @@ class _CartPageState extends State<CartPage> {
                       price: '5999.20',
                       points: '2500',
                       count: 1,
-                      increment: () => print('incremenet'),
-                      decrement: () => print('decrement'),
+                      increment: () => debugPrint('incremenet'),
+                      decrement: () => debugPrint('decrement'),
                     ),
                     const IuppDivider(
                       verticalPadding: 29,
                     ),
-                    CepFormField(cep: '', onChanged: (value) => print(value)),
+                    CepFormField(
+                        cep: '', onChanged: (value) => debugPrint(value)),
                     const IuppDivider(
                       verticalPadding: 24,
                     ),
