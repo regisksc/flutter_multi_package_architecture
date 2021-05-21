@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 
 import 'widgets/widgets.dart';
 
@@ -33,8 +33,7 @@ final deliverySellers = <Widget>[
         subtitle: 'Consulte as lojas',
       ),
     ],
-    productDescription:
-        'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+    productDescription: 'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
     productImage:
         'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-128gb-azul-tela-61-cam-dupla-12mp-ios/magazineluiza/155598400/6b9b8ece04de165ab19587f5bd491df4.jpg',
   ),
@@ -47,8 +46,7 @@ final deliverySellers = <Widget>[
         subtitle: 'Em até 8 dias úteis¹',
       ),
     ],
-    productDescription:
-        'Smartphone Motorola Moto G9 Play 64GB Duos 6.5" 4G Câm 48+2+2MP',
+    productDescription: 'Smartphone Motorola Moto G9 Play 64GB Duos 6.5" 4G Câm 48+2+2MP',
     productImage:
         'https://a-static.mlcdn.com.br/618x463/smartphone-motorola-moto-g9-play-64gb-4gb-ram-camera-tripla-48mp-tela-6-5-azul-safira/commcenter/e000055/5ddbea0e4e14d0f030269e1b6a099909.jpg',
   ),

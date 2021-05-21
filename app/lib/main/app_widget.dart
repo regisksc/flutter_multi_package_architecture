@@ -20,11 +20,11 @@ class IuppApp extends StatelessWidget with BaseApp {
       theme: theme,
       navigatorKey: NavigatorService.navigatorKey,
       onGenerateRoute: super.generateRoute,
-      initialRoute: '/home',
+      initialRoute: _initialRoute,
     );
   }
 
-  String get _initialRoute => Routes.home;
+  String get _initialRoute => Routes.cart;
 
   @override
   Map<String, WidgetBuilderArgs> get baseRoutes => {};

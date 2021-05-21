@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 
 import '../delivery_options_page.dart';
 import 'widgets.dart';
@@ -96,8 +96,7 @@ class _DeliverySellerCardState extends State<DeliverySellerCard> {
                       pickedDeliverOption = i + 1;
                     });
                   },
-                  leading: DeliverOptionCheckBox(
-                      isPicked: i == pickedDeliverOption - 1),
+                  leading: DeliverOptionCheckBox(isPicked: i == pickedDeliverOption - 1),
                   title: Text(widget.deliveryTypes[i].title),
                   subtitle: Text(widget.deliveryTypes[i].subtitle),
                   trailing: Row(

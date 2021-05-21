@@ -1,6 +1,7 @@
 name: iupp_components
 description: Collection of components to be used on the Iupp project
 version: 0.0.1
+publish_to: none
 author:
 
 environment:
@@ -10,9 +11,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  iupp_core:
+    path: ../iupp_core
 
   carousel_slider: ^4.0.0-nullsafety.0
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

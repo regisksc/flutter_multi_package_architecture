@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 
 class ProductCarouselImages extends StatelessWidget {
   const ProductCarouselImages({Key? key}) : super(key: key);
@@ -24,8 +24,7 @@ class ProductCarouselImages extends StatelessWidget {
           ),
         ],
         carouselIndicator: CarouselIndicator.dots,
-        carouselIndicatorContainerColor:
-            Theme.of(context).scaffoldBackgroundColor,
+        carouselIndicatorContainerColor: Theme.of(context).scaffoldBackgroundColor,
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 
 class TalkToUs extends StatelessWidget {
   const TalkToUs({Key? key}) : super(key: key);

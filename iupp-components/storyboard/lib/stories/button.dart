@@ -1,4 +1,4 @@
-import 'package:iupp_components/buttons/buttons.dart';
+import 'package:iupp_components/components/components.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final buttonStories = [
