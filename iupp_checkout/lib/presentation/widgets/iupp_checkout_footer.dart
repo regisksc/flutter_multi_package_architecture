@@ -16,25 +16,30 @@ class IuppCheckoutFooter extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 IuppIcons.icone_contorno_S_seguranca_outline,
                 size: 16,
                 color: Color(0xFF7C7B8B),
               ),
-              SizedBox(width: 7),
-              Text('Ambiente Seguro', style: textStyle),
-              Padding(
+              const SizedBox(width: 7),
+              const Text('Ambiente Seguro', style: textStyle),
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8),
                 child: Text('|', style: textStyle),
               ),
-              Icon(
+              const Icon(
                 IuppIcons.icone_contorno_A_atendimento_telefonico,
                 size: 16,
                 color: Color(0xFF7C7B8B),
               ),
-              SizedBox(width: 7),
-              Text('Telefones úteis', style: textStyle),
+              const SizedBox(width: 7),
+              Text(
+                'Telefones úteis',
+                style: textStyle.copyWith(
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 8),
