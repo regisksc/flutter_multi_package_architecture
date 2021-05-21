@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 final generalStories = [

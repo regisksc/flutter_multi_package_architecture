@@ -8,4 +8,5 @@ export 'product_discount_chip.dart';
 export 'product_info.dart';
 export 'product_price_info.dart';
 export 'product_quantity.dart';
+export 'shipping_info.dart';
 export 'who_bought_also_saw.dart';

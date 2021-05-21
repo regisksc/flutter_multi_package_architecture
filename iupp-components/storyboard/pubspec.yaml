@@ -12,8 +12,7 @@ dependencies:
     sdk: flutter
   storybook_flutter: ^0.5.0
   iupp_components:
-    path:
-      ../../iupp-components
+    path: ../../iupp-components
 
   cupertino_icons: ^1.0.2
 

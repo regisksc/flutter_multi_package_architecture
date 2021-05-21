@@ -1,13 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iupp_checkout/presentation/pages/cart/widgets/checkout_cep_area.dart';
 import 'package:iupp_checkout/presentation/pages/cart/widgets/checkout_subtotal_area.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
-import 'package:iupp_components/iupp_components.dart';
-import 'package:iupp_core/core.dart';
-import 'package:iupp_core/core/navigator/navigator.dart';
+import 'package:iupp_components/components/components.dart';
 
 import 'cart_controller.dart';
 import 'widgets/widgets.dart';
@@ -28,12 +24,12 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
-  bool get isEmpty => !controller.isEmpty;
+  bool get isEmpty => controller.isEmpty;
 
   @override
   Widget build(BuildContext context) {
     return CheckoutScaffold(
-      whiteSpace: isEmpty ? 4 : 1,
+      whiteSpace: isEmpty ? 7 : 1,
       child: isEmpty
           ? const CheckoutEmptyCart()
           : Column(
@@ -70,7 +66,7 @@ class _CartPageState extends State<CartPage> {
                 ),
                 IuppCheckoutButtonNavigate(
                   label: 'continuar',
-                  onpressed: () => NavigatorService().navigateTo('/home'),
+                  onpressed: () => {},
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),

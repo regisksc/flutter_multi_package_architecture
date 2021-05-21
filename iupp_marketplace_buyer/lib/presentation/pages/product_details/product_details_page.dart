@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
-import 'package:iupp_marketplace_buyer/presentation/pages/product_details/widgets/shipping_info.dart';
-import 'package:iupp_marketplace_buyer/presentation/widgets/widgets.dart';
+import 'package:iupp_components/components/components.dart';
+import 'package:iupp_marketplace_buyer/presentation/presentation.dart';
 
 import 'widgets/widgets.dart';
 

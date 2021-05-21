@@ -1,6 +1,7 @@
 import '../../../core.dart';
+import '../../../init_core.dart';
 
 HttpClient makeAuthorizeHttpClientDecorator() => AuthorizeHttpClientDecorator(
       decoratee: makeHttpAdapter(),
-      secureLocalDatasource: SecureLocalDatasource(),
+      localStorage: SharedPreferencesLocalStorage(sharedPreferences),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 
 import 'widgets.dart';
 
@@ -79,9 +79,7 @@ class CheckoutItemCart extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CheckoutActionButton(
-                    onTap: decrement,
-                    icon: IuppIcons.icone_contorno_M_minimizar_outline),
+                CheckoutActionButton(onTap: decrement, icon: IuppIcons.icone_contorno_M_minimizar_outline),
                 SizedBox(
                   width: 32,
                   child: Center(
@@ -91,8 +89,7 @@ class CheckoutItemCart extends StatelessWidget {
                     ),
                   ),
                 ),
-                CheckoutActionButton(
-                    onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
+                CheckoutActionButton(onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
               ],
             ),
             Column(

@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/checkout_address_app_bar.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
-import 'package:iupp_components/buttons/buttons.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 
 class AddressesListPage extends StatelessWidget {
   const AddressesListPage({Key? key}) : super(key: key);
@@ -112,8 +110,7 @@ class AddressesListPage extends StatelessWidget {
                             onPressed: () {},
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
-                            textPadding:
-                                const EdgeInsets.symmetric(vertical: 12),
+                            textPadding: const EdgeInsets.symmetric(vertical: 12),
                             borderRadius: 50,
                           ),
                         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_components/components/components.dart';
 
 class ProductInfo extends StatelessWidget {
   const ProductInfo({Key? key}) : super(key: key);
@@ -94,10 +94,7 @@ class ProductInfo extends StatelessWidget {
                   onPressed: () {},
                   backgroundColor: Colors.white,
                   elevation: 0,
-                  child: const Icon(
-                      IuppIcons.icone_contorno_C_compartilhar_outline,
-                      size: 32,
-                      color: Colors.black),
+                  child: const Icon(IuppIcons.icone_contorno_C_compartilhar_outline, size: 32, color: Colors.black),
                 ),
               ),
             ],
