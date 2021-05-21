@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_checkout/presentation/pages/cart/widgets/checkout_button_navigate_widget.dart/checkout_button_navigate_widget.dart';
 import 'package:iupp_components/iupp_components.dart';
 import 'package:iupp_core/core.dart';
 
@@ -35,18 +36,9 @@ class EmptyCart extends StatelessWidget {
             ),
           ),
         ),
-        Center(
-          child: Container(
-            margin: const EdgeInsets.only(top: 24),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
-            width: 312,
-            height: 48,
-            child: IuppElevatedButton(
-              text: 'ir para o início',
-              fontSize: 18,
-              onPressed: () => NavigatorService().navigateTo('/home'),
-            ),
-          ),
+        CheckoutButtonNavigateWidget(
+          label: 'ir para o início',
+          onpressed: () => NavigatorService().navigateTo('/home'),
         ),
       ],
     );

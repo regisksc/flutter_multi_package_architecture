@@ -97,11 +97,18 @@ class ItemCartWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text("R\$ $price"),
+                Text(
+                  "R\$ $price",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                    color: Color(0xFF494C57),
+                  ),
+                ),
                 Text(
                   'ganhe $points pontos¹',
                   style: const TextStyle(
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w700,
                     fontSize: 16,
                     color: Color(0xFF1E8449),
                   ),

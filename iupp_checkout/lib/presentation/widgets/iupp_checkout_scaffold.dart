@@ -4,17 +4,13 @@ import 'package:iupp_components/iupp_components.dart';
 
 import 'iupp_checkout_footer.dart';
 
-class IuppCheckoutScafold extends StatelessWidget {
-  const IuppCheckoutScafold({
+class IuppCheckoutScaffold extends StatelessWidget {
+  const IuppCheckoutScaffold({
     Key? key,
     required this.child,
-    required this.flexSpace,
-    this.flexFooter = 3,
   }) : super(key: key);
 
   final Widget child;
-  final int flexSpace;
-  final int flexFooter;
 
   @override
   Widget build(BuildContext context) {
@@ -24,30 +20,28 @@ class IuppCheckoutScafold extends StatelessWidget {
         centered: true,
       ),
       body: SingleChildScrollView(
-        child: SizedBox(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(24),
-                child: const Text(
-                  'carrinho',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                  ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(24),
+              child: const Text(
+                'carrinho',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              child,
-              /* const SizedBox(height: 200), */
-              const SizedBox(height: 48),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 24),
-                child: IuppCheckoutFooter(),
-              ),
-            ],
-          ),
+            ),
+            child,
+            /* const SizedBox(height: 200), */
+            const SizedBox(height: 48),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 24),
+              child: IuppCheckoutFooter(),
+            ),
+          ],
         ),
       ),
     );
