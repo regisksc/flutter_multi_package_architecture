@@ -1,3 +1,5 @@
+import 'package:iupp_core/core/error/http_failure/forbidden_failure.dart';
+
 import '../../core.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
