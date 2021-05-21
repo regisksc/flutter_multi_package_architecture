@@ -23,7 +23,10 @@ class CheckoutScaffold extends StatelessWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          CheckoutView(title: 'carrinho', child: child),
+          CheckoutView(
+            title: 'carrinho',
+            child: child,
+          ),
           CheckoutFooter(
             footerSpace: 3,
             padding: const EdgeInsets.only(bottom: 24),

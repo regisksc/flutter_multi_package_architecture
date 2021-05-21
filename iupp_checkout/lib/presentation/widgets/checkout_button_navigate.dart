@@ -15,9 +15,9 @@ class IuppCheckoutButtonNavigate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.only(top: 24),
+        margin: const EdgeInsets.all(24),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
-        width: 312,
+        width: double.maxFinite,
         height: 48,
         child: IuppElevatedButton(
           text: label,

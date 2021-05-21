@@ -1,8 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:iupp_checkout/presentation/pages/address_register/widgets/cep_form_field.dart';
+import 'package:iupp_checkout/presentation/pages/cart/widgets/checkout_cep_area.dart';
+import 'package:iupp_checkout/presentation/pages/cart/widgets/checkout_subtotal_area.dart';
 import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_components/iupp_components.dart';
+import 'package:iupp_core/core.dart';
 import 'package:iupp_core/core/navigator/navigator.dart';
 
 import 'cart_controller.dart';
@@ -24,7 +28,7 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
-  bool get isEmpty => controller.isEmpty;
+  bool get isEmpty => !controller.isEmpty;
 
   @override
   Widget build(BuildContext context) {
@@ -48,59 +52,19 @@ class _CartPageState extends State<CartPage> {
                       increment: () => debugPrint('incremenet'),
                       decrement: () => debugPrint('decrement'),
                     ),
-                    const IuppDivider(verticalPadding: 29),
-                    CheckoutItemCart(
-                      photoUrl:
-                          'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
-                      description:
-                          'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
-                      sellerName: 'Magazine Luíza',
-                      price: '5999.20',
-                      points: '2500',
-                      count: 1,
-                      increment: () => debugPrint('incremenet'),
-                      decrement: () => debugPrint('decrement'),
-                    ),
                     const IuppDivider(
                       verticalPadding: 29,
                     ),
-                    CepFormField(
-                        cep: '', onChanged: (value) => debugPrint(value)),
+                    CheckoutCepArea(
+                      defaultValue: '13880-000',
+                      onSearch: (value) => debugPrint(value),
+                    ),
                     const IuppDivider(
                       verticalPadding: 24,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Subtotal",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16,
-                            color: Color(0xFF494C57),
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: const [
-                            Text(
-                              'R 5.999,20',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Color(0xFF494C57),
-                                  fontSize: 16),
-                            ),
-                            Text(
-                              'Ganhe 2.500 pontos',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Color(0xFF1E8449),
-                                  fontSize: 16),
-                            ),
-                          ],
-                        ),
-                      ],
+                    const CheckoutSubtotalArea(
+                      points: 2500,
+                      total: 5999.20,
                     ),
                   ],
                 ),
@@ -109,15 +73,17 @@ class _CartPageState extends State<CartPage> {
                   onpressed: () => NavigatorService().navigateTo('/home'),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(left: 24, right: 24, top: 24),
+                  padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
                     '¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.',
                     style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF7C7B8B)),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF7C7B8B),
+                    ),
                   ),
                 ),
+                const SizedBox(height: 24),
               ],
             ),
     );
