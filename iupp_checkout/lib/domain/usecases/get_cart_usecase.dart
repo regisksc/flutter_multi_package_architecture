@@ -5,7 +5,7 @@ class GetCartUsecase {
   GetCartUsecase(this.repository);
   final CartRepositoryContract repository;
 
-  Future<CartEntity?> call() async {
-    await repository.getCart();
+  Future<CartEntity?> call(String cartId) async {
+    await repository.getCart(cartId);
   }
 }

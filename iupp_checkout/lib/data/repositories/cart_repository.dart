@@ -3,12 +3,7 @@ import 'package:iupp_checkout/domain/repositories/cart_repository_contract.dart'
 
 class CartRepository implements CartRepositoryContract {
   @override
-  Future<CartEntity?> addItem() async {
-    return getCart();
-  }
-
-  @override
-  Future<CartEntity?> getCart() async {
+  Future<CartEntity?> getCart(String cartId) async {
     await Future.delayed(const Duration(seconds: 2));
     return CartEntity(
         id: 0,
@@ -19,22 +14,17 @@ class CartRepository implements CartRepositoryContract {
   }
 
   @override
-  Future<CartEntity?> removeItem() async {
-    return getCart();
+  Future<CartEntity?> decrementItem(String cartId, String itemId) async {
+    return getCart(cartId);
   }
 
   @override
-  Future<CartEntity?> setCep() async {
-    return getCart();
+  Future<CartEntity?> calcShipping(String cartId, String itemId) async {
+    return getCart(cartId);
   }
 
   @override
-  Future<CartEntity?> updateItem() async {
-    return getCart();
-  }
-
-  @override
-  Future<CartEntity?> create() async {
-    return getCart();
+  Future<CartEntity?> incrementItem(String cartId, String itemId) async {
+    return getCart(cartId);
   }
 }

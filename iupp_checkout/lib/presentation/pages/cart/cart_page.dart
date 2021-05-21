@@ -46,15 +46,15 @@ class _CartPageState extends State<CartPage> {
                       points: '2500',
                       count: 1,
                       expectedDeliveryDays: controller.expectedDeliveryDays,
-                      increment: () => debugPrint('incremenet'),
-                      decrement: () => debugPrint('decrement'),
+                      increment: () => controller.incrementItem('incremenet'),
+                      decrement: () => controller.decrementItem('decrement'),
                     ),
                     const IuppDivider(
                       verticalPadding: 24,
                     ),
                     CheckoutCepArea(
                       shippingValue: controller.shippingValue,
-                      onSearch: (value) => debugPrint(value),
+                      onSearch: (value) => controller.calShippingValue(value),
                     ),
                     const IuppDivider(
                       verticalPadding: 18,
