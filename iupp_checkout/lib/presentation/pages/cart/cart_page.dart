@@ -24,7 +24,7 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
-  bool get isEmpty => !controller.isEmpty;
+  bool get isEmpty => controller.isEmpty;
 
   @override
   Widget build(BuildContext context) {

@@ -39,6 +39,10 @@ class CheckoutEmptyCart extends StatelessWidget {
           label: 'ir para o início',
           onpressed: () => NavigatorService().navigateTo('/home'),
         ),
+        // TODO: ver com Toni
+        SizedBox(
+          height: MediaQuery.of(context).size.height - 64 - 86 - 106 - 16 - 60 - 160,
+        ),
       ],
     );
   }
