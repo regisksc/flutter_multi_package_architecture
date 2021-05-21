@@ -47,4 +47,9 @@ class CartController {
   }
 
   bool get isEmpty => cartState?.items.isEmpty ?? true;
+
+  double? get shippingValue => 200; //cartState?.shipping?.value;
+
+  int? get expectedDeliveryDays =>
+      2; //cartState?.shipping?.expectedDeliveryDays;
 }

@@ -36,6 +36,7 @@ class CheckoutEmptyCart extends StatelessWidget {
           label: 'ir para o início',
           onpressed: () => NavigatorService().navigateTo('/home'),
         ),
+        const SizedBox(height: 75)
       ],
     );
   }

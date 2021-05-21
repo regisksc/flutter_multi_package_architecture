@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_core/core.dart';
+import 'package:iupp_checkout/helpers/get_formated_money.dart';
 
 class CheckoutSubtotalArea extends StatelessWidget {
   const CheckoutSubtotalArea({
@@ -29,7 +29,7 @@ class CheckoutSubtotalArea extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
-              'R\$ ${formatCurrency.format(total)}',
+              getFormatedMoney(total),
               style: const TextStyle(
                   fontWeight: FontWeight.w700,
                   color: Color(0xFF494C57),

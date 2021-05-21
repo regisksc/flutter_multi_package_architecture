@@ -24,12 +24,12 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
-  bool get isEmpty => controller.isEmpty;
+  bool get isEmpty => !controller.isEmpty;
 
   @override
   Widget build(BuildContext context) {
     return CheckoutScaffold(
-      whiteSpace: isEmpty ? 7 : 1,
+      whiteSpace: 1,
       child: isEmpty
           ? const CheckoutEmptyCart()
           : Column(
@@ -42,21 +42,22 @@ class _CartPageState extends State<CartPage> {
                       description:
                           'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
                       sellerName: 'Magazine Luíza',
-                      price: '5999.20',
+                      price: 5999.20,
                       points: '2500',
                       count: 1,
+                      expectedDeliveryDays: controller.expectedDeliveryDays,
                       increment: () => debugPrint('incremenet'),
                       decrement: () => debugPrint('decrement'),
                     ),
                     const IuppDivider(
-                      verticalPadding: 29,
+                      verticalPadding: 24,
                     ),
                     CheckoutCepArea(
-                      defaultValue: '13880-000',
+                      shippingValue: controller.shippingValue,
                       onSearch: (value) => debugPrint(value),
                     ),
                     const IuppDivider(
-                      verticalPadding: 24,
+                      verticalPadding: 18,
                     ),
                     const CheckoutSubtotalArea(
                       points: 2500,
@@ -79,6 +80,18 @@ class _CartPageState extends State<CartPage> {
                     ),
                   ),
                 ),
+                if (controller.expectedDeliveryDays != null)
+                  const Padding(
+                    padding: EdgeInsets.only(top: 4, left: 24, right: 24),
+                    child: Text(
+                      '² O prazo de entrega é iniciado no 1º dia útil após a confirmação do pagamento.',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF7C7B8B),
+                      ),
+                    ),
+                  ),
                 const SizedBox(height: 24),
               ],
             ),

@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_checkout/helpers/get_formated_money.dart';
 import 'package:iupp_components/components/components.dart';
 
 import 'widgets.dart';
 
 class CheckoutItemCart extends StatelessWidget {
-  const CheckoutItemCart(
-      {Key? key,
-      required this.photoUrl,
-      required this.description,
-      required this.sellerName,
-      required this.price,
-      required this.points,
-      required this.count,
-      required this.increment,
-      required this.decrement})
-      : super(key: key);
+  const CheckoutItemCart({
+    Key? key,
+    required this.photoUrl,
+    required this.description,
+    required this.sellerName,
+    required this.price,
+    required this.points,
+    required this.count,
+    required this.increment,
+    required this.decrement,
+    this.expectedDeliveryDays,
+  }) : super(key: key);
 
   final String photoUrl;
   final String description;
   final String sellerName;
-  final String price;
+  final double price;
   final String points;
   final int count;
+  final int? expectedDeliveryDays;
   final VoidCallback increment;
   final VoidCallback decrement;
 
@@ -67,6 +70,22 @@ class CheckoutItemCart extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
+                  if (expectedDeliveryDays != null)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4),
+                      child: Text.rich(
+                        TextSpan(
+                          text: 'Em até',
+                          children: [
+                            TextSpan(
+                              text: ' $expectedDeliveryDays dias úteis²',
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w700),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -79,7 +98,9 @@ class CheckoutItemCart extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CheckoutActionButton(onTap: decrement, icon: IuppIcons.icone_contorno_M_minimizar_outline),
+                CheckoutActionButton(
+                    onTap: decrement,
+                    icon: IuppIcons.icone_contorno_M_minimizar_outline),
                 SizedBox(
                   width: 32,
                   child: Center(
@@ -89,14 +110,15 @@ class CheckoutItemCart extends StatelessWidget {
                     ),
                   ),
                 ),
-                CheckoutActionButton(onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
+                CheckoutActionButton(
+                    onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
               ],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  "R\$ $price",
+                  getFormatedMoney(price),
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
