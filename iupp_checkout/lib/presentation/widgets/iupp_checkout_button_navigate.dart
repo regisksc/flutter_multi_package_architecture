@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/iupp_components.dart';
 
-class CheckoutButtonNavigateWidget extends StatelessWidget {
-  const CheckoutButtonNavigateWidget({
+class IuppCheckoutButtonNavigate extends StatelessWidget {
+  const IuppCheckoutButtonNavigate({
     Key? key,
     required this.label,
     required this.onpressed,

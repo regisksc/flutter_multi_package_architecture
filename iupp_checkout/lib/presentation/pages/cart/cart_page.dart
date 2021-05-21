@@ -105,7 +105,7 @@ class _CartPageState extends State<CartPage> {
                     ),
                   ],
                 ),
-                CheckoutButtonNavigateWidget(
+                IuppCheckoutButtonNavigate(
                   label: 'continuar',
                   onpressed: () => NavigatorService().navigateTo('/home'),
                 ),

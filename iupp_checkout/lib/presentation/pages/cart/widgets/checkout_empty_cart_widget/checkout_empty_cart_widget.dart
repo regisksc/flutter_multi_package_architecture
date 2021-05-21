@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_core/core.dart';
-
-import '../widgets.dart';
 
 class CheckoutEmptyCartWidget extends StatelessWidget {
   const CheckoutEmptyCartWidget({Key? key}) : super(key: key);
@@ -36,7 +35,7 @@ class CheckoutEmptyCartWidget extends StatelessWidget {
             ),
           ),
         ),
-        CheckoutButtonNavigateWidget(
+        IuppCheckoutButtonNavigate(
           label: 'ir para o início',
           onpressed: () => NavigatorService().navigateTo('/home'),
         ),
