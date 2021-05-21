@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
 import 'package:mocktail/mocktail.dart';
@@ -10,13 +11,26 @@ void main() {
   late RemoteDataSource sut;
   late HttpClientMock http;
   late NetworkInfoMock network;
-  //late HttpRequestParams httpParams;
+  late String url;
+  late HttpMethod method;
+  late Map<String, dynamic> body;
+  late Map<String, dynamic> query;
+  late Map<String, String> headers;
+  late ModelMock model;
 
   setUpAll(() {
     TestWidgetsFlutterBinding.ensureInitialized();
     http = HttpClientMock();
     network = NetworkInfoMock();
     sut = ConcreteRemoteDataSource(networkInfo: network, client: http);
+
+    url = faker.internet.httpsUrl();
+    method = HttpMethod.get;
+    body = anyMap;
+    query = anyMap;
+    headers = {'key': 'string_header'};
+
+    model = ModelMock();
   });
 
   void testsWhenConnected(Function() body) {}
@@ -28,26 +42,39 @@ void main() {
     });
   } */
 
-  When mockHttpRequestAnd() => when(
-        () => http.request(
+  When mockHttpRequest() {
+    return when(
+      ({String? url, String? body, String? query}) {
+        return http.request(
           url: any(named: 'url'),
-          method: any(named: 'url'),
-          body: any(named: 'url'),
-          headers: any(named: 'url'),
-          query: any(named: 'url'),
-        ),
-      );
+          method: any(named: 'method'),
+          body: any(named: 'body'),
+          headers: any(named: 'headers'),
+          query: any(named: 'query'),
+        );
+      },
+    );
+  }
 
   testsWhenConnected(() {
     test(
       'should successfully fetch and return Output',
       () async {
         // arrange
-        mockHttpRequestAnd().thenAnswer((invocation) =>
-            HttpResponse(code: 200, message: anyMessage, data: anyMap));
+        mockHttpRequest().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
 
         // act
-        // final result = sut.fetch<ModelMock>(httpParams: httpParams, mappingParams: mappingParams);
+        // final result = sut.fetch<ModelMock>(
+        //   httpParams: HttpRequestParams(
+        //     httpFetchMethod: method,
+        //     endpoint: url,
+        //     queryParameters: query,
+        //   ),
+        //   mappingParams: MappingParams(
+        //     mapper: model,
+        //     strategy: SingleOutputMappingStrategy(model: model),
+        //   ),
+        // );
 
         // assert
       },

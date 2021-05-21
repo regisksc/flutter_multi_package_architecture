@@ -1,31 +1,28 @@
 import 'package:equatable/equatable.dart';
 
-enum HttpMethod { get, post, put, delete }
+enum HttpMethod { get, post, put, delete, patch }
 
 class HttpRequestParams extends Equatable {
   const HttpRequestParams({
     required HttpMethod httpFetchMethod,
     required this.endpoint,
     this.queryParameters,
-    this.authorization,
     this.body,
     this.headers,
-    this.timeoutInMilliseconds = 15000,
   }) : _httpFetchMethod = httpFetchMethod;
 
   final HttpMethod _httpFetchMethod;
   final String endpoint;
-  final String? authorization;
   final Map<String, String>? headers;
   final Map<String, dynamic>? queryParameters;
   final dynamic body;
-  final int timeoutInMilliseconds;
 
   String get method {
     if (_httpFetchMethod == HttpMethod.get) return 'GET';
     if (_httpFetchMethod == HttpMethod.post) return 'POST';
     if (_httpFetchMethod == HttpMethod.put) return 'PUT';
     if (_httpFetchMethod == HttpMethod.delete) return 'DELETE';
+    if (_httpFetchMethod == HttpMethod.patch) return 'PATCH';
     return 'NO_METHOD';
   }
 
@@ -34,9 +31,7 @@ class HttpRequestParams extends Equatable {
         _httpFetchMethod,
         endpoint,
         body,
-        authorization,
         headers,
         queryParameters,
-        timeoutInMilliseconds,
       ];
 }

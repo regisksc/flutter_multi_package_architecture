@@ -1,2 +1,1 @@
-export './datasources_mocks.dart';
-export './model_mock.dart';
+export 'model_mock.dart';

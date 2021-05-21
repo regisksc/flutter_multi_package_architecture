@@ -12,7 +12,7 @@ void main() {
   setUp(() {
     model = ModelMock();
     map = <String, dynamic>{'field': ''};
-    sut = SingleOutputMappingStrategy(model: model, mapOrListOfMap: map);
+    sut = SingleOutputMappingStrategy(model: model);
   });
 
   test(
