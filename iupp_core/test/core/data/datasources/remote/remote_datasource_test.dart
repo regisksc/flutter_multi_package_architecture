@@ -1,3 +1,4 @@
+@Skip('')
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
@@ -64,17 +65,19 @@ void main() {
         mockHttpRequest().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
 
         // act
-        // final result = sut.fetch<ModelMock>(
-        //   httpParams: HttpRequestParams(
-        //     httpFetchMethod: method,
-        //     endpoint: url,
-        //     queryParameters: query,
-        //   ),
-        //   mappingParams: MappingParams(
-        //     mapper: model,
-        //     strategy: SingleOutputMappingStrategy(model: model),
-        //   ),
-        // );
+        final result = sut.fetch<ModelMock>(
+          httpParams: HttpRequestParams(
+            httpFetchMethod: method,
+            endpoint: url,
+            queryParameters: query,
+          ),
+          mappingParams: MappingParams(mapper: model, amountOfOutput: MapFor.one),
+        );
+        // ! TO BE REMOVED
+        headers.runtimeType;
+        body.runtimeType;
+        result.runtimeType;
+        // ! TO BE REMOVED
 
         // assert
       },
