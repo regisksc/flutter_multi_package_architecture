@@ -1,5 +1,7 @@
-class Arguments {
-  Arguments({
+import 'package:iupp_core/core/dependencies/app_dependencies.dart';
+
+class Arguments extends Equatable {
+  const Arguments({
     this.params = const {},
     this.data,
     this.uri,
@@ -18,4 +20,11 @@ class Arguments {
   }
 
   Map<String, String> get queryParams => uri?.queryParameters ?? {};
+
+  @override
+  List<Object?> get props => [
+    params,
+    uri,
+    data,
+  ];
 }

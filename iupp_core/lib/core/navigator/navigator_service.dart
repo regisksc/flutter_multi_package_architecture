@@ -24,7 +24,7 @@ class NavigatorService {
 
     return navigatorState.pushNamed(
       routeName,
-      arguments: Arguments().copyWith(
+      arguments: const Arguments().copyWith(
         params: queryParams,
         uri: uri,
         data: data,
