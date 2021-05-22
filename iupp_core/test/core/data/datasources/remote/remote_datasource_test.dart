@@ -9,7 +9,7 @@ import '../../../../utils/mocks/datasources_mocks.dart';
 import '../../../../utils/mocks/mocks.dart';
 
 void main() {
-  late RemoteDataSource sut;
+  late RemoteDatasource sut;
   late HttpClientMock http;
   late NetworkInfoMock network;
   late String url;

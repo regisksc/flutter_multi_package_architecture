@@ -3,7 +3,8 @@ import 'package:iupp_core/core/dependencies/dependencies.dart';
 import 'package:mocktail/mocktail.dart';
 
 class ModelMock extends Mock with EquatableMixin implements Model {
-  dynamic? field;
+  dynamic field;
+
   @override
   ModelMock fromJson(Map<String, dynamic> json) {
     field = json['field'];

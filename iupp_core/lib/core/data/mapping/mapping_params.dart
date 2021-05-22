@@ -4,7 +4,11 @@ import 'package:iupp_core/core/data/mapping/strategy/single_output_mapping_strat
 import '../data.dart';
 
 class MappingParams extends Equatable {
-  const MappingParams({required this.mapper, required MapFor amountOfOutput}) : _amountOfOutput = amountOfOutput;
+  const MappingParams({
+    required this.mapper,
+    required MapFor amountOfOutput,
+  }) : _amountOfOutput = amountOfOutput;
+
   final Model mapper;
   final MapFor _amountOfOutput;
 
