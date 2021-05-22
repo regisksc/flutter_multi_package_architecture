@@ -1,7 +1,7 @@
 import 'package:iupp_components/components/components.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
-final buttonStories = [
+final buttonsStories = [
   Story(
     section: 'Buttons',
     name: 'IuppElevatedButton',

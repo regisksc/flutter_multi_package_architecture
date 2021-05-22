@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
-final generalStories = [
+final headersStories = [
   Story(
-    section: 'General',
+    section: 'Headers',
     name: 'IuppAppBar',
     builder: (_, k) => IuppAppBar(
       iuppActions: k.options(label: 'Actions', initial: [], options: const [
@@ -47,70 +47,6 @@ final generalStories = [
         ],
       ),
       centered: k.boolean(label: 'Center', initial: false),
-    ),
-  ),
-  Story(
-    section: 'General',
-    name: 'IuppCarrouselSlider',
-    builder: (_, k) => IuppCarrouselSlider(
-      items: [
-        Container(
-          height: 200,
-          width: 200,
-          color: Colors.blue,
-        ),
-        Container(
-          height: 200,
-          width: 200,
-          color: Colors.red,
-        ),
-        Container(
-          height: 200,
-          width: 200,
-          color: Colors.green,
-        ),
-      ],
-    ),
-  ),
-  Story(
-    section: 'General',
-    name: 'IuppFooter',
-    builder: (_, k) => const IuppFooter(),
-  ),
-  Story(
-    section: 'General',
-    name: 'IuppCard',
-    builder: (_, k) => IuppCard(
-      padding: EdgeInsets.all(
-        k.slider(
-          label: 'Padding',
-          initial: 0,
-          min: 0,
-          max: 30,
-        ),
-      ),
-      children: const [
-        Text('I am a text inside the card'),
-        Text('Luke, i am your father'),
-      ],
-    ),
-  ),
-  Story(
-    section: 'General',
-    name: 'IuppDivider',
-    builder: (_, k) => IuppDivider(
-      heigth: k.slider(
-        label: 'Heigth',
-        initial: 0,
-        min: 0,
-        max: 30,
-      ),
-      verticalPadding: k.slider(
-        label: 'Vertical Padding',
-        initial: 0,
-        min: 0,
-        max: 30,
-      ),
     ),
   ),
 ];

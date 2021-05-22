@@ -13,9 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => Storybook(
         theme: theme,
         children: [
-          ...buttonStories,
+          ...buttonsStories,
+          ...cardsStories,
+          ...dividersStories,
+          ...footersStories,
+          ...headersStories,
+          ...slidersStories,
           ...snackBarStories,
-          ...generalStories,
+          ...iconsStories,
         ],
       );
 }
