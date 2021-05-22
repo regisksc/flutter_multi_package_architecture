@@ -25,7 +25,7 @@ void main() {
           url: any(named: 'url'),
           body: any(named: 'body'),
           headers: any(named: 'headers'),
-          query: any(named: 'query'),
+          queryParameters: any(named: 'queryParameters'),
         ),
       );
 
@@ -51,7 +51,8 @@ void main() {
     mockSuccessRequest();
 
     // act
-    await authorizeHttpClientDecorator.request(method: 'get', url: 'url');
+    await authorizeHttpClientDecorator.request(
+        method: HTTP_METHOD_GET, url: 'url');
 
     // assert
     verify(
@@ -62,7 +63,7 @@ void main() {
         headers: {
           'authorization': 'token',
         },
-        query: any(named: 'query'),
+        queryParameters: any(named: 'queryParameters'),
       ),
     );
   });
@@ -74,7 +75,7 @@ void main() {
 
     // act
     authorizeHttpClientDecorator
-        .request(method: 'get', url: 'url')
+        .request(method: HTTP_METHOD_GET, url: 'url')
         .catchError((error) {
       expect(error, isA<ForbiddenFailure>());
       verify(() => sharedPreferencesLocalStorageMock.deleteValue('token'));
@@ -88,7 +89,7 @@ void main() {
 
     // act
     authorizeHttpClientDecorator
-        .request(method: 'get', url: 'url')
+        .request(method: HTTP_METHOD_GET, url: 'url')
         .catchError((error) {
       expect(error, isA<BadRequestFailure>());
       verifyNever(() => sharedPreferencesLocalStorageMock.deleteValue('token'));

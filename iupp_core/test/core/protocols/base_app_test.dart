@@ -45,7 +45,7 @@ void main() {
         final route = generateRouteFromUrl(
           testApp,
           url: '/base',
-          arguments: Arguments(
+          arguments: const Arguments(
             data: 5,
             params: {
               'param1': 1,

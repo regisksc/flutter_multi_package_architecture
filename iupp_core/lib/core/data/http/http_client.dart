@@ -3,7 +3,7 @@ abstract class HttpClient {
     required String url,
     required String method,
     Map<String, dynamic>? body,
-    Map<String, dynamic>? query,
+    Map<String, dynamic>? queryParameters,
     Map<String, String>? headers,
   });
 }

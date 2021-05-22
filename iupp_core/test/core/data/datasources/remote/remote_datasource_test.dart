@@ -51,7 +51,7 @@ void main() {
           method: any(named: 'method'),
           body: any(named: 'body'),
           headers: any(named: 'headers'),
-          query: any(named: 'query'),
+          queryParameters: any(named: 'queryParameters'),
         );
       },
     );

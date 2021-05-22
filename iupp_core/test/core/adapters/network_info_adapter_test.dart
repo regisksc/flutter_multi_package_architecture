@@ -20,11 +20,13 @@ void main() {
   });
 
   void mockConnectivityWithResult(ConnectivityResult result) {
-    when(() => connectivityMock.checkConnectivity()).thenAnswer((_) async => result);
+    when(() => connectivityMock.checkConnectivity())
+        .thenAnswer((_) async => result);
   }
 
   void mockDataConnectionChecker({required bool hasConnection}) {
-    when(() => dataConnectionCheckerMock.hasConnection).thenAnswer((_) => Future.value(hasConnection));
+    when(() => dataConnectionCheckerMock.hasConnection)
+        .thenAnswer((_) => Future.value(hasConnection));
   }
 
   group('hasConnection', () {
@@ -92,11 +94,15 @@ void main() {
     test(
       'should return a stream of DataConnectionStatus',
       () async {
-        when(() => dataConnectionCheckerMock.onStatusChange).thenAnswer((_) => Stream.fromIterable([
+        when(() => dataConnectionCheckerMock.onStatusChange).thenAnswer(
+          (_) => Stream.fromIterable(
+            [
               DataConnectionStatus.connected,
               DataConnectionStatus.disconnected,
               DataConnectionStatus.connected,
-            ]));
+            ],
+          ),
+        );
 
         final dataConnectionStream = networkInfoAdapter.connectionChanges;
         expect(dataConnectionStream, isA<Stream<DataConnectionStatus>>());
@@ -106,18 +112,23 @@ void main() {
     test(
       'should emit the right values in the right order',
       () async {
-        final dataConnectionController = StreamController<DataConnectionStatus>();
+        final dataConnectionController =
+            StreamController<DataConnectionStatus>();
         final dataConnectionStream = dataConnectionController.stream;
 
-        when(() => dataConnectionCheckerMock.onStatusChange).thenAnswer((_) => dataConnectionStream);
+        when(() => dataConnectionCheckerMock.onStatusChange)
+            .thenAnswer((_) => dataConnectionStream);
 
         expectLater(
-            dataConnectionStream,
-            emitsInAnyOrder([
+          dataConnectionStream,
+          emitsInAnyOrder(
+            [
               DataConnectionStatus.connected,
               DataConnectionStatus.disconnected,
               DataConnectionStatus.connected,
-            ]));
+            ],
+          ),
+        );
 
         dataConnectionController.add(DataConnectionStatus.connected);
         dataConnectionController.add(DataConnectionStatus.disconnected);

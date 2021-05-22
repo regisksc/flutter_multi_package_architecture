@@ -17,15 +17,6 @@ class HttpRequestParams extends Equatable {
   final Map<String, dynamic>? queryParameters;
   final dynamic body;
 
-  String get method {
-    if (_httpFetchMethod == HttpMethod.get) return 'GET';
-    if (_httpFetchMethod == HttpMethod.post) return 'POST';
-    if (_httpFetchMethod == HttpMethod.put) return 'PUT';
-    if (_httpFetchMethod == HttpMethod.delete) return 'DELETE';
-    if (_httpFetchMethod == HttpMethod.patch) return 'PATCH';
-    return 'NO_METHOD';
-  }
-
   @override
   List<Object?> get props => [
         _httpFetchMethod,

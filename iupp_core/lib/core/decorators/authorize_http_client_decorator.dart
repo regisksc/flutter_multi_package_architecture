@@ -16,7 +16,7 @@ class AuthorizeHttpClientDecorator implements HttpClient {
     required String method,
     required String url,
     Map<String, dynamic>? body,
-    Map<String, dynamic>? query,
+    Map<String, dynamic>? queryParameters,
     Map<String, String>? headers,
   }) async {
     try {
