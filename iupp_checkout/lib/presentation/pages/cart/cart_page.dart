@@ -20,14 +20,18 @@ class _CartPageState extends State<CartPage> {
   @override
   void initState() {
     controller = CartController();
-    controller.cartNotifier.addListener(() => setState(() {}));
+    controller.getCart();
+    controller.cartNotifier.addListener(() {
+      setState(() {});
+    });
     super.initState();
   }
 
-  bool get isEmpty => !controller.isEmpty;
+  bool get isEmpty => controller.isEmpty;
 
   @override
   Widget build(BuildContext context) {
+    final cart = controller.cartState;
     return CheckoutScaffold(
       whiteSpace: 1,
       child: isEmpty
@@ -36,7 +40,23 @@ class _CartPageState extends State<CartPage> {
               children: [
                 IuppCard(
                   children: [
-                    CheckoutItemCart(
+                    ...cart!.items
+                        .map((itemCart) => CheckoutItemCart(
+                              photoUrl: itemCart.photoUrl,
+                              description: itemCart.description,
+                              sellerName: itemCart.seller.name,
+                              price: itemCart.total,
+                              points: itemCart.points.toString(),
+                              count: itemCart.quantity,
+                              expectedDeliveryDays:
+                                  controller.expectedDeliveryDays,
+                              increment: () =>
+                                  controller.incrementItem(itemCart.id),
+                              decrement: () =>
+                                  controller.decrementItem(itemCart.id),
+                            ))
+                        .toList(),
+/*                     CheckoutItemCart(
                       photoUrl:
                           'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
                       description:
@@ -46,22 +66,22 @@ class _CartPageState extends State<CartPage> {
                       points: '2500',
                       count: 1,
                       expectedDeliveryDays: controller.expectedDeliveryDays,
-                      increment: () => controller.incrementItem('incremenet'),
-                      decrement: () => controller.decrementItem('decrement'),
-                    ),
+                      increment: () => controller.incrementItem(1),
+                      decrement: () => controller.decrementItem(1),
+                    ), */
                     const IuppDivider(
                       verticalPadding: 24,
                     ),
                     CheckoutCepArea(
                       shippingValue: controller.shippingValue,
-                      onSearch: (value) => controller.calShippingValue(value),
+                      onSearch: (value) => controller.calcShippingValue(value),
                     ),
                     const IuppDivider(
                       verticalPadding: 18,
                     ),
-                    const CheckoutSubtotalArea(
-                      points: 2500,
-                      total: 5999.20,
+                    CheckoutSubtotalArea(
+                      points: cart.totalPoints,
+                      total: cart.subtotal,
                     ),
                   ],
                 ),

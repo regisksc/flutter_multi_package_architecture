@@ -5,7 +5,7 @@ class CalcShippingValueUsecase {
   CalcShippingValueUsecase(this.repository);
   final CartRepositoryContract repository;
 
-  Future<CartEntity?> call(String cartId, String cep) async {
-    await repository.calcShipping(cartId, cep);
+  Future<CartEntity?> call(int cartId, String cep) async {
+    return repository.calcShipping(cartId, cep);
   }
 }

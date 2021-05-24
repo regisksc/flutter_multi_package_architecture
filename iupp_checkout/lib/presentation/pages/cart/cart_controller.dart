@@ -4,69 +4,67 @@ import 'package:iupp_checkout/domain/domain.dart';
 import 'package:iupp_checkout/domain/usecases/calc_shipping_value_usecase.dart';
 import 'package:iupp_checkout/domain/usecases/decrement_item_cart_usecase.dart';
 import 'package:iupp_checkout/domain/usecases/get_cart_usecase.dart';
-import 'package:iupp_checkout/domain/usecases/incremete_item_cart_usecase.dart';
+import 'package:iupp_checkout/domain/usecases/incremet_item_cart_usecase.dart';
 
 class CartController {
-  CartController({this.cartId = 'cartId'});
-  final repository = CartRepository();
-  final String cartId;
+  CartController() : repository = CartRepository();
+  final CartRepositoryContract repository;
 
   final cartNotifier = ValueNotifier<CartEntity?>(null);
   set cartState(CartEntity? state) => cartNotifier.value = state;
   CartEntity? get cartState => cartNotifier.value;
 
-  Future<CartEntity?> getCart() async {
-    final usecase = GetCartUsecase(repository);
+  Future<void> getCart() async {
     try {
-      final result = await usecase(cartId);
+      final usecase = GetCartUsecase(repository);
+      final result = await usecase(0);
       if (result != null) {
         cartState = result;
       }
     } catch (e) {
-      debugPrint('e');
+      debugPrint('controller error $e');
     }
   }
 
-  Future<CartEntity?> incrementItem(String itemId) async {
-    final usecase = IncrementItemCartUsecase(repository);
+  Future<void> incrementItem(int itemId) async {
     try {
-      final result = await usecase(cartId, itemId);
+      final usecase = IncrementItemCartUsecase(repository);
+      final result = await usecase(cartState!.id, itemId);
       if (result != null) {
         cartState = result;
       }
     } catch (e) {
-      debugPrint('e');
+      debugPrint('$e');
     }
   }
 
-  Future<CartEntity?> decrementItem(String itemId) async {
-    final usecase = DecrementItemCartUsecase(repository);
+  Future<void> decrementItem(int itemId) async {
     try {
-      final result = await usecase(cartId, itemId);
+      final usecase = DecrementItemCartUsecase(repository);
+      final result = await usecase(cartState!.id, itemId);
       if (result != null) {
         cartState = result;
       }
     } catch (e) {
-      debugPrint('e');
+      debugPrint('$e');
     }
   }
 
-  Future<CartEntity?> calShippingValue(String cep) async {
-    final usecase = CalcShippingValueUsecase(repository);
+  Future<void> calcShippingValue(String cep) async {
     try {
-      final result = await usecase(cartId, cep);
+      final usecase = CalcShippingValueUsecase(repository);
+      final result = await usecase(cartState!.id, cep);
       if (result != null) {
         cartState = result;
       }
     } catch (e) {
-      debugPrint('e');
+      debugPrint('$e');
     }
   }
 
   bool get isEmpty => cartState?.items.isEmpty ?? true;
 
-  double? get shippingValue => 200; //cartState?.shipping?.value;
+  double? get shippingValue => cartState?.shipping?.value;
 
-  int? get expectedDeliveryDays =>
-      2; //cartState?.shipping?.expectedDeliveryDays;
+  int? get expectedDeliveryDays => cartState?.shipping?.expectedDeliveryDays;
 }
