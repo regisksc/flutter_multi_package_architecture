@@ -2,10 +2,16 @@ import 'package:flutter/widgets.dart';
 import 'package:iupp_checkout/presentation/widgets/checkout_scaffold/atoms/checkout_title.dart';
 
 class CheckoutView extends StatelessWidget {
-  const CheckoutView({Key? key, required this.child, required this.title})
-      : super(key: key);
-  final Widget child;
+  const CheckoutView({
+    Key? key,
+    this.aboveTitle,
+    this.bellowTitle,
+    required this.title,
+  }) : super(key: key);
+
+  final Widget? aboveTitle;
   final String title;
+  final Widget? bellowTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +20,11 @@ class CheckoutView extends StatelessWidget {
       sliver: SliverList(
         delegate: SliverChildListDelegate(
           [
+            if (aboveTitle != null)
+              aboveTitle!,
             CheckoutTitle(title: title),
-            child,
+            if (bellowTitle != null)
+              bellowTitle!,
           ],
         ),
       ),

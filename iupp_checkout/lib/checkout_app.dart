@@ -13,5 +13,9 @@ class CheckoutApp implements MicroApp {
         '/address-list': (_, args) => const AddressesListPage(),
         '/delivery-options': (_, args) => const DeliveryOptionsPage(),
         Routes.cart.page: (_, args) => const CartPage(),
+        '/payment-method-selection': (_, args) =>
+            const PaymentMethodSelectionPage(),
+        '/installments-selection': (_, args) =>
+            InstallmentSelectionPage(cardTitle: args!.data['card'] as String),
       };
 }

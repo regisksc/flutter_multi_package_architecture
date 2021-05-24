@@ -46,7 +46,7 @@ final headersStories = [
           )
         ],
       ),
-      centered: k.boolean(label: 'Center', initial: false),
+      centered: k.boolean(label: 'Center'),
     ),
   ),
 ];

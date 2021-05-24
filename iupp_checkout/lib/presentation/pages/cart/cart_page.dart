@@ -33,6 +33,7 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     final cart = controller.cartState;
     return CheckoutScaffold(
+      title: 'carrinho',
       whiteSpace: 1,
       child: isEmpty
           ? const CheckoutEmptyCart()

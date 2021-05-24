@@ -38,11 +38,11 @@ class CheckoutAddressAppBar extends AppBar {
                 size: 28,
               ),
               IconSpacer(
-                color: step >= 3 ? const Color(0xFF00EEE6) : Colors.white,
+                color: step >= 4 ? const Color(0xFF00EEE6) : Colors.white,
               ),
               Icon(
                 IuppIcons.icone_contorno_P_pagamento_ao_fornecedor_outline,
-                color: step >= 3 ? const Color(0xFF00EEE6) : Colors.white,
+                color: step >= 4 ? const Color(0xFF00EEE6) : Colors.white,
                 size: 28,
               ),
               const SizedBox(width: 10),
