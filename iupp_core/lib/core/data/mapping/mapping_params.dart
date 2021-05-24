@@ -11,9 +11,9 @@ class MappingParams extends Equatable {
   MappingStrategy get strategy {
     switch (_amountOfOutput) {
       case MapFor.one:
-        return SingleOutputMappingStrategy(model: mapper);
+        return SingleOutputMappingStrategy(mapper);
       case MapFor.many:
-        return MultipleOutputMappingStrategy(model: mapper);
+        return MultipleOutputMappingStrategy(mapper);
     }
   }
 

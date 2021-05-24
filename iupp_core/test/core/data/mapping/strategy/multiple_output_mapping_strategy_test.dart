@@ -14,16 +14,16 @@ void main() {
     map = <String, dynamic>{'field': ''};
     list = [];
     for (int i = 0; i < 2; i++) {
-      list.add(Map.from(map));
+      list.add(Map<String, dynamic>.from(map));
     }
-    sut = MultipleOutputMappingStrategy(model: model);
+    sut = MultipleOutputMappingStrategy(model);
   });
 
   test(
     'should return a list of needed Object',
     () async {
       // act
-      final result = sut<ModelMock>(mapOrListOfMap: list);
+      final result = sut<ModelMock>(list);
 
       // assert
       expect(result, [ModelMock().fromJson(map), ModelMock().fromJson(map)]);
@@ -37,7 +37,7 @@ void main() {
       const invalidMap = ['', false, 1];
 
       // assert
-      expect(() => sut<ModelMock>(mapOrListOfMap: invalidMap), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
+      expect(() => sut<ModelMock>(invalidMap), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
     },
   );
 }

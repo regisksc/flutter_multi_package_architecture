@@ -12,14 +12,14 @@ void main() {
   setUp(() {
     model = ModelMock();
     map = <String, dynamic>{'field': ''};
-    sut = SingleOutputMappingStrategy(model: model);
+    sut = SingleOutputMappingStrategy(model);
   });
 
   test(
     'should return needed Object',
     () async {
       // act
-      final result = sut<ModelMock>(mapOrListOfMap: map);
+      final result = sut<ModelMock>(map);
 
       // assert
       expect(result, isA<ModelMock>());
@@ -33,7 +33,7 @@ void main() {
       const String invalidMap = '';
 
       // assert
-      expect(() => sut<ModelMock>(mapOrListOfMap: invalidMap), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
+      expect(() => sut<ModelMock>(invalidMap), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
     },
   );
 }

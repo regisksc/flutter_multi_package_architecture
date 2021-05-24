@@ -1,5 +1,5 @@
 import '../../model/model.dart';
 
 abstract class MappingStrategy {
-  dynamic call<Output extends Model>({required dynamic mapOrListOfMap});
+  dynamic call<Output extends Model>(dynamic dataFromRemote);
 }
