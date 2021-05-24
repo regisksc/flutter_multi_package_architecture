@@ -13,7 +13,8 @@ class ConcreteRemoteDatasource implements RemoteDatasource {
   Future fetch<Output extends Model>({
     required HttpRequestParams httpParams,
     required MappingParams mappingParams,
-  }) {
-    throw UnimplementedError();
+  }) async {
+    final model = mappingParams.mapper as Output;
+    return model;
   }
 }

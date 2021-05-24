@@ -1,4 +1,3 @@
-@Skip('')
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
@@ -57,30 +56,20 @@ void main() {
     );
   }
 
-  testsWhenConnected(() {
-    test(
-      'should successfully fetch and return Output',
-      () async {
-        // arrange
-        mockHttpRequest().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
+  test(
+    'should successfully fetch and return Output ',
+    () async {
+      // arrange
+      mockHttpRequest().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
 
-        // act
-        final result = sut.fetch<ModelMock>(
-          httpParams: HttpRequestParams(
-            httpMethod: method,
-            endpoint: url,
-            queryParameters: query,
-          ),
-          mappingParams: MappingParams(mapper: model, amountOfOutput: MapFor.one),
-        );
-        // ! TO BE REMOVED
-        headers.runtimeType;
-        body.runtimeType;
-        result.runtimeType;
-        // ! TO BE REMOVED
+      // act
+      final result = sut.fetch<ModelMock>(
+        httpParams: HttpRequestParams(httpFetchMethod: method, endpoint: url, queryParameters: query),
+        mappingParams: MappingParams(mapper: model, amountOfOutput: MapFor.one),
+      );
 
-        // assert
-      },
-    );
-  });
+      // assert
+      expect(result, isA<ModelMock>());
+    },
+  );
 }
