@@ -29,6 +29,7 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return CheckoutScaffold(
+      title: 'carrinho',
       whiteSpace: 1,
       child: isEmpty
           ? const CheckoutEmptyCart()
