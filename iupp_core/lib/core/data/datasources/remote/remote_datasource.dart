@@ -1,5 +1,4 @@
 import '../../../../core.dart';
-import '../../mapping/mapping.dart';
 
 abstract class RemoteDatasource {
   Future<Output> fetchOneOutput<Output extends Model>({

@@ -17,7 +17,6 @@ void main() {
   late Map<String, dynamic> query;
   late Map<String, String> headers;
   late ModelMock model;
-  late MappingStrategy strategy;
 
   setUp(() {
     TestWidgetsFlutterBinding.ensureInitialized();
@@ -47,9 +46,7 @@ void main() {
   }
 
   group("When fetching one -", () {
-    setUp(() {
-      strategy = SingleOutputMappingStrategyMock();
-    });
+    setUp(() {});
 
     test(
       'should return a single Output ',
@@ -79,9 +76,7 @@ void main() {
     );
   });
   group("When fetching many -", () {
-    setUp(() {
-      strategy = MultipleOutputMappingStrategyMock();
-    });
+    setUp(() {});
 
     test(
       'should return a List of Output ',
