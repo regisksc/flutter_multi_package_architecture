@@ -1,4 +1,3 @@
-@Skip('')
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
@@ -19,7 +18,7 @@ void main() {
   late Map<String, String> headers;
   late ModelMock model;
 
-  setUpAll(() {
+  setUp(() {
     TestWidgetsFlutterBinding.ensureInitialized();
     http = HttpClientMock();
     network = NetworkInfoMock();
@@ -34,53 +33,38 @@ void main() {
     model = ModelMock();
   });
 
-  void testsWhenConnected(Function() body) {}
+  void testsWhenConnected(Function() body) {
+    when(() => network.hasConnection).thenAnswer((_) async => true);
+    body();
+  }
 
-  /* void testsWhenOffline(Function() body) {
-    group('When offline ', () {
-      when(() => sut.networkInfo.hasConnection).thenAnswer((_) async => false);
-      body();
-    });
-  } */
-
-  When mockHttpRequest() {
+  When mockHttpRequest({String? url, String? body, String? query}) {
     return when(
-      ({String? url, String? body, String? query}) {
-        return http.request(
-          url: any(named: 'url'),
-          method: any(named: 'method'),
-          body: any(named: 'body'),
-          headers: any(named: 'headers'),
-          queryParameters: any(named: 'queryParameters'),
-        );
-      },
+      () => http.request(
+        url: any(named: 'url'),
+        method: any(named: 'method'),
+        body: any(named: 'body'),
+        headers: any(named: 'headers'),
+        queryParameters: any(named: 'queryParameters'),
+      ),
     );
   }
 
-  testsWhenConnected(() {
-    test(
-      'should successfully fetch and return Output',
-      () async {
-        // arrange
-        mockHttpRequest().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
+  test(
+    'should successfully fetch and return Output ',
+    () async {
+      // arrange
+      when(() => network.hasConnection).thenAnswer((_) async => true);
+      mockHttpRequest().thenAnswer((invocation) => HttpResponse(code: 200, message: anyMessage, data: anyMap));
 
-        // act
-        final result = sut.fetch<ModelMock>(
-          httpParams: HttpRequestParams(
-            httpMethod: method,
-            endpoint: url,
-            queryParameters: query,
-          ),
-          mappingParams: MappingParams(mapper: model, amountOfOutput: MapFor.one),
-        );
-        // ! TO BE REMOVED
-        headers.runtimeType;
-        body.runtimeType;
-        result.runtimeType;
-        // ! TO BE REMOVED
+      // act
+      final result = sut.fetch<ModelMock>(
+        httpParams: HttpRequestParams(httpMethod: method, endpoint: url, queryParameters: query),
+        mappingParams: MappingParams(mapper: model, amountOfOutput: MapFor.one),
+      );
 
-        // assert
-      },
-    );
-  });
+      // assert
+      expect(result, isA<ModelMock>());
+    },
+  );
 }

@@ -12,7 +12,7 @@ class AuthorizeHttpClientDecorator implements HttpClient {
   final HttpClient _decoratee;
   final LocalStorage _localStorage;
 
-  Future<dynamic> request({
+  Future<HttpResponse> request({
     required String method,
     required String url,
     Map<String, dynamic>? body,

@@ -15,7 +15,22 @@ class HttpRequestParams extends Equatable {
   final String endpoint;
   final Map<String, String>? headers;
   final Map<String, dynamic>? queryParameters;
-  final dynamic body;
+  final Map<String, dynamic>? body;
+
+  String get method {
+    switch (_httpMethod) {
+      case HttpMethod.get:
+        return 'get';
+      case HttpMethod.post:
+        return 'post';
+      case HttpMethod.put:
+        return 'put';
+      case HttpMethod.delete:
+        return 'delete';
+      case HttpMethod.patch:
+        return 'patch';
+    }
+  }
 
   @override
   List<Object?> get props => [
