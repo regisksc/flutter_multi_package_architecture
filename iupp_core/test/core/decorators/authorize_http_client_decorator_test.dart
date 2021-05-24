@@ -30,10 +30,8 @@ void main() {
       );
 
   void mockLocalStorageToken() {
-    when(() => sharedPreferencesLocalStorageMock.getValue('token'))
-        .thenAnswer((_) async => 'token');
-    when(() => sharedPreferencesLocalStorageMock.deleteValue('token'))
-        .thenAnswer((_) => Future.value());
+    when(() => sharedPreferencesLocalStorageMock.getValue('token')).thenAnswer((_) async => 'token');
+    when(() => sharedPreferencesLocalStorageMock.deleteValue('token')).thenAnswer((_) => Future.value());
   }
 
   void mockSuccessRequest() {
@@ -51,8 +49,7 @@ void main() {
     mockSuccessRequest();
 
     // act
-    await authorizeHttpClientDecorator.request(
-        method: HTTP_METHOD_GET, url: 'url');
+    await authorizeHttpClientDecorator.request(method: httpGet, url: 'url');
 
     // assert
     verify(
@@ -68,29 +65,23 @@ void main() {
     );
   });
 
-  test('should delete token from storage if error is ForbiddenFailure',
-      () async {
+  test('should delete token from storage if error is ForbiddenFailure', () async {
     // arrange
     mockFailedRequest(const ForbiddenFailure());
 
     // act
-    authorizeHttpClientDecorator
-        .request(method: HTTP_METHOD_GET, url: 'url')
-        .catchError((error) {
+    authorizeHttpClientDecorator.request(method: httpGet, url: 'url').catchError((error) {
       expect(error, isA<ForbiddenFailure>());
       verify(() => sharedPreferencesLocalStorageMock.deleteValue('token'));
     });
   });
 
-  test('should not delete token from storage if error is not ForbiddenFailure',
-      () async {
+  test('should not delete token from storage if error is not ForbiddenFailure', () async {
     // arrange
     mockFailedRequest(const BadRequestFailure());
 
     // act
-    authorizeHttpClientDecorator
-        .request(method: HTTP_METHOD_GET, url: 'url')
-        .catchError((error) {
+    authorizeHttpClientDecorator.request(method: httpGet, url: 'url').catchError((error) {
       expect(error, isA<BadRequestFailure>());
       verifyNever(() => sharedPreferencesLocalStorageMock.deleteValue('token'));
     });

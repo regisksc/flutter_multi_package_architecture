@@ -1,4 +1,5 @@
 import 'package:iupp_core/core.dart';
+import 'package:iupp_core/core/error/failure/no_connection_failure.dart';
 
 class ConcreteRemoteDatasource implements RemoteDatasource {
   ConcreteRemoteDatasource({
@@ -14,7 +15,19 @@ class ConcreteRemoteDatasource implements RemoteDatasource {
     required HttpRequestParams httpParams,
     required MappingParams mappingParams,
   }) async {
-    final model = mappingParams.mapper as Output;
-    return model;
+    if (await networkInfo.hasConnection) {
+      final model = mappingParams.mapper as Output;
+      final result = await client.request(
+        url: httpParams.endpoint,
+        method: httpParams.method,
+        body: httpParams.body,
+        headers: httpParams.headers,
+        queryParameters: httpParams.queryParameters,
+      );
+
+      return model;
+    } else {
+      throw const NoConnectionFailure();
+    }
   }
 }

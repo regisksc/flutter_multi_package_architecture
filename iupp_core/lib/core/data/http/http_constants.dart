@@ -1,30 +1,28 @@
-// ignore_for_file: constant_identifier_names
+const accept = 'Accept';
+const cookie = 'Cookie';
+const session = 'SESSION';
+const contentType = 'content-type';
+const applicationJson = 'application/json';
+const multipartFormData = 'multipart/form-data';
 
-const ACCEPT = 'Accept';
-const COOKIE = 'Cookie';
-const SESSION = 'SESSION';
-const CONTENT_TYPE = 'content-type';
-const APPLICATION_JSON = 'application/json';
-const MULTIPART_FORM_DATA = 'multipart/form-data';
+const httpGet = 'GET';
+const httpPost = 'POST';
+const httpDelete = 'DELETE';
+const httpPut = 'PUT';
+const httpPatch = 'PATCH';
 
-const HTTP_METHOD_GET = 'GET';
-const HTTP_METHOD_POST = 'POST';
-const HTTP_METHOD_DELETE = 'DELETE';
-const HTTP_METHOD_PUT = 'PUT';
-const HTTP_METHOD_PATCH = 'PATCH';
+const httpOk = 200;
+const httpCreated = 201;
+const httpAccepted = 202;
+const httpNoContent = 204;
 
-const HTTP_STATUS_OK = 200;
-const HTTP_STATUS_CREATED = 201;
-const HTTP_STATUS_ACCEPTED = 202;
-const HTTP_STATUS_NO_CONTENT = 204;
+const httpBadRequest = 400;
+const httpUnauthorized = 401;
+const httpForbidden = 403;
+const httpNotFound = 404;
+const httpMethodNotAllowed = 405;
+const httpConflict = 409;
+const httpPreconditionFailed = 412;
 
-const HTTP_STATUS_BAD_REQUEST = 400;
-const HTTP_STATUS_UNAUTHORIZED = 401;
-const HTTP_STATUS_FORBIDDEN = 403;
-const HTTP_STATUS_NOT_FOUND = 404;
-const HTTP_STATUS_METHOD_NOT_ALLOWED = 405;
-const HTTP_STATUS_CONFLICT = 409;
-const HTTP_STATUS_PRECONDICTION_FAILED = 412;
-
-const HTTP_STATUS_INTERNAL_ERROR = 500;
-const HTTP_STATUS_NOT_IMPLEMENTED = 501;
+const httpInternalError = 500;
+const httpNotImplemented = 501;

@@ -1,5 +1,7 @@
+import 'package:iupp_core/core/data/data.dart';
+
 abstract class HttpClient {
-  Future<dynamic> request({
+  Future<HttpResponse> request({
     required String url,
     required String method,
     Map<String, dynamic>? body,

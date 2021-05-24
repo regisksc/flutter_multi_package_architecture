@@ -43,8 +43,7 @@ void main() {
 
     When mockRequest() => when(calledRequest());
 
-    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) =>
-        mockRequest().thenAnswer(
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
           (_) async => Response(
             statusCode: code,
             data: body,
@@ -54,28 +53,24 @@ void main() {
 
     test('Should call get with correct values', () async {
       // arrange
-      when(() =>
-          client.get(url,
-              options: any(named: 'options'),
-              queryParameters: anyMap)).thenAnswer((_) async =>
-          Response(requestOptions: requestOptions, statusCode: HTTP_STATUS_OK));
+      when(() => client.get(url, options: any(named: 'options'), queryParameters: anyMap))
+          .thenAnswer((_) async => Response(requestOptions: requestOptions, statusCode: httpOk));
 
       // act
-      sut.request(url: url, method: HTTP_METHOD_GET, queryParameters: anyMap);
+      sut.request(url: url, method: httpGet, queryParameters: anyMap);
 
       // assert
-      verify(() => client.get(url,
-          options: any(named: 'options'), queryParameters: anyMap));
+      verify(() => client.get(url, options: any(named: 'options'), queryParameters: anyMap));
     });
 
     test(
       'should return a status 200 response on success',
       () async {
         // arrange
-        mockResponseForCode(HTTP_STATUS_OK, body: anyMap);
+        mockResponseForCode(httpOk, body: anyMap);
 
         // act
-        final response = await sut.request(url: url, method: HTTP_METHOD_GET);
+        final response = await sut.request(url: url, method: httpGet);
 
         // assert
         verify(calledRequest());
@@ -88,10 +83,10 @@ void main() {
       'should return HttpResponse with message',
       () async {
         // arrange
-        mockResponseForCode(HTTP_STATUS_OK, body: {'message': 'any_message'});
+        mockResponseForCode(httpOk, body: {'message': 'any_message'});
 
         // act
-        final response = await sut.request(url: url, method: HTTP_METHOD_GET);
+        final response = await sut.request(url: url, method: httpGet);
 
         // assert
         verify(calledRequest());
@@ -106,10 +101,10 @@ void main() {
         'should throw BadRequestFailure on code 400',
         () async {
           // arrange
-          mockResponseForCode(HTTP_STATUS_BAD_REQUEST);
+          mockResponseForCode(httpBadRequest);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -122,10 +117,10 @@ void main() {
         'should throw UnauthorizedFailure on code 401',
         () async {
           // arrange
-          mockResponseForCode(HTTP_STATUS_UNAUTHORIZED);
+          mockResponseForCode(httpUnauthorized);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -138,10 +133,10 @@ void main() {
         'should throw ForbiddenFailure on code 403',
         () async {
           // arrange
-          mockResponseForCode(HTTP_STATUS_FORBIDDEN);
+          mockResponseForCode(httpForbidden);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -154,10 +149,10 @@ void main() {
         'should throw NotFoundFailure on code 404',
         () async {
           // arrange
-          mockResponseForCode(HTTP_STATUS_NOT_FOUND);
+          mockResponseForCode(httpNotFound);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -170,12 +165,11 @@ void main() {
         'should throw ServerFailure on any code greater than 500',
         () async {
           // arrange
-          final integerGreaterThan500 =
-              faker.randomGenerator.integer(599, min: 500);
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -191,7 +185,7 @@ void main() {
           mockResponseForCode(null);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -208,7 +202,7 @@ void main() {
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -221,12 +215,11 @@ void main() {
         'should throw UnrecognizedFailure for redirect codes',
         () async {
           // arrange
-          final unrecognizedStatusCode =
-              faker.randomGenerator.integer(399, min: 300);
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_GET);
+          final response = sut.request(url: url, method: httpGet);
 
           // assert
           verify(calledRequest());
@@ -245,8 +238,7 @@ void main() {
 
     When mockRequest() => when(calledRequest());
 
-    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) =>
-        mockRequest().thenAnswer(
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
           (_) async => Response(
             statusCode: code,
             data: body,
@@ -256,18 +248,15 @@ void main() {
 
     test('Should call post with correct values', () async {
       // arrange
-      when(() => client.post(url, options: any(named: 'options'), data: anyMap))
-          .thenAnswer(
-        (_) async => Response(
-            requestOptions: requestOptions, statusCode: HTTP_STATUS_OK),
+      when(() => client.post(url, options: any(named: 'options'), data: anyMap)).thenAnswer(
+        (_) async => Response(requestOptions: requestOptions, statusCode: httpOk),
       );
 
       // act
-      sut.request(url: url, method: HTTP_METHOD_POST, body: anyMap);
+      sut.request(url: url, method: httpPost, body: anyMap);
 
       // assert
-      verify(
-          () => client.post(url, options: any(named: 'options'), data: anyMap));
+      verify(() => client.post(url, options: any(named: 'options'), data: anyMap));
     });
 
     test(
@@ -277,7 +266,7 @@ void main() {
         mockResponseForCode(200, body: anyMap);
 
         // act
-        final response = await sut.request(url: url, method: HTTP_METHOD_POST);
+        final response = await sut.request(url: url, method: httpPost);
 
         // assert
         verify(calledRequest());
@@ -294,7 +283,7 @@ void main() {
           mockResponseForCode(400);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -310,7 +299,7 @@ void main() {
           mockResponseForCode(401);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -326,7 +315,7 @@ void main() {
           mockResponseForCode(403);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -342,7 +331,7 @@ void main() {
           mockResponseForCode(404);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -355,12 +344,11 @@ void main() {
         'should throw ServerFailure on any code greater than 500',
         () async {
           // arrange
-          final integerGreaterThan500 =
-              faker.randomGenerator.integer(599, min: 500);
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -376,7 +364,7 @@ void main() {
           mockResponseForCode(null);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -393,7 +381,7 @@ void main() {
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -406,12 +394,11 @@ void main() {
         'should throw UnrecognizedFailure for redirect codes',
         () async {
           // arrange
-          final unrecognizedStatusCode =
-              faker.randomGenerator.integer(399, min: 300);
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_POST);
+          final response = sut.request(url: url, method: httpPost);
 
           // assert
           verify(calledRequest());
@@ -430,8 +417,7 @@ void main() {
 
     When mockRequest() => when(calledRequest());
 
-    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) =>
-        mockRequest().thenAnswer(
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
           (_) async => Response(
             statusCode: code,
             data: body,
@@ -442,27 +428,16 @@ void main() {
     test('Should call delete with correct values', () async {
       // arrange
       when(
-        () => client.delete(url,
-            options: any(named: 'options'),
-            queryParameters: anyMap,
-            data: anyMap),
+        () => client.delete(url, options: any(named: 'options'), queryParameters: anyMap, data: anyMap),
       ).thenAnswer(
-        (_) async => Response(
-            requestOptions: requestOptions, statusCode: HTTP_STATUS_OK),
+        (_) async => Response(requestOptions: requestOptions, statusCode: httpOk),
       );
 
       // act
-      sut.request(
-          url: url,
-          method: HTTP_METHOD_DELETE,
-          queryParameters: anyMap,
-          body: anyMap);
+      sut.request(url: url, method: httpDelete, queryParameters: anyMap, body: anyMap);
 
       // assert
-      verify(() => client.delete(url,
-          options: any(named: 'options'),
-          queryParameters: anyMap,
-          data: anyMap));
+      verify(() => client.delete(url, options: any(named: 'options'), queryParameters: anyMap, data: anyMap));
     });
 
     test(
@@ -472,8 +447,7 @@ void main() {
         mockResponseForCode(200, body: anyMap);
 
         // act
-        final response =
-            await sut.request(url: url, method: HTTP_METHOD_DELETE);
+        final response = await sut.request(url: url, method: httpDelete);
 
         // assert
         verify(calledRequest());
@@ -490,7 +464,7 @@ void main() {
           mockResponseForCode(400);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -506,7 +480,7 @@ void main() {
           mockResponseForCode(401);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -522,7 +496,7 @@ void main() {
           mockResponseForCode(403);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -538,7 +512,7 @@ void main() {
           mockResponseForCode(404);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -551,12 +525,11 @@ void main() {
         'should throw ServerFailure on any code greater than 500',
         () async {
           // arrange
-          final integerGreaterThan500 =
-              faker.randomGenerator.integer(599, min: 500);
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -572,7 +545,7 @@ void main() {
           mockResponseForCode(null);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -589,7 +562,7 @@ void main() {
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -602,12 +575,11 @@ void main() {
         'should throw UnrecognizedFailure for redirect codes',
         () async {
           // arrange
-          final unrecognizedStatusCode =
-              faker.randomGenerator.integer(399, min: 300);
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_DELETE);
+          final response = sut.request(url: url, method: httpDelete);
 
           // assert
           verify(calledRequest());
@@ -627,8 +599,7 @@ void main() {
 
     When mockRequest() => when(calledRequest());
 
-    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) =>
-        mockRequest().thenAnswer(
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
           (_) async => Response(
             statusCode: code,
             data: body,
@@ -639,28 +610,21 @@ void main() {
     test('Should call put with correct values', () async {
       // arrange
       when(
-        () => client.put(url,
-            options: any(named: 'options'),
-            queryParameters: anyMap,
-            data: anyMap),
+        () => client.put(url, options: any(named: 'options'), queryParameters: anyMap, data: anyMap),
       ).thenAnswer(
-        (_) async => Response(
-            requestOptions: requestOptions, statusCode: HTTP_STATUS_OK),
+        (_) async => Response(requestOptions: requestOptions, statusCode: httpOk),
       );
 
       // act
       sut.request(
         url: url,
-        method: HTTP_METHOD_PUT,
+        method: httpPut,
         queryParameters: anyMap,
         body: anyMap,
       );
 
       // assert
-      verify(() => client.put(url,
-          options: any(named: 'options'),
-          queryParameters: anyMap,
-          data: anyMap));
+      verify(() => client.put(url, options: any(named: 'options'), queryParameters: anyMap, data: anyMap));
     });
 
     test(
@@ -670,7 +634,7 @@ void main() {
         mockResponseForCode(200, body: anyMap);
 
         // act
-        final response = await sut.request(url: url, method: HTTP_METHOD_PUT);
+        final response = await sut.request(url: url, method: httpPut);
 
         // assert
         verify(calledRequest());
@@ -687,7 +651,7 @@ void main() {
           mockResponseForCode(400);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -703,7 +667,7 @@ void main() {
           mockResponseForCode(401);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -719,7 +683,7 @@ void main() {
           mockResponseForCode(403);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -735,7 +699,7 @@ void main() {
           mockResponseForCode(404);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -748,12 +712,11 @@ void main() {
         'should throw ServerFailure on any code greater than 500',
         () async {
           // arrange
-          final integerGreaterThan500 =
-              faker.randomGenerator.integer(599, min: 500);
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -769,7 +732,7 @@ void main() {
           mockResponseForCode(null);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -786,7 +749,7 @@ void main() {
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -799,12 +762,11 @@ void main() {
         'should throw UnrecognizedFailure for redirect codes',
         () async {
           // arrange
-          final unrecognizedStatusCode =
-              faker.randomGenerator.integer(399, min: 300);
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PUT);
+          final response = sut.request(url: url, method: httpPut);
 
           // assert
           verify(calledRequest());
@@ -824,8 +786,7 @@ void main() {
 
     When mockRequest() => when(calledRequest());
 
-    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) =>
-        mockRequest().thenAnswer(
+    void mockResponseForCode(int? code, {Map<String, dynamic>? body}) => mockRequest().thenAnswer(
           (_) async => Response(
             statusCode: code,
             data: body,
@@ -836,19 +797,15 @@ void main() {
     test('Should call patch with correct values', () async {
       // arrange
       when(
-        () => client.patch(url,
-            options: any(named: 'options'),
-            queryParameters: anyMap,
-            data: anyMap),
+        () => client.patch(url, options: any(named: 'options'), queryParameters: anyMap, data: anyMap),
       ).thenAnswer(
-        (_) async => Response(
-            requestOptions: requestOptions, statusCode: HTTP_STATUS_OK),
+        (_) async => Response(requestOptions: requestOptions, statusCode: httpOk),
       );
 
       // act
       sut.request(
         url: url,
-        method: HTTP_METHOD_PATCH,
+        method: httpPatch,
         queryParameters: anyMap,
         body: anyMap,
       );
@@ -871,7 +828,7 @@ void main() {
         mockResponseForCode(200, body: anyMap);
 
         // act
-        final response = await sut.request(url: url, method: HTTP_METHOD_PATCH);
+        final response = await sut.request(url: url, method: httpPatch);
 
         // assert
         verify(calledRequest());
@@ -888,7 +845,7 @@ void main() {
           mockResponseForCode(400);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());
@@ -904,7 +861,7 @@ void main() {
           mockResponseForCode(401);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());
@@ -920,7 +877,7 @@ void main() {
           mockResponseForCode(403);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());
@@ -936,7 +893,7 @@ void main() {
           mockResponseForCode(404);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());
@@ -949,12 +906,11 @@ void main() {
         'should throw ServerFailure on any code greater than 500',
         () async {
           // arrange
-          final integerGreaterThan500 =
-              faker.randomGenerator.integer(599, min: 500);
+          final integerGreaterThan500 = faker.randomGenerator.integer(599, min: 500);
           mockResponseForCode(integerGreaterThan500);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());
@@ -970,7 +926,7 @@ void main() {
           mockResponseForCode(null);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());
@@ -987,7 +943,7 @@ void main() {
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());
@@ -1000,12 +956,11 @@ void main() {
         'should throw UnrecognizedFailure for redirect codes',
         () async {
           // arrange
-          final unrecognizedStatusCode =
-              faker.randomGenerator.integer(399, min: 300);
+          final unrecognizedStatusCode = faker.randomGenerator.integer(399, min: 300);
           mockResponseForCode(unrecognizedStatusCode);
 
           // act
-          final response = sut.request(url: url, method: HTTP_METHOD_PATCH);
+          final response = sut.request(url: url, method: httpPatch);
 
           // assert
           verify(calledRequest());

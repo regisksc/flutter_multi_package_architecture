@@ -15,7 +15,7 @@ class HttpRequestParams extends Equatable {
   final String endpoint;
   final Map<String, String>? headers;
   final Map<String, dynamic>? queryParameters;
-  final dynamic body;
+  final Map<String, dynamic>? body;
 
   String get method {
     switch (_httpMethod) {
