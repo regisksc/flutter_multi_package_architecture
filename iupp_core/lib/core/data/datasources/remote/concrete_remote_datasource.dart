@@ -1,7 +1,7 @@
 import 'package:iupp_core/core.dart';
 
-class ConcreteRemoteDataSource implements RemoteDatasource {
-  ConcreteRemoteDataSource({
+class ConcreteRemoteDatasource implements RemoteDatasource {
+  ConcreteRemoteDatasource({
     required this.networkInfo,
     required this.client,
   });

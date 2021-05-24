@@ -4,16 +4,34 @@ import 'package:iupp_core/core.dart';
 import '../../../utils/utils.dart';
 
 void main() {
-  late ModelMock model;
   late MappingParams sut;
-  setUp(() => model = ModelMock());
+  late ModelMock model;
+
+  setUp(() {
+    model = ModelMock();
+  });
+
+  test(
+    'equatable',
+    () async {
+      // arrange
+      final sut = MappingParams(mapper: model, amountOfOutput: MapFor.one);
+
+      // assert
+      expect(sut == MappingParams(mapper: model, amountOfOutput: MapFor.one),
+          true);
+    },
+  );
 
   group('mapping for one', () {
-    setUp(() => sut = MappingParams(mapper: model, amountOfOutput: MapFor.one));
+    setUp(() {
+      sut = MappingParams(mapper: model, amountOfOutput: MapFor.one);
+    });
+
     test(
       'should return SingleOutputMappingStrategy if Mapping for one output instance',
       () async {
-        // act
+        // arrange
         final strategy = sut.strategy;
 
         // assert
@@ -23,11 +41,14 @@ void main() {
   });
 
   group('mapping for many', () {
-    setUp(() => sut = MappingParams(mapper: model, amountOfOutput: MapFor.many));
+    setUp(() {
+      sut = MappingParams(mapper: model, amountOfOutput: MapFor.many);
+    });
+
     test(
       'should return MultipleOutputMappingStrategy if Mapping for many output instances',
       () async {
-        // act
+        // arrange
         final strategy = sut.strategy;
 
         // assert

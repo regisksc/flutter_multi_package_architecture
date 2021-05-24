@@ -4,14 +4,14 @@ enum HttpMethod { get, post, put, delete, patch }
 
 class HttpRequestParams extends Equatable {
   const HttpRequestParams({
-    required HttpMethod httpFetchMethod,
+    required HttpMethod httpMethod,
     required this.endpoint,
     this.queryParameters,
     this.body,
     this.headers,
-  }) : _httpFetchMethod = httpFetchMethod;
+  }) : _httpMethod = httpMethod;
 
-  final HttpMethod _httpFetchMethod;
+  final HttpMethod _httpMethod;
   final String endpoint;
   final Map<String, String>? headers;
   final Map<String, dynamic>? queryParameters;
@@ -19,7 +19,7 @@ class HttpRequestParams extends Equatable {
 
   @override
   List<Object?> get props => [
-        _httpFetchMethod,
+        _httpMethod,
         endpoint,
         body,
         headers,

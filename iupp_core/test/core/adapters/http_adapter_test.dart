@@ -84,6 +84,23 @@ void main() {
       },
     );
 
+    test(
+      'should return HttpResponse with message',
+      () async {
+        // arrange
+        mockResponseForCode(HTTP_STATUS_OK, body: {'message': 'any_message'});
+
+        // act
+        final response = await sut.request(url: url, method: HTTP_METHOD_GET);
+
+        // assert
+        verify(calledRequest());
+        expect(response, isA<HttpResponse>());
+        expect(response.message, 'any_message');
+        verifyNoMoreInteractions(client);
+      },
+    );
+
     group('failures - ', () {
       test(
         'should throw BadRequestFailure on code 400',

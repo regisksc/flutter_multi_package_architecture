@@ -5,22 +5,22 @@ import '../data.dart';
 
 class MappingParams extends Equatable {
   const MappingParams({
-    required this.mapper,
+    required Model mapper,
     required MapFor amountOfOutput,
-  }) : _amountOfOutput = amountOfOutput;
+  }) : _mapper = mapper, _amountOfOutput = amountOfOutput;
 
-  final Model mapper;
+  final Model _mapper;
   final MapFor _amountOfOutput;
 
   MappingStrategy get strategy {
     switch (_amountOfOutput) {
       case MapFor.one:
-        return SingleOutputMappingStrategy(model: mapper);
+        return SingleOutputMappingStrategy(model: _mapper);
       case MapFor.many:
-        return MultipleOutputMappingStrategy(model: mapper);
+        return MultipleOutputMappingStrategy(model: _mapper);
     }
   }
 
   @override
-  List<Object?> get props => [mapper, _amountOfOutput];
+  List<Object?> get props => [_mapper, _amountOfOutput];
 }
