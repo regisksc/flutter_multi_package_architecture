@@ -10,8 +10,6 @@ final cardsStories = [
       padding: EdgeInsets.all(
         k.slider(
           label: 'Padding',
-          initial: 0,
-          min: 0,
           max: 30,
         ),
       ),

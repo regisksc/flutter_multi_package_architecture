@@ -7,7 +7,7 @@ final buttonsStories = [
     name: 'IuppElevatedButton',
     builder: (_, k) => IuppElevatedButton(
       onPressed: k.boolean(label: 'Enabled', initial: true) ? () {} : null,
-      isLoading: k.boolean(label: 'Is Loading', initial: false),
+      isLoading: k.boolean(label: 'Is Loading'),
       text: k.text(
         label: 'Text',
         initial: 'Elevated button',
@@ -19,7 +19,7 @@ final buttonsStories = [
     name: 'IuppOutlinedButton',
     builder: (_, k) => IuppOutlinedButton(
       onPressed: k.boolean(label: 'Enabled', initial: true) ? () {} : null,
-      isLoading: k.boolean(label: 'Is Loading', initial: false),
+      isLoading: k.boolean(label: 'Is Loading'),
       text: k.text(
         label: 'Text',
         initial: 'Elevated button',
@@ -31,7 +31,7 @@ final buttonsStories = [
     name: 'IuppTextButton',
     builder: (_, k) => IuppTextButton(
       onPressed: k.boolean(label: 'Enabled', initial: true) ? () {} : null,
-      isLoading: k.boolean(label: 'Is Loading', initial: false),
+      isLoading: k.boolean(label: 'Is Loading'),
       text: k.text(
         label: 'Text',
         initial: 'Elevated button',
