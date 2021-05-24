@@ -5,6 +5,7 @@ import 'package:url_strategy/url_strategy.dart';
 import 'main/app_widget.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await initCore();
   setPathUrlStrategy();
   runApp(IuppApp());
