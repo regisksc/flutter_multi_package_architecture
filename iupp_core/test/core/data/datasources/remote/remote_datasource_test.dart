@@ -23,7 +23,7 @@ void main() {
     TestWidgetsFlutterBinding.ensureInitialized();
     http = HttpClientMock();
     network = NetworkInfoMock();
-    sut = ConcreteRemoteDataSource(networkInfo: network, client: http);
+    sut = ConcreteRemoteDatasource(networkInfo: network, client: http);
 
     url = faker.internet.httpsUrl();
     method = HttpMethod.get;
@@ -67,7 +67,7 @@ void main() {
         // act
         final result = sut.fetch<ModelMock>(
           httpParams: HttpRequestParams(
-            httpFetchMethod: method,
+            httpMethod: method,
             endpoint: url,
             queryParameters: query,
           ),
