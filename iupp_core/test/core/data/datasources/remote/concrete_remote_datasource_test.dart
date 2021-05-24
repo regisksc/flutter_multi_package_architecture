@@ -46,8 +46,6 @@ void main() {
   }
 
   group("When fetching one -", () {
-    setUp(() {});
-
     test(
       'should return a single Output ',
       () async {
@@ -76,8 +74,6 @@ void main() {
     );
   });
   group("When fetching many -", () {
-    setUp(() {});
-
     test(
       'should return a List of Output ',
       () async {
