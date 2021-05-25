@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:iupp_checkout/helpers/get_formated_money.dart';
 import 'package:iupp_components/components/components.dart';
-import 'package:iupp_core/core/utils/formatters.dart';
+import 'package:iupp_core/core.dart';
+
+import '../../../../helpers/get_formated_money.dart';
 
 class CheckoutCepArea extends StatelessWidget {
   CheckoutCepArea({
@@ -44,8 +42,7 @@ class CheckoutCepArea extends StatelessWidget {
                       cursorColor: const Color(0xff494C57),
                       style: const TextStyle(fontSize: 16),
                       decoration: const InputDecoration(
-                        contentPadding:
-                            EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                         border: inputBorder,
                         focusedBorder: inputBorder,
                         labelText: 'Digite o CEP',
@@ -124,10 +121,7 @@ class CheckoutCepArea extends StatelessWidget {
               Text(
                 isShippingFree ? 'Grátis' : getFormatedMoney(shippingValue!),
                 style: isShippingFree
-                    ? const TextStyle(
-                        color: Color(0xff1E8449),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16)
+                    ? const TextStyle(color: Color(0xff1E8449), fontWeight: FontWeight.w700, fontSize: 16)
                     : const TextStyle(),
               ),
             ],

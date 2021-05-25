@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/helpers/get_formated_money.dart';
+import '../../../../helpers/get_formated_money.dart';
 
 class CheckoutSubtotalArea extends StatelessWidget {
   const CheckoutSubtotalArea({
@@ -18,7 +18,7 @@ class CheckoutSubtotalArea extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          "Subtotal",
+          'Subtotal',
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 16,

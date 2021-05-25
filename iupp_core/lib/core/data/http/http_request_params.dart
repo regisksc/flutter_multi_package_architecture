@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import '../../../core.dart';
 
 enum HttpMethod { get, post, put, delete, patch }
 

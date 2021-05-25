@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_marketplace_buyer/presentation/widgets/widgets.dart';
+
+import '../../../../widgets/widgets.dart';
 
 class MorePointsPromotion extends StatelessWidget {
   const MorePointsPromotion({Key? key}) : super(key: key);

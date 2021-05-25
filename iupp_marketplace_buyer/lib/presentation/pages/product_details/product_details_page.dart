@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
-import 'package:iupp_marketplace_buyer/presentation/presentation.dart';
 
+import '../../presentation.dart';
 import 'widgets/widgets.dart';
 
 class ProductDetailsPage extends StatelessWidget {

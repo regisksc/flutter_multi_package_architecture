@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:iupp_core/core/data/mapping/strategy/single_output_mapping_strategy.dart';
-
+import '../../../core.dart';
 import '../data.dart';
 
 class MappingParams extends Equatable {
@@ -11,9 +9,9 @@ class MappingParams extends Equatable {
   MappingStrategy get strategy {
     switch (_amountOfOutput) {
       case MapFor.one:
-        return SingleOutputMappingStrategy(model: mapper);
+        return SingleOutputMappingStrategy(mapper);
       case MapFor.many:
-        return MultipleOutputMappingStrategy(model: mapper);
+        return MultipleOutputMappingStrategy(mapper);
     }
   }
 

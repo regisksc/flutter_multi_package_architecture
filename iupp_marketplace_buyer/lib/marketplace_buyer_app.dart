@@ -1,5 +1,5 @@
 import 'package:iupp_core/core.dart';
-import 'package:iupp_marketplace_buyer/presentation/pages/pages.dart';
+import 'presentation/pages/pages.dart';
 
 class MarketplaceBuyerApp implements MicroApp {
   @override

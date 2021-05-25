@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_core/core.dart';
 
 import '../../widgets/checkout_address_app_bar.dart';
+import '../../widgets/widgets.dart';
 import 'widgets/widgets.dart';
 
 class AddressRegisterPage extends StatefulWidget {

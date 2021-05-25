@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:iupp_checkout/domain/entities/entities.dart';
-import 'package:iupp_checkout/domain/entities/item_cart_entity.dart';
-import 'package:iupp_checkout/domain/entities/seller_entity.dart';
-import 'package:iupp_checkout/domain/entities/shipping_entity.dart';
-import 'package:iupp_checkout/domain/repositories/cart_repository_contract.dart';
+import '../../domain/entities/entities.dart';
+import '../../domain/entities/item_cart_entity.dart';
+import '../../domain/entities/seller_entity.dart';
+import '../../domain/entities/shipping_entity.dart';
+import '../../domain/repositories/cart_repository_contract.dart';
 
 class CartRepository implements CartRepositoryContract {
   CartRepository()

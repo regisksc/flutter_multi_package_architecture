@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:iupp_core/core/data/mapping/strategy/single_output_mapping_strategy.dart';
-import 'package:iupp_core/core/data/mapping/strategy/strategy.dart';
-import 'package:iupp_core/core/error/error.dart';
+import 'package:iupp_core/core.dart';
 
 import '../../../../utils/mocks/mocks.dart';
 
@@ -12,14 +10,14 @@ void main() {
   setUp(() {
     model = ModelMock();
     map = <String, dynamic>{'field': ''};
-    sut = SingleOutputMappingStrategy(model: model);
+    sut = SingleOutputMappingStrategy(model);
   });
 
   test(
     'should return needed Object',
     () async {
       // act
-      final result = sut<ModelMock>(mapOrListOfMap: map);
+      final result = sut<ModelMock>(map);
 
       // assert
       expect(result, isA<ModelMock>());
@@ -33,7 +31,7 @@ void main() {
       const String invalidMap = '';
 
       // assert
-      expect(() => sut<ModelMock>(mapOrListOfMap: invalidMap), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
+      expect(() => sut<ModelMock>(invalidMap), throwsA(InvalidMapFailure(invalidMap.runtimeType)));
     },
   );
 }

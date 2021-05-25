@@ -1,6 +1,5 @@
-import 'package:iupp_core/core/dependencies/dependencies.dart';
-
 import '../../core.dart';
+import '../dependencies/dependencies.dart';
 
 typedef WidgetBuilderArgs = Widget Function(
   BuildContext context,

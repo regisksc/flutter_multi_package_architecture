@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   flutter:
-      sdk: flutter
+    sdk: flutter
   iupp_core:
     path: ../iupp_core
   iupp_checkout:
@@ -22,8 +22,13 @@ dependencies:
   url_strategy: ^0.2.0
 
 dev_dependencies:
+  mocktail: ^0.1.2
+  faker: ^2.0.0
   flutter_test:
     sdk: flutter
+
+  # Util
+  import_sorter: ^4.5.1
 
 flutter:
   uses-material-design: true
@@ -42,3 +47,7 @@ flutter:
         - asset: assets/fonts/ItauDisplay_Lt.ttf
         - asset: assets/fonts/ItauDisplay_Rg.ttf
         - asset: assets/fonts/ItauDisplay_XBd.ttf
+
+import_sorter:
+  emojis: false
+  comments: false

@@ -17,5 +17,6 @@ class CheckoutApp implements MicroApp {
             const PaymentMethodSelectionPage(),
         '/installments-selection': (_, args) =>
             InstallmentSelectionPage(cardTitle: args!.data['card'] as String),
+        '/successful-order': (_, args) => SuccessfulOrderPage(),
       };
 }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:iupp_checkout/presentation/pages/cart/widgets/checkout_cep_area.dart';
-import 'package:iupp_checkout/presentation/pages/cart/widgets/checkout_subtotal_area.dart';
-import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../widgets/widgets.dart';
 import 'cart_controller.dart';
 import 'widgets/widgets.dart';
 
@@ -17,6 +15,7 @@ class CartPage extends StatefulWidget {
 
 class _CartPageState extends State<CartPage> {
   late CartController controller;
+
   @override
   void initState() {
     controller = CartController();

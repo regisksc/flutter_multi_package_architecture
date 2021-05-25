@@ -1,5 +1,6 @@
-import 'package:iupp_core/core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../core.dart';
 
 class SharedPreferencesLocalStorage implements LocalStorage {
   SharedPreferencesLocalStorage(this.sharedPreferences);

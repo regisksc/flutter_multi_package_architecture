@@ -1,6 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
-import 'package:mocktail/mocktail.dart';
 
 import '../../../utils/data/storage/shared_preferences_mock.dart';
 
@@ -10,14 +8,12 @@ void main() {
 
   setUp(() {
     sharedPreferencesMock = SharedPreferencesMock();
-    sharedPreferencesLocalStorage =
-        SharedPreferencesLocalStorage(sharedPreferencesMock);
+    sharedPreferencesLocalStorage = SharedPreferencesLocalStorage(sharedPreferencesMock);
   });
 
   test('when saveValue is called should call setString', () async {
     // arrange
-    when(() => sharedPreferencesMock.setString(any(), any()))
-        .thenAnswer((_) => Future.value(true));
+    when(() => sharedPreferencesMock.setString(any(), any())).thenAnswer((_) => Future.value(true));
 
     // act
     await sharedPreferencesLocalStorage.saveValue(key: 'key', value: 'value');
@@ -39,8 +35,7 @@ void main() {
 
   test('when deleteValue is called should call getString', () async {
     // arrange
-    when(() => sharedPreferencesMock.remove(any()))
-        .thenAnswer((_) async => true);
+    when(() => sharedPreferencesMock.remove(any())).thenAnswer((_) async => true);
 
     // act
     await sharedPreferencesLocalStorage.deleteValue('key');

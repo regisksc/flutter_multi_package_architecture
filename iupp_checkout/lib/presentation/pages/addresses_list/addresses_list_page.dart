@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_components/components/components.dart';
+
+import '../../widgets/widgets.dart';
 
 class AddressesListPage extends StatelessWidget {
   const AddressesListPage({Key? key}) : super(key: key);
