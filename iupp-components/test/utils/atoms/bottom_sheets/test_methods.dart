@@ -12,9 +12,13 @@ Future<void> loadPageForBottomSheet(WidgetTester tester) async {
         onPressed: () {
           showIuppBottomSheet(
             context,
-            children: [
-              const Text('I am a bottom sheet'),
-            ],
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: const [
+                Text('I am a bottom sheet'),
+              ],
+            ),
           );
         },
         child: const Icon(
@@ -33,9 +37,13 @@ Future<void> loadPageForOverlayBottomSheet(WidgetTester tester) async {
         onPressed: () {
           showIuppOverlayBottomSheet(
             context,
-            children: [
-              const Text('I am an overlay bottom sheet'),
-            ],
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: const [
+                Text('I am an overlay bottom sheet'),
+              ],
+            ),
           );
         },
         child: const Icon(

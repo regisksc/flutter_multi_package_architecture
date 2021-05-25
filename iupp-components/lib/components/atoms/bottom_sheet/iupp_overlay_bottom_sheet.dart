@@ -2,17 +2,13 @@ import 'package:flutter/material.dart';
 
 Future<dynamic> showIuppOverlayBottomSheet(
   BuildContext context, {
-  required List<Widget> children,
+  required Widget child,
 }) {
   return showModalBottomSheet(
     context: context,
     builder: (BuildContext context) => Padding(
       padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: children,
-      ),
+      child: child,
     ),
     backgroundColor: Colors.grey[100],
     shape: const RoundedRectangleBorder(

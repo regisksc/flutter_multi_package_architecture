@@ -2,17 +2,13 @@ import 'package:flutter/material.dart';
 
 PersistentBottomSheetController<T> showIuppBottomSheet<T>(
   BuildContext context, {
-  required List<Widget> children,
+  required Widget child,
 }) {
   return showBottomSheet(
     context: context,
     builder: (BuildContext context) => Padding(
       padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: children,
-      ),
+      child: child,
     ),
     backgroundColor: Colors.grey[100],
     shape: const RoundedRectangleBorder(

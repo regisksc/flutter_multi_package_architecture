@@ -9,21 +9,25 @@ final bottomSheetsStories = [
     builder: (context, k) => ElevatedButton(
       onPressed: () => showIuppBottomSheet(
         context,
-        children: [
-          const Text(
-            'Deseja realmente excluir este produto do seu carrinho?',
-          ),
-          const SizedBox(height: 24),
-          IuppElevatedButton(
-            text: 'excluir produto',
-            onPressed: () {},
-          ),
-          const SizedBox(height: 8),
-          IuppOutlinedButton(
-            text: 'manter no carrinho',
-            onPressed: () {},
-          ),
-        ],
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              'Deseja realmente excluir este produto do seu carrinho?',
+            ),
+            const SizedBox(height: 24),
+            IuppElevatedButton(
+              text: 'excluir produto',
+              onPressed: () {},
+            ),
+            const SizedBox(height: 8),
+            IuppOutlinedButton(
+              text: 'manter no carrinho',
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
       child: const Text(
         'Show BottomSheet',
@@ -36,21 +40,25 @@ final bottomSheetsStories = [
     builder: (context, k) => ElevatedButton(
       onPressed: () => showIuppOverlayBottomSheet(
         context,
-        children: [
-          const Text(
-            'Deseja realmente excluir este produto do seu carrinho?',
-          ),
-          const SizedBox(height: 24),
-          IuppElevatedButton(
-            text: 'excluir produto',
-            onPressed: () {},
-          ),
-          const SizedBox(height: 8),
-          IuppOutlinedButton(
-            text: 'manter no carrinho',
-            onPressed: () {},
-          ),
-        ],
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              'Deseja realmente excluir este produto do seu carrinho?',
+            ),
+            const SizedBox(height: 24),
+            IuppElevatedButton(
+              text: 'excluir produto',
+              onPressed: () {},
+            ),
+            const SizedBox(height: 8),
+            IuppOutlinedButton(
+              text: 'manter no carrinho',
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
       child: const Text(
         'Show BottomSheet with Overlay',
