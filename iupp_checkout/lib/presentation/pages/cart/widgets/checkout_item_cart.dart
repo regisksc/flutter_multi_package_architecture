@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
+import 'package:iupp_core/core/resources/formatters/formatters.dart';
 
-import '../../../../helpers/get_formated_money.dart';
 import 'widgets.dart';
 
 class CheckoutItemCart extends StatelessWidget {
@@ -118,7 +118,7 @@ class CheckoutItemCart extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  getFormatedMoney(price),
+                  formatMonetaryValue(price),
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
