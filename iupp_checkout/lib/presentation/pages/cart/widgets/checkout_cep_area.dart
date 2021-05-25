@@ -81,24 +81,22 @@ class CheckoutCepArea extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                showModalBottomSheet(
-                    context: context,
-                    builder: (_) {
-                      return Padding(
-                        padding: const EdgeInsets.all(24.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Text(
-                                'Informe o CEP para calcularmos o prazo e frete. Caso não saiba seu CEP, selecione abaixo:'),
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text('não sei meu cep'),
-                            ),
-                          ],
-                        ),
-                      );
-                    });
+                showIuppOverlayBottomSheet(
+                  context,
+                  backgroundColor: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                          'Informe o CEP para calcularmos o prazo e frete. Caso não saiba seu CEP, selecione abaixo:'),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text('não sei meu cep'),
+                      ),
+                    ],
+                  ),
+                );
               },
               child: Container(
                 padding: const EdgeInsets.only(left: 30),
