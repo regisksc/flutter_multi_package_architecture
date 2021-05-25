@@ -24,20 +24,11 @@ class CheckoutScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
-      appBar: appBar ??
-          IuppAppBar(
-            centered: true,
-          ),
+      appBar: appBar ?? IuppAppBar(centered: true),
       body: CustomScrollView(
         slivers: [
           CheckoutView(
-            aboveTitle: aboveTitle != null
-                ? Padding(
-                      padding:
-                          const EdgeInsets.only(top: 24, left: 24, right: 24),
-                      child: aboveTitle,
-                    )
-                : null,
+            aboveTitle: _aboveTitlePlaceholder(),
             title: title,
             bellowTitle: child,
           ),
@@ -50,5 +41,14 @@ class CheckoutScaffold extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Padding? _aboveTitlePlaceholder() {
+    if (aboveTitle != null) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
+        child: aboveTitle,
+      );
+    }
   }
 }
