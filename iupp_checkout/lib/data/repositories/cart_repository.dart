@@ -13,7 +13,7 @@ class CartRepository implements CartRepositoryContract {
           total: 5999.20,
           subtotal: 5999.20,
           totalPoints: 2500,
-          items: const [] /* [
+          items: [
             ItemCartEntity(
               id: 1,
               quantity: 1,
@@ -25,8 +25,18 @@ class CartRepository implements CartRepositoryContract {
               points: 2500,
               seller: Seller('Magazine Luíza'),
             ),
-          ] */
-          ,
+            ItemCartEntity(
+              id: 2,
+              quantity: 1,
+              photoUrl:
+                  'https://a-static.mlcdn.com.br/618x463/iphone-12-apple-64gb-azul-61-cam-dupla-12mp-ios/magazineluiza/155597900/42720757e2ad2307009d75f22d457e80.jpg',
+              price: 5999.20,
+              description:
+                  'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+              points: 2500,
+              seller: Seller('Magazine Luíza'),
+            ),
+          ],
         );
   CartEntity cart;
 

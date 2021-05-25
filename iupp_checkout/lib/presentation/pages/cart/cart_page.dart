@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../../domain/entities/item_cart_entity.dart';
 import '../../widgets/widgets.dart';
 import 'cart_controller.dart';
 import 'widgets/widgets.dart';
@@ -41,60 +42,31 @@ class _CartPageState extends State<CartPage> {
                 IuppCard(
                   children: [
                     ...cart!.items
-                        .map((itemCart) => CheckoutItemCart(
-                              photoUrl: itemCart.photoUrl,
-                              description: itemCart.description,
-                              sellerName: itemCart.seller.name,
-                              price: itemCart.total,
-                              points: itemCart.points.toString(),
-                              count: itemCart.quantity,
-                              expectedDeliveryDays:
-                                  controller.expectedDeliveryDays,
-                              increment: () =>
-                                  controller.incrementItem(itemCart.id),
-                              decrement: () {
-                                if (itemCart.quantity == 1) {
-                                  showIuppOverlayBottomSheet(
-                                    context,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const Text(
-                                            'Deseja realmente excluir este produto do seu carrinho?'),
-                                        Container(
-                                          margin: const EdgeInsets.only(
-                                              top: 24, bottom: 12),
-                                          width: double.maxFinite,
-                                          child: IuppElevatedButton(
-                                            text: 'excluir produto',
-                                            onPressed: () {
-                                              controller
-                                                  .decrementItem(itemCart.id);
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: double.maxFinite,
-                                          child: IuppOutlinedButton(
-                                            text: 'manter no carrinho',
-                                            onPressed: () =>
-                                                Navigator.of(context).pop(),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                } else {
-                                  controller.decrementItem(itemCart.id);
-                                }
-                              },
-                            ))
+                        .map(
+                          (itemCart) => CheckoutItemCart(
+                            photoUrl: itemCart.photoUrl,
+                            description: itemCart.description,
+                            sellerName: itemCart.seller.name,
+                            price: itemCart.total,
+                            points: itemCart.totalPoints.toString(),
+                            count: itemCart.quantity,
+                            expectedDeliveryDays:
+                                controller.expectedDeliveryDays,
+                            increment: () =>
+                                controller.incrementItem(itemCart.id),
+                            decrement: () {
+                              _handleDecrementItem(itemCart);
+                            },
+                          ),
+                        )
                         .toList(),
-                    const IuppDivider(verticalPadding: 24),
                     CheckoutCepArea(
+                      initialValue: cart.shipping?.cep ?? '',
                       shippingValue: controller.shippingValue,
-                      onSearch: (value) => controller.calcShippingValue(value),
+                      onSearch: (value) {
+                        controller.calcShippingValue(value);
+                        FocusScope.of(context).requestFocus(FocusNode());
+                      },
                     ),
                     const IuppDivider(verticalPadding: 18),
                     CheckoutSubtotalArea(
@@ -133,6 +105,44 @@ class _CartPageState extends State<CartPage> {
                 const SizedBox(height: 24),
               ],
             ),
+    );
+  }
+
+  void _handleDecrementItem(ItemCartEntity itemCart) {
+    if (itemCart.quantity != 1) {
+      controller.decrementItem(itemCart.id);
+    } else {
+      _showBottomSheet(itemCart);
+    }
+  }
+
+  Future _showBottomSheet(ItemCartEntity itemCart) {
+    return showIuppOverlayBottomSheet(
+      context,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text('Deseja realmente excluir este produto do seu carrinho?'),
+          Container(
+            margin: const EdgeInsets.only(top: 24, bottom: 12),
+            width: double.maxFinite,
+            child: IuppElevatedButton(
+              text: 'excluir produto',
+              onPressed: () {
+                controller.decrementItem(itemCart.id);
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+          SizedBox(
+            width: double.maxFinite,
+            child: IuppOutlinedButton(
+              text: 'manter no carrinho',
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

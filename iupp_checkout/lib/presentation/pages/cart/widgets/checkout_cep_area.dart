@@ -6,11 +6,15 @@ class CheckoutCepArea extends StatelessWidget {
     Key? key,
     this.shippingValue,
     required this.onSearch,
-  }) : super(key: key);
+    this.initialValue = '',
+  }) : super(key: key) {
+    _inputController.text = initialValue;
+  }
 
   final double? shippingValue;
   final Function(String) onSearch;
   final TextEditingController _inputController = TextEditingController();
+  final String initialValue;
 
   bool get isShippingFree => hasShipping && shippingValue == 0;
   bool get hasShipping => shippingValue != null;

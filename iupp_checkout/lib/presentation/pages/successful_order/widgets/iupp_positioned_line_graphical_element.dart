@@ -11,7 +11,7 @@ class IuppPositionedLineGraphicalElement extends StatelessWidget {
       this.bottom,
       this.left,
       this.right,
-      this.angle,
+      required this.angle,
       this.lenght,
       this.color = Colors.black,
       this.leadingColor})
