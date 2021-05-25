@@ -42,7 +42,7 @@ class AddressesListPage extends StatelessWidget {
                   ),
                 ],
               ),
-              height: 180,
+              height: 200,
               child: Padding(
                 padding: const EdgeInsets.all(24),
                 child: Column(
