@@ -1,4 +1,4 @@
-import '../../dependencies/app_dependencies.dart';
+import '../../../dependencies/app_dependencies.dart';
 
 /// The Connectivity plugin can give us several false positives, in which case
 /// the user has connectivity but does not have access to the internet. The use

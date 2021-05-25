@@ -1,1 +1,1 @@
-export './entity_abstraction.dart';
+export 'entity_abstraction.dart';

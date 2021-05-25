@@ -1,6 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:iupp_core/core/data/mapping/strategy/strategy.dart';
-import 'package:iupp_core/core/error/error.dart';
+import 'package:iupp_core/core.dart';
 
 import '../../../../utils/mocks/mocks.dart';
 

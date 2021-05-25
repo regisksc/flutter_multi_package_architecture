@@ -1,4 +1,4 @@
-import '../../../core.dart';
+import '../../../../../../core.dart';
 
 class BadRequestFailure extends HttpFailure {
   const BadRequestFailure({String? message, int? code})

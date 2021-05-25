@@ -1,4 +1,4 @@
-import '../../../error/mapping_failures.dart';
+import '../../data.dart';
 import '../../model/model_abstraction.dart';
 import 'strategy.dart';
 

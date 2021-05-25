@@ -1,4 +1,4 @@
-import '../../../core.dart';
+import '../../../../core.dart';
 
 abstract class HttpFailure extends BaseFailure {
   const HttpFailure(

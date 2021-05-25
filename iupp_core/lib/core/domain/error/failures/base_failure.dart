@@ -1,4 +1,4 @@
-import '../../dependencies/dependencies.dart';
+import '../../../../core.dart';
 
 abstract class BaseFailure extends Equatable {
   const BaseFailure({this.title = 'Erro', this.message});

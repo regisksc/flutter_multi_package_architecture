@@ -1,4 +1,4 @@
-import '../../../core.dart';
+import '../../../../core.dart';
 
 class ForbiddenFailure extends HttpFailure {
   const ForbiddenFailure({String? message, int? code})
