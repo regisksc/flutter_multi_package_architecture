@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/pages/successful_order/widgets/iupp_positioned_circular_graphical_element.dart';
-import 'package:iupp_checkout/presentation/pages/successful_order/widgets/iupp_positioned_line_graphical_element.dart';
+
+import '../successful_order.dart';
 
 class SuccessfulOrderHeader extends StatelessWidget {
   @override
@@ -29,12 +27,12 @@ class SuccessfulOrderHeader extends StatelessWidget {
                         left: 20,
                         lenght: 50,
                         angle: value * 360.0,
-                        color: Color(0xFFEC7000),
+                        color: const Color(0xFFEC7000),
                         leadingColor: Colors.black,
                       );
                     },
                   ),
-                  IuppPositionedLineGraphicalElement(
+                  const IuppPositionedLineGraphicalElement(
                     top: 94,
                     left: 54,
                     lenght: 106,
@@ -42,17 +40,17 @@ class SuccessfulOrderHeader extends StatelessWidget {
                     color: Color(0xFFEC7000),
                     leadingColor: Colors.black,
                   ),
-                  IuppPositionedCircularGraphicalElement(
+                  const IuppPositionedCircularGraphicalElement(
                     top: 61,
                     left: 163,
                     color: Colors.white,
                   ),
-                  IuppPositionedCircularGraphicalElement(
+                  const IuppPositionedCircularGraphicalElement(
                     top: 97,
                     left: 235,
                     color: Color(0xFF23232E),
                   ),
-                  IuppPositionedCircularGraphicalElement(
+                  const IuppPositionedCircularGraphicalElement(
                     top: 61,
                     left: 307,
                     color: Color(0xFFEC7000),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/pages/successful_order/widgets/successful_order_detail.dart';
-import 'package:iupp_checkout/presentation/pages/successful_order/widgets/successful_order_header.dart';
 import 'package:iupp_components/components/components.dart';
+
+import 'successful_order.dart';
 
 class SuccessfulOrderPage extends StatelessWidget {
   @override

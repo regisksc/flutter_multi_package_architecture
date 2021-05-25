@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/pages/successful_order/widgets/iupp_positioned_circular_graphical_element.dart';
+
+import '../successful_order.dart';
 
 class IuppPositionedLineGraphicalElement extends StatelessWidget {
   const IuppPositionedLineGraphicalElement(
