@@ -1,8 +1,4 @@
-import 'package:faker/faker.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
-import 'package:iupp_core/core/dependencies/dependencies.dart';
-import 'package:mocktail/mocktail.dart';
 
 import '../../utils/constants/data_type_test_constants.dart';
 

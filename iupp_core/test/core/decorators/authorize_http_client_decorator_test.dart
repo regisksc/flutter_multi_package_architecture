@@ -1,6 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
-import 'package:mocktail/mocktail.dart';
 
 import '../../utils/data/storage/mocks.dart';
 import '../../utils/mocks/datasources_mocks.dart';

@@ -1,7 +1,5 @@
-import 'package:equatable/equatable.dart';
-
+import '../../../core.dart';
 import '../data.dart';
-import 'strategy/single_output_mapping_strategy.dart';
 
 class MappingParams extends Equatable {
   const MappingParams({required this.mapper, required MapFor amountOfOutput}) : _amountOfOutput = amountOfOutput;

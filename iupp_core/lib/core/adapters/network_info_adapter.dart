@@ -1,5 +1,4 @@
-import 'package:connectivity/connectivity.dart';
-import 'package:data_connection_checker_tv/data_connection_checker.dart';
+import '../dependencies/app_dependencies.dart';
 
 /// The Connectivity plugin can give us several false positives, in which case
 /// the user has connectivity but does not have access to the internet. The use
@@ -10,7 +9,7 @@ class NetworkInfoAdapter {
   NetworkInfoAdapter({
     required Connectivity connectivity,
     required DataConnectionChecker dataConnectionChecker,
-  })   : _connectivity = connectivity,
+  })  : _connectivity = connectivity,
         _dataConnectionChecker = dataConnectionChecker;
 
   final Connectivity _connectivity;

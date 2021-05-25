@@ -1,7 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:iupp_core/core.dart';
-import 'package:iupp_core/core/dependencies/dependencies.dart';
-import 'package:mocktail/mocktail.dart';
 
 import '../../utils/adapters/network_info_adapter_mocks.dart';
 
@@ -20,13 +17,11 @@ void main() {
   });
 
   void mockConnectivityWithResult(ConnectivityResult result) {
-    when(() => connectivityMock.checkConnectivity())
-        .thenAnswer((_) async => result);
+    when(() => connectivityMock.checkConnectivity()).thenAnswer((_) async => result);
   }
 
   void mockDataConnectionChecker({required bool hasConnection}) {
-    when(() => dataConnectionCheckerMock.hasConnection)
-        .thenAnswer((_) => Future.value(hasConnection));
+    when(() => dataConnectionCheckerMock.hasConnection).thenAnswer((_) => Future.value(hasConnection));
   }
 
   group('hasConnection', () {
@@ -112,12 +107,10 @@ void main() {
     test(
       'should emit the right values in the right order',
       () async {
-        final dataConnectionController =
-            StreamController<DataConnectionStatus>();
+        final dataConnectionController = StreamController<DataConnectionStatus>();
         final dataConnectionStream = dataConnectionController.stream;
 
-        when(() => dataConnectionCheckerMock.onStatusChange)
-            .thenAnswer((_) => dataConnectionStream);
+        when(() => dataConnectionCheckerMock.onStatusChange).thenAnswer((_) => dataConnectionStream);
 
         expectLater(
           dataConnectionStream,

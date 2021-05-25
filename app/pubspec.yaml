@@ -10,7 +10,7 @@ environment:
 
 dependencies:
   flutter:
-      sdk: flutter
+    sdk: flutter
   iupp_core:
     path: ../iupp_core
   iupp_checkout:
@@ -22,6 +22,8 @@ dependencies:
   url_strategy: ^0.2.0
 
 dev_dependencies:
+  mocktail: ^0.1.2
+  faker: ^2.0.0
   flutter_test:
     sdk: flutter
 
