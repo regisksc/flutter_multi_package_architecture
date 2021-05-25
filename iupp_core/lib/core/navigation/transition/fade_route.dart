@@ -1,5 +1,5 @@
-import '../../core.dart';
-import '../dependencies/flutter_dependencies.dart';
+import '../../../core.dart';
+import '../../dependencies/flutter_dependencies.dart';
 
 class FadeRoute extends PageRouteBuilder {
   FadeRoute({

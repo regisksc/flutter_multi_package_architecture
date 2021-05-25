@@ -1,5 +1,5 @@
-import '../../core.dart';
-import '../dependencies/flutter_dependencies.dart';
+import '../../../core.dart';
+import '../../dependencies/flutter_dependencies.dart';
 
 abstract class BaseApp {
   List<MicroApp> get microApps;
@@ -9,9 +9,7 @@ abstract class BaseApp {
   final Map<String, WidgetBuilderArgs> routes = {};
 
   void registerRouters() {
-    if (baseRoutes.isNotEmpty) {
-      routes.addAll(baseRoutes);
-    }
+    if (baseRoutes.isNotEmpty) routes.addAll(baseRoutes);
     if (microApps.isNotEmpty) {
       for (final MicroApp microapp in microApps) {
         routes.addAll(microapp.routes);
@@ -47,9 +45,7 @@ abstract class BaseApp {
         }
       });
 
-      if (dynamicRoute != null) {
-        return dynamicRoute!;
-      }
+      if (dynamicRoute != null) return dynamicRoute!;
       return null;
     }
 
