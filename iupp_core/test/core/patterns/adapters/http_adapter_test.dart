@@ -1,6 +1,6 @@
 import 'package:iupp_core/core.dart';
 
-import '../../utils/constants/data_type_test_constants.dart';
+import '../../../utils/constants/data_type_test_constants.dart';
 
 class ClientMock extends Mock implements Dio {}
 

@@ -1,5 +1,5 @@
-import '../../../core.dart';
-import '../../../init_core.dart';
+import '../../../../core.dart';
+import '../../../../init_core.dart';
 
 HttpClient makeAuthorizeHttpClientDecorator() => AuthorizeHttpClientDecorator(
       decoratee: makeHttpAdapter(),

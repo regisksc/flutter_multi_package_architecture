@@ -1,6 +1,6 @@
 import 'package:iupp_core/core.dart';
 
-import '../../utils/adapters/network_info_adapter_mocks.dart';
+import '../../../utils/utils.dart';
 
 void main() {
   late NetworkInfoAdapter networkInfoAdapter;
