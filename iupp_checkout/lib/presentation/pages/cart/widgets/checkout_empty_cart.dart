@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/components/components.dart';
 import 'package:iupp_components/components/molecules/cards/cards.dart';
 import 'package:iupp_core/core.dart';
 
@@ -34,7 +35,34 @@ class CheckoutEmptyCart extends StatelessWidget {
         ),
         IuppCheckoutButtonNavigate(
           label: 'ir para o início',
-          onpressed: () => NavigatorService().navigateTo('/home'),
+          onpressed: () {
+            showIuppOverlayBottomSheet(
+              context,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Deseja realmente ir para a página inicial?'),
+                  Container(
+                    margin: const EdgeInsets.only(top: 24, bottom: 12),
+                    width: double.maxFinite,
+                    child: IuppElevatedButton(
+                      text: 'ir para a página inicial',
+                      onPressed: () {
+                        NavigatorService().navigateTo('/home');
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.maxFinite,
+                    child: IuppOutlinedButton(
+                      text: 'continuar por aqui',
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
         const SizedBox(height: 75)
       ],

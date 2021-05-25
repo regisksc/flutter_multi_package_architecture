@@ -52,8 +52,43 @@ class _CartPageState extends State<CartPage> {
                                   controller.expectedDeliveryDays,
                               increment: () =>
                                   controller.incrementItem(itemCart.id),
-                              decrement: () =>
-                                  controller.decrementItem(itemCart.id),
+                              decrement: () {
+                                if (itemCart.quantity == 1) {
+                                  showIuppOverlayBottomSheet(
+                                    context,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const Text(
+                                            'Deseja realmente excluir este produto do seu carrinho?'),
+                                        Container(
+                                          margin: const EdgeInsets.only(
+                                              top: 24, bottom: 12),
+                                          width: double.maxFinite,
+                                          child: IuppElevatedButton(
+                                            text: 'excluir produto',
+                                            onPressed: () {
+                                              controller
+                                                  .decrementItem(itemCart.id);
+                                              Navigator.of(context).pop();
+                                            },
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: double.maxFinite,
+                                          child: IuppOutlinedButton(
+                                            text: 'manter no carrinho',
+                                            onPressed: () =>
+                                                Navigator.of(context).pop(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                } else {
+                                  controller.decrementItem(itemCart.id);
+                                }
+                              },
                             ))
                         .toList(),
                     const IuppDivider(verticalPadding: 24),
