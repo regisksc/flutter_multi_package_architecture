@@ -1,3 +1,4 @@
+export 'bottom_sheet/bottom_sheet.dart';
 export 'buttons/buttons.dart';
 export 'dividers/dividers.dart';
 export 'footers/footers.dart';
