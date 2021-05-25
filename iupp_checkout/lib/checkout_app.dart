@@ -3,9 +3,12 @@ import 'package:iupp_core/core.dart';
 import 'presentation/pages/pages.dart';
 import 'presentation/resources/routes.dart';
 
-class CheckoutApp implements MicroApp {
+class CheckoutApp extends MicroApp {
   @override
   String get microAppName => 'Checkout';
+
+  @override
+  String get initialRoute => '/address-list';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {

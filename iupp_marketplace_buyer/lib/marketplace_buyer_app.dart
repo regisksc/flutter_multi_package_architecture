@@ -1,9 +1,12 @@
 import 'package:iupp_core/core.dart';
 import 'presentation/pages/pages.dart';
 
-class MarketplaceBuyerApp implements MicroApp {
+class MarketplaceBuyerApp extends MicroApp {
   @override
   String get microAppName => 'Marketplace Buyer App';
+
+  @override
+  String get initialRoute => '/home';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {

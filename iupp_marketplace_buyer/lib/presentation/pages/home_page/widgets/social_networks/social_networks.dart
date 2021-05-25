@@ -17,7 +17,10 @@ class SocialNetworks extends StatelessWidget {
             Expanded(
               child: Row(
                 children: [
-                  Image.asset('assets/logo_iupp_white.png'),
+                  Image.asset(
+                    'assets/images/logo_iupp_white.png',
+                    package: 'iupp_components',
+                  ),
                 ],
               ),
             ),
@@ -27,19 +30,19 @@ class SocialNetworks extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SocialNetworkButton(
-                    imageAsset: 'assets/facebook.png',
+                    imageAsset: 'assets/images/facebook.png',
                     onTap: () {},
                   ),
                   SocialNetworkButton(
-                    imageAsset: 'assets/instagram.png',
+                    imageAsset: 'assets/images/instagram.png',
                     onTap: () {},
                   ),
                   SocialNetworkButton(
-                    imageAsset: 'assets/youtube.png',
+                    imageAsset: 'assets/images/youtube.png',
                     onTap: () {},
                   ),
                   SocialNetworkButton(
-                    imageAsset: 'assets/twitter.png',
+                    imageAsset: 'assets/images/twitter.png',
                     onTap: () {},
                   ),
                 ],

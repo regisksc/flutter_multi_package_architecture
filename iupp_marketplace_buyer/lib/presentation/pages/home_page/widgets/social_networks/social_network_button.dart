@@ -21,7 +21,7 @@ class SocialNetworkButton extends StatelessWidget {
           color: const Color(0xFF353545),
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Image.asset(imageAsset),
+        child: Image.asset(imageAsset, package: 'iupp_components'),
       ),
     );
   }

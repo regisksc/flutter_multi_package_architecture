@@ -58,9 +58,9 @@ class OffermeterHeader extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset('assets/hours.png'),
-                      Image.asset('assets/minutes.png'),
-                      Image.asset('assets/seconds.png'),
+                      Image.asset('assets/images/hours.png', package: 'iupp_components'),
+                      Image.asset('assets/images/minutes.png', package: 'iupp_components'),
+                      Image.asset('assets/images/seconds.png', package: 'iupp_components'),
                     ],
                   ),
                   const SizedBox(height: 4),

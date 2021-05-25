@@ -17,6 +17,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  faker: ^2.0.0-rc.2
+  mocktail: ^0.1.2
 
 flutter:
   uses-material-design: true
@@ -24,6 +26,19 @@ flutter:
   assets:
     - assets/
     - ../iupp-components/assets/
+  fonts:
+    - family: IuppIcons
+      fonts:
+        - asset: assets/fonts/IuppIcons.ttf
+        - asset: assets/fonts/IuppIcons.woff
+    - family: ItauDisplay
+      fonts:
+        - asset: assets/fonts/ItauDisplay_Bd.ttf
+        - asset: assets/fonts/ItauDisplay_Blk.ttf
+        - asset: assets/fonts/ItauDisplay_He.ttf
+        - asset: assets/fonts/ItauDisplay_Lt.ttf
+        - asset: assets/fonts/ItauDisplay_Rg.ttf
+        - asset: assets/fonts/ItauDisplay_XBd.ttf
 
   module:
     androidX: true
