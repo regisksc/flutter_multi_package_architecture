@@ -27,6 +27,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Util
+  import_sorter: ^4.5.1
+
 flutter:
   uses-material-design: true
   assets:
@@ -44,3 +47,7 @@ flutter:
         - asset: assets/fonts/ItauDisplay_Lt.ttf
         - asset: assets/fonts/ItauDisplay_Rg.ttf
         - asset: assets/fonts/ItauDisplay_XBd.ttf
+
+import_sorter:
+  emojis: false
+  comments: false
