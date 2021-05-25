@@ -19,7 +19,7 @@ class IuppApp extends StatelessWidget with BaseApp {
       theme: theme,
       navigatorKey: NavigatorService.navigatorKey,
       onGenerateRoute: super.generateRoute,
-      initialRoute: _initialRoute,
+      initialRoute: '/successful-order',
     );
   }
 
