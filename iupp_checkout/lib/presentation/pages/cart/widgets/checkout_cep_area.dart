@@ -92,7 +92,14 @@ class CheckoutCepArea extends StatelessWidget {
                           'Informe o CEP para calcularmos o prazo e frete. Caso não saiba seu CEP, selecione abaixo:'),
                       TextButton(
                         onPressed: () {},
-                        child: const Text('não sei meu cep'),
+                        child: const Text(
+                          'Não sei meu CEP',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                            color: Color(0xff0070D4),
+                          ),
+                        ),
                       ),
                     ],
                   ),
