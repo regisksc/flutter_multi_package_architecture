@@ -40,28 +40,25 @@ class PaymentMethodSelectionPage extends StatelessWidget {
         step: 3,
       ),
       whiteSpace: 6,
-      child: IuppCard(
-        children: cards
-            .map(
-              (cardDescription) => GestureDetector(
-                onTap: () => NavigatorService()
-                    .navigateTo('/installments-selection', data: {
-                  'card': cardDescription,
-                }),
-                child: ListTile(
-                  leading: Image.asset(
-                    'assets/images/icon_mastercard.png',
-                    package: 'iupp_components',
-                  ),
-                  title: Text(cardDescription),
-                  trailing: const Icon(
-                    IuppIcons.icone_contorno_S_seta_direita,
-                    color: Color(0xFF0070D4),
-                  ),
-                ),
-              ),
-            )
-            .toList(),
+      child: IuppCard(children: cards.map((cardDescription) => _cardPlaceholder(cardDescription)).toList()),
+    );
+  }
+
+  GestureDetector _cardPlaceholder(String cardDescription) {
+    return GestureDetector(
+      onTap: () => NavigatorService().navigateTo('/installments-selection', data: {
+        'card': cardDescription,
+      }),
+      child: ListTile(
+        leading: Image.asset(
+          'assets/images/icon_mastercard.png',
+          package: 'iupp_components',
+        ),
+        title: Text(cardDescription),
+        trailing: const Icon(
+          IuppIcons.icone_contorno_S_seta_direita,
+          color: Color(0xFF0070D4),
+        ),
       ),
     );
   }
