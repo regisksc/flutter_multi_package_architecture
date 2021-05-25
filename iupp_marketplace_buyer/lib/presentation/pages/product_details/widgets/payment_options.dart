@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/components/components.dart';
 
 class PaymentOptions extends StatelessWidget {
   const PaymentOptions({Key? key}) : super(key: key);
@@ -40,30 +41,12 @@ class PaymentOptions extends StatelessWidget {
               runSpacing: 35,
               spacing: 35,
               children: [
-                Image.asset(
-                  'assets/images/cartao_master.png',
-                  package: 'iupp_components',
-                ),
-                Image.asset(
-                  'assets/images/cartao_visa.png',
-                  package: 'iupp_components',
-                ),
-                Image.asset(
-                  'assets/images/cartao_elo.png',
-                  package: 'iupp_components',
-                ),
-                Image.asset(
-                  'assets/images/cartao_american_express.png',
-                  package: 'iupp_components',
-                ),
-                Image.asset(
-                  'assets/images/cartao_dinners_club.png',
-                  package: 'iupp_components',
-                ),
-                Image.asset(
-                  'assets/images/cartao_hipercard.png',
-                  package: 'iupp_components',
-                ),
+                IuppImage.asset('cartao_master.png'),
+                IuppImage.asset('cartao_visa.png'),
+                IuppImage.asset('cartao_elo.png'),
+                IuppImage.asset('cartao_american_express.png'),
+                IuppImage.asset('cartao_dinners_club.png'),
+                IuppImage.asset('cartao_hipercard.png'),
               ],
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/atoms/buttons/iupp_elevated_button.dart';
 import 'package:iupp_components/components/atoms/dividers/dividers.dart';
+import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core/resources/formatters/app_formatters.dart';
 
 class SuccessfulOrderDetails extends StatelessWidget {
@@ -42,7 +43,7 @@ class SuccessfulOrderDetails extends StatelessWidget {
       ),
       Text(
         orderSummaryConcrete.orderId,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.w700,
         ),
@@ -92,7 +93,7 @@ class SuccessfulOrderDetails extends StatelessWidget {
                     child: SizedBox(
                       width: 60,
                       height: 45,
-                      child: Image.network(item.imageURL),
+                      child: IuppImage.network(item.imageURL),
                     ),
                   ),
                   Flexible(
@@ -134,15 +135,6 @@ class SuccessfulOrderDetails extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  List<Widget> _addPadding(List<Widget> widgets) {
-    return widgets
-        .map((item) => Padding(
-              padding: const EdgeInsets.all(8),
-              child: item,
-            ))
-        .toList();
   }
 }
 

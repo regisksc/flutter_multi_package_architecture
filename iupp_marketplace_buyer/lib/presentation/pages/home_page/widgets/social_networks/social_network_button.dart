@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/components/components.dart';
 
 class SocialNetworkButton extends StatelessWidget {
   const SocialNetworkButton({
@@ -21,7 +22,7 @@ class SocialNetworkButton extends StatelessWidget {
           color: const Color(0xFF353545),
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Image.asset(imageAsset, package: 'iupp_components'),
+        child: IuppImage.asset(imageAsset),
       ),
     );
   }

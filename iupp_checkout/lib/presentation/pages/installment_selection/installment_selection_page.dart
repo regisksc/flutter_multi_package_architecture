@@ -77,10 +77,7 @@ class InstallmentSelectionPage extends StatelessWidget {
               const SizedBox(height: 8),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/images/icon_mastercard.png',
-                    package: 'iupp_components',
-                  ),
+                  IuppImage.asset('icon_mastercard.png'),
                   const SizedBox(width: 16),
                   Text(
                     cardTitle,

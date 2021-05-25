@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/components/components.dart';
 
 import 'offermeter_counter_text.dart';
 
@@ -58,18 +59,9 @@ class OffermeterHeader extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(
-                        'assets/images/hours.png',
-                        package: 'iupp_components',
-                      ),
-                      Image.asset(
-                        'assets/images/minutes.png',
-                        package: 'iupp_components',
-                      ),
-                      Image.asset(
-                        'assets/images/seconds.png',
-                        package: 'iupp_components',
-                      ),
+                      IuppImage.asset('hours.png'),
+                      IuppImage.asset('minutes.png'),
+                      IuppImage.asset('seconds.png'),
                     ],
                   ),
                   const SizedBox(height: 4),

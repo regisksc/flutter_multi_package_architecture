@@ -12,10 +12,7 @@ class CheckoutAddressAppBar extends AppBar {
           backgroundColor: const Color(0xFF23232E),
           leading: Padding(
             padding: const EdgeInsets.only(left: 24),
-            child: Image.asset(
-              'assets/images/logo_iupp.png',
-              package: 'iupp_components',
-            ),
+            child: IuppImage.asset('logo_iupp.png'),
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.end,

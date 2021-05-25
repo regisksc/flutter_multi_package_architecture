@@ -50,7 +50,7 @@ class HorizontalProductCard extends StatelessWidget {
                   child: SizedBox(
                     width: 120,
                     height: 120,
-                    child: Image.network(
+                    child: IuppImage.network(
                       'https://a-static.mlcdn.com.br/1500x1500/notebook-samsung-intel-core-i7-10510u-16gb-1tb-128gb-ssd-tela-de-156-prata-book-x55-np550xcj-xs2br/fastshop2/sgnp550xcjxs2b/be7f5ba9189a577a9131bd9068d24ef4.jpg',
                       fit: BoxFit.cover,
                     ),

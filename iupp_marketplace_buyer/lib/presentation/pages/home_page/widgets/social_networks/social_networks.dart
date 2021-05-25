@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/components/components.dart';
 
 import 'social_network_button.dart';
 
@@ -17,10 +18,7 @@ class SocialNetworks extends StatelessWidget {
             Expanded(
               child: Row(
                 children: [
-                  Image.asset(
-                    'assets/images/logo_iupp_white.png',
-                    package: 'iupp_components',
-                  ),
+                  IuppImage.asset('logo_iupp_white.png'),
                 ],
               ),
             ),
@@ -30,19 +28,19 @@ class SocialNetworks extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SocialNetworkButton(
-                    imageAsset: 'assets/images/facebook.png',
+                    imageAsset: 'facebook.png',
                     onTap: () {},
                   ),
                   SocialNetworkButton(
-                    imageAsset: 'assets/images/instagram.png',
+                    imageAsset: 'instagram.png',
                     onTap: () {},
                   ),
                   SocialNetworkButton(
-                    imageAsset: 'assets/images/youtube.png',
+                    imageAsset: 'youtube.png',
                     onTap: () {},
                   ),
                   SocialNetworkButton(
-                    imageAsset: 'assets/images/twitter.png',
+                    imageAsset: 'twitter.png',
                     onTap: () {},
                   ),
                 ],
