@@ -1,6 +1,6 @@
 import 'package:iupp_core/core.dart';
 
-import '../../../utils/utils.dart';
+import '../../../../utils/utils.dart';
 
 void main() {
   late NetworkInfoAdapter networkInfoAdapter;

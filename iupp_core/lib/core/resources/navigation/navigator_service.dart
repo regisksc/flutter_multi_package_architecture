@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import '../../core.dart';
+import '../../../core.dart';
 import 'arguments.dart';
 
 class NavigatorService {
@@ -18,8 +18,7 @@ class NavigatorService {
       uri = Uri(path: routeName, queryParameters: queryParams);
     }
 
-    debugPrint(
-        '[NavigatorService] queryParameters: ${uri.queryParameters} path: ${uri.path}');
+    debugPrint('[NavigatorService] queryParameters: ${uri.queryParameters} path: ${uri.path}');
 
     return navigatorState.pushNamed(
       routeName,

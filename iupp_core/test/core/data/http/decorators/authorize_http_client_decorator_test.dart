@@ -1,7 +1,7 @@
 import 'package:iupp_core/core.dart';
 
-import '../../../utils/data/storage/mocks.dart';
-import '../../../utils/mocks/datasources_mocks.dart';
+import '../../../../utils/data/storage/mocks.dart';
+import '../../../../utils/mocks/datasources_mocks.dart';
 
 void main() {
   late AuthorizeHttpClientDecorator authorizeHttpClientDecorator;

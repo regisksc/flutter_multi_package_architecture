@@ -1,4 +1,4 @@
-import '../data.dart';
+import '../../data.dart';
 
 abstract class HttpClient {
   Future<HttpResponse> request({

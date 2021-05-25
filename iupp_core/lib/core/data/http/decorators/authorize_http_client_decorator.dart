@@ -1,5 +1,5 @@
-import '../../../core.dart';
-import '../../error/http_failure/forbidden_failure.dart';
+import '../../../../core.dart';
+import '../../../error/http_failure/forbidden_failure.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
   AuthorizeHttpClientDecorator({

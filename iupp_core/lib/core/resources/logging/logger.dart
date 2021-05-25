@@ -1,4 +1,4 @@
-import '../../core.dart';
+import '../../../core.dart';
 
 void logInfo(String message) {
   logger.i(message);

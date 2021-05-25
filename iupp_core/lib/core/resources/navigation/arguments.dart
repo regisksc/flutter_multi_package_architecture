@@ -1,4 +1,4 @@
-import '../dependencies/app_dependencies.dart';
+import '../../dependencies/app_dependencies.dart';
 
 class Arguments extends Equatable {
   const Arguments({
@@ -23,8 +23,8 @@ class Arguments extends Equatable {
 
   @override
   List<Object?> get props => [
-    params,
-    uri,
-    data,
-  ];
+        params,
+        uri,
+        data,
+      ];
 }
