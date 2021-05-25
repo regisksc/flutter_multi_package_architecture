@@ -1,5 +1,4 @@
-import 'package:iupp_core/core.dart';
-import 'package:iupp_core/core/error/failure/no_connection_failure.dart';
+import '../../../../core.dart';
 
 class ConcreteRemoteDatasource implements RemoteDatasource {
   ConcreteRemoteDatasource({required this.networkInfo, required this.client});

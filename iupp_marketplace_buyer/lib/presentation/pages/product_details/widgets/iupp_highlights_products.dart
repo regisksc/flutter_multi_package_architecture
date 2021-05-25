@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_marketplace_buyer/presentation/widgets/widgets.dart';
+
+import '../../../widgets/widgets.dart';
 
 class IuppHighlightsProducts extends StatelessWidget {
   const IuppHighlightsProducts({Key? key}) : super(key: key);

@@ -1,10 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:iupp_checkout/data/repositories/repositories.dart';
-import 'package:iupp_checkout/domain/domain.dart';
-import 'package:iupp_checkout/domain/usecases/calc_shipping_value_usecase.dart';
-import 'package:iupp_checkout/domain/usecases/decrement_item_cart_usecase.dart';
-import 'package:iupp_checkout/domain/usecases/get_cart_usecase.dart';
-import 'package:iupp_checkout/domain/usecases/incremet_item_cart_usecase.dart';
+
+import '../../../data/repositories/repositories.dart';
+import '../../../domain/domain.dart';
 
 class CartController {
   CartController() : repository = CartRepository();

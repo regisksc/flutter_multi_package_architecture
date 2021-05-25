@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/pages/address_register/widgets/widgets.dart';
 import 'package:iupp_components/components/components.dart';
+
+import '../pages/address_register/widgets/widgets.dart';
 
 class CheckoutAddressAppBar extends AppBar {
   CheckoutAddressAppBar({

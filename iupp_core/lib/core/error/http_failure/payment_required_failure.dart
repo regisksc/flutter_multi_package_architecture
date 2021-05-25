@@ -1,4 +1,4 @@
-import 'package:iupp_core/core.dart';
+import '../../../core.dart';
 
 class PaymentRequiredFailure extends HttpFailure {
   const PaymentRequiredFailure({String? message, int? code})

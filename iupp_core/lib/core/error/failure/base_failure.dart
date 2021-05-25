@@ -1,4 +1,4 @@
-import 'package:iupp_core/core/dependencies/dependencies.dart';
+import '../../dependencies/dependencies.dart';
 
 abstract class BaseFailure extends Equatable {
   const BaseFailure({this.title = 'Erro', this.message});

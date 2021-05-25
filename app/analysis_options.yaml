@@ -297,7 +297,7 @@ linter:
     # package or relative? Let's end the discussion and use package everywhere.
     # pedantic: enabled
     # https://dart-lang.github.io/linter/lints/avoid_relative_lib_imports.html
-    - avoid_relative_lib_imports
+    # - avoid_relative_lib_imports
 
     # Not recommended to break dartdoc but besides that there is no reason to continue with bad naming
     # https://dart-lang.github.io/linter/lints/avoid_renaming_method_parameters.html
@@ -808,12 +808,12 @@ linter:
 
     # Conflicting with `avoid_relative_lib_imports` which is enforced
     # https://dart-lang.github.io/linter/lints/prefer_relative_imports.html
-    # - prefer_relative_imports
+    - prefer_relative_imports
 
     # Use whatever makes you happy. noexcuse doesn't define a style
     # pedantic: enabled
     # https://dart-lang.github.io/linter/lints/prefer_single_quotes.html
-    # - prefer_single_quotes
+    - prefer_single_quotes
 
     # Allows potential usage of const
     # pedantic: enabled

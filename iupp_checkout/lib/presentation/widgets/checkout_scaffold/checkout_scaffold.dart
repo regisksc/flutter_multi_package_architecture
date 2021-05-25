@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/checkout_footer_text.dart';
-import 'package:iupp_checkout/presentation/widgets/checkout_scaffold/molecules/checkout_footer.dart';
-import 'package:iupp_checkout/presentation/widgets/checkout_scaffold/molecules/checkout_view.dart';
 import 'package:iupp_components/components/components.dart';
+
+import '../checkout_footer_text.dart';
+import 'molecules/molecules.dart';
 
 class CheckoutScaffold extends StatelessWidget {
   const CheckoutScaffold({

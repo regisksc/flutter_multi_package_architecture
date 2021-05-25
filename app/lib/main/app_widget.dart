@@ -1,10 +1,9 @@
-import 'package:app/resources/resources.dart';
-import 'package:iupp_core/core.dart';
 import 'package:flutter/material.dart';
-
-import 'package:iupp_marketplace_buyer/marketplace_buyer_app.dart';
 import 'package:iupp_checkout/checkout_app.dart';
+import 'package:iupp_core/core.dart';
+import 'package:iupp_marketplace_buyer/marketplace_buyer_app.dart';
 
+import '../resources/resources.dart';
 import 'theme.dart';
 
 class IuppApp extends StatelessWidget with BaseApp {

@@ -8,8 +8,8 @@ enum Routes {
 extension RoutesExt on Routes {
   //custom message for each route type
   String get page => {
-        Routes.cart: "/carrinho",
-        Routes.registerPage: "/register",
-        Routes.payments: "/payment",
+        Routes.cart: '/carrinho',
+        Routes.registerPage: '/register',
+        Routes.payments: '/payment',
       }[this]!;
 }

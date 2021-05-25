@@ -11,20 +11,20 @@ String formatMonetaryValue(double value) {
 final cpfFormater = MaskTextInputFormatter(
   mask: '###.###.###-##',
   filter: {
-    "#": RegExp('[0-9]'),
+    '#': RegExp('[0-9]'),
   },
 );
 
 final phoneFormater = MaskTextInputFormatter(
   mask: '(##) #####-####',
   filter: {
-    "#": RegExp('[0-9]'),
+    '#': RegExp('[0-9]'),
   },
 );
 
 final cepFormater = MaskTextInputFormatter(
   mask: '#####-###',
   filter: {
-    "#": RegExp('[0-9]'),
+    '#': RegExp('[0-9]'),
   },
 );

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:iupp_core/core.dart';
-import 'package:iupp_core/core/dependencies/flutter_dependencies.dart';
 
+import '../../core.dart';
 import 'arguments.dart';
 
 class NavigatorService {

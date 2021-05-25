@@ -1,4 +1,4 @@
-import 'package:iupp_core/core.dart';
+import '../../../core.dart';
 
 class InvalidMethodFailure extends HttpFailure {
   const InvalidMethodFailure({String? message, int? code})

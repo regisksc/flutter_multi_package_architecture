@@ -1,6 +1,5 @@
-import 'package:iupp_core/core/data/http/http_constants.dart';
-
 import '../../core.dart';
+import '../data/http/http.dart';
 import '../dependencies/app_dependencies.dart';
 
 class HttpAdapter implements HttpClient {

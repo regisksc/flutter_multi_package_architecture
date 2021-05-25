@@ -1,4 +1,4 @@
-import 'package:iupp_checkout/domain/domain.dart';
+import '../domain.dart';
 
 abstract class CartRepositoryContract {
   Future<CartEntity> getCart(int cartId);

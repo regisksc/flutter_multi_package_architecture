@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:iupp_checkout/helpers/get_formated_money.dart';
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core/utils/formatters.dart';
+
+import '../../../../helpers/get_formated_money.dart';
 
 class CheckoutCepArea extends StatelessWidget {
   CheckoutCepArea({

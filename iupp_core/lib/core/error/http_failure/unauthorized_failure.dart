@@ -1,4 +1,4 @@
-import 'package:iupp_core/core.dart';
+import '../../../core.dart';
 
 class UnauthorizedFailure extends HttpFailure {
   const UnauthorizedFailure({String? message, int? code})

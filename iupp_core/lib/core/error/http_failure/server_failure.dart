@@ -1,4 +1,4 @@
-import 'package:iupp_core/core.dart';
+import '../../../core.dart';
 
 class ServerFailure extends HttpFailure {
   const ServerFailure({String? message, int? code})

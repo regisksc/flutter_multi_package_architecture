@@ -74,16 +74,16 @@ abstract class BaseApp {
 String prepareToRegex(String url) {
   final newUrl = <String>[];
   for (final part in url.split('/')) {
-    final url = part.contains(":") ? "(.*?)" : part;
+    final url = part.contains(':') ? '(.*?)' : part;
     newUrl.add(url);
   }
 
-  return newUrl.join("/");
+  return newUrl.join('/');
 }
 
 RoutingData? _parseUrlParams(String routeNamed, Uri uri) {
   if (routeNamed.contains('/:')) {
-    final regExp = RegExp("^${prepareToRegex(routeNamed)}\$");
+    final regExp = RegExp('^${prepareToRegex(routeNamed)}\$');
 
     final r = regExp.firstMatch(uri.path);
     if (r != null) {
@@ -95,7 +95,7 @@ RoutingData? _parseUrlParams(String routeNamed, Uri uri) {
       String newRouteNamed = routeNamed;
 
       for (final routePart in routeParts) {
-        if (routePart.contains(":")) {
+        if (routePart.contains(':')) {
           final paramName = routePart.replaceFirst(':', '');
           if (pathParts[paramPos].isNotEmpty) {
             params[paramName] = pathParts[paramPos];

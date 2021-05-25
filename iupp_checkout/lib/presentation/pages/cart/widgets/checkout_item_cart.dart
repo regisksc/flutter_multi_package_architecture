@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/helpers/get_formated_money.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../../../helpers/get_formated_money.dart';
 import 'widgets.dart';
 
 class CheckoutItemCart extends StatelessWidget {

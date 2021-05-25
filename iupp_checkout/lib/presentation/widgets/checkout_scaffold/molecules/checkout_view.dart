@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:iupp_checkout/presentation/widgets/checkout_scaffold/atoms/checkout_title.dart';
+import '../atoms/checkout_title.dart';
 
 class CheckoutView extends StatelessWidget {
   const CheckoutView({

@@ -1,4 +1,4 @@
-import 'package:iupp_core/core/dependencies/app_dependencies.dart';
+import '../dependencies/app_dependencies.dart';
 
 class Arguments extends Equatable {
   const Arguments({

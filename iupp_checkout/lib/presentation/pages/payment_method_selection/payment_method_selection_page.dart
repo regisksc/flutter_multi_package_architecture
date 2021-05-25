@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_checkout/presentation/widgets/widgets.dart';
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
+
+import '../../widgets/widgets.dart';
 
 final cards = [
   'Mastercard - Final 3492',
