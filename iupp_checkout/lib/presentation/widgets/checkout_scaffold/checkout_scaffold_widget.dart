@@ -12,6 +12,7 @@ class CheckoutScaffold extends StatelessWidget {
     required this.title,
     this.appBar,
     this.aboveTitle,
+    this.beforeTitleComponent,
   }) : super(key: key);
 
   final Widget child;
@@ -19,6 +20,7 @@ class CheckoutScaffold extends StatelessWidget {
   final String title;
   final AppBar? appBar;
   final Widget? aboveTitle;
+  final Widget? beforeTitleComponent;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class CheckoutScaffold extends StatelessWidget {
       appBar: appBar ?? IuppAppBar(centered: true),
       body: CustomScrollView(
         slivers: [
+          if (beforeTitleComponent != null) beforeTitleComponent!,
           CheckoutView(
             aboveTitle: _aboveTitlePlaceholder(),
             title: title,
