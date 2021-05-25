@@ -9,18 +9,18 @@ class IuppElevatedButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.buttonStyle,
-    this.textPadding,
-    this.fontSize,
-    this.fontWeight,
+    this.textPadding = const EdgeInsets.all(13),
+    this.fontSize = 18,
+    this.fontWeight = FontWeight.w700,
     this.isLoading = false,
   }) : super(key: key);
 
   final String text;
   final VoidCallback? onPressed;
   final ButtonStyle? buttonStyle;
-  final EdgeInsets? textPadding;
-  final double? fontSize;
-  final FontWeight? fontWeight;
+  final EdgeInsets textPadding;
+  final double fontSize;
+  final FontWeight fontWeight;
   final bool isLoading;
 
   bool get isDisabled => onPressed == null;
@@ -31,7 +31,7 @@ class IuppElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: Theme.of(context).elevatedButtonTheme.style ?? buttonStyle,
       child: Padding(
-        padding: textPadding ?? const EdgeInsets.all(0),
+        padding: textPadding,
         child: isLoading
             ? SizedBox(
                 width: 10,
@@ -46,7 +46,7 @@ class IuppElevatedButton extends StatelessWidget {
             : Text(
                 text,
                 style: TextStyle(
-                  fontSize: fontSize ?? 12,
+                  fontSize: fontSize,
                   fontWeight: fontWeight,
                   color: !isDisabled
                       ? Theme.of(context).primaryColor

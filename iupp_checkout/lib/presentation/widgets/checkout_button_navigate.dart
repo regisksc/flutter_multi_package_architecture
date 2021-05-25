@@ -21,7 +21,6 @@ class IuppCheckoutButtonNavigate extends StatelessWidget {
         height: 48,
         child: IuppElevatedButton(
           text: label,
-          fontSize: 18,
           onPressed: onpressed,
         ),
       ),

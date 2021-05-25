@@ -15,9 +15,6 @@ class ProductActions extends StatelessWidget {
           child: IuppElevatedButton(
             text: 'comprar',
             onPressed: () {},
-            textPadding: const EdgeInsets.all(13),
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
           ),
         ),
         const SizedBox(height: 14),
@@ -26,10 +23,6 @@ class ProductActions extends StatelessWidget {
           child: IuppOutlinedButton(
             text: 'adicionar ao carrinho',
             onPressed: () {},
-            textPadding: const EdgeInsets.all(13),
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
-            borderRadius: 60,
           ),
         ),
         const SizedBox(height: 32),

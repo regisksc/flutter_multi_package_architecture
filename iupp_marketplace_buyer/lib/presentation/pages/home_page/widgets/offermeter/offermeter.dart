@@ -23,8 +23,6 @@ class Offermeter extends StatelessWidget {
             hasChipInfo: false,
             pickProductButton: IuppElevatedButton(
               text: 'eu quero',
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
               onPressed: () {},
             ),
           ),

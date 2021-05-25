@@ -89,9 +89,6 @@ class DeliveryOptionsPage extends StatelessWidget {
               padding: const EdgeInsets.all(24),
               child: IuppElevatedButton(
                 text: 'ir para o pagamento',
-                textPadding: const EdgeInsets.all(13),
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
                 onPressed: () {},
               ),
             ),

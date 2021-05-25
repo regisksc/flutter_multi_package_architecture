@@ -77,9 +77,6 @@ class SignInIuppContainer extends StatelessWidget {
           const SizedBox(width: 16),
           IuppElevatedButton(
             text: 'entrar',
-            fontSize: 18,
-            fontWeight: FontWeight.w700,
-            textPadding: const EdgeInsets.all(13),
             onPressed: () {},
           ),
           const SizedBox(width: 15),

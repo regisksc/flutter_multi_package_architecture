@@ -16,9 +16,6 @@ class ContinueRegisterButton extends StatelessWidget {
     return IuppElevatedButton(
       text: 'continuar',
       isLoading: isLoading,
-      textPadding: const EdgeInsets.all(13),
-      fontSize: 18,
-      fontWeight: FontWeight.w700,
       onPressed: onPressed,
     );
   }

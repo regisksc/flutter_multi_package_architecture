@@ -16,9 +16,6 @@ class ConfirmRegisterButton extends StatelessWidget {
     return IuppElevatedButton(
       text: 'confirmar endereço',
       isLoading: isLoading,
-      textPadding: const EdgeInsets.all(13),
-      fontSize: 18,
-      fontWeight: FontWeight.w700,
       onPressed: onPressed,
     );
   }

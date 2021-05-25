@@ -9,12 +9,14 @@ class IuppTextButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.buttonStyle,
+    this.fontSize = 18,
     this.isLoading = false,
   }) : super(key: key);
 
   final String text;
   final VoidCallback? onPressed;
   final ButtonStyle? buttonStyle;
+  final double fontSize;
   final bool isLoading;
 
   bool get isDisabled => onPressed == null;
@@ -38,7 +40,7 @@ class IuppTextButton extends StatelessWidget {
           : Text(
               text,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: fontSize,
                 color: !isDisabled
                     ? Theme.of(context).backgroundColor
                     : Theme.of(context).disabledColor,

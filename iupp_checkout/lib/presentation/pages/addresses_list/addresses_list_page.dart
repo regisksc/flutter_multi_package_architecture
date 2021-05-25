@@ -109,10 +109,6 @@ class AddressesListPage extends StatelessWidget {
                           child: IuppOutlinedButton(
                             text: 'entregar aqui',
                             onPressed: () {},
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            textPadding: const EdgeInsets.symmetric(vertical: 12),
-                            borderRadius: 50,
                           ),
                         ),
                       ],

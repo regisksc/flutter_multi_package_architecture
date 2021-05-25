@@ -9,19 +9,19 @@ class IuppOutlinedButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.buttonStyle,
-    this.textPadding,
-    this.fontSize,
-    this.fontWeight,
-    this.borderRadius = 14,
+    this.textPadding = const EdgeInsets.all(13),
+    this.fontSize = 18,
+    this.fontWeight = FontWeight.w700,
+    this.borderRadius = 50,
     this.isLoading = false,
   }) : super(key: key);
 
   final String text;
   final VoidCallback? onPressed;
   final ButtonStyle? buttonStyle;
-  final EdgeInsets? textPadding;
-  final double? fontSize;
-  final FontWeight? fontWeight;
+  final EdgeInsets textPadding;
+  final double fontSize;
+  final FontWeight fontWeight;
   final double borderRadius;
   final bool isLoading;
 
@@ -58,11 +58,11 @@ class IuppOutlinedButton extends StatelessWidget {
               ),
             )
           : Padding(
-              padding: textPadding ?? const EdgeInsets.all(0),
+              padding: textPadding,
               child: Text(
                 text,
                 style: TextStyle(
-                  fontSize: fontSize ?? 12,
+                  fontSize: fontSize,
                   fontWeight: fontWeight,
                   color: !isDisabled
                       ? Theme.of(context).backgroundColor
