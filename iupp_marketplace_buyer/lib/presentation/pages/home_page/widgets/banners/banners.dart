@@ -4,9 +4,9 @@ import 'package:iupp_components/components/components.dart';
 import '../widgets.dart';
 
 final items = [
-  const PromotionCard(item: 'assets/oferta1.png'),
-  const PromotionCard(item: 'assets/oferta1.png'),
-  const PromotionCard(item: 'assets/oferta1.png'),
+  const PromotionCard(item: 'assets/images/oferta1.png'),
+  const PromotionCard(item: 'assets/images/oferta1.png'),
+  const PromotionCard(item: 'assets/images/oferta1.png'),
 ];
 
 class Banners extends StatelessWidget {

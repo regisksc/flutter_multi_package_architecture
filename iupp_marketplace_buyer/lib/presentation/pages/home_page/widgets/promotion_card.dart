@@ -19,6 +19,7 @@ class PromotionCard extends StatelessWidget {
         width: 315,
         child: Image.asset(
           item,
+          package: 'iupp_components',
           fit: BoxFit.contain,
         ),
       ),

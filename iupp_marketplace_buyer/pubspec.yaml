@@ -26,9 +26,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  assets:
-    - assets/
-    - ../iupp-components/assets/images/
   fonts:
     - family: IuppIcons
       fonts:
