@@ -26,10 +26,6 @@ class TalkToUs extends StatelessWidget {
             padding: const EdgeInsets.only(top: 30, bottom: 24),
             child: IuppOutlinedButton(
               text: 'fale com a gente',
-              textPadding: const EdgeInsets.all(12),
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              borderRadius: 60,
               onPressed: () {},
             ),
           ),
