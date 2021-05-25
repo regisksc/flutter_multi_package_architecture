@@ -136,7 +136,8 @@ class CheckoutItemCart extends StatelessWidget {
               ],
             )
           ],
-        )
+        ),
+        const IuppDivider(verticalPadding: 24),
       ],
     );
   }
