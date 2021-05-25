@@ -4,5 +4,4 @@ export './core/data/data.dart';
 export './core/dependencies/dependencies.dart';
 export './core/domain/domain.dart';
 export './core/resources/resources.dart';
-export './core/utils/utils.dart';
 export 'init_core.dart';

@@ -1,5 +1,4 @@
-import '../../core.dart';
-import '../dependencies/dependencies.dart';
+import '../../../core.dart';
 
 typedef WidgetBuilderArgs = Widget Function(
   BuildContext context,
