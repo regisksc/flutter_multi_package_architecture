@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_core/core.dart';
+import 'package:iupp_components/styles/styles.dart';
 
 import '../checkout_app.dart';
-import 'theme.dart';
 
 class AppWidget extends StatelessWidget {
   final checkoutApp = CheckoutApp();
@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Checkout module',
-      theme: theme,
+      theme: iuppTheme,
       navigatorKey: NavigatorService.navigatorKey,
       onGenerateRoute: checkoutApp.generateRoute,
       initialRoute: checkoutApp.initialRoute,
