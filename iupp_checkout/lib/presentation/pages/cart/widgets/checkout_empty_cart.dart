@@ -14,7 +14,6 @@ class CheckoutEmptyCart extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CheckoutTitle(title: 'carrinho'),
         const SizedBox(
           width: double.maxFinite,
           child: IuppCard(
@@ -39,8 +38,6 @@ class CheckoutEmptyCart extends StatelessWidget {
           label: 'ir para o início',
           onpressed: () => _showBotoomBar(context),
         ),
-        const Spacer(),
-        const CheckoutFooterText(),
       ],
     );
   }
