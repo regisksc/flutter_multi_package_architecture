@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/components/components.dart';
 
 import 'widgets.dart';
 
@@ -46,7 +47,7 @@ class VerticalProductCard extends StatelessWidget {
                 child: SizedBox(
                   width: 128,
                   height: 131,
-                  child: Image.network(
+                  child: IuppImage.network(
                     imageUrl,
                     fit: BoxFit.cover,
                   ),

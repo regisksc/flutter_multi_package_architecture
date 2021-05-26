@@ -39,7 +39,7 @@ class CheckoutItemCart extends StatelessWidget {
             SizedBox(
               width: 120,
               height: 120,
-              child: Image.network(
+              child: IuppImage.network(
                 photoUrl,
                 fit: BoxFit.cover,
               ),

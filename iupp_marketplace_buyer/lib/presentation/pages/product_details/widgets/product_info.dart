@@ -149,7 +149,7 @@ class ProductInfo extends StatelessWidget {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.network(
+              IuppImage.network(
                 'https://a-static.mlcdn.com.br/618x463/iphone-12-128gb-azul-apple/apple10/311984/b65d0329afb207994b5abccab391cc25.jpg',
               ),
               const Text('(+3)'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iupp_components/components/components.dart';
 
 class PromotionCard extends StatelessWidget {
   const PromotionCard({
@@ -17,10 +18,7 @@ class PromotionCard extends StatelessWidget {
       ),
       child: SizedBox(
         width: 315,
-        child: Image.asset(
-          item,
-          fit: BoxFit.contain,
-        ),
+        child: IuppImage.asset(item, fit: BoxFit.contain),
       ),
     );
   }
