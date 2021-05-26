@@ -8,7 +8,7 @@ class CheckoutApp extends MicroApp {
   String get microAppName => 'Checkout';
 
   @override
-  String get initialRoute => '/successful-order';
+  String get initialRoute => '/address-list';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
