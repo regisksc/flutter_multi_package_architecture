@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:iupp_components/components/components.dart';
 
-import '../../../domain/entities/item_cart_entity.dart';
-import '../../presentation.dart';
 import '../../widgets/widgets.dart';
 import 'cart_controller.dart';
+import 'widgets/checkout_cart_view.dart';
 import 'widgets/widgets.dart';
 
 class CartPage extends StatefulWidget {
@@ -33,115 +31,18 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     final cart = controller.cartState;
-    return CheckoutScaffold(
-      title: 'carrinho',
-      whiteSpace: 1,
-      child: isEmpty
-          ? const CheckoutEmptyCart()
-          : Column(
-              children: [
-                IuppCard(
-                  children: [
-                    ...cart!.items
-                        .map(
-                          (itemCart) => CheckoutItemCart(
-                            photoUrl: itemCart.photoUrl,
-                            description: itemCart.description,
-                            sellerName: itemCart.seller.name,
-                            price: itemCart.total,
-                            points: itemCart.totalPoints.toString(),
-                            count: itemCart.quantity,
-                            expectedDeliveryDays: controller.expectedDeliveryDays,
-                            increment: () => controller.incrementItem(itemCart.id),
-                            decrement: () {
-                              _handleDecrementItem(itemCart);
-                            },
-                          ),
-                        )
-                        .toList(),
-                    CheckoutCepArea(
-                      initialValue: cart.shipping?.cep ?? '',
-                      shippingValue: controller.shippingValue,
-                      onSearch: (value) {
-                        controller.calcShippingValue(value);
-                        FocusScope.of(context).requestFocus(FocusNode());
-                      },
-                    ),
-                    const IuppDivider(verticalPadding: 18),
-                    CheckoutSubtotalArea(
-                      points: cart.totalPoints,
-                      total: cart.subtotal,
-                    ),
-                  ],
-                ),
-                IuppCheckoutButtonNavigate(
-                  label: 'continuar',
-                  onpressed: () => {},
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
-                  child: Text(
-                    '¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF7C7B8B),
-                    ),
-                  ),
-                ),
-                if (controller.expectedDeliveryDays != null)
-                  const Padding(
-                    padding: EdgeInsets.only(
-                        top: 4, left: SizeConstants.pageSidePadding, right: SizeConstants.pageSidePadding),
-                    child: Text(
-                      '² O prazo de entrega é iniciado no 1º dia útil após a confirmação do pagamento.',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF7C7B8B),
-                      ),
-                    ),
-                  ),
-                const SizedBox(height: SizeConstants.pageSidePadding),
-              ],
-            ),
-    );
-  }
-
-  void _handleDecrementItem(ItemCartEntity itemCart) {
-    if (itemCart.quantity != 1) {
-      controller.decrementItem(itemCart.id);
-    } else {
-      _showBottomSheet(itemCart);
-    }
-  }
-
-  Future _showBottomSheet(ItemCartEntity itemCart) {
-    return showIuppOverlayBottomSheet(
-      context,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Text('Deseja realmente excluir este produto do seu carrinho?'),
-          Container(
-            margin: const EdgeInsets.only(top: SizeConstants.pageSidePadding, bottom: 12),
-            width: double.maxFinite,
-            child: IuppElevatedButton(
-              text: 'excluir produto',
-              onPressed: () {
-                controller.decrementItem(itemCart.id);
-                Navigator.of(context).pop();
-              },
-            ),
-          ),
-          SizedBox(
-            width: double.maxFinite,
-            child: IuppOutlinedButton(
-              text: 'manter no carrinho',
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ),
-        ],
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        child: isEmpty
+            ? const CheckoutEmptyCart()
+            : CheckoutCartView(
+                cart: cart!,
+                calcShippingValue: (value) =>
+                    controller.calcShippingValue(value),
+                incrementItem: (itemId) => controller.incrementItem(itemId),
+                decrementItem: (itemId) => controller.decrementItem(itemId),
+              ),
       ),
     );
   }

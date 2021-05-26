@@ -38,7 +38,8 @@ class CheckoutScaffold extends StatelessWidget {
           ),
           CheckoutFooter(
             footerSpace: 3,
-            padding: const EdgeInsets.only(bottom: SizeConstants.pageSidePadding),
+            padding:
+                const EdgeInsets.only(bottom: SizeConstants.pageSidePadding),
             whiteSpace: whiteSpace,
             footer: const CheckoutFooterText(),
           ),
