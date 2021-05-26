@@ -18,6 +18,9 @@ class TestMicroApp extends MicroApp {
   String get microAppName => 'test-micro-app';
 
   @override
+  String get initialRoute => '/base-micro';
+
+  @override
   Map<String, WidgetBuilderArgs> get routes => {
         '/base-micro': (context, args) => Container(),
         '/base-micro/:id': (context, args) => Container(),

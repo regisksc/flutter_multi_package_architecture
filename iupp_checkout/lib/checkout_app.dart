@@ -2,9 +2,12 @@ import 'package:iupp_core/core.dart';
 
 import 'presentation/presentation.dart';
 
-class CheckoutApp implements MicroApp {
+class CheckoutApp extends MicroApp {
   @override
   String get microAppName => 'Checkout';
+
+  @override
+  String get initialRoute => '/address-list';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
