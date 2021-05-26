@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class IuppElevatedButton extends StatelessWidget {
@@ -30,8 +27,9 @@ class IuppElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: Theme.of(context).elevatedButtonTheme.style ?? buttonStyle,
-      child: Padding(
+      child: Container(
         padding: textPadding,
+        alignment: Alignment.center,
         child: isLoading
             ? SizedBox(
                 width: 10,
@@ -48,9 +46,7 @@ class IuppElevatedButton extends StatelessWidget {
                 style: TextStyle(
                   fontSize: fontSize,
                   fontWeight: fontWeight,
-                  color: !isDisabled
-                      ? Theme.of(context).primaryColor
-                      : Theme.of(context).disabledColor,
+                  color: !isDisabled ? Theme.of(context).primaryColor : Theme.of(context).disabledColor,
                 ),
               ),
       ),
