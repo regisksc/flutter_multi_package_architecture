@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_core/core.dart';
+import 'package:iupp_components/styles/themes/themes.dart';
 
 import '../marketplace_buyer_app.dart';
-import 'theme.dart';
 
 class AppWidget extends StatelessWidget {
   final marketplaceBuyerApp = MarketplaceBuyerApp();
@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MarketplaceBuyer module',
-      theme: theme,
+      theme: iuppTheme,
       navigatorKey: NavigatorService.navigatorKey,
       onGenerateRoute: marketplaceBuyerApp.generateRoute,
       initialRoute: marketplaceBuyerApp.initialRoute,

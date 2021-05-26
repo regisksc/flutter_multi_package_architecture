@@ -23,4 +23,9 @@ final generalStories = [
       ),
     ),
   ),
+  Story(
+    section: 'General',
+    name: 'IuppSocialNetworks',
+    builder: (_, k) => const IuppSocialNetworks(),
+  ),
 ];

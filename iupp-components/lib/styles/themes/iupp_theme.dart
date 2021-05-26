@@ -5,7 +5,7 @@ const backgroundButtonColor = Color(0xFF23232E);
 const disabledButtonColor = Color(0xFFE1E4EC);
 const disabledButtonTextColor = Color(0xFFB1B5BF);
 
-final theme = ThemeData(
+final iuppTheme = ThemeData(
   fontFamily: 'ItauDisplay',
   primaryColor: primaryColor,
   backgroundColor: backgroundButtonColor,

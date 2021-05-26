@@ -255,7 +255,7 @@ packages:
     source: path
     version: "1.0.0+1"
   iupp_components:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../iupp-components"
       relative: true

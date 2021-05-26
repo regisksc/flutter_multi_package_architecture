@@ -7,7 +7,7 @@ class CheckoutApp extends MicroApp {
   String get microAppName => 'Checkout';
 
   @override
-  String get initialRoute => '/address-list';
+  String get initialRoute => Routes.cart.page;
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
@@ -15,8 +15,10 @@ class CheckoutApp extends MicroApp {
         '/address-list': (_, args) => const AddressesListPage(),
         '/delivery-options': (_, args) => const DeliveryOptionsPage(),
         Routes.cart.page: (_, args) => const CartPage(),
-        '/payment-method-selection': (_, args) => const PaymentMethodSelectionPage(),
-        '/installments-selection': (_, args) => InstallmentSelectionPage(cardTitle: args!.data['card'] as String),
+        '/payment-method-selection': (_, args) =>
+            const PaymentMethodSelectionPage(),
+        '/installments-selection': (_, args) =>
+            InstallmentSelectionPage(cardTitle: args!.data['card'] as String),
         '/successful-order': (_, args) => SuccessfulOrderPage(),
       };
 }

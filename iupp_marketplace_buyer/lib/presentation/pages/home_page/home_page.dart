@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
             IupperAdvantages(),
             TalkToUs(),
             SizedBox(height: 4),
-            SocialNetworks(),
+            IuppSocialNetworks(),
             IuppFooter(),
           ],
         ),
