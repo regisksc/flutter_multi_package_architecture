@@ -27,18 +27,22 @@ class IuppSocialNetworks extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _SocialNetworkButton(
+                    key: const ValueKey('facebook-btn'),
                     imageAsset: 'facebook.png',
                     onTap: () {},
                   ),
                   _SocialNetworkButton(
+                    key: const ValueKey('instagram-btn'),
                     imageAsset: 'instagram.png',
                     onTap: () {},
                   ),
                   _SocialNetworkButton(
+                    key: const ValueKey('youtube-btn'),
                     imageAsset: 'youtube.png',
                     onTap: () {},
                   ),
                   _SocialNetworkButton(
+                    key: const ValueKey('twitter-btn'),
                     imageAsset: 'twitter.png',
                     onTap: () {},
                   ),
