@@ -6,6 +6,10 @@ import 'package:iupp_core/core/dependencies/flutter_dependencies.dart';
 import '../widgets.dart';
 
 class OrderReviewSummary extends StatelessWidget {
+  const OrderReviewSummary({Key? key, this.amountOfProducts = 2}) : super(key: key);
+  final int amountOfProducts;
+  // final List<Product> products;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -29,7 +33,7 @@ class OrderReviewSummary extends StatelessWidget {
       child: Column(
         children: [
           OrderReviewInfoRow(
-            information: 'Produto',
+            information: amountOfProducts > 1 ? 'Produtos ($amountOfProducts)' : 'Produto',
             value: productTotal,
           ),
           OrderReviewInfoRow(
