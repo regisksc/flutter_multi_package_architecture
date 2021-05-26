@@ -16,4 +16,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-flutter:
+fonts:
+    - family: IuppIcons
+      fonts:
+        - asset: packages/iupp_components/fonts/IuppIcons.ttf
+        - asset: packages/iupp_components/fonts/IuppIcons.woff
+    - family: ItauDisplay
+      fonts:
+        - asset: packages/iupp_components/fonts/ItauDisplay_Bd.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_Blk.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_He.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_Lt.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_Rg.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_XBd.ttf

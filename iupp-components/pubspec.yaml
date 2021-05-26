@@ -29,5 +29,13 @@ flutter:
   fonts:
     - family: IuppIcons
       fonts:
-        - asset: assets/fonts/IuppIcons.ttf
-        - asset: assets/fonts/IuppIcons.woff
+        - asset: lib/fonts/IuppIcons.ttf
+        - asset: lib/fonts/IuppIcons.woff
+    - family: ItauDisplay
+      fonts:
+        - asset: lib/fonts/ItauDisplay_Bd.ttf
+        - asset: lib/fonts/ItauDisplay_Blk.ttf
+        - asset: lib/fonts/ItauDisplay_He.ttf
+        - asset: lib/fonts/ItauDisplay_Lt.ttf
+        - asset: lib/fonts/ItauDisplay_Rg.ttf
+        - asset: lib/fonts/ItauDisplay_XBd.ttf
