@@ -42,9 +42,7 @@ class CheckoutCartView extends StatelessWidget {
                       count: itemCart.quantity,
                       expectedDeliveryDays: cart.shipping?.expectedDeliveryDays,
                       increment: () => incrementItem(itemCart.id),
-                      decrement: () {
-                        _handleDecrementItem(context, itemCart);
-                      },
+                      decrement: () => _handleDecrementItem(context, itemCart),
                     ),
                   )
                   .toList(),
