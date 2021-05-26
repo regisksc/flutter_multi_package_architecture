@@ -17,6 +17,8 @@ dependencies:
     path: ../iupp_checkout
   iupp_marketplace_buyer:
     path: ../iupp_marketplace_buyer
+  iupp_components:
+    path: ../iupp-components
 
   cupertino_icons: ^1.0.2
   url_strategy: ^0.2.0
@@ -36,16 +38,16 @@ flutter:
   fonts:
     - family: IuppIcons
       fonts:
-        - asset: assets/fonts/IuppIcons.ttf
-        - asset: assets/fonts/IuppIcons.woff
+        - asset: packages/iupp_components/fonts/IuppIcons.ttf
+        - asset: packages/iupp_components/fonts/IuppIcons.woff
     - family: ItauDisplay
       fonts:
-        - asset: assets/fonts/ItauDisplay_Bd.ttf
-        - asset: assets/fonts/ItauDisplay_Blk.ttf
-        - asset: assets/fonts/ItauDisplay_He.ttf
-        - asset: assets/fonts/ItauDisplay_Lt.ttf
-        - asset: assets/fonts/ItauDisplay_Rg.ttf
-        - asset: assets/fonts/ItauDisplay_XBd.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_Bd.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_Blk.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_He.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_Lt.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_Rg.ttf
+        - asset: packages/iupp_components/fonts/ItauDisplay_XBd.ttf
 
 import_sorter:
   emojis: false
