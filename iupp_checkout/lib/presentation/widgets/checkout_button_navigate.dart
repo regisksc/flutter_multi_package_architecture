@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../presentation.dart';
+
 class IuppCheckoutButtonNavigate extends StatelessWidget {
   const IuppCheckoutButtonNavigate({
     Key? key,
@@ -15,7 +17,7 @@ class IuppCheckoutButtonNavigate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.all(24),
+        margin: const EdgeInsets.all(SizeConstants.pageSidePadding),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
         width: double.maxFinite,
         height: 48,

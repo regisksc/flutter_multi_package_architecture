@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core/resources/formatters/formatters.dart';
 
+import '../../../presentation.dart';
 import 'widgets.dart';
 
 class CheckoutItemCart extends StatelessWidget {
@@ -79,8 +80,7 @@ class CheckoutItemCart extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: ' $expectedDeliveryDays dias úteis²',
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.w700),
+                              style: const TextStyle(fontWeight: FontWeight.w700),
                             )
                           ],
                         ),
@@ -98,9 +98,7 @@ class CheckoutItemCart extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CheckoutActionButton(
-                    onTap: decrement,
-                    icon: IuppIcons.icone_contorno_M_minimizar_outline),
+                CheckoutActionButton(onTap: decrement, icon: IuppIcons.icone_contorno_M_minimizar_outline),
                 SizedBox(
                   width: 32,
                   child: Center(
@@ -110,8 +108,7 @@ class CheckoutItemCart extends StatelessWidget {
                     ),
                   ),
                 ),
-                CheckoutActionButton(
-                    onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
+                CheckoutActionButton(onTap: increment, icon: IuppIcons.icone_contorno_M_mais),
               ],
             ),
             Column(
@@ -137,7 +134,7 @@ class CheckoutItemCart extends StatelessWidget {
             )
           ],
         ),
-        const IuppDivider(verticalPadding: 24),
+        const IuppDivider(verticalPadding: SizeConstants.pageSidePadding),
       ],
     );
   }

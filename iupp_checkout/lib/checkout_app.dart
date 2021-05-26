@@ -1,7 +1,6 @@
 import 'package:iupp_core/core.dart';
 
-import 'presentation/pages/pages.dart';
-import 'presentation/resources/routes.dart';
+import 'presentation/presentation.dart';
 
 class CheckoutApp implements MicroApp {
   @override
@@ -13,10 +12,8 @@ class CheckoutApp implements MicroApp {
         '/address-list': (_, args) => const AddressesListPage(),
         '/delivery-options': (_, args) => const DeliveryOptionsPage(),
         Routes.cart.page: (_, args) => const CartPage(),
-        '/payment-method-selection': (_, args) =>
-            const PaymentMethodSelectionPage(),
-        '/installments-selection': (_, args) =>
-            InstallmentSelectionPage(cardTitle: args!.data['card'] as String),
+        '/payment-method-selection': (_, args) => const PaymentMethodSelectionPage(),
+        '/installments-selection': (_, args) => InstallmentSelectionPage(cardTitle: args!.data['card'] as String),
         '/successful-order': (_, args) => SuccessfulOrderPage(),
       };
 }

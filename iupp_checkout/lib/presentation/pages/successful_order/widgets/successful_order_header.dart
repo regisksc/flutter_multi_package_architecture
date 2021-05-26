@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../presentation.dart';
 import '../successful_order.dart';
 
 class SuccessfulOrderHeader extends StatelessWidget {
@@ -9,7 +10,7 @@ class SuccessfulOrderHeader extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       height: 324,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        padding: const EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

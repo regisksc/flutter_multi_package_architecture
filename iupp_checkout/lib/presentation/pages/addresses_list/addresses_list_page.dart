@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../presentation.dart';
 import '../../widgets/widgets.dart';
 
 class AddressesListPage extends StatelessWidget {
@@ -15,17 +16,17 @@ class AddressesListPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(height: 24),
+          const SizedBox(height: SizeConstants.pageSidePadding),
           const Padding(
             padding: EdgeInsets.only(left: 23),
             child: Text(
               'endereços',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: SizeConstants.pageSidePadding,
               ),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: SizeConstants.pageSidePadding),
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
@@ -44,7 +45,7 @@ class AddressesListPage extends StatelessWidget {
               ),
               height: 200,
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(SizeConstants.pageSidePadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -118,7 +119,7 @@ class AddressesListPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: SizeConstants.pageSidePadding),
           Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),

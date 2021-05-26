@@ -3,28 +3,25 @@ import 'package:iupp_components/components/atoms/buttons/iupp_elevated_button.da
 import 'package:iupp_components/components/atoms/dividers/dividers.dart';
 import 'package:iupp_core/core/resources/formatters/app_formatters.dart';
 
+import '../../../presentation.dart';
+
 class SuccessfulOrderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    const orderSummaryConcrete = OrderSummary(
-        orderId: '9054400807461679', userEmail: 'antoniocountinho@gmail.com');
+    const orderSummaryConcrete = OrderSummary(orderId: '9054400807461679', userEmail: 'antoniocountinho@gmail.com');
 
     const orderItems = [
       OrderItem(
-        imageURL:
-            'https://www.blitzmicro.eu/11082-medium_default/AP-MGDF3QLA.jpg',
-        description:
-            'iPhone 12 Azul, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
+        imageURL: 'https://www.blitzmicro.eu/11082-medium_default/AP-MGDF3QLA.jpg',
+        description: 'iPhone 12 Azul, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
         costInReal: 5999.20,
         costInPoints: 2500,
         deliveredBy: 'Entrega 01 por Magazine Luiza',
         expectedDelivery: 'Em até 3 dias úteis²',
       ),
       OrderItem(
-        imageURL:
-            'https://www.blitzmicro.eu/11082-medium_default/AP-MGDF3QLA.jpg',
-        description:
-            'Smartphone Motorola Moto G9 Play 64GB Duos 6.5" 4G Câm 48+2+2MP',
+        imageURL: 'https://www.blitzmicro.eu/11082-medium_default/AP-MGDF3QLA.jpg',
+        description: 'Smartphone Motorola Moto G9 Play 64GB Duos 6.5" 4G Câm 48+2+2MP',
         costInReal: 1855.9,
         costInPoints: 733,
         deliveredBy: 'Entrega 02 por Top Store',
@@ -42,15 +39,14 @@ class SuccessfulOrderDetails extends StatelessWidget {
       ),
       Text(
         orderSummaryConcrete.orderId,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.w700,
         ),
       ),
       Text(
         'Enviamos a confirmação de pedido para:\n${orderSummaryConcrete.userEmail}',
-        style: const TextStyle(
-            fontSize: 16, fontWeight: FontWeight.w400, height: 1.5),
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, height: 1.5),
       ),
       const Text(
         'Acompanhar pedido',
@@ -63,7 +59,7 @@ class SuccessfulOrderDetails extends StatelessWidget {
     ];
 
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(SizeConstants.pageSidePadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -75,7 +71,7 @@ class SuccessfulOrderDetails extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 24,
+            height: SizeConstants.pageSidePadding,
           ),
           const IuppDivider(),
           ListView.separated(
@@ -116,21 +112,19 @@ class SuccessfulOrderDetails extends StatelessWidget {
               );
             },
             separatorBuilder: (_, __) => const IuppDivider(
-              verticalPadding: 24,
+              verticalPadding: SizeConstants.pageSidePadding,
             ),
             itemCount: orderItems.length,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 24),
+            padding: const EdgeInsets.symmetric(vertical: SizeConstants.pageSidePadding),
             child: IuppElevatedButton(
               text: 'continuar comprando',
               onPressed: () {},
             ),
           ),
-          const Text(
-              '¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.'),
-          const Text(
-              '² O prazo de entrega é iniciado no 1º dia útil após a confirmação do pagamento.')
+          const Text('¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.'),
+          const Text('² O prazo de entrega é iniciado no 1º dia útil após a confirmação do pagamento.')
         ],
       ),
     );

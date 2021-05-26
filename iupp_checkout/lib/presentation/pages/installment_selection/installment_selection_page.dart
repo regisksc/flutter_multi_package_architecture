@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 
+import '../../presentation.dart';
+
 class InstallmentOption {
   InstallmentOption({
     required this.quantity,
@@ -35,7 +37,7 @@ class InstallmentSelectionPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,7 +51,7 @@ class InstallmentSelectionPage extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: SizeConstants.pageSidePadding),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -91,15 +93,15 @@ class InstallmentSelectionPage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: SizeConstants.pageSidePadding),
               const Text(
                 'selecione o parcelamento',
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: 24,
+                  fontSize: SizeConstants.pageSidePadding,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: SizeConstants.pageSidePadding),
               ListView.separated(
                 padding: const EdgeInsets.all(0),
                 shrinkWrap: true,

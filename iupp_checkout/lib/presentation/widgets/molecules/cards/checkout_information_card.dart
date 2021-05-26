@@ -1,5 +1,7 @@
 import 'package:iupp_core/core.dart';
 
+import '../../../presentation.dart';
+
 class CheckoutInformationCard extends StatelessWidget {
   const CheckoutInformationCard({
     Key? key,
@@ -23,7 +25,7 @@ class CheckoutInformationCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Padding(padding: const EdgeInsets.all(24), child: child),
+        child: Padding(padding: const EdgeInsets.all(SizeConstants.pageSidePadding), child: child),
       ),
     );
   }

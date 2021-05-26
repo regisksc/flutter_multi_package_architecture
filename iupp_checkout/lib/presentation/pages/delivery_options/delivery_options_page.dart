@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../presentation.dart';
 import '../../widgets/widgets.dart';
 import 'widgets/widgets.dart';
 
@@ -64,18 +65,18 @@ class DeliveryOptionsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 24),
+            const SizedBox(height: SizeConstants.pageSidePadding),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
               child: BasicDeliveryInfo(),
             ),
             const SizedBox(height: 8),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
               child: GeneralDeliveryInfo(),
             ),
             const Padding(
-              padding: EdgeInsets.all(24),
+              padding: EdgeInsets.all(SizeConstants.pageSidePadding),
               child: Text(
                 'opções de entrega',
                 style: TextStyle(
@@ -86,14 +87,17 @@ class DeliveryOptionsPage extends StatelessWidget {
             ),
             ...deliverySellers,
             Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(SizeConstants.pageSidePadding),
               child: IuppElevatedButton(
                 text: 'ir para o pagamento',
                 onPressed: () {},
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 24, right: 24, bottom: 24),
+              padding: EdgeInsets.only(
+                  left: SizeConstants.pageSidePadding,
+                  right: SizeConstants.pageSidePadding,
+                  bottom: SizeConstants.pageSidePadding),
               child: Text(
                 '¹ O prazo de entrega é iniciado no 1º dia útil após a confirmação do pagamento.',
                 style: TextStyle(

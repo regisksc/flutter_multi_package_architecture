@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../presentation.dart';
+
 class CheckoutFooterText extends StatelessWidget {
   const CheckoutFooterText({Key? key}) : super(key: key);
 
@@ -12,7 +14,7 @@ class CheckoutFooterText extends StatelessWidget {
       fontWeight: FontWeight.w400,
     );
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
       child: Column(
         children: [
           Row(
