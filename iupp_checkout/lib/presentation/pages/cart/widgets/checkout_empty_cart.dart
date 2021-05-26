@@ -3,6 +3,7 @@ import 'package:iupp_components/components/components.dart';
 import 'package:iupp_components/components/molecules/cards/cards.dart';
 import 'package:iupp_core/core.dart';
 
+import '../../../presentation.dart';
 import '../../../widgets/widgets.dart';
 
 class CheckoutEmptyCart extends StatelessWidget {
@@ -25,10 +26,7 @@ class CheckoutEmptyCart extends StatelessWidget {
               ),
               Text(
                 'Vá para o início e veja outras ofertas',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff494C57)),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xff494C57)),
               ),
             ],
           ),
@@ -43,7 +41,7 @@ class CheckoutEmptyCart extends StatelessWidget {
                 children: [
                   const Text('Deseja realmente ir para a página inicial?'),
                   Container(
-                    margin: const EdgeInsets.only(top: 24, bottom: 12),
+                    margin: const EdgeInsets.only(top: SizeConstants.pageSidePadding, bottom: 12),
                     width: double.maxFinite,
                     child: IuppElevatedButton(
                       text: 'ir para a página inicial',

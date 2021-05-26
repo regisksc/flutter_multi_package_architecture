@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:iupp_components/components/components.dart';
 
 import '../../../domain/entities/item_cart_entity.dart';
+import '../../presentation.dart';
 import '../../widgets/widgets.dart';
 import 'cart_controller.dart';
 import 'widgets/widgets.dart';
@@ -50,10 +51,8 @@ class _CartPageState extends State<CartPage> {
                             price: itemCart.total,
                             points: itemCart.totalPoints.toString(),
                             count: itemCart.quantity,
-                            expectedDeliveryDays:
-                                controller.expectedDeliveryDays,
-                            increment: () =>
-                                controller.incrementItem(itemCart.id),
+                            expectedDeliveryDays: controller.expectedDeliveryDays,
+                            increment: () => controller.incrementItem(itemCart.id),
                             decrement: () {
                               _handleDecrementItem(itemCart);
                             },
@@ -80,7 +79,7 @@ class _CartPageState extends State<CartPage> {
                   onpressed: () => {},
                 ),
                 const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  padding: EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
                   child: Text(
                     '¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.',
                     style: TextStyle(
@@ -92,7 +91,8 @@ class _CartPageState extends State<CartPage> {
                 ),
                 if (controller.expectedDeliveryDays != null)
                   const Padding(
-                    padding: EdgeInsets.only(top: 4, left: 24, right: 24),
+                    padding: EdgeInsets.only(
+                        top: 4, left: SizeConstants.pageSidePadding, right: SizeConstants.pageSidePadding),
                     child: Text(
                       '² O prazo de entrega é iniciado no 1º dia útil após a confirmação do pagamento.',
                       style: TextStyle(
@@ -102,7 +102,7 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ),
                   ),
-                const SizedBox(height: 24),
+                const SizedBox(height: SizeConstants.pageSidePadding),
               ],
             ),
     );
@@ -124,7 +124,7 @@ class _CartPageState extends State<CartPage> {
         children: [
           const Text('Deseja realmente excluir este produto do seu carrinho?'),
           Container(
-            margin: const EdgeInsets.only(top: 24, bottom: 12),
+            margin: const EdgeInsets.only(top: SizeConstants.pageSidePadding, bottom: 12),
             width: double.maxFinite,
             child: IuppElevatedButton(
               text: 'excluir produto',

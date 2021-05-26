@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../presentation.dart';
+
 class CheckoutTitle extends StatelessWidget {
   const CheckoutTitle({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -7,11 +9,11 @@ class CheckoutTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(SizeConstants.pageSidePadding),
       child: Text(
         title,
         style: const TextStyle(
-          fontSize: 24,
+          fontSize: SizeConstants.pageSidePadding,
           fontWeight: FontWeight.w400,
         ),
       ),

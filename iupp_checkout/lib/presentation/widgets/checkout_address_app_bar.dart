@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
-import '../pages/address_register/widgets/widgets.dart';
+import '../presentation.dart';
 
 class CheckoutAddressAppBar extends AppBar {
   CheckoutAddressAppBar({
@@ -11,7 +11,7 @@ class CheckoutAddressAppBar extends AppBar {
           key: key,
           backgroundColor: const Color(0xFF23232E),
           leading: Padding(
-            padding: const EdgeInsets.only(left: 24),
+           padding: const EdgeInsets.only(left: SizeConstants.pageSidePadding),
             child: IuppImage.asset('logo_iupp.png'),
           ),
           title: Row(

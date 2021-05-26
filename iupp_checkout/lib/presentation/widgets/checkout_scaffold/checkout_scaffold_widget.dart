@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../presentation.dart';
 import '../checkout_footer_text.dart';
 import 'molecules/molecules.dart';
 
@@ -12,6 +13,7 @@ class CheckoutScaffold extends StatelessWidget {
     required this.title,
     this.appBar,
     this.aboveTitle,
+    this.beforeTitleComponent,
   }) : super(key: key);
 
   final Widget child;
@@ -19,6 +21,7 @@ class CheckoutScaffold extends StatelessWidget {
   final String title;
   final AppBar? appBar;
   final Widget? aboveTitle;
+  final Widget? beforeTitleComponent;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,7 @@ class CheckoutScaffold extends StatelessWidget {
       appBar: appBar ?? IuppAppBar(centered: true),
       body: CustomScrollView(
         slivers: [
+          if (beforeTitleComponent != null) beforeTitleComponent!,
           CheckoutView(
             aboveTitle: _aboveTitlePlaceholder(),
             title: title,
@@ -34,7 +38,7 @@ class CheckoutScaffold extends StatelessWidget {
           ),
           CheckoutFooter(
             footerSpace: 3,
-            padding: const EdgeInsets.only(bottom: 24),
+            padding: const EdgeInsets.only(bottom: SizeConstants.pageSidePadding),
             whiteSpace: whiteSpace,
             footer: const CheckoutFooterText(),
           ),
@@ -46,7 +50,10 @@ class CheckoutScaffold extends StatelessWidget {
   Padding? _aboveTitlePlaceholder() {
     if (aboveTitle != null) {
       return Padding(
-        padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
+        padding: const EdgeInsets.only(
+            top: SizeConstants.pageSidePadding,
+            left: SizeConstants.pageSidePadding,
+            right: SizeConstants.pageSidePadding),
         child: aboveTitle,
       );
     }

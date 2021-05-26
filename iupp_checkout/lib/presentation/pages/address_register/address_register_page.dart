@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iupp_core/core.dart';
 
+import '../../presentation.dart';
 import '../../widgets/checkout_address_app_bar.dart';
 import '../../widgets/widgets.dart';
 import 'widgets/widgets.dart';
@@ -28,17 +29,15 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 24),
+            const SizedBox(height: SizeConstants.pageSidePadding),
             const Padding(
               padding: EdgeInsets.only(left: 23),
               child: Text(
                 'onde deseja receber seu\npedido?',
-                style: TextStyle(
-                  fontSize: 24,
-                ),
+                style: TextStyle(fontSize: 24),
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: SizeConstants.pageSidePadding),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -57,9 +56,9 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
                 child: Container(
                   padding: const EdgeInsets.only(
                     top: 29,
-                    bottom: 24,
-                    left: 24,
-                    right: 24,
+                    bottom: SizeConstants.pageSidePadding,
+                    left: SizeConstants.pageSidePadding,
+                    right: SizeConstants.pageSidePadding,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -81,13 +80,13 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: SizeConstants.pageSidePadding),
             Padding(
               padding: const EdgeInsets.only(
                 top: 10,
-                bottom: 24,
-                left: 24,
-                right: 24,
+                bottom: SizeConstants.pageSidePadding,
+                left: SizeConstants.pageSidePadding,
+                right: SizeConstants.pageSidePadding,
               ),
               child: cepChoosed
                   ? ConfirmRegisterButton(
