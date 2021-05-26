@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/components/components.dart';
 
-import 'social_network_button.dart';
+import '../../components.dart';
 
-class SocialNetworks extends StatelessWidget {
-  const SocialNetworks({Key? key}) : super(key: key);
+class IuppSocialNetworks extends StatelessWidget {
+  const IuppSocialNetworks({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,19 +26,19 @@ class SocialNetworks extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SocialNetworkButton(
+                  _SocialNetworkButton(
                     imageAsset: 'facebook.png',
                     onTap: () {},
                   ),
-                  SocialNetworkButton(
+                  _SocialNetworkButton(
                     imageAsset: 'instagram.png',
                     onTap: () {},
                   ),
-                  SocialNetworkButton(
+                  _SocialNetworkButton(
                     imageAsset: 'youtube.png',
                     onTap: () {},
                   ),
-                  SocialNetworkButton(
+                  _SocialNetworkButton(
                     imageAsset: 'twitter.png',
                     onTap: () {},
                   ),
@@ -48,6 +47,33 @@ class SocialNetworks extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _SocialNetworkButton extends StatelessWidget {
+  const _SocialNetworkButton({
+    Key? key,
+    required this.imageAsset,
+    required this.onTap,
+  }) : super(key: key);
+
+  final String imageAsset;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 36,
+        height: 36,
+        decoration: BoxDecoration(
+          color: const Color(0xFF353545),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: IuppImage.asset(imageAsset),
       ),
     );
   }
