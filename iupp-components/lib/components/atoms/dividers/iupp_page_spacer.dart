@@ -40,7 +40,7 @@ class IuppPageSpacer extends StatelessWidget {
         left: left != null || isAllSides ? defaultWidthInPercentage : 0,
         right: right != null || isAllSides ? defaultWidthInPercentage : 0,
       ),
-      child: child,
+      child: child ?? Container(),
     );
   }
 }
