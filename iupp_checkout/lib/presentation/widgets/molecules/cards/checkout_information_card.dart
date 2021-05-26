@@ -5,14 +5,18 @@ class CheckoutInformationCard extends StatelessWidget {
   const CheckoutInformationCard({
     Key? key,
     required this.child,
+    this.height,
   }) : super(key: key);
   final Widget child;
+  final double? height;
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Container(
+        height: height,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
