@@ -23,7 +23,7 @@ class CartRepository implements CartRepositoryContract {
               description:
                   'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
               points: 2500,
-              seller: Seller('Magazine Luíza'),
+              seller: SellerEntity('Magazine Luíza'),
             ),
             ItemCartEntity(
               id: 2,
@@ -34,7 +34,7 @@ class CartRepository implements CartRepositoryContract {
               description:
                   'iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP',
               points: 2500,
-              seller: Seller('Magazine Luíza'),
+              seller: SellerEntity('Magazine Luíza'),
             ),
           ],
         );

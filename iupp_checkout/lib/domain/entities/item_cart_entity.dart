@@ -1,6 +1,7 @@
 import 'package:iupp_core/core/data/model/model_abstraction.dart';
 import 'package:iupp_core/core/domain/entity/entity.dart';
 
+import '../../data/models/item_cart_model.dart';
 import 'seller_entity.dart';
 
 class ItemCartEntity extends Entity {
@@ -12,7 +13,7 @@ class ItemCartEntity extends Entity {
     required this.description,
     required this.points,
     required this.seller,
-  })   : total = price * quantity,
+  })  : total = price * quantity,
         totalPoints = points * quantity;
 
   final String photoUrl;
@@ -22,7 +23,7 @@ class ItemCartEntity extends Entity {
   final int points;
   final int totalPoints;
   final int quantity;
-  final Seller seller;
+  final SellerEntity seller;
   final int id;
 
   ItemCartEntity copyWith({
@@ -31,7 +32,7 @@ class ItemCartEntity extends Entity {
     double? price,
     String? description,
     int? points,
-    Seller? seller,
+    SellerEntity? seller,
   }) {
     return ItemCartEntity(
       id: id,
@@ -48,5 +49,13 @@ class ItemCartEntity extends Entity {
   List<Object?> get props => [id, quantity, price];
 
   @override
-  Model get toModel => throw UnimplementedError();
+  Model get toModel => ItemCartModel(
+        id: id,
+        photoUrl: photoUrl,
+        quantity: quantity,
+        price: price,
+        description: description,
+        points: points,
+        seller: seller.toModel,
+      );
 }
