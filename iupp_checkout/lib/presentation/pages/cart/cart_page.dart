@@ -31,19 +31,16 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     final cart = controller.cartState;
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24),
-        child: isEmpty
-            ? const CheckoutEmptyCart()
-            : CheckoutCartView(
-                cart: cart!,
-                calcShippingValue: (value) =>
-                    controller.calcShippingValue(value),
-                incrementItem: (itemId) => controller.incrementItem(itemId),
-                decrementItem: (itemId) => controller.decrementItem(itemId),
-              ),
-      ),
+    return CheckoutScaffold(
+      title: 'carrinho',
+      child: isEmpty
+          ? const CheckoutEmptyCart()
+          : CheckoutCartView(
+              cart: cart!,
+              calcShippingValue: (value) => controller.calcShippingValue(value),
+              incrementItem: (itemId) => controller.incrementItem(itemId),
+              decrementItem: (itemId) => controller.decrementItem(itemId),
+            ),
     );
   }
 }

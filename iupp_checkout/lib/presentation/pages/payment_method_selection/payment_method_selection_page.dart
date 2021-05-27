@@ -39,7 +39,6 @@ class PaymentMethodSelectionPage extends StatelessWidget {
       appBar: CheckoutAddressAppBar(
         step: 3,
       ),
-      whiteSpace: 6,
       child: IuppCard(
           children: cards
               .map((cardDescription) => _cardPlaceholder(cardDescription))

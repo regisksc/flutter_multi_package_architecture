@@ -13,7 +13,7 @@ class CartRepository implements CartRepositoryContract {
           total: 5999.20,
           subtotal: 5999.20,
           totalPoints: 2500,
-          items: [
+          items: /* const [] */ [
             ItemCartEntity(
               id: 1,
               quantity: 1,

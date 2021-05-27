@@ -6,11 +6,11 @@ class MarketplaceBuyerApp extends MicroApp {
   String get microAppName => 'Marketplace Buyer App';
 
   @override
-  String get initialRoute => '/home';
+  String get initialRoute => '/showcase';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        '/home': (_, args) => const HomePage(),
+        '/showcase': (_, args) => const ShowcasePage(),
         '/product': (_, args) => const ProductDetailsPage(),
       };
 }

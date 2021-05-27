@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iupp_components/components/atoms/buttons/iupp_elevated_button.dart';
-import 'package:iupp_components/components/atoms/dividers/dividers.dart';
 import 'package:iupp_components/components/components.dart';
-import 'package:iupp_core/core/resources/formatters/app_formatters.dart';
 
 import '../../../presentation.dart';
 
