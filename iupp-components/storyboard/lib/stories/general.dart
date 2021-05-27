@@ -25,6 +25,17 @@ final generalStories = [
   ),
   Story(
     section: 'General',
+    name: 'IuppImageCached from Network',
+    builder: (_, k) => IuppImageCached(
+      imageUrl: k.text(
+        label: 'Url of the image',
+        initial:
+            'https://www.zup.com.br/wp-content/uploads/2021/03/zup-logo-1.jpg',
+      ),
+    ),
+  ),
+  Story(
+    section: 'General',
     name: 'IuppSocialNetworks',
     builder: (_, k) => const IuppSocialNetworks(),
   ),
