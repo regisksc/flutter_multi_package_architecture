@@ -4,8 +4,6 @@ import 'package:iupp_core/core.dart';
 import 'package:iupp_components/styles/styles.dart';
 import 'package:iupp_marketplace_buyer/marketplace_buyer_app.dart';
 
-import '../resources/resources.dart';
-
 class IuppApp extends StatelessWidget with BaseApp {
   IuppApp() {
     super.registerRouters();
@@ -23,7 +21,7 @@ class IuppApp extends StatelessWidget with BaseApp {
     );
   }
 
-  String get _initialRoute => Routes.cart;
+  String get _initialRoute => '/showcase';
 
   @override
   Map<String, WidgetBuilderArgs> get baseRoutes => {};

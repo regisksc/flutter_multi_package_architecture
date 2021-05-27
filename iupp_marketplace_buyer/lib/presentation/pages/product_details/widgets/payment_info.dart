@@ -1,36 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
+import 'package:iupp_core/core.dart';
+
+import '../../../../domain/entity/entities.dart';
 
 class PaymentInfo extends StatelessWidget {
-  const PaymentInfo({Key? key}) : super(key: key);
+  const PaymentInfo(
+    this.installments, {
+    Key? key,
+  }) : super(key: key);
+
+  final List<InstallmentEntity> installments;
 
   @override
   Widget build(BuildContext context) {
+    final firstInstallment = installments.first;
     return Column(
       mainAxisSize: MainAxisSize.min,
-      children: const [
-        IuppDivider(),
+      children: [
+        const IuppDivider(),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             IuppIcons.icone_contorno_C_cartao_outline,
             color: Colors.black,
           ),
           title: Text.rich(
             TextSpan(
               text: 'Em até ',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
               children: [
                 TextSpan(
-                  text: '12x de R\$ 541,58 ',
-                  style: TextStyle(
+                  text: '${firstInstallment.number}x de ${formatMonetaryValue(firstInstallment.value)} ',
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                TextSpan(
+                const TextSpan(
                   text: 'sem juros',
                   style: TextStyle(
                     fontSize: 16,
@@ -40,7 +49,7 @@ class PaymentInfo extends StatelessWidget {
               ],
             ),
           ),
-          trailing: Icon(
+          trailing: const Icon(
             IuppIcons.icone_contorno_S_seta_direita,
             color: Color(0xFF0070D4),
           ),

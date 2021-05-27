@@ -18,7 +18,7 @@ class PromotionCard extends StatelessWidget {
       ),
       child: SizedBox(
         width: 315,
-        child: IuppImage.network(item, fit: BoxFit.contain),
+        child: IuppImageCached(imageUrl: item, fit: BoxFit.contain),
       ),
     );
   }

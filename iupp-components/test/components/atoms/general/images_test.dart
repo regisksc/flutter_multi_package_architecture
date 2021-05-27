@@ -19,6 +19,20 @@ void main() {
     expect(find.byKey(const ValueKey('image')), findsOneWidget);
   });
 
+  testWidgets('should build IuppImageCached with network', (tester) async {
+    // arrange
+    await loadPageWithWidget(
+      tester,
+      widget: const IuppImageCached(
+        imageUrl: 'https://www.zup.com.br/wp-content/uploads/2021/03/zup-logo-1.jpg',
+        key: ValueKey('image'),
+      ),
+    );
+
+    // assert
+    expect(find.byKey(const ValueKey('image')), findsOneWidget);
+  });
+
   testWidgets('should build IuppImage with asset', (tester) async {
     // arrange
     await loadPageWithWidget(

@@ -42,7 +42,8 @@ class ProductVariationModel extends Model {
   Entity get toEntity => ProductVariationEntity(
         name: name,
         value: value,
-        products: products.map((product) => product.toEntity).toList()
-            as List<ProductEntity>,
+        products: products
+            .map((product) => product.toEntity as ProductEntity)
+            .toList(),
       );
 }

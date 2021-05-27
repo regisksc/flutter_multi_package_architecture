@@ -1,5 +1,8 @@
 import 'package:iupp_core/core.dart';
+
+import 'domain/entity/entities.dart';
 import 'presentation/pages/pages.dart';
+import 'presentation/resources/resources.dart';
 
 class MarketplaceBuyerApp extends MicroApp {
   @override
@@ -10,7 +13,8 @@ class MarketplaceBuyerApp extends MicroApp {
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        '/showcase': (_, args) => const ShowcasePage(),
-        '/product': (_, args) => const ProductDetailsPage(),
+        SHOWCASE_PAGE: (_, args) => const ShowcasePage(),
+        PRODUCT_PAGE: (_, args) =>
+            ProductDetailsPage(args!.data as ProductEntity),
       };
 }

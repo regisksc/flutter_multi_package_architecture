@@ -8,6 +8,10 @@ String formatMonetaryValue(double value) {
   return formatCurrency.format(value);
 }
 
+String formatMonetaryValueWithoutSymbol(double value) {
+  return formatCurrency.format(value);
+}
+
 final cpfFormater = MaskTextInputFormatter(
   mask: '###.###.###-##',
   filter: {

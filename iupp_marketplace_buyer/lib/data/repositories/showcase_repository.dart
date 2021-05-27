@@ -17,7 +17,7 @@ class ShowcaseRepository implements IShowcaseRepository {
           httpMethod: HttpMethod.get,
           endpoint: '/showcase',
         ),
-        model: model,
+        model: ShowcaseModel(),
       );*/
       final showcaseModel = await datasource.getShowcaseModel();
       return showcaseModel.toEntity as ShowcaseEntity;
