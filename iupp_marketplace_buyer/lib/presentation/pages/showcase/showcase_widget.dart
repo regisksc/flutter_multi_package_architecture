@@ -11,35 +11,48 @@ class ShowcaseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ShowcaseCubit, ShowcaseState>(
-      builder: (_, state) {
-        print(state.showcase);
-        return Scaffold(
-          backgroundColor: const Color(0xFFE5E5E5),
-          appBar: IuppMarketplaceBuyerAppBar(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: const [
-                Banners(),
-                SizedBox(height: 112),
-                BrandNewProducts(),
-                SizedBox(height: 44),
-                Offermeter(),
-                SizedBox(height: 36),
-                MorePointsPromotion(),
-                SizedBox(height: 36),
-                SignInIuppContainer(),
-                SizedBox(height: 52),
-                IupperAdvantages(),
-                TalkToUs(),
-                SizedBox(height: 4),
-                IuppSocialNetworks(),
-                IuppFooter(),
-              ],
-            ),
-          ),
-        );
-      },
+    return Scaffold(
+      backgroundColor: const Color(0xFFE5E5E5),
+      appBar: IuppMarketplaceBuyerAppBar(),
+      body: BlocBuilder<ShowcaseCubit, ShowcaseState>(
+        builder: (_, state) {
+          if (state is ShowcaseLoadedSuccess) {
+            final showcase = state.showcase!;
+            final categorizedProducts = showcase.categorizedProducts;
+            final brandNewProductsCategory = categorizedProducts.firstWhere(
+                (categorizedProduct) =>
+                    categorizedProduct.category == 'Brand New');
+            final morePointsProductsCategory = categorizedProducts.firstWhere(
+                (categorizedProduct) =>
+                    categorizedProduct.category == 'More Points');
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Banners(showcase.banners),
+                  const SizedBox(height: 112),
+                  BrandNewProducts(brandNewProductsCategory.products),
+                  const SizedBox(height: 44),
+                  Offermeter(showcase.offers),
+                  const SizedBox(height: 36),
+                  MorePointsPromotion(morePointsProductsCategory.products),
+                  const SizedBox(height: 36),
+                  const IupperAdvantages(),
+                  const TalkToUs(),
+                  const IuppSocialNetworks(),
+                  const IuppFooter(),
+                ],
+              ),
+            );
+          } else if (state is ShowcaseLoadedFailed) {
+            return const Center(
+              child: Text('Deu ruim'),
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
     );
   }
 }

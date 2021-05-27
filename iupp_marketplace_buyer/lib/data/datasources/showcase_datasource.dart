@@ -2,6 +2,7 @@ import '../models/models.dart';
 
 class ShowcaseDatasource {
   Future<ShowcaseModel> getShowcaseModel() async {
+    await Future.delayed(const Duration(seconds: 2));
     return ShowcaseModel(
       banners: [
         BannerModel(id: 1, bannerUrl: 'https://i.imgur.com/u6NDGqx.png'),

@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../../../../domain/entity/entities.dart';
 import '../../../../widgets/widgets.dart';
 import 'offermeter_header.dart';
 
 class Offermeter extends StatelessWidget {
-  const Offermeter({Key? key}) : super(key: key);
+  const Offermeter(
+    this.offers, {
+    Key? key,
+  }) : super(key: key);
+
+  final List<OfferEntity> offers;
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +21,7 @@ class Offermeter extends StatelessWidget {
         children: [
           const OffermeterHeader(),
           HorizontalProductCard(
+            offers.first.product,
             borderRadiusGeometry: const BorderRadius.only(
               bottomLeft: Radius.circular(12),
               bottomRight: Radius.circular(12),

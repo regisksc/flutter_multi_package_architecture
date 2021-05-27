@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../domain/entity/entities.dart';
 import '../../../../widgets/widgets.dart';
 
 class MorePointsPromotion extends StatelessWidget {
-  const MorePointsPromotion({Key? key}) : super(key: key);
+  const MorePointsPromotion(this.products, {Key? key}) : super(key: key);
+
+  final List<ProductEntity> products;
 
   @override
   Widget build(BuildContext context) {

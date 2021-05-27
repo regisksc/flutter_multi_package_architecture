@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../../../../domain/entity/entities.dart';
 import '../widgets.dart';
 
-final items = [
-  const PromotionCard(item: 'oferta1.png'),
-  const PromotionCard(item: 'oferta1.png'),
-  const PromotionCard(item: 'oferta1.png'),
-];
-
 class Banners extends StatelessWidget {
-  const Banners({Key? key}) : super(key: key);
+  const Banners(
+    this.banners, {
+    Key? key,
+  }) : super(key: key);
+
+  final List<BannerEntity> banners;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,9 @@ class Banners extends StatelessWidget {
           child: SizedBox(
             height: 170,
             child: IuppCarrouselSlider(
-              items: items,
+              items: banners
+                  .map((banner) => PromotionCard(item: banner.bannerUrl))
+                  .toList(),
               carouselIndicator: CarouselIndicator.snake,
             ),
           ),
