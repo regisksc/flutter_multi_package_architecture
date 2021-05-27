@@ -43,7 +43,7 @@ class ProductDetailsRow extends StatelessWidget {
               child: SizedBox(
                 width: 60,
                 height: 45,
-                child: IuppImage.network(item.imageURL),
+                child: IuppImageCached(imageUrl: item.imageURL),
               ),
             ),
             Flexible(

@@ -71,8 +71,15 @@ class ProductModel extends Model {
         fakePrice: fakePrice,
         discount: discount,
         points: points,
-        installments: installments,
-        variations: variations,
+        installments: installments
+            .map((installment) => installment.toEntity as InstallmentEntity)
+            .toList(),
+        variations: variations != null
+            ? variations!
+                .map(
+                    (variation) => variation.toEntity as ProductVariationEntity)
+                .toList()
+            : [],
       );
 
   @override

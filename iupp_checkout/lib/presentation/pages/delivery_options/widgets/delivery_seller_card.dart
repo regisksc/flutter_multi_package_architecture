@@ -51,7 +51,7 @@ class _DeliverySellerCardState extends State<DeliverySellerCard> {
           ),
           const SizedBox(height: 16),
           ListTile(
-            leading: IuppImage.network(widget.productImage),
+            leading: IuppImageCached(imageUrl: widget.productImage),
             title: Text(
               widget.productDescription,
               maxLines: 2,

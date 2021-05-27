@@ -36,8 +36,7 @@ class BrandNewProducts extends StatelessWidget {
             children: [
               Expanded(
                 child: VerticalProductCard(
-                  title: products.elementAt(1).description,
-                  imageUrl: products.elementAt(1).imageUrls.first,
+                  products.elementAt(1),
                   freeShipping: false,
                   preLaunch: true,
                   morePoints: false,
@@ -45,8 +44,7 @@ class BrandNewProducts extends StatelessWidget {
               ),
               Expanded(
                 child: VerticalProductCard(
-                  title: products.elementAt(2).description,
-                  imageUrl: products.elementAt(2).imageUrls.first,
+                  products.elementAt(2),
                   freeShipping: true,
                   preLaunch: false,
                   morePoints: false,

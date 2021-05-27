@@ -1,6 +1,7 @@
 import 'package:iupp_core/core.dart';
 
 import '../../data/models/models.dart';
+import 'entities.dart';
 
 class ProductEntity extends Entity {
   ProductEntity({
@@ -26,8 +27,8 @@ class ProductEntity extends Entity {
   final double fakePrice;
   final double discount;
   final int points;
-  final List<InstallmentModel> installments;
-  final List<ProductVariationModel>? variations;
+  final List<InstallmentEntity> installments;
+  final List<ProductVariationEntity>? variations;
 
   @override
   List<Object?> get props => [id];
