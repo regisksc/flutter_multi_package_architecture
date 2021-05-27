@@ -11,15 +11,10 @@ class BannerModel extends Model {
   final int id;
   final String bannerUrl;
 
-  static Model fromMap(Map<String, dynamic> json) {
-    return BannerModel(
+  static Model fromJson(Map<String, dynamic> json) => BannerModel(
       id: json['id'] as int,
       bannerUrl: json['bannerUrl'] as String,
     );
-  }
-
-  @override
-  Model fromJson(Map<String, dynamic> json) => BannerModel.fromMap(json);
 
   @override
   Map<String, dynamic> get toJson => {

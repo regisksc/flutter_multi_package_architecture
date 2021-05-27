@@ -14,9 +14,8 @@ class ShowcaseModel extends Model {
   final List<CategorizedProductsModel> categorizedProducts;
   final List<OfferModel> offers;
 
-  @override
-  Model fromJson(Map<String, dynamic> json) => ShowcaseModel(
-        banners: [],
+  static Model fromJson(Map<String, dynamic> json) => ShowcaseModel(
+        banners: json['banners'] as List<BannerModel>,
         categorizedProducts: [],
         offers: [],
       );

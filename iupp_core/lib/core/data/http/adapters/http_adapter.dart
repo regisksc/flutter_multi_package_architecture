@@ -3,6 +3,7 @@ import '../http.dart';
 
 class HttpAdapter implements HttpClient {
   HttpAdapter(this.client);
+
   final Dio client;
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../data/datasources/showcase_datasource.dart';
+import 'package:iupp_core/core.dart';
 import '../../../data/repositories/repositories.dart';
 
 import 'cubit/showcase_cubit.dart';
@@ -14,7 +14,13 @@ class ShowcasePage extends StatelessWidget {
     return BlocProvider<ShowcaseCubit>(
       create: (_) => ShowcaseCubit(
         repository: ShowcaseRepository(
-          ShowcaseDatasource(),
+          ConcreteRemoteDatasource(
+            client: HttpAdapter(Dio()),
+            networkInfo: NetworkInfoAdapter(
+              connectivity: Connectivity(),
+              dataConnectionChecker: DataConnectionChecker(),
+            ),
+          ),
         ),
       )..getShowcase(),
       child: const ShowcaseWidget(),

@@ -1,7 +1,9 @@
 import '../../../../core.dart';
+import '../../../resources/typedefs/model_serializer.dart';
 
 class ConcreteRemoteDatasource implements RemoteDatasource {
   ConcreteRemoteDatasource({required this.networkInfo, required this.client});
+
   final NetworkInfoAdapter networkInfo;
   final HttpClient client;
 
@@ -20,20 +22,20 @@ class ConcreteRemoteDatasource implements RemoteDatasource {
   @override
   Future<Output> fetchOneOutput<Output extends Model>({
     required HttpRequestParams httpParams,
-    required Model model,
+    required ModelSerializer modelSerializer,
   }) async {
     final response = await _getRawDataFromRemote(httpParams);
-    final mapOne = SingleOutputMappingStrategy(model);
+    final mapOne = SingleOutputMappingStrategy(modelSerializer);
     return mapOne<Output>(response.data);
   }
 
   @override
   Future<List<Output>> fetchMoreThanOneOutput<Output extends Model>({
     required HttpRequestParams httpParams,
-    required Model model,
+    required ModelSerializer modelSerializer,
   }) async {
     final response = await _getRawDataFromRemote(httpParams);
-    final mapMany = MultipleOutputMappingStrategy(model);
+    final mapMany = MultipleOutputMappingStrategy(modelSerializer);
     return mapMany<Output>(response.data);
   }
 }

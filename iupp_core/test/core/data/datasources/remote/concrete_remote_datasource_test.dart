@@ -61,7 +61,7 @@ void main() {
         );
         final result = await sut.fetchOneOutput<ModelMock>(
           httpParams: httpParams,
-          model: model,
+          modelSerializer: model.fromJson,
         );
 
         // assert
@@ -89,7 +89,7 @@ void main() {
         );
         final result = await sut.fetchMoreThanOneOutput<ModelMock>(
           httpParams: httpParams,
-          model: model,
+          modelSerializer: model.fromJson,
         );
 
         // assert

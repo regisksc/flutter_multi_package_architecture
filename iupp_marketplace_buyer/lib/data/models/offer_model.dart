@@ -14,18 +14,10 @@ class OfferModel extends Model {
   final String startDate;
   final String endDate;
 
-  @override
-  Model fromJson(Map<String, dynamic> json) => OfferModel(
+  static Model fromJson(Map<String, dynamic> json) => OfferModel(
         product: json['product'] as ProductModel,
         startDate: json['startDate'] as String,
         endDate: json['endDate'] as String,
-      );
-
-  @override
-  Entity get toEntity => OfferEntity(
-        product: product.toEntity as ProductEntity,
-        startDate: DateTime.now(),
-        endDate: DateTime.now(),
       );
 
   @override
@@ -34,4 +26,11 @@ class OfferModel extends Model {
         'startDate': startDate,
         'endDate': endDate,
       };
+
+  @override
+  Entity get toEntity => OfferEntity(
+        product: product.toEntity as ProductEntity,
+        startDate: DateTime.now(),
+        endDate: DateTime.now(),
+      );
 }

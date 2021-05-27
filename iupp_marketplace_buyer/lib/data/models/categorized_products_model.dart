@@ -12,7 +12,7 @@ class CategorizedProductsModel extends Model {
   final String category;
   final List<ProductModel> products;
 
-  static Model fromMap(Map<String, dynamic> json) {
+  static Model fromJson(Map<String, dynamic> json) {
     final productsJsonList = json['products'] as List<Map<String, dynamic>>;
     final products =
         List.generate(productsJsonList.length, (i) => productsJsonList[i])
@@ -23,10 +23,6 @@ class CategorizedProductsModel extends Model {
       products: products,
     );
   }
-
-  @override
-  Model fromJson(Map<String, dynamic> json) =>
-      CategorizedProductsModel.fromMap(json);
 
   @override
   Entity get toEntity => CategorizedProductsEntity(

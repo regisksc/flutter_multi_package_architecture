@@ -11,13 +11,10 @@ class InstallmentModel extends Model {
   final int number;
   final double value;
 
-  static Model fromMap(Map<String, dynamic> json) => InstallmentModel(
+  static Model fromJson(Map<String, dynamic> json) => InstallmentModel(
         number: json['number'] as int,
         value: json['value'] as double,
       );
-
-  @override
-  Model fromJson(Map<String, dynamic> json) => InstallmentModel.fromMap(json);
 
   @override
   Map<String, dynamic> get toJson => {

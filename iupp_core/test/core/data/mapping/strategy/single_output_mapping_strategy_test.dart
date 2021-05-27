@@ -7,10 +7,11 @@ void main() {
   late ModelMock model;
   late Map<String, dynamic> map;
   late MappingStrategy sut;
+
   setUp(() {
     model = ModelMock();
     map = <String, dynamic>{'field': ''};
-    sut = SingleOutputMappingStrategy(model);
+    sut = SingleOutputMappingStrategy(model.fromJson);
   });
 
   test(

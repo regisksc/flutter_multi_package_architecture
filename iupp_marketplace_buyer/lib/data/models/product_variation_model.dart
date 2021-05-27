@@ -14,10 +14,10 @@ class ProductVariationModel extends Model {
   final String value;
   final List<ProductModel> products;
 
-  static Model fromMap(Map<String, dynamic> json) {
+  static Model fromJson(Map<String, dynamic> json) {
     final productsJsonList = json['products'] as List<Map<String, dynamic>>;
     final products = List.generate(productsJsonList.length,
-            (i) => ProductModel.fromMap(productsJsonList[i])).toList()
+            (i) => ProductModel.fromJson(productsJsonList[i])).toList()
         as List<ProductModel>;
 
     return ProductVariationModel(
@@ -26,10 +26,6 @@ class ProductVariationModel extends Model {
       products: products,
     );
   }
-
-  @override
-  Model fromJson(Map<String, dynamic> json) =>
-      ProductVariationModel.fromMap(json);
 
   @override
   Map<String, dynamic> get toJson => {

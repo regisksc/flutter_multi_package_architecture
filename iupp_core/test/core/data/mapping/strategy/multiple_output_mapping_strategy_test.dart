@@ -7,6 +7,7 @@ void main() {
   late Map<String, dynamic> map;
   late List list;
   late MappingStrategy sut;
+
   setUp(() {
     model = ModelMock();
     map = <String, dynamic>{'field': ''};
@@ -14,7 +15,7 @@ void main() {
     for (int i = 0; i < 2; i++) {
       list.add(Map<String, dynamic>.from(map));
     }
-    sut = MultipleOutputMappingStrategy(model);
+    sut = MultipleOutputMappingStrategy(model.fromJson);
   });
 
   test(

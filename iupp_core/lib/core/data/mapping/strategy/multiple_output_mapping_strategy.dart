@@ -1,8 +1,10 @@
 import '../../../../core.dart';
+import '../../../resources/typedefs/model_serializer.dart';
 
 class MultipleOutputMappingStrategy implements MappingStrategy {
-  MultipleOutputMappingStrategy(this.model);
-  final Model model;
+  MultipleOutputMappingStrategy(this.modelSerializer);
+
+  final ModelSerializer modelSerializer;
 
   late dynamic _mapOrListOfMap;
   List get _list => _mapOrListOfMap as List;
@@ -12,7 +14,7 @@ class MultipleOutputMappingStrategy implements MappingStrategy {
     _mapOrListOfMap = dataFromRemote;
     if (dataFromRemote is! List) throw _failure();
     try {
-      final mappedIterable = _list.map((json) => model.fromJson(json as Map<String, dynamic>) as Output);
+      final mappedIterable = _list.map((json) => modelSerializer(json as Map<String, dynamic>) as Output);
       return mappedIterable.toList();
     } catch (e) {
       throw _failure();
