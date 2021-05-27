@@ -9,12 +9,12 @@ void main() {
   testWidgets(
     '''
     WHEN app launches
-    SHOULD show the HomePage
+    SHOULD show the ShowcasePage
     ''',
     (tester) async {
       app.main();
       await tester.pumpAndSettle();
-      final homePage = find.byType(HomePage);
+      final homePage = find.byType(ShowcasePage);
       expect(homePage, findsOneWidget);
     },
   );
