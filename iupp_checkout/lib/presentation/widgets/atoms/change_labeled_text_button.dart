@@ -12,7 +12,7 @@ class ChangeLabeledTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: const Text(
+      child: Text(
         'alterar',
         style: IuppFonts.link,
       ),
