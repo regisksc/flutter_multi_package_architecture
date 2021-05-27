@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 
+import '../../resources/resources.dart';
 import '../../widgets/widgets.dart';
 
 final cards = [
@@ -48,10 +49,12 @@ class PaymentMethodSelectionPage extends StatelessWidget {
 
   GestureDetector _cardPlaceholder(String cardDescription) {
     return GestureDetector(
-      onTap: () =>
-          NavigatorService().navigateTo('/installments-selection', data: {
-        'card': cardDescription,
-      }),
+      onTap: () => NavigatorService().navigateTo(
+        INSTALLMENT_SELECTION_PAGE,
+        data: {
+          'card': cardDescription,
+        },
+      ),
       child: ListTile(
         leading: IuppImage.asset('icon_mastercard.png'),
         title: Text(cardDescription),

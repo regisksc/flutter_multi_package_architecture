@@ -3,6 +3,7 @@ import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 
 import '../../domain/entity/entities.dart';
+import '../resources/resources.dart';
 import 'widgets.dart';
 
 class VerticalProductCard extends StatelessWidget {
@@ -22,7 +23,7 @@ class VerticalProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => NavigatorService().navigateTo('/product', data: product),
+      onTap: () => NavigatorService().navigateTo(PRODUCT_PAGE, data: product),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
