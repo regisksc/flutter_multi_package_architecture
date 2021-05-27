@@ -31,60 +31,16 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     final cart = controller.cartState;
-    return Scaffold(
-        body: LayoutBuilder(
-      builder: (context, constraints) => SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: constraints.maxHeight,
-          ),
-          child: IntrinsicHeight(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 24),
-              child: Flex(
-                direction: Axis.vertical,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const CheckoutTitle(title: 'carrinho'),
-                  if (isEmpty)
-                    const CheckoutEmptyCart()
-                  else
-                    CheckoutCartView(
-                      cart: cart!,
-                      calcShippingValue: (value) =>
-                          controller.calcShippingValue(value),
-                      incrementItem: (itemId) =>
-                          controller.incrementItem(itemId),
-                      decrementItem: (itemId) =>
-                          controller.decrementItem(itemId),
-                    ),
-                  const Spacer(),
-                  const CheckoutFooterText(),
-                ],
-              ),
+    return CheckoutScaffold(
+      title: 'carrinho',
+      child: isEmpty
+          ? const CheckoutEmptyCart()
+          : CheckoutCartView(
+              cart: cart!,
+              calcShippingValue: (value) => controller.calcShippingValue(value),
+              incrementItem: (itemId) => controller.incrementItem(itemId),
+              decrementItem: (itemId) => controller.decrementItem(itemId),
             ),
-          ),
-        ),
-      ),
-    ));
-  }
-
-  /* @override
-  Widget build(BuildContext context) {
-    final cart = controller.cartState;
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24),
-        child: isEmpty
-            ? const CheckoutEmptyCart()
-            : CheckoutCartView(
-                cart: cart!,
-                calcShippingValue: (value) =>
-                    controller.calcShippingValue(value),
-                incrementItem: (itemId) => controller.incrementItem(itemId),
-                decrementItem: (itemId) => controller.decrementItem(itemId),
-              ),
-      ),
     );
-  } */
+  }
 }

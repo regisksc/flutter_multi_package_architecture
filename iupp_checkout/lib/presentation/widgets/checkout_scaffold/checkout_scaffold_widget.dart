@@ -9,7 +9,6 @@ class CheckoutScaffold extends StatelessWidget {
   const CheckoutScaffold({
     Key? key,
     required this.child,
-    required this.whiteSpace,
     required this.title,
     this.appBar,
     this.aboveTitle,
@@ -17,7 +16,6 @@ class CheckoutScaffold extends StatelessWidget {
   }) : super(key: key);
 
   final Widget child;
-  final int whiteSpace;
   final String title;
   final AppBar? appBar;
   final Widget? aboveTitle;
@@ -28,22 +26,33 @@ class CheckoutScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
       appBar: appBar ?? IuppAppBar(centered: true),
-      body: CustomScrollView(
-        slivers: [
-          if (beforeTitleComponent != null) beforeTitleComponent!,
-          CheckoutView(
-            aboveTitle: _aboveTitlePlaceholder(),
-            title: title,
-            bellowTitle: child,
+      body: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: constraints.maxHeight,
+            ),
+            child: IntrinsicHeight(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: Flex(
+                  direction: Axis.vertical,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (beforeTitleComponent != null) beforeTitleComponent!,
+                    CheckoutView(
+                      aboveTitle: _aboveTitlePlaceholder(),
+                      title: title,
+                      bellowTitle: child,
+                    ),
+                    const Spacer(),
+                    const CheckoutFooterText(),
+                  ],
+                ),
+              ),
+            ),
           ),
-          CheckoutFooter(
-            footerSpace: 3,
-            padding:
-                const EdgeInsets.only(bottom: SizeConstants.pageSidePadding),
-            whiteSpace: whiteSpace,
-            footer: const CheckoutFooterText(),
-          ),
-        ],
+        ),
       ),
     );
   }

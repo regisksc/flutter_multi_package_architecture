@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 
-import '../../presentation.dart';
-
 class InstallmentOption {
   InstallmentOption({
     required this.quantity,
@@ -37,7 +35,8 @@ class InstallmentSelectionPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
+          padding: const EdgeInsets.symmetric(
+              horizontal: SizeConstants.pageSidePadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
