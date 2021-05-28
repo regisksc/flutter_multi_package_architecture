@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core/dependencies/flutter_dependencies.dart';
 
-import '../../../presentation.dart';
 import 'widgets.dart';
 
 class OrderReviewSummary extends StatelessWidget {

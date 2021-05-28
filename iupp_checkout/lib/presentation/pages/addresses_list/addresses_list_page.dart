@@ -12,7 +12,7 @@ class AddressesListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F4F4),
-      appBar: CheckoutAddressAppBar(step: 1),
+      appBar: CheckoutAppBar(step: 1),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

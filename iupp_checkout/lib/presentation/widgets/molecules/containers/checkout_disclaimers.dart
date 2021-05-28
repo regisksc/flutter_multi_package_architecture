@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../atoms/checkout_disclaimer.dart';
+import '../../atoms/checkout_disclaimer.dart';
 
 class CheckoutDisclaimers extends StatelessWidget {
   const CheckoutDisclaimers({

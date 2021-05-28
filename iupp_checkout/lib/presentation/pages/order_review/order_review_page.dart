@@ -11,7 +11,7 @@ class OrderReviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CheckoutScaffold(
-      appBar: CheckoutAddressAppBar(step: 4),
+      appBar: CheckoutAppBar(step: 4),
       title: 'revise seu pedido',
       child: Column(
         children: [

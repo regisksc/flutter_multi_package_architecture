@@ -37,13 +37,10 @@ class PaymentMethodSelectionPage extends StatelessWidget {
           ),
         ],
       ),
-      appBar: CheckoutAddressAppBar(
+      appBar: CheckoutAppBar(
         step: 3,
       ),
-      child: IuppCard(
-          children: cards
-              .map((cardDescription) => _cardPlaceholder(cardDescription))
-              .toList()),
+      child: IuppCard(children: cards.map((cardDescription) => _cardPlaceholder(cardDescription)).toList()),
     );
   }
 

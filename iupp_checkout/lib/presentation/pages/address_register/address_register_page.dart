@@ -4,7 +4,7 @@ import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 
 import '../../presentation.dart';
-import '../../widgets/checkout_address_app_bar.dart';
+import '../../widgets/molecules/appbars/checkout_app_bar.dart';
 import '../../widgets/widgets.dart';
 import 'widgets/widgets.dart';
 
@@ -25,7 +25,7 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
   Widget build(BuildContext context) {
     return CheckoutScaffold(
       title: 'onde deseja receber seu\npedido?',
-      appBar: CheckoutAddressAppBar(step: 1),
+      appBar: CheckoutAppBar(step: 1),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

@@ -50,7 +50,7 @@ class SuccessfulOrderDetails extends StatelessWidget {
             height: SizeConstants.pageSidePadding,
           ),
           const IuppDivider(),
-          ProductDetailsList(items: orderItems),
+          const ProductDetailsList(items: orderItems),
         ],
       ),
     );
