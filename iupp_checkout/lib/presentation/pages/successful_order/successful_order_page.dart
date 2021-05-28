@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../presentation.dart';
 import 'successful_order.dart';
 
 class SuccessfulOrderPage extends StatelessWidget {
@@ -16,6 +17,8 @@ class SuccessfulOrderPage extends StatelessWidget {
           children: [
             SuccessfulOrderHeader(),
             SuccessfulOrderDetails(),
+            const CheckoutDisclaimers(),
+            const IuppSocialNetworks(),
             const IuppFooter(),
           ],
         ),
