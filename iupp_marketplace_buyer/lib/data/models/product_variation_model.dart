@@ -15,10 +15,11 @@ class ProductVariationModel extends Model {
   final List<ProductModel> products;
 
   static Model fromMap(Map<String, dynamic> json) {
-    final productsJsonList = json['products'] as List<Map<String, dynamic>>;
-    final products = List.generate(productsJsonList.length,
-            (i) => ProductModel.fromMap(productsJsonList[i])).toList()
-        as List<ProductModel>;
+    final productsJsonList = json['products'] as List;
+    final products = List.generate(
+        productsJsonList.length,
+        (i) => ProductModel.fromMap(productsJsonList[i] as Map<String, dynamic>)
+            as ProductModel).toList();
 
     return ProductVariationModel(
       name: json['name'] as String,

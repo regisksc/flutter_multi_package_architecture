@@ -13,7 +13,7 @@ class InstallmentModel extends Model {
 
   static Model fromMap(Map<String, dynamic> json) => InstallmentModel(
         number: json['number'] as int,
-        value: json['value'] as double,
+        value: double.parse(json['value'].toString()),
       );
 
   @override

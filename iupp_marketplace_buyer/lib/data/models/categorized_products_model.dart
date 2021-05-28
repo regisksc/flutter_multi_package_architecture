@@ -14,9 +14,8 @@ class CategorizedProductsModel extends Model {
 
   static Model fromMap(Map<String, dynamic> json) {
     final productsJsonList = json['products'] as List<Map<String, dynamic>>;
-    final products =
-        List.generate(productsJsonList.length, (i) => productsJsonList[i])
-            .toList() as List<ProductModel>;
+    final products = List.generate(productsJsonList.length,
+        (i) => ProductModel.fromMap(productsJsonList[i]) as ProductModel);
 
     return CategorizedProductsModel(
       category: json['category'] as String,

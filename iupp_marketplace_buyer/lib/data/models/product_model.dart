@@ -31,16 +31,19 @@ class ProductModel extends Model {
   final List<ProductVariationModel>? variations;
 
   static Model fromMap(Map<String, dynamic> json) {
-    final installmentsJsonList =
-        json['installments'] as List<Map<String, dynamic>>;
-    final installments = List.generate(installmentsJsonList.length,
-            (i) => InstallmentModel.fromMap(installmentsJsonList[i])).toList()
-        as List<InstallmentModel>;
+    final installmentsJsonList = json['installments'] as List;
+    final installments = List.generate(
+        installmentsJsonList.length,
+        (i) => InstallmentModel.fromMap(
+                installmentsJsonList[i] as Map<String, dynamic>)
+            as InstallmentModel).toList();
 
-    final variationsJsonList = json['variations'] as List<Map<String, dynamic>>;
-    final variations = List.generate(variationsJsonList.length,
-            (i) => ProductVariationModel.fromMap(variationsJsonList[i]))
-        .toList() as List<ProductVariationModel>;
+    final variationsJsonList = json['variations'] as List;
+    final variations = List.generate(
+        variationsJsonList.length,
+        (i) => ProductVariationModel.fromMap(
+                variationsJsonList[i] as Map<String, dynamic>)
+            as ProductVariationModel);
 
     return ProductModel(
       id: json['id'] as int,
@@ -48,9 +51,9 @@ class ProductModel extends Model {
       description: json['description'] as String,
       sku: json['sku'] as String,
       sellerName: json['sellerName'] as String,
-      price: json['price'] as double,
-      fakePrice: json['fakePrice'] as double,
-      discount: json['discount'] as double,
+      price: double.parse(json['price'].toString()),
+      fakePrice: double.parse(json['fakePrice'].toString()),
+      discount: double.parse(json['discount'].toString()),
       points: json['points'] as int,
       installments: installments,
       variations: variations,

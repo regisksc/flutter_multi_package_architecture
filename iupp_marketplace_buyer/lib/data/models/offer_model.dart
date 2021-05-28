@@ -14,12 +14,15 @@ class OfferModel extends Model {
   final String startDate;
   final String endDate;
 
-  @override
-  Model fromJson(Map<String, dynamic> json) => OfferModel(
-        product: json['product'] as ProductModel,
+  static Model fromMap(Map<String, dynamic> json) => OfferModel(
+        product: ProductModel.fromMap(json['product'] as Map<String, dynamic>)
+            as ProductModel,
         startDate: json['startDate'] as String,
         endDate: json['endDate'] as String,
       );
+
+  @override
+  Model fromJson(Map<String, dynamic> json) => OfferModel.fromMap(json);
 
   @override
   Entity get toEntity => OfferEntity(
