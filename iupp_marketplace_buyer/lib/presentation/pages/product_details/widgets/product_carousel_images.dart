@@ -24,9 +24,10 @@ class ProductCarouselImages extends StatelessWidget {
               imageUrl: productImages[0],
             ),
           ),
-          IuppImageCached(imageUrl: productImages[0]),
-          IuppImageCached(imageUrl: productImages[0]),
-          IuppImageCached(imageUrl: productImages[0]),
+          ...product.imageUrls
+              .getRange(1, product.imageUrls.length)
+              .map((image) => IuppImageCached(imageUrl: image))
+              .toList()
         ],
         carouselIndicator: CarouselIndicator.dots,
         carouselIndicatorContainerColor:
