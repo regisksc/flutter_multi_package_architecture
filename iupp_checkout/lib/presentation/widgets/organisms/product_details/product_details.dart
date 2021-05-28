@@ -1,1 +1,1 @@
-export 'product_details_list_widget.dart';
+export 'product_details_list.dart';
