@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:iupp_core/core.dart';
 
-class CartRepository implements CartRepositoryContract {
+class CartRepository implements ICartRepository {
   CartRepository()
       : cart = CartEntity(
           id: 0,

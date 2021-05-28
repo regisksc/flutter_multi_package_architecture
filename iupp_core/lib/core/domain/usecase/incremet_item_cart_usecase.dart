@@ -1,10 +1,10 @@
 import '../domain.dart';
-import '../repositories/cart_repository_contract.dart';
+import '../repositories/repositories.dart';
 
 class IncrementItemCartUsecase {
   IncrementItemCartUsecase(this.repository);
 
-  final CartRepositoryContract repository;
+  final ICartRepository repository;
 
   Future<CartEntity?> call(int cartId, int itemId) async {
     return repository.incrementItem(cartId, itemId);

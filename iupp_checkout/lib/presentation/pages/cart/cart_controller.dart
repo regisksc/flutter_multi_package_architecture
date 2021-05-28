@@ -6,7 +6,8 @@ import '../../../domain/usecases/usecases.dart';
 
 class CartController {
   CartController() : repository = CartRepository();
-  final CartRepositoryContract repository;
+
+  final ICartRepository repository;
 
   final cartNotifier = ValueNotifier<CartEntity?>(null);
   set cartState(CartEntity? state) => cartNotifier.value = state;
