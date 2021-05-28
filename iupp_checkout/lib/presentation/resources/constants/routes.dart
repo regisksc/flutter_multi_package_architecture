@@ -7,4 +7,5 @@ const PAYMENT_PAGE = '/payment';
 const PAYMENT_METHOD_SELECTION_PAGE = '/payment-method-selection';
 const INSTALLMENT_SELECTION_PAGE = '/installment-selection';
 const CART_PAGE = '/cart';
+const ORDER_REVIEW_PAGE = '/order-review';
 const SUCCESSFUL_ORDER_PAGE = '/successful-order';

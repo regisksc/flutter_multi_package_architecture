@@ -1,3 +1,4 @@
+import 'package:iupp_components/styles/styles.dart';
 import 'package:iupp_core/core/dependencies/flutter_dependencies.dart';
 
 class OrderReviewInfoRow extends StatelessWidget {
@@ -18,14 +19,14 @@ class OrderReviewInfoRow extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final regularFont = TextStyle(
       fontFamily: 'Itau-Display',
-      color: const Color(0xFF7C7B8B),
+      color: IuppColors.greyScale130,
       fontSize: 14,
-      fontWeight: bold ? FontWeight.w400 : FontWeight.w700,
+      fontWeight: bold ? FontWeight.w700 : FontWeight.w400,
     );
 
     const highlightedFont = TextStyle(
       fontFamily: 'Itau-Display',
-      color: Color(0xFF1E8449),
+      color: IuppColors.green100,
       fontSize: 14,
       fontWeight: FontWeight.w700,
     );
