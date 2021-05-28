@@ -17,7 +17,19 @@ class SuccessfulOrderPage extends StatelessWidget {
           children: [
             SuccessfulOrderHeader(),
             SuccessfulOrderDetails(),
-            const CheckoutDisclaimers(),
+            Padding(
+              padding: const EdgeInsets.all(SizeConstants.pageSidePadding),
+              child: Column(
+                children: [
+                  IuppElevatedButton(
+                    text: 'continuar comprando',
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: 24),
+                  const CheckoutDisclaimers(),
+                ],
+              ),
+            ),
             const IuppSocialNetworks(),
             const IuppFooter(),
           ],

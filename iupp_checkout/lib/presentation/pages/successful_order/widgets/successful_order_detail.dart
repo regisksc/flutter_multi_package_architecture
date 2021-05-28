@@ -6,7 +6,8 @@ import '../../../presentation.dart';
 class SuccessfulOrderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    const orderSummaryConcrete = OrderSummary(orderId: '9054400807461679', userEmail: 'antoniocountinho@gmail.com');
+    const orderSummaryConcrete = OrderSummary(
+        orderId: '9054400807461679', userEmail: 'antoniocountinho@gmail.com');
 
     final orderSummary = <Widget>[
       const Text(
@@ -25,7 +26,8 @@ class SuccessfulOrderDetails extends StatelessWidget {
       ),
       Text(
         'Enviamos a confirmação de pedido para:\n${orderSummaryConcrete.userEmail}',
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, height: 1.5),
+        style: const TextStyle(
+            fontSize: 16, fontWeight: FontWeight.w400, height: 1.5),
       ),
       const Text(
         'Acompanhar pedido',
@@ -42,27 +44,15 @@ class SuccessfulOrderDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: orderSummary,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: orderSummary,
           ),
           const SizedBox(
             height: SizeConstants.pageSidePadding,
           ),
           const IuppDivider(),
           const ProductDetailsRow(),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: SizeConstants.pageSidePadding),
-            child: IuppElevatedButton(
-              text: 'continuar comprando',
-              onPressed: () {},
-            ),
-          ),
-          const Text('¹ Os pontos serão creditados em até 40 dias após a confirmação do pagamento.'),
-          const Text('² O prazo de entrega é iniciado no 1º dia útil após a confirmação do pagamento.')
         ],
       ),
     );
@@ -77,22 +67,4 @@ class OrderSummary {
 
   final String orderId;
   final String userEmail;
-}
-
-class OrderItem {
-  const OrderItem({
-    required this.imageURL,
-    required this.description,
-    required this.costInReal,
-    required this.costInPoints,
-    required this.deliveredBy,
-    required this.expectedDelivery,
-  });
-
-  final String description;
-  final double costInReal;
-  final String imageURL;
-  final double costInPoints;
-  final String deliveredBy;
-  final String expectedDelivery;
 }
