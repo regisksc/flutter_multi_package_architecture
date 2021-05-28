@@ -1,9 +1,10 @@
-import '../domain.dart';
-import '../entities/entities.dart';
+import '../../../core.dart';
+import '../repositories/repositories.dart';
 
 class GetCartUsecase {
   GetCartUsecase(this.repository);
-  final CartRepositoryContract repository;
+
+  final ICartRepository repository;
 
   Future<CartEntity?> call(int cartId) async {
     return repository.getCart(cartId);

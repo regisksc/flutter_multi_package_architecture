@@ -1,7 +1,4 @@
-import 'package:iupp_core/core/data/model/model_abstraction.dart';
-
-import '../../domain/entities/item_cart_entity.dart';
-import '../../domain/entities/seller_entity.dart';
+import '../../../core.dart';
 import 'seller_model.dart';
 
 class ItemCartModel extends Model {

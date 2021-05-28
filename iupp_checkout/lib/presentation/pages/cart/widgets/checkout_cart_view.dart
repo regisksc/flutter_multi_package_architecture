@@ -1,8 +1,6 @@
 import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 
-import '../../../../domain/domain.dart';
-import '../../../../domain/entities/item_cart_entity.dart';
 import '../../../widgets/widgets.dart';
 import 'checkout_cep_area.dart';
 import 'checkout_item_cart.dart';
