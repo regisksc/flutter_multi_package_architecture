@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:iupp_core/core/data/model/model_abstraction.dart';
-import 'package:iupp_core/core/domain/entity/entity.dart';
 
 import '../../domain/entities/item_cart_entity.dart';
 import '../../domain/entities/seller_entity.dart';
