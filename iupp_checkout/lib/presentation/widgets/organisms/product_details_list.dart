@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
-import '../../../presentation.dart';
+import '../../presentation.dart';
 
 class ProductDetailsList extends StatelessWidget {
   const ProductDetailsList({Key? key, required this.items, this.canEditItems = false}) : super(key: key);

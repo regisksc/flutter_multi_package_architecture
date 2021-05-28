@@ -4,7 +4,7 @@ import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 
 import '../../presentation.dart';
-import '../../widgets/molecules/appbars/checkout_app_bar.dart';
+import '../../widgets/molecules/checkout_app_bar.dart';
 import '../../widgets/widgets.dart';
 import 'widgets/widgets.dart';
 

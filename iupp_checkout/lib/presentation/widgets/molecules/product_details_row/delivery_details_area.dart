@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/styles/styles.dart';
 
-import '../../../../../presentation.dart';
+import '../../../presentation.dart';
 
 class DeliveryDetailsArea extends StatelessWidget {
   const DeliveryDetailsArea({

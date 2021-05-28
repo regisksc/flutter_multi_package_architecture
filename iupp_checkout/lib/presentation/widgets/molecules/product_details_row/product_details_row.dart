@@ -2,7 +2,9 @@ import 'package:iupp_components/components/components.dart';
 import 'package:iupp_core/core.dart';
 import 'package:iupp_core/core/dependencies/dependencies.dart';
 
-import '../../../../presentation.dart';
+import '../../../presentation.dart';
+import 'delivery_details_area.dart';
+import 'product_details_area.dart';
 
 class ProductDetailsRow extends StatelessWidget {
   const ProductDetailsRow({

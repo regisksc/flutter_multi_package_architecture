@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
 
-import '../../../presentation.dart';
+import '../../presentation.dart';
 
 class CheckoutAppBar extends AppBar {
   CheckoutAppBar({

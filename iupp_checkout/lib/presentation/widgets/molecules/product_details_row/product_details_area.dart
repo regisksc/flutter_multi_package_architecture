@@ -2,7 +2,7 @@ import 'package:iupp_components/components/components.dart';
 import 'package:iupp_components/styles/styles.dart';
 import 'package:iupp_core/core.dart';
 
-import '../../../../../presentation.dart';
+import '../../../presentation.dart';
 
 class ProductDetailsArea extends StatelessWidget {
   const ProductDetailsArea({
