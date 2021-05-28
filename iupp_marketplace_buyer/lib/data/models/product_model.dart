@@ -1,8 +1,12 @@
 import 'package:iupp_core/core.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import '../../domain/entity/entities.dart';
 import 'models.dart';
 
+part 'product_model.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class ProductModel extends Model {
   ProductModel({
     required this.id,
@@ -30,32 +34,11 @@ class ProductModel extends Model {
   final List<InstallmentModel> installments;
   final List<ProductVariationModel>? variations;
 
-  static Model fromJson(Map<String, dynamic> json) {
-    final installmentsJsonList =
-        json['installments'] as List<Map<String, dynamic>>;
-    final installments = List.generate(installmentsJsonList.length,
-            (i) => InstallmentModel.fromJson(installmentsJsonList[i])).toList()
-        as List<InstallmentModel>;
+  static ProductModel fromJson(Map<String, dynamic> json) =>
+      _$ProductModelFromJson(json);
 
-    final variationsJsonList = json['variations'] as List<Map<String, dynamic>>;
-    final variations = List.generate(variationsJsonList.length,
-            (i) => ProductVariationModel.fromJson(variationsJsonList[i]))
-        .toList() as List<ProductVariationModel>;
-
-    return ProductModel(
-      id: json['id'] as int,
-      imageUrls: json['imageUrls'] as List<String>,
-      description: json['description'] as String,
-      sku: json['sku'] as String,
-      sellerName: json['sellerName'] as String,
-      price: json['price'] as double,
-      fakePrice: json['fakePrice'] as double,
-      discount: json['discount'] as double,
-      points: json['points'] as int,
-      installments: installments,
-      variations: variations,
-    );
-  }
+  @override
+  Map<String, dynamic> get toJson => _$ProductModelToJson(this);
 
   @override
   Entity get toEntity => ProductEntity(
@@ -78,21 +61,4 @@ class ProductModel extends Model {
                 .toList()
             : [],
       );
-
-  @override
-  Map<String, dynamic> get toJson => {
-        'id': id,
-        'imageUrls': imageUrls,
-        'description': description,
-        'sku': sku,
-        'sellerName': sellerName,
-        'price': price,
-        'fakePrice': fakePrice,
-        'discount': discount,
-        'points': points,
-        'installments':
-            installments.map((installments) => installments.toJson).toList(),
-        'variations':
-            variations?.map((variation) => variation.toJson).toList() ?? [],
-      };
 }

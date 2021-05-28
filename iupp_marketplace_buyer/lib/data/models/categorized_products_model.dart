@@ -1,8 +1,12 @@
 import 'package:iupp_core/core.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import '../../domain/entity/entities.dart';
 import 'models.dart';
 
+part 'categorized_products_model.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class CategorizedProductsModel extends Model {
   CategorizedProductsModel({
     required this.category,
@@ -12,17 +16,11 @@ class CategorizedProductsModel extends Model {
   final String category;
   final List<ProductModel> products;
 
-  static Model fromJson(Map<String, dynamic> json) {
-    final productsJsonList = json['products'] as List<Map<String, dynamic>>;
-    final products =
-        List.generate(productsJsonList.length, (i) => productsJsonList[i])
-            .toList() as List<ProductModel>;
+  static CategorizedProductsModel fromJson(Map<String, dynamic> json) =>
+      _$CategorizedProductsModelFromJson(json);
 
-    return CategorizedProductsModel(
-      category: json['category'] as String,
-      products: products,
-    );
-  }
+  @override
+  Map<String, dynamic> get toJson => _$CategorizedProductsModelToJson(this);
 
   @override
   Entity get toEntity => CategorizedProductsEntity(
@@ -31,10 +29,4 @@ class CategorizedProductsModel extends Model {
             .map((product) => product.toEntity as ProductEntity)
             .toList(),
       );
-
-  @override
-  Map<String, dynamic> get toJson => {
-        'category': category,
-        'products': products.map((product) => product.toJson).toList(),
-      };
 }

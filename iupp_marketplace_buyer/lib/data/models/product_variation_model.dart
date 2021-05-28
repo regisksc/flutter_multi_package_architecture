@@ -1,8 +1,12 @@
 import 'package:iupp_core/core.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import '../../domain/entity/entities.dart';
 import 'models.dart';
 
+part 'product_variation_model.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class ProductVariationModel extends Model {
   ProductVariationModel({
     required this.name,
@@ -14,25 +18,11 @@ class ProductVariationModel extends Model {
   final String value;
   final List<ProductModel> products;
 
-  static Model fromJson(Map<String, dynamic> json) {
-    final productsJsonList = json['products'] as List<Map<String, dynamic>>;
-    final products = List.generate(productsJsonList.length,
-            (i) => ProductModel.fromJson(productsJsonList[i])).toList()
-        as List<ProductModel>;
-
-    return ProductVariationModel(
-      name: json['name'] as String,
-      value: json['value'] as String,
-      products: products,
-    );
-  }
+  static ProductVariationModel fromJson(Map<String, dynamic> json) =>
+      _$ProductVariationModelFromJson(json);
 
   @override
-  Map<String, dynamic> get toJson => {
-        'name': name,
-        'value': value,
-        'products': products.map((product) => product.toJson).toList(),
-      };
+  Map<String, dynamic> get toJson => _$ProductVariationModelToJson(this);
 
   @override
   Entity get toEntity => ProductVariationEntity(
