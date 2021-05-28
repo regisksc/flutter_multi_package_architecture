@@ -16,7 +16,6 @@ class OrderReviewPage extends StatelessWidget {
       child: Column(
         children: [
           const OrderReviewSummary(),
-          const IuppPageSpacer(),
           _concludeOrderButton(),
           const IuppPageSpacer(),
           ProductReviewCard(amountOfProducts: amountOfProducts),
@@ -27,6 +26,11 @@ class OrderReviewPage extends StatelessWidget {
           const IuppPageSpacer(height: SizeConstants.pageSidePadding / 3),
           _concludeOrderButton(),
           const IuppPageSpacer(),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: SizeConstants.pageSidePadding),
+            child: CheckoutDisclaimers(),
+          ),
+          const IuppPageSpacer(height: SizeConstants.pageSidePadding * 2),
         ],
       ),
     );
