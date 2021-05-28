@@ -1,6 +1,4 @@
-import 'package:iupp_core/core.dart';
-
-import '../../domain/entities/seller_entity.dart';
+import '../../../core.dart';
 
 class SellerModel extends Model {
   SellerModel(this.name);

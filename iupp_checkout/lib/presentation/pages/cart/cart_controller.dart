@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:iupp_core/core.dart';
 
 import '../../../data/repositories/repositories.dart';
-import '../../../domain/domain.dart';
+import '../../../domain/usecases/usecases.dart';
 
 class CartController {
   CartController() : repository = CartRepository();

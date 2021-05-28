@@ -1,6 +1,6 @@
-import 'package:iupp_core/core/data/model/model_abstraction.dart';
-import 'package:iupp_core/core/domain/entity/entity.dart';
+import '../../data/model/model_abstraction.dart';
 
+import 'entity.dart';
 import 'item_cart_entity.dart';
 import 'shipping_entity.dart';
 

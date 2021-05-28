@@ -1,7 +1,4 @@
-import 'package:iupp_core/core/data/model/model_abstraction.dart';
-import 'package:iupp_core/core/domain/entity/entity.dart';
-
-import '../../domain/entities/shipping_entity.dart';
+import '../../../core.dart';
 
 class ShippingModel extends Model {
   ShippingModel({
