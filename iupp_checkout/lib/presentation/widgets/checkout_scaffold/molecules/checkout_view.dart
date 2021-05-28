@@ -15,19 +15,14 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: const EdgeInsets.all(0.0),
-      sliver: SliverList(
-        delegate: SliverChildListDelegate(
-          [
-            if (aboveTitle != null)
-              aboveTitle!,
-            CheckoutTitle(title: title),
-            if (bellowTitle != null)
-              bellowTitle!,
-          ],
-        ),
-      ),
+    return Flex(
+      direction: Axis.vertical,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (aboveTitle != null) aboveTitle!,
+        CheckoutTitle(title: title),
+        if (bellowTitle != null) bellowTitle!,
+      ],
     );
   }
 }

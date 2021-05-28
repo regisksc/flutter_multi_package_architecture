@@ -11,11 +11,13 @@ class IuppTextButton extends StatelessWidget {
     this.buttonStyle,
     this.fontSize = 18,
     this.isLoading = false,
+    this.textColor,
   }) : super(key: key);
 
   final String text;
   final VoidCallback? onPressed;
   final ButtonStyle? buttonStyle;
+  final Color? textColor;
   final double fontSize;
   final bool isLoading;
 
@@ -32,7 +34,7 @@ class IuppTextButton extends StatelessWidget {
               height: 10,
               child: CircularProgressIndicator.adaptive(
                 valueColor: AlwaysStoppedAnimation<Color>(
-                  Theme.of(context).backgroundColor,
+                  textColor ?? Theme.of(context).backgroundColor,
                 ),
                 strokeWidth: 2,
               ),
@@ -41,9 +43,7 @@ class IuppTextButton extends StatelessWidget {
               text,
               style: TextStyle(
                 fontSize: fontSize,
-                color: !isDisabled
-                    ? Theme.of(context).backgroundColor
-                    : Theme.of(context).disabledColor,
+                color: !isDisabled ? textColor ?? Theme.of(context).backgroundColor : Theme.of(context).disabledColor,
               ),
             ),
     );

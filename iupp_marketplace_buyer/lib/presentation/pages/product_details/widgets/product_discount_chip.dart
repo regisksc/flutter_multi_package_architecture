@@ -6,7 +6,7 @@ class ProductDiscountChip extends StatelessWidget {
     required this.discount,
   }) : super(key: key);
 
-  final int discount;
+  final double discount;
 
   @override
   Widget build(BuildContext context) {

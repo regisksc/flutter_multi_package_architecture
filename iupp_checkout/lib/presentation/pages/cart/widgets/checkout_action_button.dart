@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:iupp_components/components/components.dart';
+import 'package:iupp_core/core.dart';
 
 class CheckoutActionButton extends StatelessWidget {
   const CheckoutActionButton({

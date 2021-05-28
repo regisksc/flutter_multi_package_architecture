@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
-
-import '../../../presentation.dart';
+import 'package:iupp_components/components/components.dart';
 
 class CheckoutHeaderInfo extends StatelessWidget {
   const CheckoutHeaderInfo({Key? key, required this.info}) : super(key: key);

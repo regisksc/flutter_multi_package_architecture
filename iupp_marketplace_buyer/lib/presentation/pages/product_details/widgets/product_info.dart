@@ -2,32 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iupp_components/components/components.dart';
 
+import '../../../../domain/entity/entities.dart';
+import 'widgets.dart';
+
 class ProductInfo extends StatelessWidget {
-  const ProductInfo({Key? key}) : super(key: key);
+  const ProductInfo(
+    this.product, {
+    Key? key,
+  }) : super(key: key);
+
+  final ProductEntity product;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            '''iPhone 12 Preto, com Tela de 6,1", 5G, 128 GB e Câmera Dupla de 12MP Ultra-angular + 12MP Grade-angular''',
+            product.description,
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 21,
               fontWeight: FontWeight.w700,
             ),
           ),
         ),
         const SizedBox(height: 8),
-        const Padding(
-          padding: EdgeInsets.only(left: 14),
+        Padding(
+          padding: const EdgeInsets.only(left: 14),
           child: Text(
-            'Código: MGJA3BZ29823',
-            style: TextStyle(
+            'Código: ${product.sku}',
+            style: const TextStyle(
               color: Color(0xFF7C7B8B),
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -35,20 +44,20 @@ class ProductInfo extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 4),
-        const Padding(
-          padding: EdgeInsets.only(left: 14),
+        Padding(
+          padding: const EdgeInsets.only(left: 14),
           child: Text.rich(
             TextSpan(
               text: 'Vendido e entregue por ',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color(0xFF7C7B8B),
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
               ),
               children: [
                 TextSpan(
-                  text: 'Magazine Luiza',
-                  style: TextStyle(
+                  text: product.sellerName,
+                  style: const TextStyle(
                     color: Color(0xFF7C7B8B),
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -94,7 +103,11 @@ class ProductInfo extends StatelessWidget {
                   onPressed: () {},
                   backgroundColor: Colors.white,
                   elevation: 0,
-                  child: const Icon(IuppIcons.icone_contorno_C_compartilhar_outline, size: 32, color: Colors.black),
+                  child: const Icon(
+                    IuppIcons.icone_contorno_C_compartilhar_outline,
+                    size: 32,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ],
@@ -102,64 +115,7 @@ class ProductInfo extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         const IuppDivider(),
-        ListTile(
-          title: const Text.rich(TextSpan(
-              text: 'Memória interna ',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-              children: [
-                TextSpan(
-                  text: ' 128 GB',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ])),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              Text('(+2)'),
-              Icon(
-                IuppIcons.icone_contorno_S_seta_direita,
-                color: Color(0xFF0070D4),
-              ),
-            ],
-          ),
-        ),
-        const IuppDivider(),
-        ListTile(
-          title: const Text.rich(TextSpan(
-              text: 'Cor ',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-              children: [
-                TextSpan(
-                  text: ' Azul',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ])),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IuppImage.network(
-                'https://a-static.mlcdn.com.br/618x463/iphone-12-128gb-azul-apple/apple10/311984/b65d0329afb207994b5abccab391cc25.jpg',
-              ),
-              const Text('(+3)'),
-              const Icon(
-                IuppIcons.icone_contorno_S_seta_direita,
-                color: Color(0xFF0070D4),
-              ),
-            ],
-          ),
-        ),
+        ProductVariations(product.variations),
         const IuppDivider(),
       ],
     );
