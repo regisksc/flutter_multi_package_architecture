@@ -50,9 +50,12 @@ class VerticalProductCard extends StatelessWidget {
                   child: SizedBox(
                     width: 128,
                     height: 131,
-                    child: IuppImageCached(
-                      imageUrl: product.imageUrls.first,
-                      fit: BoxFit.cover,
+                    child: Hero(
+                      tag: product.id,
+                      child: IuppImageCached(
+                        imageUrl: product.imageUrls.first,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

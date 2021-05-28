@@ -20,7 +20,7 @@ class ProductDetailsPage extends StatelessWidget {
           children: [
             const SizedBox(height: 16),
             ProductDetailsHeader(product.description),
-            ProductCarouselImages(product.imageUrls),
+            ProductCarouselImages(product),
             const SizedBox(height: 24),
             ProductInfo(product),
             const SizedBox(height: 30),
@@ -40,7 +40,7 @@ class ProductDetailsPage extends StatelessWidget {
               child: WhoBoughtAlsoSaw(
                 [
                   ProductEntity(
-                    id: 10,
+                    id: 8,
                     imageUrls: const [
                       'https://a-static.mlcdn.com.br/1500x1500/iphone-12-apple-128gb-azul-tela-61-cam-dupla-12mp-ios/magazineluiza/155598400/6b9b8ece04de165ab19587f5bd491df4.jpg',
                     ],
@@ -56,7 +56,7 @@ class ProductDetailsPage extends StatelessWidget {
                     variations: const [],
                   ),
                   ProductEntity(
-                    id: 10,
+                    id: 9,
                     imageUrls: const [
                       'https://a-static.mlcdn.com.br/180x200/ipad-air-4-geracao-ouro-rosa-com-tela-de-109-wi-fi-256-gb-e-processador-a14-bionic-myfx2bz-a-apple/fastshop2/aemyfx2bzarsab/b12ca2523d2ec08fa61a53715d56ecae.jpg',
                     ],
@@ -95,7 +95,7 @@ class ProductDetailsPage extends StatelessWidget {
                     variations: const [],
                   ),
                   ProductEntity(
-                    id: 10,
+                    id: 11,
                     imageUrls: const [
                       'https://a-static.mlcdn.com.br/180x200/ipad-air-4-geracao-ouro-rosa-com-tela-de-109-wi-fi-256-gb-e-processador-a14-bionic-myfx2bz-a-apple/fastshop2/aemyfx2bzarsab/b12ca2523d2ec08fa61a53715d56ecae.jpg',
                     ],
