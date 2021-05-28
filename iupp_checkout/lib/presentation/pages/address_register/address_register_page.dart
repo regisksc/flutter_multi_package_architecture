@@ -23,105 +23,92 @@ class _AddressRegisterPageState extends State<AddressRegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4F4F4),
+    return CheckoutScaffold(
+      title: 'onde deseja receber seu\npedido?',
       appBar: CheckoutAddressAppBar(step: 1),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: SizeConstants.pageSidePadding),
-            const Padding(
-              padding: EdgeInsets.only(left: 23),
-              child: Text(
-                'onde deseja receber seu\npedido?',
-                style: TextStyle(fontSize: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color.fromRGBO(0, 0, 0, 0.1),
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Container(
+                padding: const EdgeInsets.only(
+                  top: 29,
+                  bottom: SizeConstants.pageSidePadding,
+                  left: SizeConstants.pageSidePadding,
+                  right: SizeConstants.pageSidePadding,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CepFormField(
+                      cep: cep,
+                      onChanged: (value) => setState(() => cep = value),
+                    ),
+                    if (cepChoosed)
+                      CompleteForm(
+                        updateFormStatus: (isFormValid) {
+                          setState(() {
+                            this.isFormValid = isFormValid;
+                          });
+                        },
+                      ),
+                  ],
+                ),
               ),
             ),
-            const SizedBox(height: SizeConstants.pageSidePadding),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.1),
-                    blurRadius: 8,
-                    offset: Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Container(
-                  padding: const EdgeInsets.only(
-                    top: 29,
-                    bottom: SizeConstants.pageSidePadding,
-                    left: SizeConstants.pageSidePadding,
-                    right: SizeConstants.pageSidePadding,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      CepFormField(
-                        cep: cep,
-                        onChanged: (value) => setState(() => cep = value),
-                      ),
-                      if (cepChoosed)
-                        CompleteForm(
-                          updateFormStatus: (isFormValid) {
+          ),
+          const SizedBox(height: SizeConstants.pageSidePadding),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 10,
+              bottom: SizeConstants.pageSidePadding,
+              left: SizeConstants.pageSidePadding,
+              right: SizeConstants.pageSidePadding,
+            ),
+            child: cepChoosed
+                ? ConfirmRegisterButton(
+                    isLoading: isLoading,
+                    onPressed: isFormValid
+                        ? () async {
                             setState(() {
-                              this.isFormValid = isFormValid;
+                              isLoading = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 2));
+                            NavigatorService().navigateTo('address-list');
+                          }
+                        : null,
+                  )
+                : ContinueRegisterButton(
+                    isLoading: isLoading,
+                    onPressed: cep.isEmpty
+                        ? null
+                        : () async {
+                            setState(() {
+                              isLoading = true;
+                            });
+                            await Future.delayed(const Duration(seconds: 2));
+                            setState(() {
+                              isLoading = false;
+                              cepChoosed = true;
                             });
                           },
-                        ),
-                    ],
                   ),
-                ),
-              ),
-            ),
-            const SizedBox(height: SizeConstants.pageSidePadding),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 10,
-                bottom: SizeConstants.pageSidePadding,
-                left: SizeConstants.pageSidePadding,
-                right: SizeConstants.pageSidePadding,
-              ),
-              child: cepChoosed
-                  ? ConfirmRegisterButton(
-                      isLoading: isLoading,
-                      onPressed: isFormValid
-                          ? () async {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              await Future.delayed(const Duration(seconds: 2));
-                              NavigatorService().navigateTo('address-list');
-                            }
-                          : null,
-                    )
-                  : ContinueRegisterButton(
-                      isLoading: isLoading,
-                      onPressed: cep.isEmpty
-                          ? null
-                          : () async {
-                              setState(() {
-                                isLoading = true;
-                              });
-                              await Future.delayed(const Duration(seconds: 2));
-                              setState(() {
-                                isLoading = false;
-                                cepChoosed = true;
-                              });
-                            },
-                    ),
-            ),
-            const CheckoutFooterText(),
-            const SizedBox(height: 50),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
