@@ -38,8 +38,11 @@ class CheckoutDisclaimers extends StatelessWidget {
       );
     }
 
+    bool _isLast(Widget e) => e != disclaimersContent.last;
     return Column(
-      children: disclaimersContent,
+      children: disclaimersContent.map((e) => _isLast(e) ? _addSpaceAfter(e) : e).toList(),
     );
   }
+
+  Column _addSpaceAfter(Widget e) => Column(children: [e, const SizedBox(height: 8)]);
 }
