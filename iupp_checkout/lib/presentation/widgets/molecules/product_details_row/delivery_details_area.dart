@@ -36,7 +36,6 @@ class DeliveryDetailsArea extends StatelessWidget {
         children: [
           _deliveryDescription(),
           const Spacer(),
-          ChangeLabeledTextButton(onTap: () {}),
         ],
       );
 
