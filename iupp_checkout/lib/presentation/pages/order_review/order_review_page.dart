@@ -20,10 +20,10 @@ class OrderReviewPage extends StatelessWidget {
           const IuppPageSpacer(),
           ProductReviewCard(amountOfProducts: amountOfProducts),
           const IuppPageSpacer(height: SizeConstants.pageSidePadding / 3),
-          AddressReviewCard(),
+          const AddressReviewCard(),
           const IuppPageSpacer(height: SizeConstants.pageSidePadding / 3),
           PaymentReviewCard(),
-          const IuppPageSpacer(height: SizeConstants.pageSidePadding / 3),
+          const IuppPageSpacer(),
           _concludeOrderButton(),
           const IuppPageSpacer(),
           const Padding(
